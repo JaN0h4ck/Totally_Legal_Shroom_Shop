@@ -31,6 +31,10 @@ window/size/viewport_height=720
 
 enabled=PackedStringArray("res://addons/maaacks_menus_template/plugin.cfg")
 
+[global_group]
+
+player="the player"
+
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true
