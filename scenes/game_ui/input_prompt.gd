@@ -1,3 +1,4 @@
+class_name InputPrompt
 extends Panel
 
 @export var text: String

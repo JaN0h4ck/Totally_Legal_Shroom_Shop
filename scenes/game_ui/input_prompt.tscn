@@ -429,9 +429,16 @@
 [ext_resource type="Texture2D" uid="uid://bk4h2grbnql0h" path="res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_button_x.svg" id="427_lgtjm"]
 [ext_resource type="Texture2D" uid="uid://bb7p2mldswyqb" path="res://assets/kenney_input-prompts/Xbox Series/Vector/xbox_button_y.svg" id="428_1jsxm"]
 
-[node name="Panel" type="Panel"]
-offset_right = 140.0
-offset_bottom = 64.0
+[node name="InputPrompt" type="Panel"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -140.0
+offset_top = -64.0
+grow_horizontal = 0
+grow_vertical = 0
 script = ExtResource("1_0ia3v")
 text = "Interact"
 action_name = "interact"

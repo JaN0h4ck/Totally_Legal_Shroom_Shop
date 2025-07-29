@@ -1,10 +1,14 @@
 extends Node
 
+@onready var ui_layer: Control = $"../UILayer"
+@export var interact_scene: PackedScene
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+func show_interact_prompt():
+	var instance: InputPrompt = interact_scene.instantiate()
+	instance.text = "Interact"
+	instance.action_name = "interact"
+	instance.set_anchors_preset(Control.PRESET_BOTTOM_RIGHT)
+	ui_layer.add_child(instance)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
+func destroy_interact_prompt():
+	$"../InputPrompt".queue_free()
