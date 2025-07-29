@@ -1,9 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://b4r1rx3y0kcdn"]
+[gd_scene load_steps=3 format=3 uid="uid://b4r1rx3y0kcdn"]
 
 [ext_resource type="PackedScene" uid="uid://d0o5dug26555l" path="res://Character/player.tscn" id="1_ycr2w"]
-[ext_resource type="Script" uid="uid://b1kccbwcfiryn" path="res://scripts/interactable.gd" id="2_4t1xn"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_n0m01"]
+[ext_resource type="Script" uid="uid://c6rtvq67bfv0c" path="res://scenes/game_scene/shroom_display.gd" id="2_4t1xn"]
 
 [node name="Main" type="Node2D"]
 
@@ -12,8 +10,5 @@ position = Vector2(8, -11)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Shroom_Display" type="Node2D" parent="."]
 script = ExtResource("2_4t1xn")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_n0m01")
