@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bvmbuuyv37vax"]
+[gd_scene load_steps=4 format=3 uid="uid://bvmbuuyv37vax"]
 
 [ext_resource type="Script" uid="uid://cgg7uipp8axrg" path="res://scenes/game_ui/game_manager.gd" id="1_1i64n"]
 [ext_resource type="PackedScene" uid="uid://b4r1rx3y0kcdn" path="res://scenes/game_scene/main.tscn" id="1_sq0em"]
+[ext_resource type="PackedScene" uid="uid://bv5ulmbmtwuyw" path="res://scenes/game_ui/input_prompt.tscn" id="3_najyh"]
 
 [node name="GameUI" type="Control"]
 layout_mode = 3
@@ -24,6 +25,22 @@ grow_vertical = 2
 stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
 size = Vector2i(1280, 720)
+render_target_update_mode = 4
 
 [node name="Main" parent="SubViewportContainer/SubViewport" instance=ExtResource("1_sq0em")]
+
+[node name="Panel" parent="." instance=ExtResource("3_najyh")]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -140.0
+offset_top = -64.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 0
+grow_vertical = 0
