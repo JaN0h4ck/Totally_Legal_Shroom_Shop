@@ -40,7 +40,3 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-
-[node name="InputPrompt" parent="UILayer" instance=ExtResource("3_najyh")]
-layout_mode = 0
-anchors_preset = 0
