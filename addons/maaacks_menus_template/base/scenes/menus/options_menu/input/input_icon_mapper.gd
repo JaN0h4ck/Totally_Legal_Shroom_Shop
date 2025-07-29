@@ -125,6 +125,8 @@ func _assign_joypad_0_to_last() -> void:
 	var connected_joypads := Input.get_connected_joypads()
 	if connected_joypads.is_empty(): return
 	last_joypad_device = InputEventHelper.get_device_name_by_id(connected_joypads[0])
+	if last_joypad_device == InputEventHelper.DEVICE_GENERIC:
+		last_joypad_device = InputEventHelper.DEVICE_XBOX_CONTROLLER
 
 func _input(event : InputEvent) -> void:
 	var device_name = InputEventHelper.get_device_name(event)
