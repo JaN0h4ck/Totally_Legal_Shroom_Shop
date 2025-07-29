@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://bklgyawhlflmy"]
+
+[ext_resource type="PackedScene" uid="uid://bgx1eldmsx2b3" path="res://Character/NPCs/base_npc.tscn" id="1_pwoyb"]
+
+[sub_resource type="Curve2D" id="Curve2D_pwoyb"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -449, 25, 0, 0, 0, 0, -282, -289, 0, 0, 0, 0, 546, -267)
+}
+point_count = 3
+
+[node name="NPC_Test_Szene" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="NPC" parent="." node_paths=PackedStringArray("path", "path_follow") instance=ExtResource("1_pwoyb")]
+position = Vector2(-384, 150)
+scale = Vector2(13.0355, 9.79858)
+path = NodePath("../Path2D")
+path_follow = NodePath("../Path2D/PathFollow2D")
+move_speed = 500.0
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_pwoyb")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(-449, 25)
+rotation = -1.082
