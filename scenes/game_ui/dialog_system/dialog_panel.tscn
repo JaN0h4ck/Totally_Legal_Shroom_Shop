@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7fecdpuah10g"]
+
+[ext_resource type="Script" uid="uid://bu05imyuwv2yl" path="res://scenes/game_ui/dialog_system/dialog_panel.gd" id="1_0om7c"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7d2xt"]
+font_size = 26
+
+[node name="DialogPanel" type="Panel"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -170.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("1_0om7c")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 8
+
+[node name="Label" type="Label" parent="MarginContainer"]
+custom_minimum_size = Vector2(1200, 120)
+layout_mode = 2
+text = "vHowdy! I'm feeling a bit down today, and my friend told me you're the right person if I wanna have a good time!
+I need some mushrooms. To be specific, I need [Amount] [Shroom] {Wiederholen je nach mushroom Anzahl}. "
+label_settings = SubResource("LabelSettings_7d2xt")
+autowrap_mode = 3
