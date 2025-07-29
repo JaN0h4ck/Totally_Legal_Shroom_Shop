@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://b4r1rx3y0kcdn"]
+[gd_scene load_steps=3 format=3 uid="uid://b4r1rx3y0kcdn"]
 
 [ext_resource type="PackedScene" uid="uid://d0o5dug26555l" path="res://Character/player.tscn" id="1_ycr2w"]
+[ext_resource type="Script" uid="uid://c6rtvq67bfv0c" path="res://scenes/game_scene/shroom_display.gd" id="2_4t1xn"]
 
 [node name="Main" type="Node2D"]
 
@@ -8,3 +9,6 @@
 position = Vector2(8, -11)
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Shroom_Display" type="Node2D" parent="."]
+script = ExtResource("2_4t1xn")
