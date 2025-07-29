@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvmbuuyv37vax"]
+
+[ext_resource type="Script" uid="uid://cgg7uipp8axrg" path="res://scenes/game_ui/game_manager.gd" id="1_1i64n"]
+[ext_resource type="PackedScene" uid="uid://b4r1rx3y0kcdn" path="res://scenes/game_scene/main.tscn" id="1_sq0em"]
+
+[node name="GameUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameManager" type="Node" parent="."]
+script = ExtResource("1_1i64n")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+size = Vector2i(1280, 720)
+
+[node name="Main" parent="SubViewportContainer/SubViewport" instance=ExtResource("1_sq0em")]
