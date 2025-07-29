@@ -11,4 +11,4 @@ func show_interact_prompt():
 	ui_layer.add_child(instance)
 
 func destroy_interact_prompt():
-	$"../InputPrompt".queue_free()
+	$"../UILayer/InputPrompt".queue_free()
