@@ -8,3 +8,14 @@
 script = ExtResource("2_ggfh4")
 options_packed_scene = ExtResource("3_n67em")
 main_menu_scene = "res://scenes/menus/main_menu/main_menu_with_animations.tscn"
+
+[node name="SaveButton" type="Button" parent="MenuPanelContainer/MarginContainer/BoxContainer/MenuButtonsMargin/MenuButtons" index="2"]
+layout_mode = 2
+text = "Save"
+
+[node name="LoadButton" type="Button" parent="MenuPanelContainer/MarginContainer/BoxContainer/MenuButtonsMargin/MenuButtons" index="3"]
+layout_mode = 2
+text = "Load Last"
+
+[connection signal="pressed" from="MenuPanelContainer/MarginContainer/BoxContainer/MenuButtonsMargin/MenuButtons/SaveButton" to="." method="_save"]
+[connection signal="pressed" from="MenuPanelContainer/MarginContainer/BoxContainer/MenuButtonsMargin/MenuButtons/LoadButton" to="." method="_load"]
