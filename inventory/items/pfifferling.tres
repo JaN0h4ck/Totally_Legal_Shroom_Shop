@@ -1,10 +1,10 @@
-[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://datv7qps43jxu"]
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://cvuvk5mmnvhhc"]
 
-[ext_resource type="Script" uid="uid://c6rtvq67bfv0c" path="res://scenes/game_scene/shroom_display.gd" id="1_weinu"]
+[ext_resource type="Script" uid="uid://rnco6q5acyf" path="res://inventory/inventory_item.gd" id="1_weinu"]
 [ext_resource type="Texture2D" uid="uid://opqmrrpe8mwm" path="res://assets/Test_Assets/testShroom.png" id="2_kcfty"]
 
 [resource]
 script = ExtResource("1_weinu")
-name = "pfifferling"
+name = "Pfifferling"
 texture = ExtResource("2_kcfty")
-metadata/_custom_type_script = "uid://c6rtvq67bfv0c"
+metadata/_custom_type_script = "uid://rnco6q5acyf"
