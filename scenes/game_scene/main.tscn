@@ -1,20 +1,21 @@
-[gd_scene load_steps=23 format=3 uid="uid://b4r1rx3y0kcdn"]
+[gd_scene load_steps=24 format=3 uid="uid://b4r1rx3y0kcdn"]
 
 [ext_resource type="PackedScene" uid="uid://d0o5dug26555l" path="res://Character/player.tscn" id="1_ycr2w"]
 [ext_resource type="Texture2D" uid="uid://b37d1uq1quc11" path="res://assets/store/room_border.PNG" id="2_0bg0g"]
 [ext_resource type="Script" uid="uid://c6rtvq67bfv0c" path="res://scenes/game_scene/shroom_display.gd" id="2_4t1xn"]
 [ext_resource type="Script" uid="uid://b1kccbwcfiryn" path="res://scripts/interactable.gd" id="3_n0m01"]
 [ext_resource type="Texture2D" uid="uid://bdlpb63hi606r" path="res://assets/store/Theken.PNG" id="3_q28bu"]
-[ext_resource type="Texture2D" uid="uid://py2p3dogsygq" path="res://assets/store/trap_door_open.PNG" id="4_brcv1"]
+[ext_resource type="Texture2D" uid="uid://py2p3dogsygq" path="res://assets/store/trap_door/trap_door_open.PNG" id="4_brcv1"]
 [ext_resource type="Texture2D" uid="uid://vilqwodtna00" path="res://assets/store/room_base.PNG" id="4_io36f"]
-[ext_resource type="Texture2D" uid="uid://bg6w3ec8exit8" path="res://assets/store/trap_door_half_open.PNG" id="5_wti3h"]
-[ext_resource type="Texture2D" uid="uid://buc8mqoeberfa" path="res://assets/store/trap_door_closed.PNG" id="6_xceeg"]
-[ext_resource type="Texture2D" uid="uid://dp8xytwuctps3" path="res://assets/store/register_closed.PNG" id="7_brcv1"]
-[ext_resource type="Texture2D" uid="uid://cceus85tcofs2" path="res://assets/store/register_open.PNG" id="8_wti3h"]
+[ext_resource type="Texture2D" uid="uid://bg6w3ec8exit8" path="res://assets/store/trap_door/trap_door_half_open.PNG" id="5_wti3h"]
+[ext_resource type="Texture2D" uid="uid://buc8mqoeberfa" path="res://assets/store/trap_door/trap_door_closed.PNG" id="6_xceeg"]
+[ext_resource type="Texture2D" uid="uid://dc1ft4te6wglg" path="res://assets/store/register/register_bottom.PNG" id="7_f3u2c"]
+[ext_resource type="Texture2D" uid="uid://dqaq72bt5nfch" path="res://assets/store/register/register_top.PNG" id="8_4ailo"]
+[ext_resource type="Texture2D" uid="uid://cceus85tcofs2" path="res://assets/store/register/register_open.PNG" id="8_wti3h"]
 [ext_resource type="Texture2D" uid="uid://brffmuu6i6w6u" path="res://assets/store/lexikon.PNG" id="9_wti3h"]
 [ext_resource type="Texture2D" uid="uid://cq5v5cibhp06h" path="res://assets/store/lever.PNG" id="10_xceeg"]
-[ext_resource type="Texture2D" uid="uid://deeqkg5go36xg" path="res://assets/store/door_open.PNG" id="11_5kgwa"]
-[ext_resource type="Texture2D" uid="uid://dy57bb7f6tmdp" path="res://assets/store/door_closed.PNG" id="12_cdw3p"]
+[ext_resource type="Texture2D" uid="uid://deeqkg5go36xg" path="res://assets/store/door/door_open.PNG" id="11_5kgwa"]
+[ext_resource type="Texture2D" uid="uid://dy57bb7f6tmdp" path="res://assets/store/door/door_closed.PNG" id="12_cdw3p"]
 [ext_resource type="Texture2D" uid="uid://b400vifpmcrkf" path="res://assets/store/mushroom_lamp.PNG" id="13_cdw3p"]
 [ext_resource type="Texture2D" uid="uid://2ggw1uraq2p3" path="res://assets/store/Fass.PNG" id="14_whber"]
 
@@ -127,17 +128,27 @@ position = Vector2(42, -23.5)
 sprite_frames = SubResource("SpriteFrames_65kuu")
 animation = &"open"
 
-[node name="register" type="Sprite2D" parent="assets/room_base"]
+[node name="register" type="Node2D" parent="assets/room_base"]
 z_index = -3
 z_as_relative = false
-position = Vector2(64.5, 3.5)
-texture = ExtResource("7_brcv1")
+position = Vector2(64.5, 4)
+
+[node name="register_bottom" type="Sprite2D" parent="assets/room_base/register"]
+z_index = -3
+z_as_relative = false
+texture = ExtResource("7_f3u2c")
+
+[node name="register_top" type="Sprite2D" parent="assets/room_base/register"]
+z_index = 5
+z_as_relative = false
+position = Vector2(0, -6)
+texture = ExtResource("8_4ailo")
 
 [node name="register_open" type="Sprite2D" parent="assets/room_base/register"]
 visible = false
 z_index = -3
 z_as_relative = false
-position = Vector2(0.5, 11.5)
+position = Vector2(65, 15)
 texture = ExtResource("8_wti3h")
 
 [node name="lexikon" type="Sprite2D" parent="assets/room_base"]
@@ -147,7 +158,7 @@ position = Vector2(22, 7)
 texture = ExtResource("9_wti3h")
 
 [node name="lever" type="Sprite2D" parent="assets/room_base"]
-z_index = -5
+z_index = 3
 z_as_relative = false
 position = Vector2(80.5, 30)
 texture = ExtResource("10_xceeg")
