@@ -7,6 +7,9 @@ signal interact_lexikon
 signal interact_lever
 signal interact_certificate
 
+signal dialog_started
+signal dialog_ended
+
 func _on_interact_mushroom_theke():
 	interact_mushroom_theke.emit()
 

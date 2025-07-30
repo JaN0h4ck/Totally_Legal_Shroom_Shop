@@ -10,6 +10,8 @@ func _ready() -> void:
 	if(label == null):
 		push_error("Label component missing in Dialog Panel")
 		queue_free()
+		return
+	EventBus.dialog_started.emit()
 
 func _input(event: InputEvent) -> void:
 	if not event.is_action_pressed("skip_dialogue"):
@@ -20,6 +22,7 @@ func _input(event: InputEvent) -> void:
 		get_viewport().set_input_as_handled()
 	else: 
 		get_viewport().set_input_as_handled()
+		EventBus.dialog_ended.emit()
 		queue_free()
 
 func _start_dialog(text: String):
