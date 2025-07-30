@@ -1,20 +1,7 @@
-extends Control
+@tool
+extends OverlaidMenu
 
-var is_open = false
-
-func _ready():
-	close()
-	
-
-func interacted():
-	pass
-	
-
-func open():
-	visible = true
-	is_open = true
-
-
-func close():
-	visible = false
-	is_open = false
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_cancel"):
+		get_viewport().set_input_as_handled()
+		close()
