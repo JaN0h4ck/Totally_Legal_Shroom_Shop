@@ -8,7 +8,7 @@
 		"Allow myself to buy %s of %s for further investigations. It has a very interesting structure under the microscope!",
 		"Did you know the biggest mushroom is a honey fungus? It`s over 9 square kilometers big and weighs over 600 tons. Its also about 2400 old. Do you have something similar? If not im going to take %s %s."
 	],
-	"basic_shrooms": ["Champignon", "Chanterelle"],
+	"basic_shrooms": ["Button mushroom", "Chanterelle"],
 	"rare_shrooms": ["Fly agaric", "Alien mushroom"],
 	"ultra_rare": ["Mycena chlorophos"]
 }
