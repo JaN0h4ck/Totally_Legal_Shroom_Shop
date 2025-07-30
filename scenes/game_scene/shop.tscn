@@ -1,0 +1,363 @@
+[gd_scene load_steps=45 format=3 uid="uid://cbqqtabob4txw"]
+
+[ext_resource type="Texture2D" uid="uid://vilqwodtna00" path="res://assets/store/room_base.PNG" id="1_81vyf"]
+[ext_resource type="Texture2D" uid="uid://b37d1uq1quc11" path="res://assets/store/room_border.PNG" id="2_4bti5"]
+[ext_resource type="Texture2D" uid="uid://bdlpb63hi606r" path="res://assets/store/Theken.PNG" id="3_7nhl3"]
+[ext_resource type="Script" uid="uid://csgglkk7yra66" path="res://scenes/game_scene/scripts/interactable_mushrooms.gd" id="4_jn45p"]
+[ext_resource type="Script" uid="uid://dwvlbfvvx22b3" path="res://scenes/game_scene/scripts/interactable_customer.gd" id="5_0b5ro"]
+[ext_resource type="Texture2D" uid="uid://py2p3dogsygq" path="res://assets/store/trap_door/trap_door_open.PNG" id="6_eada0"]
+[ext_resource type="Texture2D" uid="uid://bg6w3ec8exit8" path="res://assets/store/trap_door/trap_door_half_open.PNG" id="7_0m7m1"]
+[ext_resource type="Texture2D" uid="uid://buc8mqoeberfa" path="res://assets/store/trap_door/trap_door_closed.PNG" id="8_0dbjl"]
+[ext_resource type="Texture2D" uid="uid://dc1ft4te6wglg" path="res://assets/store/register/register_bottom.PNG" id="9_b25qi"]
+[ext_resource type="Texture2D" uid="uid://dqaq72bt5nfch" path="res://assets/store/register/register_top.PNG" id="10_bfrp6"]
+[ext_resource type="Texture2D" uid="uid://cceus85tcofs2" path="res://assets/store/register/register_open.PNG" id="11_3vwkf"]
+[ext_resource type="Script" uid="uid://bwss1x637dsc4" path="res://scenes/game_scene/scripts/interactable_register.gd" id="12_yiy5r"]
+[ext_resource type="PackedScene" uid="uid://d3qgfj4a2uoig" path="res://scenes/game_scene/shop/lexikon.tscn" id="13_lyf1h"]
+[ext_resource type="PackedScene" uid="uid://g8kplgf6yjna" path="res://scenes/game_scene/shop/lever.tscn" id="14_6ghwu"]
+[ext_resource type="Texture2D" uid="uid://deeqkg5go36xg" path="res://assets/store/door/door_open.PNG" id="15_eikly"]
+[ext_resource type="Texture2D" uid="uid://dy57bb7f6tmdp" path="res://assets/store/door/door_closed.PNG" id="16_laf4y"]
+[ext_resource type="PackedScene" uid="uid://cwyhqnvjmjgwn" path="res://scenes/game_scene/shop/mushroom_lamp.tscn" id="17_qbk1e"]
+[ext_resource type="PackedScene" uid="uid://dnnh8s2fibw44" path="res://scenes/game_scene/shop/interactable_certificate.tscn" id="18_2n5dy"]
+[ext_resource type="Texture2D" uid="uid://byj4degnnnm4a" path="res://assets/store/chair.PNG" id="19_x1uun"]
+[ext_resource type="Texture2D" uid="uid://2ggw1uraq2p3" path="res://assets/store/Fass.PNG" id="20_fq550"]
+[ext_resource type="Texture2D" uid="uid://dali3pseathdc" path="res://assets/store/chest.PNG" id="21_fduq2"]
+[ext_resource type="Texture2D" uid="uid://bg4ahawnaxwrw" path="res://assets/store/watering_can.PNG" id="22_ko11f"]
+[ext_resource type="Texture2D" uid="uid://dfipb1sihr85x" path="res://assets/store/tablecloth.PNG" id="23_woib1"]
+[ext_resource type="Texture2D" uid="uid://b4d2ub4apk3oj" path="res://assets/store/scissors.PNG" id="24_8b1pq"]
+[ext_resource type="Texture2D" uid="uid://7ds7fd21grff" path="res://assets/store/shovel.PNG" id="25_yya2p"]
+[ext_resource type="Texture2D" uid="uid://dra6a1ox6f1lw" path="res://assets/store/rake.PNG" id="26_46vee"]
+[ext_resource type="Texture2D" uid="uid://dd5amwgg6l5mr" path="res://assets/store/flower_pot.PNG" id="27_f5d8s"]
+[ext_resource type="Texture2D" uid="uid://7r1ob1uqh3xj" path="res://assets/store/smolplant.PNG" id="28_2f5ol"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_f3u2c"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_4ailo"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_wo30k"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_eyhni"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f3u2c"]
+size = Vector2(45, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ailo"]
+size = Vector2(18, 57)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wo30k"]
+size = Vector2(65, 23)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eyhni"]
+size = Vector2(16, 34)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v5hj3"]
+size = Vector2(45, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yonj3"]
+size = Vector2(10, 23)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_40ceo"]
+size = Vector2(22.5, 10)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_65kuu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_eada0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_0m7m1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_0dbjl")
+}],
+"loop": false,
+"name": &"close",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_0dbjl")
+}],
+"loop": true,
+"name": &"closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_0dbjl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_0m7m1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_eada0")
+}],
+"loop": false,
+"name": &"open",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g0p03"]
+size = Vector2(18, 10)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_whber"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_eikly")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_laf4y")
+}],
+"loop": false,
+"name": &"close",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_laf4y")
+}],
+"loop": true,
+"name": &"closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_laf4y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_eikly")
+}],
+"loop": false,
+"name": &"open",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e6eah"]
+size = Vector2(12, 45)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dk418"]
+size = Vector2(24, 13)
+
+[node name="shop" type="Sprite2D"]
+z_index = -10
+z_as_relative = false
+texture = ExtResource("1_81vyf")
+
+[node name="room_border" type="Sprite2D" parent="."]
+z_index = 10
+z_as_relative = false
+texture = ExtResource("2_4bti5")
+
+[node name="room_collision_border" type="StaticBody2D" parent="."]
+
+[node name="room_bottom" type="CollisionShape2D" parent="room_collision_border"]
+position = Vector2(0, 45.5)
+shape = SubResource("WorldBoundaryShape2D_f3u2c")
+
+[node name="room_top" type="CollisionShape2D" parent="room_collision_border"]
+position = Vector2(0, -38)
+rotation = 3.14159
+shape = SubResource("WorldBoundaryShape2D_4ailo")
+
+[node name="room_left" type="CollisionShape2D" parent="room_collision_border"]
+position = Vector2(-80.5, 0)
+rotation = 1.5708
+shape = SubResource("WorldBoundaryShape2D_wo30k")
+
+[node name="room_right" type="CollisionShape2D" parent="room_collision_border"]
+position = Vector2(82.5, 0)
+rotation = -1.5708
+shape = SubResource("WorldBoundaryShape2D_eyhni")
+
+[node name="theke" type="Sprite2D" parent="."]
+z_index = -5
+z_as_relative = false
+texture = ExtResource("3_7nhl3")
+
+[node name="theke_collision" type="StaticBody2D" parent="theke"]
+
+[node name="mushroom_top" type="CollisionShape2D" parent="theke/theke_collision"]
+position = Vector2(-39.5, -37)
+shape = SubResource("RectangleShape2D_f3u2c")
+
+[node name="mushroom_left" type="CollisionShape2D" parent="theke/theke_collision"]
+position = Vector2(-71, -20.5)
+shape = SubResource("RectangleShape2D_4ailo")
+
+[node name="cash_top" type="CollisionShape2D" parent="theke/theke_collision"]
+position = Vector2(49.5, 10.5)
+shape = SubResource("RectangleShape2D_wo30k")
+
+[node name="cash_left" type="CollisionShape2D" parent="theke/theke_collision"]
+position = Vector2(9, 16)
+shape = SubResource("RectangleShape2D_eyhni")
+
+[node name="interactable_mushrooms" type="Area2D" parent="theke"]
+position = Vector2(-59, -22)
+script = ExtResource("4_jn45p")
+interact_prompt = "Mushrooms"
+metadata/_custom_type_script = "uid://b1kccbwcfiryn"
+
+[node name="top_collision_interactable_mushroom" type="CollisionShape2D" parent="theke/interactable_mushrooms"]
+visible = false
+position = Vector2(19.5, 2)
+shape = SubResource("RectangleShape2D_v5hj3")
+
+[node name="left_collision_interactable_mushroom" type="CollisionShape2D" parent="theke/interactable_mushrooms"]
+visible = false
+position = Vector2(2, 18.5)
+shape = SubResource("RectangleShape2D_yonj3")
+
+[node name="interactable_customer" type="Area2D" parent="theke"]
+position = Vector2(40, 27)
+script = ExtResource("5_0b5ro")
+interact_prompt = "Customer"
+metadata/_custom_type_script = "uid://b1kccbwcfiryn"
+
+[node name="collision_interactable_customer" type="CollisionShape2D" parent="theke/interactable_customer"]
+visible = false
+position = Vector2(3.25, 0)
+shape = SubResource("RectangleShape2D_40ceo")
+
+[node name="trap_door_animated" type="AnimatedSprite2D" parent="."]
+z_index = -5
+z_as_relative = false
+position = Vector2(42, -15.5)
+sprite_frames = SubResource("SpriteFrames_65kuu")
+animation = &"open"
+
+[node name="register" type="Node2D" parent="."]
+z_index = -3
+z_as_relative = false
+position = Vector2(64.5, 4)
+
+[node name="register_bottom" type="Sprite2D" parent="register"]
+z_index = -3
+z_as_relative = false
+texture = ExtResource("9_b25qi")
+
+[node name="register_top" type="Sprite2D" parent="register"]
+z_index = 5
+z_as_relative = false
+position = Vector2(0, -6)
+texture = ExtResource("10_bfrp6")
+
+[node name="register_open" type="Sprite2D" parent="register"]
+visible = false
+z_index = -3
+z_as_relative = false
+position = Vector2(65, 15)
+texture = ExtResource("11_3vwkf")
+
+[node name="interactable_register" type="Area2D" parent="register"]
+position = Vector2(4.75, 23)
+script = ExtResource("12_yiy5r")
+interact_prompt = "Register"
+metadata/_custom_type_script = "uid://b1kccbwcfiryn"
+
+[node name="collision_interactable_register" type="CollisionShape2D" parent="register/interactable_register"]
+visible = false
+position = Vector2(-4.25, 0)
+shape = SubResource("RectangleShape2D_g0p03")
+
+[node name="lexikon" parent="." instance=ExtResource("13_lyf1h")]
+position = Vector2(22, 7)
+
+[node name="lever" parent="." instance=ExtResource("14_6ghwu")]
+position = Vector2(79, 39)
+
+[node name="door" type="AnimatedSprite2D" parent="."]
+z_index = -5
+z_as_relative = false
+position = Vector2(44, -45.5)
+sprite_frames = SubResource("SpriteFrames_whber")
+animation = &"closed"
+
+[node name="mushroom_lamp" parent="." instance=ExtResource("17_qbk1e")]
+position = Vector2(-69, 29)
+
+[node name="interactable_certificate" parent="." instance=ExtResource("18_2n5dy")]
+position = Vector2(60, -31)
+
+[node name="chair" type="Sprite2D" parent="."]
+z_index = -5
+z_as_relative = false
+position = Vector2(50.5, 39)
+texture = ExtResource("19_x1uun")
+
+[node name="assets_right" type="Node2D" parent="."]
+z_index = -5
+z_as_relative = false
+
+[node name="fass" type="Sprite2D" parent="assets_right"]
+z_index = -5
+z_as_relative = false
+position = Vector2(74, -38)
+texture = ExtResource("20_fq550")
+
+[node name="chest" type="Sprite2D" parent="assets_right"]
+z_index = -5
+z_as_relative = false
+position = Vector2(74, -21)
+texture = ExtResource("21_fduq2")
+
+[node name="watering_can" type="Sprite2D" parent="assets_right"]
+z_index = -5
+z_as_relative = false
+position = Vector2(72.5, -8.5)
+texture = ExtResource("22_ko11f")
+
+[node name="assets_right_body" type="StaticBody2D" parent="assets_right"]
+position = Vector2(73, -21)
+
+[node name="assets_right_collision" type="CollisionShape2D" parent="assets_right/assets_right_body"]
+visible = false
+position = Vector2(1, -3.5)
+shape = SubResource("RectangleShape2D_e6eah")
+
+[node name="tablecloth" type="Sprite2D" parent="."]
+z_index = -3
+z_as_relative = false
+position = Vector2(41.5, 6)
+texture = ExtResource("23_woib1")
+
+[node name="scissor" type="Sprite2D" parent="."]
+z_index = -3
+z_as_relative = false
+position = Vector2(9.5, 10)
+texture = ExtResource("24_8b1pq")
+
+[node name="shovel" type="Sprite2D" parent="."]
+z_index = -5
+z_as_relative = false
+position = Vector2(-5, -38.5)
+texture = ExtResource("25_yya2p")
+
+[node name="rake" type="Sprite2D" parent="."]
+z_index = -5
+z_as_relative = false
+position = Vector2(-12, -40)
+texture = ExtResource("26_46vee")
+
+[node name="plants_left" type="Node2D" parent="."]
+
+[node name="flower_pot" type="Sprite2D" parent="plants_left"]
+z_index = -5
+z_as_relative = false
+position = Vector2(-73.5, 8.5)
+texture = ExtResource("27_f5d8s")
+
+[node name="smolplant" type="Sprite2D" parent="plants_left"]
+z_index = -5
+z_as_relative = false
+position = Vector2(-62, 12.5)
+texture = ExtResource("28_2f5ol")
+
+[node name="plants_body" type="StaticBody2D" parent="plants_left"]
+position = Vector2(-70, 14)
+
+[node name="plants_collision" type="CollisionShape2D" parent="plants_left/plants_body"]
+visible = false
+position = Vector2(2, 0.5)
+shape = SubResource("RectangleShape2D_dk418")
