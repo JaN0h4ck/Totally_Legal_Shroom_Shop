@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ckrkadgqeihye"
-path="res://.godot/imported/Git-Logo-2Color.png-73dc9fbbc7cfea42d3822db2a14ed5bd.ctex"
+uid="uid://b218vdq337vl"
+path="res://.godot/imported/logo_vertical_color_dark.png-b97324c78cc52134f76bef216f843d6f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/git_logo/Git-Logo-2Color.png"
-dest_files=["res://.godot/imported/Git-Logo-2Color.png-73dc9fbbc7cfea42d3822db2a14ed5bd.ctex"]
+source_file="res://assets/credits/godot_engine_logo/logo_vertical_color_dark.png"
+dest_files=["res://.godot/imported/logo_vertical_color_dark.png-b97324c78cc52134f76bef216f843d6f.ctex"]
 
 [params]
 
