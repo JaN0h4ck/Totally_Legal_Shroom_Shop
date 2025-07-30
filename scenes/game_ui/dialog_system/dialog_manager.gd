@@ -16,7 +16,6 @@ var ultra_rare_shrooms: Array
 func _ready() -> void:
 	randomize()
 	parse_json()
-	init_dialogue(DialogTypes.GENERIC)
 
 func parse_json():
 	if FileAccess.file_exists(dialogue_file_path):
