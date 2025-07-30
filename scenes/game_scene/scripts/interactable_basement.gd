@@ -2,4 +2,4 @@ extends Interactable
 
 func _ready():
 	super()
-	EventBus.interact_mushroom_theke.emit()
+	EventBus.interact_basement.emit()

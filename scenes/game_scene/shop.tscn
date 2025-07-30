@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://cbqqtabob4txw"]
+[gd_scene load_steps=47 format=3 uid="uid://cbqqtabob4txw"]
 
 [ext_resource type="Texture2D" uid="uid://vilqwodtna00" path="res://assets/store/room_base.PNG" id="1_81vyf"]
 [ext_resource type="Texture2D" uid="uid://b37d1uq1quc11" path="res://assets/store/room_border.PNG" id="2_4bti5"]
@@ -28,6 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://dra6a1ox6f1lw" path="res://assets/store/rake.PNG" id="26_46vee"]
 [ext_resource type="Texture2D" uid="uid://dd5amwgg6l5mr" path="res://assets/store/flower_pot.PNG" id="27_f5d8s"]
 [ext_resource type="Texture2D" uid="uid://7r1ob1uqh3xj" path="res://assets/store/smolplant.PNG" id="28_2f5ol"]
+[ext_resource type="Script" uid="uid://c6wik4urpqiw5" path="res://scenes/game_scene/scripts/interactable_basement.gd" id="29_4bti5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_81vyf"]
 size = Vector2(200, 20)
@@ -142,6 +143,9 @@ size = Vector2(12, 45)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dk418"]
 size = Vector2(24, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0b5ro"]
+size = Vector2(20, 10)
 
 [node name="shop" type="Sprite2D"]
 z_index = -10
@@ -363,3 +367,12 @@ position = Vector2(-70, 14)
 visible = false
 position = Vector2(2, 0.5)
 shape = SubResource("RectangleShape2D_dk418")
+
+[node name="interactable_basement" type="Area2D" parent="."]
+position = Vector2(-37, 35)
+script = ExtResource("29_4bti5")
+metadata/_custom_type_script = "uid://b1kccbwcfiryn"
+
+[node name="collision_interactable_basement" type="CollisionShape2D" parent="interactable_basement"]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_0b5ro")

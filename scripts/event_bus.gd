@@ -6,6 +6,7 @@ signal interact_register
 signal interact_lexikon
 signal interact_lever
 signal interact_certificate
+signal interact_basement
 
 signal dialog_started
 signal dialog_ended
