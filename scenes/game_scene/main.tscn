@@ -60,7 +60,7 @@ size = Vector2(45, 10)
 size = Vector2(10, 23)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_40ceo"]
-size = Vector2(29, 10)
+size = Vector2(22.5, 10)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_65kuu"]
 animations = [{
@@ -105,7 +105,7 @@ animations = [{
 size = Vector2(18, 10)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vq8uo"]
-size = Vector2(8.5, 10)
+size = Vector2(15, 10)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f35hg"]
 size = Vector2(11, 13)
@@ -248,6 +248,7 @@ metadata/_custom_type_script = "uid://b1kccbwcfiryn"
 
 [node name="collision_interactable_customer" type="CollisionShape2D" parent="assets/room_base/theke/interactable_customer"]
 visible = false
+position = Vector2(3.25, 0)
 shape = SubResource("RectangleShape2D_40ceo")
 
 [node name="trap_door_animated" type="AnimatedSprite2D" parent="assets/room_base"]
@@ -305,6 +306,7 @@ metadata/_custom_type_script = "uid://b1kccbwcfiryn"
 
 [node name="collision_interactable_lexicon" type="CollisionShape2D" parent="assets/room_base/lexikon/interactable_lexikon"]
 visible = false
+position = Vector2(3.25, 0)
 shape = SubResource("RectangleShape2D_vq8uo")
 
 [node name="lever" type="Sprite2D" parent="assets/room_base"]
