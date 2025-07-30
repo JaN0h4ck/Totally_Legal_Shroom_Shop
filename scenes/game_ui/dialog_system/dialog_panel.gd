@@ -1,3 +1,4 @@
+class_name DialogPanel
 extends Panel
 
 @onready var label: Label = $Label
@@ -5,7 +6,9 @@ extends Panel
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	if(label == null):
+		push_error("Label component missing in Dialog Panel")
+		queue_free()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
