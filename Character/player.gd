@@ -26,13 +26,14 @@ func _ready() -> void:
 func getInput(delta: float): 
 	var input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down").normalized()
 	velocity = input_direction * speed * delta
+	return input_direction
 
 func _physics_process(delta: float):
 	if block_input: return
-	getInput(delta)
+	var input_direction = getInput(delta)
 	move_and_slide()
 	
-	play_animation()
+	play_animation(input_direction)
 
 
 func _on_dialogue_started():
@@ -41,17 +42,17 @@ func _on_dialogue_started():
 func _on_dialogue_ended():
 	block_input = false
 
-func play_animation():
-	if velocity.y > 0:
+func play_animation(input_direction):
+	if input_direction.y > 0:
 		sprite_animation.play("walk_forward")
 		last_direction = "f"
-	elif velocity.y < 0:
+	elif input_direction.y < 0:
 		sprite_animation.play("walk_backward")
 		last_direction = "b"
-	elif velocity.x > 0:
+	elif input_direction.x > 0:
 		sprite_animation.play("walk_right")
 		last_direction = "r"
-	elif velocity.x < 0:
+	elif input_direction.x < 0:
 		sprite_animation.play("walk_left")
 		last_direction = "l"
 	else:
