@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-@export var inv: Inv
 @export var speed = 400
 
 func getInput(): 
