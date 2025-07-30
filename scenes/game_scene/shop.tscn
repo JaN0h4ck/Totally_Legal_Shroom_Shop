@@ -377,4 +377,5 @@ metadata/_custom_type_script = "uid://b1kccbwcfiryn"
 position = Vector2(0, 5)
 shape = SubResource("RectangleShape2D_0b5ro")
 
+[connection signal="player_interacted" from="theke/interactable_mushrooms" to="theke/interactable_mushrooms" method="_on_player_interacted"]
 [connection signal="player_interacted" from="interactable_basement" to="interactable_basement" method="_on_player_interacted"]

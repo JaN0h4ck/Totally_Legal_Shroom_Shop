@@ -2,4 +2,6 @@ extends Interactable
 
 func _ready():
 	super()
-	EventBus.interact_mushroom_theke.emit()
+
+func _on_player_interacted() -> void:
+	EventBus.open_inventory.emit()

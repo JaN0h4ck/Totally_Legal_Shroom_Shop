@@ -1,6 +1,5 @@
 extends Node
 
-signal interact_mushroom_theke
 signal interact_customer
 signal interact_register
 signal interact_lexikon
@@ -12,8 +11,7 @@ signal interact_shop
 signal dialog_started
 signal dialog_ended
 
-func _on_interact_mushroom_theke():
-	interact_mushroom_theke.emit()
+signal open_inventory
 
 func _on_interact_customer():
 	interact_customer.emit()
