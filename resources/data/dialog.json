@@ -7,5 +7,8 @@
 		"Shhhh be quiet! The goverment is watching us! Quick give me %s %s before they spot us. And don`t tell them I was here!",
 		"Due to my calculations the %s has a very interesting structure under the microscope! Allow myself to buy %s of them for further investigations.",
 		"Did you know the biggest mushroom is a honey fungus? It`s over 9 square kilometers big and weighs over 600 tons. Its also about 2400 old. Do you have something similar? If not im going to take %s %s."
-	]
+	],
+	"basic_shrooms": ["Champignon", "Chanterelle"],
+	"rare_shrooms": ["Fly agaric", "Alien mushroom"],
+	"ultra_rare": ["Mycena chlorophos"]
 }

@@ -1,7 +1,7 @@
 class_name DialogPanel
 extends Panel
 
-@onready var label: Label = $Label
+@onready var label: Label = $MarginContainer/Label
 @export var speed_char_ps: float = 32.0
 
 # Called when the node enters the scene tree for the first time.

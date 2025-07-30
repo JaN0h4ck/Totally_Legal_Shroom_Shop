@@ -8,11 +8,15 @@ enum DialogTypes { GENERIC }
 @export var dialogue_file_path: String
 var dialogue_panel: DialogPanel
 var generic: Array
+var basic_shrooms: Array
+var rare_shrooms: Array
+var ultra_rare_shrooms: Array
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	randomize()
 	parse_json()
+	init_dialogue(DialogTypes.GENERIC)
 
 func parse_json():
 	if FileAccess.file_exists(dialogue_file_path):
@@ -24,6 +28,9 @@ func parse_json():
 			var data_received = parser.data
 			if typeof(data_received) == TYPE_DICTIONARY:
 				generic = data_received.generic
+				basic_shrooms = data_received.basic_shrooms
+				rare_shrooms = data_received.rare_shrooms
+				ultra_rare_shrooms = data_received.ultra_rare
 		else:
 			push_error("Dialogue JSON not valid")
 			queue_free()
@@ -33,6 +40,6 @@ func init_dialogue(type: DialogTypes):
 	ui_layer.add_child(instance)
 	dialogue_panel = instance
 	match type:
-		generic:
-			var line = generic[randi() % generic.size()]
+		DialogTypes.GENERIC:
+			var line: String = generic[randi() % generic.size()] % [randi() % 2, basic_shrooms[randi() % basic_shrooms.size()]]
 			dialogue_panel._start_dialog(line)
