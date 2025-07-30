@@ -1,9 +1,13 @@
 class_name Player
 extends CharacterBody2D
 
+@onready var sprite_animation = $AnimatedSprite2D
+var last_direction : String = "f"
+
 @export var speed = 4000
 var block_input: bool = false
 var _is_inside: bool = false
+
 var is_inside_interactable: bool:
 	get: return _is_inside
 	set(value):
@@ -27,9 +31,35 @@ func _physics_process(delta: float):
 	if block_input: return
 	getInput(delta)
 	move_and_slide()
+	
+	play_animation()
+
 
 func _on_dialogue_started():
 	block_input = true
 
 func _on_dialogue_ended():
 	block_input = false
+
+func play_animation():
+	if velocity.y > 0:
+		sprite_animation.play("walk_forward")
+		last_direction = "f"
+	elif velocity.y < 0:
+		sprite_animation.play("walk_backward")
+		last_direction = "b"
+	elif velocity.x > 0:
+		sprite_animation.play("walk_right")
+		last_direction = "r"
+	elif velocity.x < 0:
+		sprite_animation.play("walk_left")
+		last_direction = "l"
+	else:
+		if last_direction == "f":
+			sprite_animation.play("stand_front")
+		elif last_direction == "b":
+			sprite_animation.play("stand_back")
+		elif last_direction == "r":
+			sprite_animation.play("stand_right")
+		elif last_direction == "l":
+			sprite_animation.play("stand_left")
