@@ -1,6 +1,5 @@
-[gd_scene load_steps=41 format=3 uid="uid://b4r1rx3y0kcdn"]
+[gd_scene load_steps=40 format=3 uid="uid://b4r1rx3y0kcdn"]
 
-[ext_resource type="Script" path="res://scenes/game_scene/store_room.gd" id="1_4ailo"]
 [ext_resource type="PackedScene" uid="uid://d0o5dug26555l" path="res://Character/player.tscn" id="1_ycr2w"]
 [ext_resource type="Texture2D" uid="uid://b37d1uq1quc11" path="res://assets/store/room_border.PNG" id="2_0bg0g"]
 [ext_resource type="Script" uid="uid://c6rtvq67bfv0c" path="res://scenes/game_scene/shroom_display.gd" id="2_4t1xn"]
@@ -151,7 +150,6 @@ height = 18.0
 size = Vector2(14, 6)
 
 [node name="Main" type="Node2D"]
-script = ExtResource("1_4ailo")
 
 [node name="assets" type="Node" parent="."]
 
