@@ -1,13 +1,11 @@
-[gd_scene load_steps=49 format=3 uid="uid://cbqqtabob4txw"]
+[gd_scene load_steps=46 format=3 uid="uid://cbqqtabob4txw"]
 
 [ext_resource type="Texture2D" uid="uid://vilqwodtna00" path="res://assets/store/room_base.PNG" id="1_81vyf"]
 [ext_resource type="Texture2D" uid="uid://b37d1uq1quc11" path="res://assets/store/room_border.PNG" id="2_4bti5"]
 [ext_resource type="Texture2D" uid="uid://bdlpb63hi606r" path="res://assets/store/Theken.PNG" id="3_7nhl3"]
 [ext_resource type="Script" uid="uid://csgglkk7yra66" path="res://scenes/game_scene/scripts/interactable_mushrooms.gd" id="4_jn45p"]
 [ext_resource type="Script" uid="uid://dwvlbfvvx22b3" path="res://scenes/game_scene/scripts/interactable_customer.gd" id="5_0b5ro"]
-[ext_resource type="Texture2D" uid="uid://py2p3dogsygq" path="res://assets/store/trap_door/trap_door_open.PNG" id="6_eada0"]
-[ext_resource type="Texture2D" uid="uid://bg6w3ec8exit8" path="res://assets/store/trap_door/trap_door_half_open.PNG" id="7_0m7m1"]
-[ext_resource type="Texture2D" uid="uid://buc8mqoeberfa" path="res://assets/store/trap_door/trap_door_closed.PNG" id="8_0dbjl"]
+[ext_resource type="PackedScene" uid="uid://c7fbbmrlf6j6v" path="res://scenes/game_scene/shop/trap_door.tscn" id="6_81vyf"]
 [ext_resource type="Texture2D" uid="uid://dc1ft4te6wglg" path="res://assets/store/register/register_bottom.PNG" id="9_b25qi"]
 [ext_resource type="Texture2D" uid="uid://dqaq72bt5nfch" path="res://assets/store/register/register_top.PNG" id="10_bfrp6"]
 [ext_resource type="Texture2D" uid="uid://cceus85tcofs2" path="res://assets/store/register/register_open.PNG" id="11_3vwkf"]
@@ -63,45 +61,6 @@ size = Vector2(10, 23)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_40ceo"]
 size = Vector2(22.5, 10)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_65kuu"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("6_eada0")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_0m7m1")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_0dbjl")
-}],
-"loop": false,
-"name": &"close",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("8_0dbjl")
-}],
-"loop": true,
-"name": &"closed",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("8_0dbjl")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_0m7m1")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_eada0")
-}],
-"loop": false,
-"name": &"open",
-"speed": 5.0
-}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g0p03"]
 size = Vector2(18, 10)
@@ -233,12 +192,8 @@ visible = false
 position = Vector2(3.25, 0)
 shape = SubResource("RectangleShape2D_40ceo")
 
-[node name="trap_door_animated" type="AnimatedSprite2D" parent="."]
-z_index = -5
-z_as_relative = false
+[node name="trap_door" parent="." instance=ExtResource("6_81vyf")]
 position = Vector2(42, -15.5)
-sprite_frames = SubResource("SpriteFrames_65kuu")
-animation = &"open"
 
 [node name="register" type="Node2D" parent="."]
 z_index = -3

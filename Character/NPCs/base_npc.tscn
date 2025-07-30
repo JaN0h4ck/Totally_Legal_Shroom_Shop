@@ -19,6 +19,38 @@ region = Rect2(28, 0, 28, 33)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("3_d3dbp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_awv7k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_0qv55")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_3cpaf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_d3dbp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_awv7k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_0qv55")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_3cpaf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_d3dbp")
+}],
+"loop": false,
+"name": &"fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("2_0qv55")
 }],
 "loop": true,
@@ -71,7 +103,7 @@ script = ExtResource("1_a8pm5")
 position = Vector2(0, -12)
 scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_jjqtu")
-animation = &"stand_front"
+animation = &"fall"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -9)

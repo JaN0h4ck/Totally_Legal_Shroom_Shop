@@ -1,0 +1,58 @@
+[gd_scene load_steps=6 format=3 uid="uid://c7fbbmrlf6j6v"]
+
+[ext_resource type="Texture2D" uid="uid://py2p3dogsygq" path="res://assets/store/trap_door/trap_door_open.PNG" id="1_n7qbj"]
+[ext_resource type="Texture2D" uid="uid://bg6w3ec8exit8" path="res://assets/store/trap_door/trap_door_half_open.PNG" id="2_10utn"]
+[ext_resource type="Texture2D" uid="uid://buc8mqoeberfa" path="res://assets/store/trap_door/trap_door_closed.PNG" id="3_bfsj5"]
+[ext_resource type="Script" uid="uid://ckmgqyiaqu12d" path="res://scenes/game_scene/shop/trap_door.gd" id="4_n7qbj"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_65kuu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_n7qbj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_10utn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_bfsj5")
+}],
+"loop": false,
+"name": &"close",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_bfsj5")
+}],
+"loop": true,
+"name": &"closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_bfsj5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_10utn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_n7qbj")
+}],
+"loop": false,
+"name": &"open",
+"speed": 5.0
+}]
+
+[node name="trap_door" type="AnimatedSprite2D"]
+z_index = -5
+z_as_relative = false
+sprite_frames = SubResource("SpriteFrames_65kuu")
+animation = &"open"
+script = ExtResource("4_n7qbj")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
