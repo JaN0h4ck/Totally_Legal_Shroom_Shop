@@ -1,12 +1,14 @@
 extends PauseMenu
 
-@export var player : Node2D
+var player : CharacterBody2D
 
 var save_path : String = "user://save_game.tres"
 var save_group_name : String = "saveable"
 
 func _save():
 	var data = SceneData.new()
+	
+	player = get_tree().get_first_node_in_group("player")
 	
 	# Spielerpostion und Blickrichtung speichern
 	data.player_position = player.global_position
