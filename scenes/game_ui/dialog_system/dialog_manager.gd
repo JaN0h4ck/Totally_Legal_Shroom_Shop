@@ -11,6 +11,7 @@ var generic: Array
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	randomize()
 	parse_json()
 
 func parse_json():
@@ -31,3 +32,7 @@ func init_dialogue(type: DialogTypes):
 	var instance = dialogue_scene.instantiate()
 	ui_layer.add_child(instance)
 	dialogue_panel = instance
+	match type:
+		generic:
+			var line = generic[randi() % generic.size()]
+			dialogue_panel._start_dialog(line)
