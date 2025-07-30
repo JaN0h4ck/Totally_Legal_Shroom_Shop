@@ -162,7 +162,7 @@ position = Vector2(0, 45.5)
 shape = SubResource("WorldBoundaryShape2D_f3u2c")
 
 [node name="room_top" type="CollisionShape2D" parent="assets/room_base/room_collision_border"]
-position = Vector2(0, -32.5)
+position = Vector2(0, -38)
 rotation = 3.14159
 shape = SubResource("WorldBoundaryShape2D_4ailo")
 
@@ -369,7 +369,7 @@ position = Vector2(2, 0.5)
 shape = SubResource("RectangleShape2D_dk418")
 
 [node name="Player" parent="." instance=ExtResource("1_ycr2w")]
-position = Vector2(31, -38)
+position = Vector2(31, -41)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(5, 5)

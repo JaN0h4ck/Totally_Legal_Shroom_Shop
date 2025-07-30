@@ -110,7 +110,7 @@ position = Vector2(0, 45.5)
 shape = SubResource("WorldBoundaryShape2D_miufi")
 
 [node name="dungeon_top" type="CollisionShape2D" parent="assets/dungeon_base/dungeon_collision_border"]
-position = Vector2(0, -34)
+position = Vector2(0, -37)
 rotation = 3.14159
 shape = SubResource("WorldBoundaryShape2D_5623h")
 
@@ -296,7 +296,7 @@ position = Vector2(0.5, 3)
 shape = SubResource("RectangleShape2D_6kpy7")
 
 [node name="Player" parent="." instance=ExtResource("1_4rkul")]
-position = Vector2(6, -12)
+position = Vector2(-23, -41)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(5, 5)
