@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name base_npc
 
 @onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
 
@@ -13,10 +14,15 @@ var movement : Vector2
 var last_direction : String = "f"
 var falling : bool = false
 
+var on_trapdoor : bool = false
+
 func _ready() -> void:
 	path_follow.loop = loop_path
 	position = path_follow.global_position
 	last_position = position
+	
+	EventBus.npc_entered_trapdoor.connect(enter_trapdoor)
+	EventBus.npc_left_trapdoor.connect(exit_trapdoor)
 	EventBus.interact_lever.connect(start_falling)
 
 
@@ -53,7 +59,16 @@ func play_animation():
 	elif movement.x < 0:
 		last_direction = "l"
 
+func enter_trapdoor():
+	on_trapdoor = true
+
+func exit_trapdoor():
+	on_trapdoor = false
+
 func start_falling():
+	if not on_trapdoor:
+		return
+	
 	falling = true
 	animated_sprite.play("fall")
 	animated_sprite.animation_finished.connect(fall_down)

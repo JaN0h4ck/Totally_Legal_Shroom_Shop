@@ -8,6 +8,9 @@ signal interact_certificate
 signal interact_basement
 signal interact_shop
 
+signal npc_entered_trapdoor
+signal npc_left_trapdoor
+
 signal dialog_started
 signal dialog_ended
 
