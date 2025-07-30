@@ -1,12 +1,13 @@
-[gd_scene load_steps=40 format=3 uid="uid://b4r1rx3y0kcdn"]
+[gd_scene load_steps=45 format=3 uid="uid://b4r1rx3y0kcdn"]
 
 [ext_resource type="PackedScene" uid="uid://d0o5dug26555l" path="res://Character/player.tscn" id="1_ycr2w"]
 [ext_resource type="Texture2D" uid="uid://b37d1uq1quc11" path="res://assets/store/room_border.PNG" id="2_0bg0g"]
 [ext_resource type="Script" uid="uid://c6rtvq67bfv0c" path="res://scenes/game_scene/shroom_display.gd" id="2_4t1xn"]
-[ext_resource type="Script" uid="uid://b1kccbwcfiryn" path="res://scripts/interactable.gd" id="3_n0m01"]
 [ext_resource type="Texture2D" uid="uid://bdlpb63hi606r" path="res://assets/store/Theken.PNG" id="3_q28bu"]
 [ext_resource type="Texture2D" uid="uid://py2p3dogsygq" path="res://assets/store/trap_door/trap_door_open.PNG" id="4_brcv1"]
+[ext_resource type="Script" uid="uid://csgglkk7yra66" path="res://scenes/game_scene/scripts/interactable_mushrooms.gd" id="4_eyhni"]
 [ext_resource type="Texture2D" uid="uid://vilqwodtna00" path="res://assets/store/room_base.PNG" id="4_io36f"]
+[ext_resource type="Script" uid="uid://dwvlbfvvx22b3" path="res://scenes/game_scene/scripts/interactable_customer.gd" id="5_v5hj3"]
 [ext_resource type="Texture2D" uid="uid://bg6w3ec8exit8" path="res://assets/store/trap_door/trap_door_half_open.PNG" id="5_wti3h"]
 [ext_resource type="Texture2D" uid="uid://buc8mqoeberfa" path="res://assets/store/trap_door/trap_door_closed.PNG" id="6_xceeg"]
 [ext_resource type="Texture2D" uid="uid://dc1ft4te6wglg" path="res://assets/store/register/register_bottom.PNG" id="7_f3u2c"]
@@ -15,9 +16,13 @@
 [ext_resource type="Texture2D" uid="uid://brffmuu6i6w6u" path="res://assets/store/lexikon.PNG" id="9_wti3h"]
 [ext_resource type="Texture2D" uid="uid://cq5v5cibhp06h" path="res://assets/store/lever.PNG" id="10_xceeg"]
 [ext_resource type="Texture2D" uid="uid://deeqkg5go36xg" path="res://assets/store/door/door_open.PNG" id="11_5kgwa"]
+[ext_resource type="Script" uid="uid://c1niwbxud5ac8" path="res://scenes/game_scene/scripts/interactable_lexikon.gd" id="12_4ailo"]
 [ext_resource type="Texture2D" uid="uid://dy57bb7f6tmdp" path="res://assets/store/door/door_closed.PNG" id="12_cdw3p"]
+[ext_resource type="Script" uid="uid://bwss1x637dsc4" path="res://scenes/game_scene/scripts/interactable_register.gd" id="12_yonj3"]
 [ext_resource type="Texture2D" uid="uid://b400vifpmcrkf" path="res://assets/store/mushroom_lamp.PNG" id="13_cdw3p"]
 [ext_resource type="Texture2D" uid="uid://2ggw1uraq2p3" path="res://assets/store/Fass.PNG" id="14_whber"]
+[ext_resource type="Script" uid="uid://c2l4ylg5d41ix" path="res://scenes/game_scene/scripts/interactable_lever.gd" id="14_wo30k"]
+[ext_resource type="Script" uid="uid://bb3uk2dvqyce7" path="res://scenes/game_scene/scripts/interactable_certificate.gd" id="21_yonj3"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_f3u2c"]
 
@@ -209,7 +214,7 @@ shape = SubResource("RectangleShape2D_eyhni")
 
 [node name="interactable_mushrooms" type="Area2D" parent="assets/room_base/theke"]
 position = Vector2(-59, -22)
-script = ExtResource("3_n0m01")
+script = ExtResource("4_eyhni")
 metadata/_custom_type_script = "uid://b1kccbwcfiryn"
 
 [node name="top_collision_interactable_mushroom" type="CollisionShape2D" parent="assets/room_base/theke/interactable_mushrooms"]
@@ -222,7 +227,7 @@ shape = SubResource("RectangleShape2D_yonj3")
 
 [node name="interactable_customer" type="Area2D" parent="assets/room_base/theke"]
 position = Vector2(40, 27)
-script = ExtResource("3_n0m01")
+script = ExtResource("5_v5hj3")
 metadata/_custom_type_script = "uid://b1kccbwcfiryn"
 
 [node name="collision_interactable_customer" type="CollisionShape2D" parent="assets/room_base/theke/interactable_customer"]
@@ -260,7 +265,7 @@ texture = ExtResource("8_wti3h")
 
 [node name="interactable_register" type="Area2D" parent="assets/room_base/register"]
 position = Vector2(4.75, 23)
-script = ExtResource("3_n0m01")
+script = ExtResource("12_yonj3")
 metadata/_custom_type_script = "uid://b1kccbwcfiryn"
 
 [node name="collision_interactable_register" type="CollisionShape2D" parent="assets/room_base/register/interactable_register"]
@@ -275,7 +280,7 @@ texture = ExtResource("9_wti3h")
 
 [node name="interactable_lexikon" type="Area2D" parent="assets/room_base/lexikon"]
 position = Vector2(-0.75, 20)
-script = ExtResource("3_n0m01")
+script = ExtResource("12_4ailo")
 metadata/_custom_type_script = "uid://b1kccbwcfiryn"
 
 [node name="collision_interactable_lexicon" type="CollisionShape2D" parent="assets/room_base/lexikon/interactable_lexikon"]
@@ -289,7 +294,7 @@ texture = ExtResource("10_xceeg")
 
 [node name="interactable_lever" type="Area2D" parent="assets/room_base/lever"]
 position = Vector2(-3, -1)
-script = ExtResource("3_n0m01")
+script = ExtResource("14_wo30k")
 metadata/_custom_type_script = "uid://b1kccbwcfiryn"
 
 [node name="collision_interactable_lever" type="CollisionShape2D" parent="assets/room_base/lever/interactable_lever"]
@@ -337,7 +342,7 @@ shape = SubResource("CapsuleShape2D_4ailo")
 
 [node name="interactable_certificate" type="Area2D" parent="assets/room_base"]
 position = Vector2(60, -31)
-script = ExtResource("3_n0m01")
+script = ExtResource("21_yonj3")
 metadata/_custom_type_script = "uid://b1kccbwcfiryn"
 
 [node name="collision_interactable_certificate" type="CollisionShape2D" parent="assets/room_base/interactable_certificate"]
@@ -356,6 +361,6 @@ script = ExtResource("2_4t1xn")
 [connection signal="player_interacted" from="assets/room_base/theke/interactable_mushrooms" to="." method="_interact_mushroom_theke"]
 [connection signal="player_interacted" from="assets/room_base/theke/interactable_customer" to="." method="_interact_customer"]
 [connection signal="player_interacted" from="assets/room_base/register/interactable_register" to="." method="_interact_register"]
-[connection signal="player_interacted" from="assets/room_base/lexikon/interactable_lexikon" to="." method="_interact_lexikon"]
+[connection signal="player_interacted" from="assets/room_base/lexikon/interactable_lexikon" to="assets/room_base/lexikon" method="_interact"]
 [connection signal="player_interacted" from="assets/room_base/lever/interactable_lever" to="." method="_interact_lever"]
 [connection signal="player_interacted" from="assets/room_base/interactable_certificate" to="." method="_interact_certificate"]
