@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bnfu8w0y6ka8i"]
+
+[node name="ChoicePanel" type="ItemList"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -170.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 40
+item_count = 2
+item_0/text = "yes"
+item_1/text = "no"
