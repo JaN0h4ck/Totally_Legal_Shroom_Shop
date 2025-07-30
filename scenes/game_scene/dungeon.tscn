@@ -17,13 +17,17 @@
 [ext_resource type="Texture2D" uid="uid://dwr0060psd8kh" path="res://assets/dungeon/prison/prison_bottom.PNG" id="15_7taji"]
 [ext_resource type="Texture2D" uid="uid://df5m0n2gb7q36" path="res://assets/dungeon/prison/prison_top.PNG" id="16_0sevn"]
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_miufi"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ikx5i"]
+size = Vector2(200, 20)
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5623h"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4somj"]
+size = Vector2(200, 20)
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_mv2yw"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tkn77"]
+size = Vector2(20, 100)
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_egi2s"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uf2vu"]
+size = Vector2(20, 100)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4somj"]
 animations = [{
@@ -101,26 +105,23 @@ z_as_relative = false
 texture = ExtResource("2_5623h")
 
 [node name="dungeon_collision_border" type="StaticBody2D" parent="dungeon_base"]
-visible = false
 
 [node name="dungeon_bottom" type="CollisionShape2D" parent="dungeon_base/dungeon_collision_border"]
-position = Vector2(0, 45.5)
-shape = SubResource("WorldBoundaryShape2D_miufi")
+position = Vector2(0, 55)
+shape = SubResource("RectangleShape2D_ikx5i")
 
 [node name="dungeon_top" type="CollisionShape2D" parent="dungeon_base/dungeon_collision_border"]
-position = Vector2(0, -37)
+position = Vector2(0, -45)
 rotation = 3.14159
-shape = SubResource("WorldBoundaryShape2D_5623h")
+shape = SubResource("RectangleShape2D_4somj")
 
 [node name="dungeon_left" type="CollisionShape2D" parent="dungeon_base/dungeon_collision_border"]
-position = Vector2(-80.5, 0)
-rotation = 1.5708
-shape = SubResource("WorldBoundaryShape2D_mv2yw")
+position = Vector2(-90, 0)
+shape = SubResource("RectangleShape2D_tkn77")
 
 [node name="dungeon_right" type="CollisionShape2D" parent="dungeon_base/dungeon_collision_border"]
-position = Vector2(82.5, 0)
-rotation = -1.5708
-shape = SubResource("WorldBoundaryShape2D_egi2s")
+position = Vector2(92, 0)
+shape = SubResource("RectangleShape2D_uf2vu")
 
 [node name="dungeon_door" type="AnimatedSprite2D" parent="dungeon_base"]
 position = Vector2(-37.5, -41)

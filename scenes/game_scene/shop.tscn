@@ -29,13 +29,17 @@
 [ext_resource type="Texture2D" uid="uid://dd5amwgg6l5mr" path="res://assets/store/flower_pot.PNG" id="27_f5d8s"]
 [ext_resource type="Texture2D" uid="uid://7r1ob1uqh3xj" path="res://assets/store/smolplant.PNG" id="28_2f5ol"]
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_f3u2c"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_81vyf"]
+size = Vector2(200, 20)
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_4ailo"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4bti5"]
+size = Vector2(200, 20)
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_wo30k"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7nhl3"]
+size = Vector2(20, 100)
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_eyhni"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jn45p"]
+size = Vector2(20, 100)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f3u2c"]
 size = Vector2(45, 24)
@@ -152,23 +156,21 @@ texture = ExtResource("2_4bti5")
 [node name="room_collision_border" type="StaticBody2D" parent="."]
 
 [node name="room_bottom" type="CollisionShape2D" parent="room_collision_border"]
-position = Vector2(0, 45.5)
-shape = SubResource("WorldBoundaryShape2D_f3u2c")
+position = Vector2(0, 55)
+shape = SubResource("RectangleShape2D_81vyf")
 
 [node name="room_top" type="CollisionShape2D" parent="room_collision_border"]
-position = Vector2(0, -38)
+position = Vector2(0, -48)
 rotation = 3.14159
-shape = SubResource("WorldBoundaryShape2D_4ailo")
+shape = SubResource("RectangleShape2D_4bti5")
 
 [node name="room_left" type="CollisionShape2D" parent="room_collision_border"]
-position = Vector2(-80.5, 0)
-rotation = 1.5708
-shape = SubResource("WorldBoundaryShape2D_wo30k")
+position = Vector2(-90, 0)
+shape = SubResource("RectangleShape2D_7nhl3")
 
 [node name="room_right" type="CollisionShape2D" parent="room_collision_border"]
-position = Vector2(82.5, 0)
-rotation = -1.5708
-shape = SubResource("WorldBoundaryShape2D_eyhni")
+position = Vector2(92, 0)
+shape = SubResource("RectangleShape2D_jn45p")
 
 [node name="theke" type="Sprite2D" parent="."]
 z_index = -5

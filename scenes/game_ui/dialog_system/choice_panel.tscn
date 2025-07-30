@@ -1,4 +1,4 @@
-[gd_scene load_steps=0 format=3 uid="uid://bnfu8w0y6ka8i"]
+[gd_scene format=3 uid="uid://bnfu8w0y6ka8i"]
 
 [node name="ChoicePanel" type="ItemList"]
 anchors_preset = 12
