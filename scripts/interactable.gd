@@ -1,3 +1,4 @@
+class_name Interactable
 extends Area2D
 
 var player_is_inside: bool = false
@@ -11,7 +12,8 @@ signal player_left
 func _ready() -> void:
 	body_entered.connect(_on_body_entered)
 	body_exited.connect(_on_body_exited)
-	var game_manager: GameManager =get_tree().root.get_node("GameUI/GameManager")
+	var game_manager: GameManager = get_tree().root.get_node("GameUI/GameManager")
+	if(game_manager == null): return
 	player_entered.connect(game_manager.show_interact_prompt)
 	player_left.connect(game_manager.destroy_interact_prompt)
 

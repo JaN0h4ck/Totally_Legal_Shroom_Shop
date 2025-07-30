@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://b4r1rx3y0kcdn"]
+[gd_scene load_steps=5 format=3 uid="uid://b4r1rx3y0kcdn"]
 
 [ext_resource type="PackedScene" uid="uid://d0o5dug26555l" path="res://Character/player.tscn" id="1_ycr2w"]
 [ext_resource type="Script" uid="uid://c6rtvq67bfv0c" path="res://scenes/game_scene/shroom_display.gd" id="2_4t1xn"]
+[ext_resource type="Script" uid="uid://b1kccbwcfiryn" path="res://scripts/interactable.gd" id="3_n0m01"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_io36f"]
 
 [node name="Main" type="Node2D"]
 
@@ -12,3 +15,10 @@ position = Vector2(8, -11)
 
 [node name="Shroom_Display" type="Node2D" parent="."]
 script = ExtResource("2_4t1xn")
+
+[node name="Interactable" type="Area2D" parent="."]
+script = ExtResource("3_n0m01")
+metadata/_custom_type_script = "uid://b1kccbwcfiryn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable"]
+shape = SubResource("RectangleShape2D_io36f")
