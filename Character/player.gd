@@ -57,10 +57,10 @@ func play_animation(input_direction):
 		last_direction = "l"
 	else:
 		if last_direction == "f":
-			sprite_animation.play("stand_front")
+			sprite_animation.play("idle_front")
 		elif last_direction == "b":
-			sprite_animation.play("stand_back")
+			sprite_animation.play("idle_back")
 		elif last_direction == "r":
-			sprite_animation.play("stand_right")
+			sprite_animation.play("idle_right")
 		elif last_direction == "l":
-			sprite_animation.play("stand_left")
+			sprite_animation.play("idle_left")
