@@ -24,6 +24,9 @@ func _save():
 	
 	ResourceSaver.save(data, save_path)
 	print("saved!")
+	
+	# Pause Menu wieder schließen
+	close()
 
 
 func _load():
@@ -46,3 +49,6 @@ func _load():
 		get_tree().current_scene.add_child(saveable_node)
 	
 	print("loaded!")
+	
+	# Pause Menü schließen
+	close()
