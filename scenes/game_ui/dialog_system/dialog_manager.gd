@@ -23,6 +23,9 @@ func parse_json():
 			var data_received = parser.data
 			if typeof(data_received) == TYPE_DICTIONARY:
 				generic = data_received.generic
+		else:
+			push_error("Dialogue JSON not valid")
+			queue_free()
 
 func init_dialogue(type: DialogTypes):
 	var instance = dialogue_scene.instantiate()
