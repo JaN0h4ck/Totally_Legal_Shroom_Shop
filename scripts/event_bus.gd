@@ -7,6 +7,7 @@ signal interact_lexikon
 signal interact_lever
 signal interact_certificate
 signal interact_basement
+signal interact_shop
 
 signal dialog_started
 signal dialog_ended

@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://dy1uiy23nc5he"]
+[gd_scene load_steps=33 format=3 uid="uid://dy1uiy23nc5he"]
 
 [ext_resource type="Texture2D" uid="uid://bhqas40v1sogj" path="res://assets/dungeon/dungeon_base.PNG" id="1_miufi"]
 [ext_resource type="Texture2D" uid="uid://bt4kb5hqwg4nl" path="res://assets/dungeon/dungeon_border.PNG" id="2_5623h"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://cmikvgcymv5sy" path="res://assets/dungeon/wood_chipper.PNG" id="12_dyy7o"]
 [ext_resource type="Texture2D" uid="uid://dwr0060psd8kh" path="res://assets/dungeon/prison/prison_bottom.PNG" id="15_7taji"]
 [ext_resource type="Texture2D" uid="uid://df5m0n2gb7q36" path="res://assets/dungeon/prison/prison_top.PNG" id="16_0sevn"]
+[ext_resource type="Script" uid="uid://cfc8a16cgd5gl" path="res://scenes/game_scene/scripts/interactable_shop.gd" id="17_7taji"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ikx5i"]
 size = Vector2(200, 20)
@@ -91,6 +92,9 @@ size = Vector2(8, 17)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6kpy7"]
 size = Vector2(39, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j3unq"]
+size = Vector2(19, 10)
 
 [node name="Dungeon" type="Node2D"]
 
@@ -295,3 +299,14 @@ visible = false
 [node name="prison_shape" type="CollisionShape2D" parent="dungeon_base/prison/prison_body"]
 position = Vector2(0.5, 3)
 shape = SubResource("RectangleShape2D_6kpy7")
+
+[node name="interactable_shop" type="Area2D" parent="."]
+position = Vector2(-38, -35)
+script = ExtResource("17_7taji")
+metadata/_custom_type_script = "uid://b1kccbwcfiryn"
+
+[node name="collision_interactable_basement" type="CollisionShape2D" parent="interactable_shop"]
+position = Vector2(0.5, 5)
+shape = SubResource("RectangleShape2D_j3unq")
+
+[connection signal="player_interacted" from="interactable_shop" to="interactable_shop" method="_on_player_interacted"]

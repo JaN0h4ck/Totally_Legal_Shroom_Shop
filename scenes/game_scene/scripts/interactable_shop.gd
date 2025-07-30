@@ -4,4 +4,4 @@ func _ready():
 	super()
 
 func _on_player_interacted():
-	EventBus.interact_basement.emit()
+	EventBus.interact_shop.emit()
