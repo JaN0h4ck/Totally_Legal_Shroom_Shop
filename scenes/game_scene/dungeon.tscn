@@ -104,6 +104,7 @@ z_as_relative = false
 texture = ExtResource("2_5623h")
 
 [node name="dungeon_collision_border" type="StaticBody2D" parent="assets/dungeon_base"]
+visible = false
 
 [node name="dungeon_bottom" type="CollisionShape2D" parent="assets/dungeon_base/dungeon_collision_border"]
 position = Vector2(0, 45.5)
@@ -255,6 +256,7 @@ position = Vector2(24.5, 22)
 texture = ExtResource("12_dyy7o")
 
 [node name="chipper_body" type="StaticBody2D" parent="assets/dungeon_base/wood_chipper"]
+visible = false
 
 [node name="chipper_shape" type="CollisionShape2D" parent="assets/dungeon_base/wood_chipper/chipper_body"]
 position = Vector2(-8, -0.5)
@@ -290,6 +292,7 @@ position = Vector2(0.5, -10.5)
 texture = ExtResource("16_0sevn")
 
 [node name="prison_body" type="StaticBody2D" parent="assets/dungeon_base/prison"]
+visible = false
 
 [node name="prison_shape" type="CollisionShape2D" parent="assets/dungeon_base/prison/prison_body"]
 position = Vector2(0.5, 3)
