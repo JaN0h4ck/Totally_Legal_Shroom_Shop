@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://bfnf11ioiy3aj"]
+
+[ext_resource type="Script" uid="uid://c6rtvq67bfv0c" path="res://scenes/game_scene/shroom_display.gd" id="1_kt7dl"]
+[ext_resource type="Texture2D" uid="uid://opqmrrpe8mwm" path="res://assets/Test_Assets/testShroom.png" id="2_apr0x"]
+
+[resource]
+script = ExtResource("1_kt7dl")
+name = "champignon"
+texture = ExtResource("2_apr0x")
+metadata/_custom_type_script = "uid://c6rtvq67bfv0c"
