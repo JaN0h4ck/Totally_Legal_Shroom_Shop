@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://cwyhqnvjmjgwn"]
+
+[ext_resource type="Texture2D" uid="uid://b400vifpmcrkf" path="res://assets/store/mushroom_lamp.PNG" id="1_7wo88"]
+
+[sub_resource type="Gradient" id="Gradient_whber"]
+offsets = PackedFloat32Array(0, 0.772727)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_f3u2c"]
+gradient = SubResource("Gradient_whber")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f3u2c"]
+radius = 7.5
+height = 24.0
+
+[node name="mushroom_lamp" type="Sprite2D"]
+z_index = 5
+z_as_relative = false
+texture = ExtResource("1_7wo88")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0, -12)
+color = Color(1, 1, 0.682353, 1)
+energy = 0.7
+range_z_min = -100
+range_z_max = 9
+texture = SubResource("GradientTexture2D_f3u2c")
+
+[node name="lamp_collision" type="StaticBody2D" parent="."]
+visible = false
+
+[node name="lamp_collision_shape" type="CollisionShape2D" parent="lamp_collision"]
+position = Vector2(-0.5, 9)
+shape = SubResource("CapsuleShape2D_f3u2c")

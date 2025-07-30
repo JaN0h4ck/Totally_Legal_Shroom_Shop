@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dnnh8s2fibw44"]
+
+[ext_resource type="Script" uid="uid://bb3uk2dvqyce7" path="res://scenes/game_scene/scripts/interactable_certificate.gd" id="1_hg77u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8tjet"]
+size = Vector2(14, 6)
+
+[node name="interactable_certificate" type="Area2D"]
+script = ExtResource("1_hg77u")
+interact_prompt = "Certificate"
+metadata/_custom_type_script = "uid://b1kccbwcfiryn"
+
+[node name="collision_interactable_certificate" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_8tjet")
