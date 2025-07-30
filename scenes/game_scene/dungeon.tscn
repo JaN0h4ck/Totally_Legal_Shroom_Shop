@@ -1,0 +1,302 @@
+[gd_scene load_steps=32 format=3 uid="uid://dy1uiy23nc5he"]
+
+[ext_resource type="PackedScene" uid="uid://d0o5dug26555l" path="res://Character/player.tscn" id="1_4rkul"]
+[ext_resource type="Texture2D" uid="uid://bhqas40v1sogj" path="res://assets/dungeon/dungeon_base.PNG" id="1_miufi"]
+[ext_resource type="Texture2D" uid="uid://bt4kb5hqwg4nl" path="res://assets/dungeon/dungeon_border.PNG" id="2_5623h"]
+[ext_resource type="Texture2D" uid="uid://bk68ku7102sx8" path="res://assets/dungeon/door/dungeon_door_open.PNG" id="3_7taji"]
+[ext_resource type="Texture2D" uid="uid://bj3y7jkhwmfq0" path="res://assets/dungeon/axe.PNG" id="3_5623h"]
+[ext_resource type="Texture2D" uid="uid://byc5u5cn58hsi" path="res://assets/dungeon/door/dungeon_door_closed.PNG" id="4_7taji"]
+[ext_resource type="Texture2D" uid="uid://cw2h6s26burpl" path="res://assets/dungeon/cross.PNG" id="4_mv2yw"]
+[ext_resource type="Texture2D" uid="uid://c2bunm23f5bcb" path="res://assets/dungeon/dungeon_barrel.PNG" id="5_egi2s"]
+[ext_resource type="Texture2D" uid="uid://bqxpw7dx16l1d" path="res://assets/dungeon/dungeon_chest.PNG" id="6_vnu48"]
+[ext_resource type="Texture2D" uid="uid://cvju2c860ren4" path="res://assets/dungeon/dungeon_mushroom_field.PNG" id="7_sw1wa"]
+[ext_resource type="Texture2D" uid="uid://cn8w7nj28gjup" path="res://assets/dungeon/dungeon_table.PNG" id="8_epj33"]
+[ext_resource type="Texture2D" uid="uid://5yym7638cog7" path="res://assets/dungeon/journal.PNG" id="9_hamwq"]
+[ext_resource type="Texture2D" uid="uid://bq2vvs6x38nnm" path="res://assets/dungeon/saw.PNG" id="10_4ovda"]
+[ext_resource type="Texture2D" uid="uid://ci7rt38s0ry1r" path="res://assets/dungeon/torch.PNG" id="11_554xe"]
+[ext_resource type="Texture2D" uid="uid://cmikvgcymv5sy" path="res://assets/dungeon/wood_chipper.PNG" id="12_dyy7o"]
+[ext_resource type="Texture2D" uid="uid://dwr0060psd8kh" path="res://assets/dungeon/prison/prison_bottom.PNG" id="15_7taji"]
+[ext_resource type="Texture2D" uid="uid://df5m0n2gb7q36" path="res://assets/dungeon/prison/prison_top.PNG" id="16_0sevn"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_miufi"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5623h"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_mv2yw"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_egi2s"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4somj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_7taji")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_7taji")
+}],
+"loop": false,
+"name": &"close",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_7taji")
+}],
+"loop": true,
+"name": &"closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_7taji")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_7taji")
+}],
+"loop": false,
+"name": &"open",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0sevn"]
+size = Vector2(30, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h67ak"]
+size = Vector2(17.5, 28)
+
+[sub_resource type="Gradient" id="Gradient_2bcuf"]
+offsets = PackedFloat32Array(0, 0.350649)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_004c8"]
+gradient = SubResource("Gradient_2bcuf")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2bcuf"]
+size = Vector2(15, 23)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_004c8"]
+size = Vector2(8, 23)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dyy7o"]
+size = Vector2(15, 23)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7taji"]
+size = Vector2(8, 17)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6kpy7"]
+size = Vector2(39, 24)
+
+[node name="Dungeon" type="Node2D"]
+
+[node name="assets" type="Node" parent="."]
+
+[node name="dungeon_base" type="Sprite2D" parent="assets"]
+z_index = -10
+z_as_relative = false
+texture = ExtResource("1_miufi")
+
+[node name="dungeon_border" type="Sprite2D" parent="assets/dungeon_base"]
+z_index = 10
+z_as_relative = false
+texture = ExtResource("2_5623h")
+
+[node name="dungeon_collision_border" type="StaticBody2D" parent="assets/dungeon_base"]
+
+[node name="dungeon_bottom" type="CollisionShape2D" parent="assets/dungeon_base/dungeon_collision_border"]
+position = Vector2(0, 45.5)
+shape = SubResource("WorldBoundaryShape2D_miufi")
+
+[node name="dungeon_top" type="CollisionShape2D" parent="assets/dungeon_base/dungeon_collision_border"]
+position = Vector2(0, -34)
+rotation = 3.14159
+shape = SubResource("WorldBoundaryShape2D_5623h")
+
+[node name="dungeon_left" type="CollisionShape2D" parent="assets/dungeon_base/dungeon_collision_border"]
+position = Vector2(-80.5, 0)
+rotation = 1.5708
+shape = SubResource("WorldBoundaryShape2D_mv2yw")
+
+[node name="dungeon_right" type="CollisionShape2D" parent="assets/dungeon_base/dungeon_collision_border"]
+position = Vector2(82.5, 0)
+rotation = -1.5708
+shape = SubResource("WorldBoundaryShape2D_egi2s")
+
+[node name="dungeon_door" type="AnimatedSprite2D" parent="assets/dungeon_base"]
+position = Vector2(-37.5, -41)
+sprite_frames = SubResource("SpriteFrames_4somj")
+animation = &"open"
+
+[node name="axe" type="Sprite2D" parent="assets/dungeon_base"]
+z_index = -5
+z_as_relative = false
+position = Vector2(1, -38)
+texture = ExtResource("3_5623h")
+
+[node name="cross" type="Sprite2D" parent="assets/dungeon_base"]
+z_index = -5
+z_as_relative = false
+position = Vector2(17, -41.5)
+texture = ExtResource("4_mv2yw")
+
+[node name="chest_and_barrel" type="Node2D" parent="assets/dungeon_base"]
+z_index = -5
+z_as_relative = false
+
+[node name="dungeon_barrel" type="Sprite2D" parent="assets/dungeon_base/chest_and_barrel"]
+z_index = -5
+z_as_relative = false
+position = Vector2(-56, -36.5)
+texture = ExtResource("5_egi2s")
+
+[node name="dungeon_chest" type="Sprite2D" parent="assets/dungeon_base/chest_and_barrel"]
+z_index = -5
+z_as_relative = false
+position = Vector2(-71, -36)
+texture = ExtResource("6_vnu48")
+
+[node name="chest_and_barrel_body" type="StaticBody2D" parent="assets/dungeon_base/chest_and_barrel"]
+visible = false
+position = Vector2(-67, -34)
+
+[node name="chest_and_barrel_shape" type="CollisionShape2D" parent="assets/dungeon_base/chest_and_barrel/chest_and_barrel_body"]
+position = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_0sevn")
+
+[node name="dungeon_mushroom_field" type="Sprite2D" parent="assets/dungeon_base"]
+z_index = -5
+z_as_relative = false
+position = Vector2(-47.5, 13.5)
+texture = ExtResource("7_sw1wa")
+
+[node name="dungeon_table" type="Sprite2D" parent="assets/dungeon_base"]
+z_index = 5
+z_as_relative = false
+position = Vector2(73.5, 30.5)
+texture = ExtResource("8_epj33")
+
+[node name="table_body" type="StaticBody2D" parent="assets/dungeon_base/dungeon_table"]
+visible = false
+
+[node name="table_collision" type="CollisionShape2D" parent="assets/dungeon_base/dungeon_table/table_body"]
+position = Vector2(1.25, 0.5)
+shape = SubResource("RectangleShape2D_h67ak")
+
+[node name="journal" type="Sprite2D" parent="assets/dungeon_base"]
+z_index = 7
+z_as_relative = false
+position = Vector2(73.5, 32.5)
+texture = ExtResource("9_hamwq")
+
+[node name="saw" type="Sprite2D" parent="assets/dungeon_base"]
+z_index = -5
+z_as_relative = false
+position = Vector2(66.5, -45.5)
+texture = ExtResource("10_4ovda")
+
+[node name="torch_1" type="Sprite2D" parent="assets/dungeon_base"]
+z_index = -5
+z_as_relative = false
+position = Vector2(-64, -45.5)
+texture = ExtResource("11_554xe")
+
+[node name="PointLight2D" type="PointLight2D" parent="assets/dungeon_base/torch_1"]
+position = Vector2(0, -3.5)
+color = Color(0.905882, 0, 1, 1)
+energy = 2.0
+range_z_max = 9
+texture = SubResource("GradientTexture2D_004c8")
+
+[node name="torch_2" type="Sprite2D" parent="assets/dungeon_base"]
+z_index = -5
+z_as_relative = false
+position = Vector2(-17, -45.5)
+texture = ExtResource("11_554xe")
+
+[node name="PointLight2D" type="PointLight2D" parent="assets/dungeon_base/torch_2"]
+position = Vector2(0, -3.5)
+color = Color(0.905882, 0, 1, 1)
+energy = 2.0
+range_z_max = 9
+texture = SubResource("GradientTexture2D_004c8")
+
+[node name="torch_3" type="Sprite2D" parent="assets/dungeon_base"]
+z_index = -5
+z_as_relative = false
+position = Vector2(31, -45.5)
+texture = ExtResource("11_554xe")
+
+[node name="PointLight2D" type="PointLight2D" parent="assets/dungeon_base/torch_3"]
+position = Vector2(0, -3.5)
+color = Color(0.905882, 0, 1, 1)
+energy = 2.0
+range_z_max = 9
+texture = SubResource("GradientTexture2D_004c8")
+
+[node name="torch_4" type="Sprite2D" parent="assets/dungeon_base"]
+z_index = -5
+z_as_relative = false
+position = Vector2(78, -45.5)
+texture = ExtResource("11_554xe")
+
+[node name="PointLight2D" type="PointLight2D" parent="assets/dungeon_base/torch_4"]
+position = Vector2(0, -3.5)
+color = Color(0.905882, 0, 1, 1)
+energy = 2.0
+range_z_max = 9
+texture = SubResource("GradientTexture2D_004c8")
+
+[node name="wood_chipper" type="Sprite2D" parent="assets/dungeon_base"]
+z_index = -5
+z_as_relative = false
+position = Vector2(24.5, 22)
+texture = ExtResource("12_dyy7o")
+
+[node name="chipper_body" type="StaticBody2D" parent="assets/dungeon_base/wood_chipper"]
+
+[node name="chipper_shape" type="CollisionShape2D" parent="assets/dungeon_base/wood_chipper/chipper_body"]
+position = Vector2(-8, -0.5)
+shape = SubResource("RectangleShape2D_2bcuf")
+
+[node name="chipper_shape2" type="CollisionShape2D" parent="assets/dungeon_base/wood_chipper/chipper_body"]
+position = Vector2(3.5, -0.5)
+shape = SubResource("RectangleShape2D_004c8")
+
+[node name="chipper_shape3" type="CollisionShape2D" parent="assets/dungeon_base/wood_chipper/chipper_body"]
+position = Vector2(15, -0.5)
+shape = SubResource("RectangleShape2D_dyy7o")
+
+[node name="chipper_shape4" type="CollisionShape2D" parent="assets/dungeon_base/wood_chipper/chipper_body"]
+position = Vector2(-19.5, -0.5)
+shape = SubResource("RectangleShape2D_7taji")
+
+[node name="prison" type="Node2D" parent="assets/dungeon_base"]
+z_index = -5
+z_as_relative = false
+position = Vector2(41, -15)
+
+[node name="prison_bottom" type="Sprite2D" parent="assets/dungeon_base/prison"]
+z_index = -5
+z_as_relative = false
+position = Vector2(0.5, 0.5)
+texture = ExtResource("15_7taji")
+
+[node name="prison_top" type="Sprite2D" parent="assets/dungeon_base/prison"]
+z_index = 5
+z_as_relative = false
+position = Vector2(0.5, -10.5)
+texture = ExtResource("16_0sevn")
+
+[node name="prison_body" type="StaticBody2D" parent="assets/dungeon_base/prison"]
+
+[node name="prison_shape" type="CollisionShape2D" parent="assets/dungeon_base/prison/prison_body"]
+position = Vector2(0.5, 3)
+shape = SubResource("RectangleShape2D_6kpy7")
+
+[node name="Player" parent="." instance=ExtResource("1_4rkul")]
+position = Vector2(6, -12)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(5, 5)

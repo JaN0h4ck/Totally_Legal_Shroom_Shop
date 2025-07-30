@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bi2x6dktcbbcd"
-path="res://.godot/imported/dungeon_door_open.PNG-bfd71e0bd2e17a6bb8fe9dc57d2a0d75.ctex"
+uid="uid://dob70bg6ihuhg"
+path="res://.godot/imported/prison_back.PNG-ff42e1d293aadbe751378a75a046a4d4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/dungeon/dungeon_door_open.PNG"
-dest_files=["res://.godot/imported/dungeon_door_open.PNG-bfd71e0bd2e17a6bb8fe9dc57d2a0d75.ctex"]
+source_file="res://assets/dungeon/prison/prison_back.PNG"
+dest_files=["res://.godot/imported/prison_back.PNG-ff42e1d293aadbe751378a75a046a4d4.ctex"]
 
 [params]
 
