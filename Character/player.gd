@@ -1,7 +1,19 @@
+class_name Player
 extends CharacterBody2D
 
 @export var speed = 4000
 var block_input: bool = false
+var _is_inside: bool = false
+var is_inside_interactable: bool:
+	get: return _is_inside
+	set(value):
+		if(not value and interactable_queue.size() > 0):
+			var interactable: Interactable = interactable_queue.pop_front()
+			if interactable.player_is_inside:
+				interactable.emit_inside()
+		else:
+			_is_inside = value
+var interactable_queue: Array[Interactable]
 
 func _ready() -> void:
 	EventBus.dialog_started.connect(_on_dialogue_started)

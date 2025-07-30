@@ -24,10 +24,19 @@ func _input(event: InputEvent) -> void:
 
 func _on_body_entered(body: Node2D):
 	if(body.is_in_group(&"player")):
-		player_entered.emit(interact_prompt, name)
+		var player: Player = body
 		player_is_inside = true
+		if(player.is_inside_interactable):
+			player.interactable_queue.push_back(self)
+			return
+		player_entered.emit(interact_prompt, name)
+		player.is_inside_interactable = true
+
+func emit_inside():
+	player_entered.emit(interact_prompt, name)
 
 func _on_body_exited(body: Node2D):
 	if(body.is_in_group(&"player")):
 		player_left.emit(name)
 		player_is_inside = false
+		body.is_inside_interactable = false
