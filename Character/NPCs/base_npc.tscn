@@ -1,54 +1,78 @@
-[gd_scene load_steps=9 format=3 uid="uid://bgx1eldmsx2b3"]
+[gd_scene load_steps=11 format=3 uid="uid://bgx1eldmsx2b3"]
 
 [ext_resource type="Script" uid="uid://d2gk8bwh73wya" path="res://Character/NPCs/npc.gd" id="1_a8pm5"]
-[ext_resource type="Texture2D" uid="uid://bdpki3s2m4qn4" path="res://assets/Test_Assets/knight.png" id="2_bjo5d"]
+[ext_resource type="Texture2D" uid="uid://cmxolpp5mnf7" path="res://assets/character/cowboy/cowboy_stand_back.png" id="2_0qv55"]
+[ext_resource type="Texture2D" uid="uid://c4jak764u5xc8" path="res://assets/character/cowboy/cowboy_stand_front.PNG" id="3_d3dbp"]
+[ext_resource type="Texture2D" uid="uid://dxtolow3rm2b2" path="res://assets/character/cowboy/cowboy_stand_left.PNG" id="4_3cpaf"]
+[ext_resource type="Texture2D" uid="uid://c7va0kb4tb0k0" path="res://assets/character/cowboy/cowboy_stand_right.png" id="5_awv7k"]
+[ext_resource type="Texture2D" uid="uid://dovv1y7fm2ckr" path="res://assets/character/cowboy/Cowboy_walk_front.png" id="6_5tbgp"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3c51y"]
-atlas = ExtResource("2_bjo5d")
-region = Rect2(0, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_63nhl"]
+atlas = ExtResource("6_5tbgp")
+region = Rect2(0, 0, 28, 33)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2brrg"]
-atlas = ExtResource("2_bjo5d")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fn4pq"]
-atlas = ExtResource("2_bjo5d")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_raa3c"]
-atlas = ExtResource("2_bjo5d")
-region = Rect2(96, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_j7hby"]
+atlas = ExtResource("6_5tbgp")
+region = Rect2(28, 0, 28, 33)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jjqtu"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3c51y")
+"texture": ExtResource("2_0qv55")
+}],
+"loop": true,
+"name": &"stand_back",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_d3dbp")
+}],
+"loop": true,
+"name": &"stand_front",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_3cpaf")
+}],
+"loop": true,
+"name": &"stand_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_awv7k")
+}],
+"loop": true,
+"name": &"stand_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_63nhl")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2brrg")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fn4pq")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_raa3c")
+"texture": SubResource("AtlasTexture_j7hby")
 }],
 "loop": true,
 "name": &"walk",
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bjo5d"]
-size = Vector2(13, 19)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0qv55"]
+size = Vector2(2, 18)
 
 [node name="NPC" type="CharacterBody2D" groups=["saveable"]]
 script = ExtResource("1_a8pm5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -12)
+scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_jjqtu")
-animation = &"walk"
+animation = &"stand_front"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 2.5)
-shape = SubResource("RectangleShape2D_bjo5d")
+position = Vector2(0, -9)
+shape = SubResource("RectangleShape2D_0qv55")
