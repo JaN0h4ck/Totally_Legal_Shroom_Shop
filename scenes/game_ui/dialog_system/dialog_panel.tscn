@@ -30,7 +30,5 @@ theme_override_constants/margin_bottom = 8
 [node name="Label" type="Label" parent="MarginContainer"]
 custom_minimum_size = Vector2(1200, 120)
 layout_mode = 2
-text = "vHowdy! I'm feeling a bit down today, and my friend told me you're the right person if I wanna have a good time!
-I need some mushrooms. To be specific, I need [Amount] [Shroom] {Wiederholen je nach mushroom Anzahl}. "
 label_settings = SubResource("LabelSettings_7d2xt")
 autowrap_mode = 3

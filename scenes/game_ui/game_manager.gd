@@ -17,12 +17,16 @@ func _input(event: InputEvent) -> void:
 		else:
 			is_paused = false
 
-func show_interact_prompt(prompt: String):
+func show_interact_prompt(prompt: String, interactable_name: String):
 	var instance: InputPrompt = interact_scene.instantiate()
 	instance.text = prompt
 	instance.action_name = "interact"
 	instance.set_anchors_preset(Control.PRESET_BOTTOM_RIGHT)
+	instance.interactable_name = interactable_name
 	ui_layer.add_child(instance)
 
-func destroy_interact_prompt():
-	$"../UILayer/InputPrompt".queue_free()
+func destroy_interact_prompt(interactable_name: String):
+	var nodes: Array[Node] = get_tree().get_nodes_in_group("input_prompt")
+	for node in nodes:
+		if node.interactable_name == interactable_name: 
+			node.queue_free()

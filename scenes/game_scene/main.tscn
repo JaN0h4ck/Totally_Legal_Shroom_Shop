@@ -93,7 +93,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g0p03"]
-size = Vector2(26.5, 10)
+size = Vector2(18, 10)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vq8uo"]
 size = Vector2(8.5, 10)
@@ -269,7 +269,7 @@ script = ExtResource("12_yonj3")
 metadata/_custom_type_script = "uid://b1kccbwcfiryn"
 
 [node name="collision_interactable_register" type="CollisionShape2D" parent="assets/room_base/register/interactable_register"]
-position = Vector2(-1.5, 0)
+position = Vector2(-4.25, 0)
 shape = SubResource("RectangleShape2D_g0p03")
 
 [node name="lexikon" type="Sprite2D" parent="assets/room_base"]

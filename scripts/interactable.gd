@@ -5,8 +5,8 @@ var player_is_inside: bool = false
 @export var interact_prompt: String = "Interact"
 
 signal player_interacted
-signal player_entered(prompt: String)
-signal player_left
+signal player_entered(prompt: String, interactable_name: String)
+signal player_left(interactable_name: String)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -19,15 +19,15 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if(event.is_action("interact")):
-		player_interacted.emit(interact_prompt) 
+		player_interacted.emit() 
 		get_viewport().set_input_as_handled()
 
 func _on_body_entered(body: Node2D):
 	if(body.is_in_group(&"player")):
-		player_entered.emit(interact_prompt)
+		player_entered.emit(interact_prompt, name)
 		player_is_inside = true
 
 func _on_body_exited(body: Node2D):
 	if(body.is_in_group(&"player")):
-		player_left.emit()
+		player_left.emit(name)
 		player_is_inside = false

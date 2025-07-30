@@ -37,7 +37,7 @@ enabled=PackedStringArray("res://addons/maaacks_menus_template/plugin.cfg")
 
 player="the player"
 saveable=""
-dialog_panel=""
+input_prompt=""
 
 [gui]
 

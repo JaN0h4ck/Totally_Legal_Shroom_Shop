@@ -6,6 +6,7 @@ extends Panel
 @onready var input_icon_mapper: InputIconMapper = $InputIconMapper
 @onready var icon_display: TextureRect = $HBoxContainer/IconDisplay
 @onready var label: Label = $HBoxContainer/Label
+var interactable_name: String = ""
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
