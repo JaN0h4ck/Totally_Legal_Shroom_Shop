@@ -1,7 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://d0o5dug26555l"]
+[gd_scene load_steps=12 format=3 uid="uid://d0o5dug26555l"]
 
 [ext_resource type="Script" uid="uid://bw4y2g3n5jvan" path="res://Character/player.gd" id="1_3c51y"]
 [ext_resource type="Texture2D" uid="uid://bdpki3s2m4qn4" path="res://assets/Test_Assets/knight.png" id="1_6ele1"]
+[ext_resource type="Script" path="res://inventory/inventory.gd" id="2_2brrg"]
+[ext_resource type="Script" uid="uid://rnco6q5acyf" path="res://inventory/inventory_item.gd" id="2_fn4pq"]
+
+[sub_resource type="Resource" id="Resource_fn4pq"]
+script = ExtResource("2_2brrg")
+items = Array[ExtResource("2_fn4pq")]([])
+metadata/_custom_type_script = "uid://bk58258mli3lk"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3c51y"]
 atlas = ExtResource("1_6ele1")
@@ -39,15 +46,17 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_tp31j"]
-radius = 4.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_raa3c"]
+size = Vector2(13, 19)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_3c51y")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_bfpf6")
+frame = 2
+frame_progress = 0.728709
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 8)
-shape = SubResource("CircleShape2D_tp31j")
+position = Vector2(-0.5, 2.5)
+shape = SubResource("RectangleShape2D_raa3c")

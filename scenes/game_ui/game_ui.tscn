@@ -53,5 +53,6 @@ mouse_filter = 2
 [node name="DialogManager" type="Node" parent="." node_paths=PackedStringArray("ui_layer")]
 script = ExtResource("5_hk0ve")
 ui_layer = NodePath("../UILayer")
-dialog_panel = ExtResource("6_8qcbp")
+dialogue_scene = ExtResource("6_8qcbp")
+dialogue_file_path = "res://resources/data/dialog.json"
 metadata/_custom_type_script = "uid://8r2f7xwlgakm"
