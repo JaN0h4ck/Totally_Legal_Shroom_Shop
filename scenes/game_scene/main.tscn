@@ -95,7 +95,7 @@ size = Vector2(26.5, 10)
 size = Vector2(8.5, 10)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f35hg"]
-size = Vector2(10, 12)
+size = Vector2(11, 13)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_whber"]
 animations = [{
@@ -295,6 +295,7 @@ script = ExtResource("3_n0m01")
 metadata/_custom_type_script = "uid://b1kccbwcfiryn"
 
 [node name="collision_interactable_lever" type="CollisionShape2D" parent="assets/room_base/lever/interactable_lever"]
+position = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_f35hg")
 
 [node name="door" type="AnimatedSprite2D" parent="assets/room_base"]
@@ -347,7 +348,6 @@ shape = SubResource("RectangleShape2D_8tjet")
 
 [node name="Player" parent="." instance=ExtResource("1_ycr2w")]
 position = Vector2(26, -23)
-speed = 80
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(5, 5)
