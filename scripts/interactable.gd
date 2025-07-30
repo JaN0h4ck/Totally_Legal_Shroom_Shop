@@ -20,6 +20,7 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	if(event.is_action("interact")):
 		player_interacted.emit(interact_prompt) 
+		get_viewport().set_input_as_handled()
 
 func _on_body_entered(body: Node2D):
 	if(body.is_in_group(&"player")):
