@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Inv" load_steps=4 format=3 uid="uid://h81bhujbxa5p"]
+
+[ext_resource type="Resource" uid="uid://cvuvk5mmnvhhc" path="res://inventory/items/pfifferling.tres" id="1_5coxp"]
+[ext_resource type="Resource" uid="uid://2jrq1lc2ylys" path="res://inventory/items/champignon.tres" id="2_kyo7m"]
+[ext_resource type="Script" uid="uid://bk58258mli3lk" path="res://inventory/inventory.gd" id="3_1to2t"]
+
+[resource]
+script = ExtResource("3_1to2t")
+items = Array[Resource]([ExtResource("1_5coxp"), ExtResource("1_5coxp"), null, ExtResource("2_kyo7m"), null])
+metadata/_custom_type_script = "uid://bk58258mli3lk"

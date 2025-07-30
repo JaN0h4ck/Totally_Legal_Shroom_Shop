@@ -1,7 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://d0o5dug26555l"]
+[gd_scene load_steps=11 format=3 uid="uid://d0o5dug26555l"]
 
 [ext_resource type="Script" uid="uid://bw4y2g3n5jvan" path="res://Character/player.gd" id="1_3c51y"]
 [ext_resource type="Texture2D" uid="uid://bdpki3s2m4qn4" path="res://assets/Test_Assets/knight.png" id="1_6ele1"]
+[ext_resource type="Script" uid="uid://bk58258mli3lk" path="res://inventory/inventory.gd" id="2_2brrg"]
+
+[sub_resource type="Resource" id="Resource_fn4pq"]
+script = ExtResource("2_2brrg")
+items = Array[Resource]([])
+metadata/_custom_type_script = "uid://bk58258mli3lk"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3c51y"]
 atlas = ExtResource("1_6ele1")
@@ -44,6 +50,7 @@ radius = 4.0
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_3c51y")
+inv = SubResource("Resource_fn4pq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_bfpf6")
