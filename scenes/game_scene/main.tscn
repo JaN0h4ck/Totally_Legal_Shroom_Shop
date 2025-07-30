@@ -180,14 +180,13 @@ z_as_relative = false
 texture = ExtResource("2_0bg0g")
 
 [node name="room_collision_border" type="StaticBody2D" parent="assets/room_base"]
-visible = false
 
 [node name="room_bottom" type="CollisionShape2D" parent="assets/room_base/room_collision_border"]
 position = Vector2(0, 45.5)
 shape = SubResource("WorldBoundaryShape2D_f3u2c")
 
 [node name="room_top" type="CollisionShape2D" parent="assets/room_base/room_collision_border"]
-position = Vector2(0, -37)
+position = Vector2(0, -32.5)
 rotation = 3.14159
 shape = SubResource("WorldBoundaryShape2D_4ailo")
 
@@ -354,8 +353,7 @@ script = ExtResource("21_yonj3")
 metadata/_custom_type_script = "uid://b1kccbwcfiryn"
 
 [node name="collision_interactable_certificate" type="CollisionShape2D" parent="assets/room_base/interactable_certificate"]
-visible = false
-position = Vector2(1, -2)
+position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_8tjet")
 
 [node name="chair" type="Sprite2D" parent="assets/room_base"]
@@ -441,7 +439,7 @@ position = Vector2(2, 0.5)
 shape = SubResource("RectangleShape2D_dk418")
 
 [node name="Player" parent="." instance=ExtResource("1_ycr2w")]
-position = Vector2(15, -23)
+position = Vector2(31, -38)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(5, 5)
