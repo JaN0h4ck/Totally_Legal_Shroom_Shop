@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://b4r1rx3y0kcdn"]
+[gd_scene load_steps=7 format=3 uid="uid://b4r1rx3y0kcdn"]
 
 [ext_resource type="Script" uid="uid://caarja1bexjx8" path="res://scenes/game_scene/scripts/main.gd" id="1_bt4sa"]
 [ext_resource type="PackedScene" uid="uid://d0o5dug26555l" path="res://Character/player.tscn" id="1_ycr2w"]
 [ext_resource type="Script" uid="uid://c6rtvq67bfv0c" path="res://scenes/game_scene/shroom_display.gd" id="2_4t1xn"]
 [ext_resource type="PackedScene" uid="uid://cbqqtabob4txw" path="res://scenes/game_scene/shop.tscn" id="3_n0m01"]
 [ext_resource type="PackedScene" uid="uid://dy1uiy23nc5he" path="res://scenes/game_scene/dungeon.tscn" id="4_io36f"]
+[ext_resource type="PackedScene" uid="uid://4abch8ri3j08" path="res://inventory/inv_ui.tscn" id="6_1vxbo"]
 
 [node name="Main" type="Node2D" node_paths=PackedStringArray("basement_position", "shop_position", "shop_camera", "basement_camera")]
 script = ExtResource("1_bt4sa")
@@ -12,6 +13,7 @@ basement_position = NodePath("teleport_point_basement")
 shop_position = NodePath("teleport_point_shopt")
 shop_camera = NodePath("Shop_Camera2D")
 basement_camera = NodePath("Basement_Camera2D")
+inv_scene = ExtResource("6_1vxbo")
 
 [node name="Player" parent="." instance=ExtResource("1_ycr2w")]
 position = Vector2(31, -39)

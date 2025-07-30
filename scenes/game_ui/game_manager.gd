@@ -4,12 +4,8 @@ extends Node
 @onready var ui_layer: Control = $"../UILayer"
 @export var interact_scene: PackedScene
 @export var pause_scene: PackedScene
-@export var inv_ui: PackedScene
 
 var is_paused: bool = false
-
-func _ready() -> void:
-	EventBus.open_inventory.connect(show_inv_ui)
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
@@ -34,7 +30,3 @@ func destroy_interact_prompt(interactable_name: String):
 	for node in nodes:
 		if node.interactable_name == interactable_name: 
 			node.queue_free()
-
-func show_inv_ui():
-	var instance = inv_ui.instantiate()
-	ui_layer.add_child(instance)

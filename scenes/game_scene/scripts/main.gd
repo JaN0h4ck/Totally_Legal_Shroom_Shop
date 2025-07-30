@@ -6,9 +6,12 @@ extends Node2D
 @export var shop_camera : Camera2D
 @export var basement_camera : Camera2D
 
+@export var inv_scene: PackedScene
+
 func _ready():
 	EventBus.interact_basement.connect(teleport_basement)
 	EventBus.interact_shop.connect(teleport_shop)
+	EventBus.open_inventory.connect(open_inventory)
 
 func teleport_basement():
 	var player : Player = get_tree().get_first_node_in_group("player")
@@ -23,3 +26,7 @@ func teleport_shop():
 	
 	basement_camera.enabled = false
 	shop_camera.enabled = true
+
+func open_inventory():
+	var instance = inv_scene.instantiate()
+	add_child(instance)
