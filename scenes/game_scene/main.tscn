@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://b4r1rx3y0kcdn"]
+[gd_scene load_steps=23 format=3 uid="uid://b4r1rx3y0kcdn"]
 
 [ext_resource type="PackedScene" uid="uid://d0o5dug26555l" path="res://Character/player.tscn" id="1_ycr2w"]
 [ext_resource type="Texture2D" uid="uid://b37d1uq1quc11" path="res://assets/store/room_border.PNG" id="2_0bg0g"]
@@ -90,6 +90,15 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Gradient" id="Gradient_whber"]
+offsets = PackedFloat32Array(0, 0.772727)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_f3u2c"]
+gradient = SubResource("Gradient_whber")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_io36f"]
 
 [node name="Main" type="Node2D"]
@@ -155,6 +164,14 @@ z_index = 5
 z_as_relative = false
 position = Vector2(-69, 29)
 texture = ExtResource("13_cdw3p")
+
+[node name="PointLight2D" type="PointLight2D" parent="assets/room_base/mushroom_lamp"]
+position = Vector2(0, -12)
+color = Color(1, 1, 0.682353, 1)
+energy = 0.7
+range_z_min = -100
+range_z_max = 9
+texture = SubResource("GradientTexture2D_f3u2c")
 
 [node name="fass" type="Sprite2D" parent="assets/room_base"]
 z_index = -5
