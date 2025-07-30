@@ -7,7 +7,7 @@ size = Vector2(14, 6)
 
 [node name="interactable_certificate" type="Area2D"]
 script = ExtResource("1_hg77u")
-interact_prompt = "Certificate"
+interact_prompt = "Read"
 metadata/_custom_type_script = "uid://b1kccbwcfiryn"
 
 [node name="collision_interactable_certificate" type="CollisionShape2D" parent="."]

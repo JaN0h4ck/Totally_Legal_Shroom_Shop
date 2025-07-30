@@ -14,7 +14,7 @@ texture = ExtResource("1_ayavf")
 [node name="interactable_lever" type="Area2D" parent="."]
 position = Vector2(-3, -1)
 script = ExtResource("2_mqmlv")
-interact_prompt = "Lever"
+interact_prompt = "Pull Lever"
 metadata/_custom_type_script = "uid://b1kccbwcfiryn"
 
 [node name="collision_interactable_lever" type="CollisionShape2D" parent="interactable_lever"]
