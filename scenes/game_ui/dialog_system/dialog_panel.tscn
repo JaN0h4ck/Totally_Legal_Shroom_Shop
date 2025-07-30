@@ -28,7 +28,7 @@ theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 8
 
 [node name="Label" type="Label" parent="MarginContainer"]
-custom_minimum_size = Vector2(1200, 120)
+custom_minimum_size = Vector2(100, 120)
 layout_mode = 2
 label_settings = SubResource("LabelSettings_7d2xt")
 autowrap_mode = 3
