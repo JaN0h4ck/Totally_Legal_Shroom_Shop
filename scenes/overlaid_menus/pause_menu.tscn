@@ -7,7 +7,7 @@
 [node name="PauseMenu" instance=ExtResource("1_jotxm")]
 script = ExtResource("2_ggfh4")
 options_packed_scene = ExtResource("3_n67em")
-main_menu_scene = "res://scenes/menus/main_menu/main_menu_with_animations.tscn"
+main_menu_scene = "uid://cnrurhko688wa"
 
 [node name="SaveButton" type="Button" parent="MenuPanelContainer/MarginContainer/BoxContainer/MenuButtonsMargin/MenuButtons" index="2"]
 layout_mode = 2
