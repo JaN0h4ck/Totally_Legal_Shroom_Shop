@@ -21,3 +21,5 @@ metadata/_custom_type_script = "uid://b1kccbwcfiryn"
 visible = false
 position = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_f35hg")
+
+[connection signal="player_interacted" from="interactable_lever" to="interactable_lever" method="_on_player_interacted"]

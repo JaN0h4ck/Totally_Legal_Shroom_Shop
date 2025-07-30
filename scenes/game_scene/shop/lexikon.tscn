@@ -22,4 +22,4 @@ visible = false
 position = Vector2(3.25, 0)
 shape = SubResource("RectangleShape2D_vq8uo")
 
-[connection signal="player_interacted" from="interactable_lexikon" to="." method="_interact"]
+[connection signal="player_interacted" from="interactable_lexikon" to="interactable_lexikon" method="_on_player_interacted"]

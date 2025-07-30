@@ -378,4 +378,7 @@ position = Vector2(0, 5)
 shape = SubResource("RectangleShape2D_0b5ro")
 
 [connection signal="player_interacted" from="theke/interactable_mushrooms" to="theke/interactable_mushrooms" method="_on_player_interacted"]
+[connection signal="player_interacted" from="theke/interactable_customer" to="theke/interactable_customer" method="_on_player_interacted"]
+[connection signal="player_interacted" from="register/interactable_register" to="register/interactable_register" method="_on_player_interacted"]
+[connection signal="player_interacted" from="interactable_certificate" to="interactable_certificate" method="_on_player_interacted"]
 [connection signal="player_interacted" from="interactable_basement" to="interactable_basement" method="_on_player_interacted"]
