@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://b4r1rx3y0kcdn"]
+[gd_scene load_steps=34 format=3 uid="uid://b4r1rx3y0kcdn"]
 
 [ext_resource type="PackedScene" uid="uid://d0o5dug26555l" path="res://Character/player.tscn" id="1_ycr2w"]
 [ext_resource type="Texture2D" uid="uid://b37d1uq1quc11" path="res://assets/store/room_border.PNG" id="2_0bg0g"]
@@ -18,6 +18,26 @@
 [ext_resource type="Texture2D" uid="uid://dy57bb7f6tmdp" path="res://assets/store/door/door_closed.PNG" id="12_cdw3p"]
 [ext_resource type="Texture2D" uid="uid://b400vifpmcrkf" path="res://assets/store/mushroom_lamp.PNG" id="13_cdw3p"]
 [ext_resource type="Texture2D" uid="uid://2ggw1uraq2p3" path="res://assets/store/Fass.PNG" id="14_whber"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_f3u2c"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_4ailo"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_wo30k"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_eyhni"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f3u2c"]
+size = Vector2(45, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ailo"]
+size = Vector2(18, 57)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wo30k"]
+size = Vector2(65, 23)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eyhni"]
+size = Vector2(16, 34)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_65kuu"]
 animations = [{
@@ -100,6 +120,14 @@ gradient = SubResource("Gradient_whber")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f3u2c"]
+radius = 7.5
+height = 24.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4ailo"]
+radius = 6.0
+height = 18.0
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_io36f"]
 
 [node name="Main" type="Node2D"]
@@ -116,10 +144,49 @@ z_index = 10
 z_as_relative = false
 texture = ExtResource("2_0bg0g")
 
+[node name="room_collision_border" type="StaticBody2D" parent="assets/room_base"]
+
+[node name="room_bottom" type="CollisionShape2D" parent="assets/room_base/room_collision_border"]
+position = Vector2(0, 45.5)
+shape = SubResource("WorldBoundaryShape2D_f3u2c")
+
+[node name="room_top" type="CollisionShape2D" parent="assets/room_base/room_collision_border"]
+position = Vector2(0, -37)
+rotation = 3.14159
+shape = SubResource("WorldBoundaryShape2D_4ailo")
+
+[node name="room_left" type="CollisionShape2D" parent="assets/room_base/room_collision_border"]
+position = Vector2(-80.5, 0)
+rotation = 1.5708
+shape = SubResource("WorldBoundaryShape2D_wo30k")
+
+[node name="room_right" type="CollisionShape2D" parent="assets/room_base/room_collision_border"]
+position = Vector2(82.5, 0)
+rotation = -1.5708
+shape = SubResource("WorldBoundaryShape2D_eyhni")
+
 [node name="theke" type="Sprite2D" parent="assets/room_base"]
 z_index = -5
 z_as_relative = false
 texture = ExtResource("3_q28bu")
+
+[node name="theke_collision" type="StaticBody2D" parent="assets/room_base/theke"]
+
+[node name="mushroom_top" type="CollisionShape2D" parent="assets/room_base/theke/theke_collision"]
+position = Vector2(-39.5, -37)
+shape = SubResource("RectangleShape2D_f3u2c")
+
+[node name="mushroom_left" type="CollisionShape2D" parent="assets/room_base/theke/theke_collision"]
+position = Vector2(-71, -20.5)
+shape = SubResource("RectangleShape2D_4ailo")
+
+[node name="cash_top" type="CollisionShape2D" parent="assets/room_base/theke/theke_collision"]
+position = Vector2(49.5, 10.5)
+shape = SubResource("RectangleShape2D_wo30k")
+
+[node name="cash_left" type="CollisionShape2D" parent="assets/room_base/theke/theke_collision"]
+position = Vector2(9, 16)
+shape = SubResource("RectangleShape2D_eyhni")
 
 [node name="trap_door_animated" type="AnimatedSprite2D" parent="assets/room_base"]
 z_index = -5
@@ -184,11 +251,23 @@ range_z_min = -100
 range_z_max = 9
 texture = SubResource("GradientTexture2D_f3u2c")
 
+[node name="lamp_collision" type="StaticBody2D" parent="assets/room_base/mushroom_lamp"]
+
+[node name="lamp_collision_shape" type="CollisionShape2D" parent="assets/room_base/mushroom_lamp/lamp_collision"]
+position = Vector2(-0.5, 9)
+shape = SubResource("CapsuleShape2D_f3u2c")
+
 [node name="fass" type="Sprite2D" parent="assets/room_base"]
 z_index = -5
 z_as_relative = false
 position = Vector2(74, -38)
 texture = ExtResource("14_whber")
+
+[node name="fass_body" type="StaticBody2D" parent="assets/room_base/fass"]
+
+[node name="fass_collision" type="CollisionShape2D" parent="assets/room_base/fass/fass_body"]
+position = Vector2(0, -1)
+shape = SubResource("CapsuleShape2D_4ailo")
 
 [node name="Player" parent="." instance=ExtResource("1_ycr2w")]
 position = Vector2(73, -10)
