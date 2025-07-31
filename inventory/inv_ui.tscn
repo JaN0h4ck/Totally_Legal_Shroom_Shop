@@ -54,7 +54,6 @@ icon_alignment = 1
 
 [node name="Button3" type="Button" parent="CenterContainer/HBoxContainer"]
 layout_mode = 2
-icon = ExtResource("3_r1b7r")
 icon_alignment = 1
 
 [node name="Button4" type="Button" parent="CenterContainer/HBoxContainer"]
@@ -64,5 +63,4 @@ icon_alignment = 1
 
 [node name="Button5" type="Button" parent="CenterContainer/HBoxContainer"]
 layout_mode = 2
-icon = ExtResource("3_r1b7r")
 icon_alignment = 1
