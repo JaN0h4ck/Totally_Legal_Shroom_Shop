@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://btqie872gml3s"
+path="res://.godot/imported/Planting_Shroom.wav-8e2fa5a62153a6a1094ba29c8cc2b76d.sample"
+
+[deps]
+
+source_file="res://Audio/Originals/SFX/BASEMENT INTERACTIONS/Planting_Shroom.wav"
+dest_files=["res://.godot/imported/Planting_Shroom.wav-8e2fa5a62153a6a1094ba29c8cc2b76d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=false
+edit/loop_mode=1
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bp2r55h6iesn"
+path="res://.godot/imported/Human_Fall_Flat.wav-e938d9852c9ca9bbf25cffff81320f94.sample"
+
+[deps]
+
+source_file="res://Audio/Originals/SFX/UPPER ROOM INTERACTIONS/Human_Fall_Flat.wav"
+dest_files=["res://.godot/imported/Human_Fall_Flat.wav-e938d9852c9ca9bbf25cffff81320f94.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=false
+edit/loop_mode=1
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

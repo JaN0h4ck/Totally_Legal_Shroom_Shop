@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bnpjaghxcx7g2"
+path="res://.godot/imported/Book_Page_Turn.wav-e6f3d3842d8ad281848183df96ac1d16.sample"
+
+[deps]
+
+source_file="res://Audio/Originals/SFX/UPPER ROOM INTERACTIONS/Book_Page_Turn.wav"
+dest_files=["res://.godot/imported/Book_Page_Turn.wav-e6f3d3842d8ad281848183df96ac1d16.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=false
+edit/loop_mode=1
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dpqw3nyt4kkhg"
+path="res://.godot/imported/Human_gets_Eaten.wav-7f6bbe3504f71c2b9da1ad36ae9cb33c.sample"
+
+[deps]
+
+source_file="res://Audio/Originals/SFX/BASEMENT INTERACTIONS/Human_gets_Eaten.wav"
+dest_files=["res://.godot/imported/Human_gets_Eaten.wav-7f6bbe3504f71c2b9da1ad36ae9cb33c.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=false
+edit/loop_mode=1
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
