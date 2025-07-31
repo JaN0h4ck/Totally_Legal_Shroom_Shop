@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://blaotdaom1arl"
+path="res://.godot/imported/Cash_Money.wav-75e38d05aa360e4be6448788cb7b5cc9.sample"
+
+[deps]
+
+source_file="res://Audio/Originals/SFX/UPPER ROOM INTERACTIONS/Cash_Money.wav"
+dest_files=["res://.godot/imported/Cash_Money.wav-75e38d05aa360e4be6448788cb7b5cc9.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=false
+edit/loop_mode=1
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
