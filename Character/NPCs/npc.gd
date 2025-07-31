@@ -12,6 +12,9 @@ class_name base_npc
 @export var move_speed : float = 40.0
 @export var loop_path : bool = false
 
+## Name des NPCs, lower case und mit _ als Leerzeichens
+@export var npc_name : String = ""
+
 var last_position : Vector2
 var movement : Vector2
 

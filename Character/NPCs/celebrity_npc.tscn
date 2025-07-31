@@ -154,6 +154,7 @@ animations = [{
 }]
 
 [node name="NPC" instance=ExtResource("1_n4g8d")]
+npc_name = "celebrity"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="2"]
 position = Vector2(0, -12)
