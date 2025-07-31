@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dg1rt4h6qsnw3"
-path="res://.godot/imported/IMG_0523.png-63b2fffbbc1de9bf3c920cfb69cd8b47.ctex"
+uid="uid://tfmfqxpa23s"
+path="res://.godot/imported/Chanpignon.png-830cbbc2d02b157b27df0bbd8c03644b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/shrooms/IMG_0523.png"
-dest_files=["res://.godot/imported/IMG_0523.png-63b2fffbbc1de9bf3c920cfb69cd8b47.ctex"]
+source_file="res://assets/shrooms/Chanpignon.png"
+dest_files=["res://.godot/imported/Chanpignon.png-830cbbc2d02b157b27df0bbd8c03644b.ctex"]
 
 [params]
 

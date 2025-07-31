@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7krxrgb1wrg"
-path="res://.godot/imported/IMG_0525.png-f8b7df348e6017413e1c63a2f172f33e.ctex"
+uid="uid://cyg8f38uudxqc"
+path="res://.godot/imported/Pfifferling.png-6447f0374e1e404a4a9da79629862e65.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/shrooms/IMG_0525.png"
-dest_files=["res://.godot/imported/IMG_0525.png-f8b7df348e6017413e1c63a2f172f33e.ctex"]
+source_file="res://assets/shrooms/Pfifferling.png"
+dest_files=["res://.godot/imported/Pfifferling.png-6447f0374e1e404a4a9da79629862e65.ctex"]
 
 [params]
 

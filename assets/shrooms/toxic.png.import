@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cyg8f38uudxqc"
-path="res://.godot/imported/IMG_0522.png-45bf5d8cc4b9454c4e877b3d13f51773.ctex"
+uid="uid://b7krxrgb1wrg"
+path="res://.godot/imported/toxic.png-b6f30a9802463aa2f8fa0ec581285625.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/shrooms/IMG_0522.png"
-dest_files=["res://.godot/imported/IMG_0522.png-45bf5d8cc4b9454c4e877b3d13f51773.ctex"]
+source_file="res://assets/shrooms/toxic.png"
+dest_files=["res://.godot/imported/toxic.png-b6f30a9802463aa2f8fa0ec581285625.ctex"]
 
 [params]
 

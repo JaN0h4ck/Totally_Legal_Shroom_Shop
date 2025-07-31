@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cs7cljgetb8hy"
-path="res://.godot/imported/IMG_0524.png-782b352c859f2b13d124407e09690bb8.ctex"
+uid="uid://n6y403mre2ac"
+path="res://.godot/imported/Blutpilz.png-b4d801ee260d7e15b0f8b3779356bb6f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/shrooms/IMG_0524.png"
-dest_files=["res://.godot/imported/IMG_0524.png-782b352c859f2b13d124407e09690bb8.ctex"]
+source_file="res://assets/shrooms/Blutpilz.png"
+dest_files=["res://.godot/imported/Blutpilz.png-b4d801ee260d7e15b0f8b3779356bb6f.ctex"]
 
 [params]
 

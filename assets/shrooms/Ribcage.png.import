@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://n6y403mre2ac"
-path="res://.godot/imported/IMG_0520.png-d984e82c71798df0a4da80db3fad741a.ctex"
+uid="uid://dg1rt4h6qsnw3"
+path="res://.godot/imported/Ribcage.png-b8ed388bdd90cd2ec003d951246a9a68.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/shrooms/IMG_0520.png"
-dest_files=["res://.godot/imported/IMG_0520.png-d984e82c71798df0a4da80db3fad741a.ctex"]
+source_file="res://assets/shrooms/Ribcage.png"
+dest_files=["res://.godot/imported/Ribcage.png-b8ed388bdd90cd2ec003d951246a9a68.ctex"]
 
 [params]
 

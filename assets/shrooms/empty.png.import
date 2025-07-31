@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://tfmfqxpa23s"
-path="res://.godot/imported/IMG_0521.png-47034f42e2ab5ddd7bb66a7dd248bebd.ctex"
+uid="uid://bxip1qp60i2nu"
+path="res://.godot/imported/empty.png-0e618fa4c4e46c1ac89ab34edcd7a295.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/shrooms/IMG_0521.png"
-dest_files=["res://.godot/imported/IMG_0521.png-47034f42e2ab5ddd7bb66a7dd248bebd.ctex"]
+source_file="res://assets/shrooms/empty.png"
+dest_files=["res://.godot/imported/empty.png-0e618fa4c4e46c1ac89ab34edcd7a295.ctex"]
 
 [params]
 
