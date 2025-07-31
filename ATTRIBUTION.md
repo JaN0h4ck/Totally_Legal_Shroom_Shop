@@ -1,6 +1,14 @@
 # Attribution
 ## Collaborators
 
+Jaron // Skrudg - 2D Artist
+Robin Mühlberger aka. STYKS - Sound and Music
+Melanie Springer - 3D Art and 2D Animation
+Manuel Griesel - Generalist
+Markus Vogel - Programming and Technical Art
+Anlina Tremer - Lead Artist, Pixel Art, Animation
+Jan Nothacker - Programming and Tech Support 🫡
+
 ### Godot Menus Template
 ![Maaack Plugin Icon](assets/plugin_logo/logo.png)  
 Author: [Marek Belski and contributors](https://github.com/Maaack/Godot-Menus-Template/graphs/contributors)  

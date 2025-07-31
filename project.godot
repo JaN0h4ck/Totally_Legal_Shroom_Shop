@@ -10,10 +10,11 @@ config_version=5
 
 [application]
 
-config/name="Shrooms"
-config/version="1.0.0"
+config/name="Completly Legal Shroomshop"
+config/version="1.0.2"
 run/main_scene="res://scenes/opening/opening_with_logo.tscn"
 config/features=PackedStringArray("4.4")
+config/icon="uid://cs7cljgetb8hy"
 
 [autoload]
 

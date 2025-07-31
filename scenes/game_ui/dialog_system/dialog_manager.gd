@@ -3,7 +3,7 @@ extends Node
 
 enum DialogTypes { GENERIC }
 
-@export var ui_layer: Control
+@export var ui_layer: CanvasLayer
 @export var dialogue_scene: PackedScene
 @export var dialogue_file_path: String
 var dialogue_panel: DialogPanel
