@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://doqkihlax7j52"]
+
+[ext_resource type="Script" uid="uid://7up34jpmnrs6" path="res://inventory/ui_item.gd" id="1_tsslc"]
+[ext_resource type="Texture2D" uid="uid://tfmfqxpa23s" path="res://assets/shrooms/Chanpignon.png" id="2_axipb"]
+
+[node name="UIItem" type="VBoxContainer"]
+script = ExtResource("1_tsslc")
+
+[node name="Display" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Texture" type="TextureRect" parent="Display"]
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 2
+texture = ExtResource("2_axipb")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="Display"]
+layout_mode = 2
+text = "1"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 2
+text = "Take Mushroom"

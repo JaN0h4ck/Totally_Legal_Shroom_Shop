@@ -1,6 +1,7 @@
-[gd_scene load_steps=18 format=3 uid="uid://cnrurhko688wa"]
+[gd_scene load_steps=19 format=3 uid="uid://cnrurhko688wa"]
 
 [ext_resource type="PackedScene" uid="uid://c6k5nnpbypshi" path="res://addons/maaacks_menus_template/base/scenes/menus/main_menu/main_menu.tscn" id="1_rr1rn"]
+[ext_resource type="Theme" uid="uid://d31137rsk15ng" path="res://resources/themes/expedition.tres" id="2_ixa71"]
 [ext_resource type="Script" uid="uid://dfsg4qgand5n2" path="res://scenes/menus/main_menu/main_menu_with_animations.gd" id="2_sr523"]
 [ext_resource type="PackedScene" uid="uid://c4ea4cwximdvs" path="res://scenes/menus/options_menu/master_options_menu_with_tabs.tscn" id="3_ixa71"]
 [ext_resource type="PackedScene" uid="uid://c72enynwlon42" path="res://scenes/credits/scrollable_credits.tscn" id="4_2k5l7"]
@@ -350,6 +351,7 @@ transitions = ["Intro", "OpenMainMenu", SubResource("11"), "OpenMainMenu", "Open
 graph_offset = Vector2(-180.277, 49)
 
 [node name="MainMenu" instance=ExtResource("1_rr1rn")]
+theme = ExtResource("2_ixa71")
 script = ExtResource("2_sr523")
 game_scene_path = "uid://bvmbuuyv37vax"
 options_packed_scene = ExtResource("3_ixa71")

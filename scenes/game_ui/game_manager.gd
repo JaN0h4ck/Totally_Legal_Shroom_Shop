@@ -4,8 +4,16 @@ extends Node
 @onready var ui_layer: Control = $"../UILayer"
 @export var interact_scene: PackedScene
 @export var pause_scene: PackedScene
+@export var inv_scene: PackedScene
 
 var is_paused: bool = false
+
+func _ready() -> void:
+	EventBus.open_inventory.connect(_on_open_inventory)
+
+func _on_open_inventory():
+	var instance = inv_scene.instantiate()
+	ui_layer.add_child(instance)
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):

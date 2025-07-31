@@ -1,10 +1,11 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://2jrq1lc2ylys"]
+[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://2jrq1lc2ylys"]
 
 [ext_resource type="Script" uid="uid://rnco6q5acyf" path="res://inventory/inventory_item.gd" id="1_kt7dl"]
-[ext_resource type="Texture2D" uid="uid://opqmrrpe8mwm" path="res://assets/Test_Assets/testShroom.png" id="2_apr0x"]
+[ext_resource type="Texture2D" uid="uid://tfmfqxpa23s" path="res://assets/shrooms/Chanpignon.png" id="2_kt7dl"]
 
 [resource]
 script = ExtResource("1_kt7dl")
 name = "champignon"
-texture = ExtResource("2_apr0x")
+texture = ExtResource("2_kt7dl")
+amount = 0
 metadata/_custom_type_script = "uid://rnco6q5acyf"
