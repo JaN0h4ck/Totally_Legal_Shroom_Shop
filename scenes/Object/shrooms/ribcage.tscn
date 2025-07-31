@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://7s1vk58qvi25"]
+
+[ext_resource type="PackedScene" uid="uid://bj4wwt83kcsgp" path="res://scenes/Object/object.tscn" id="1_g5wth"]
+[ext_resource type="Texture2D" uid="uid://dg1rt4h6qsnw3" path="res://assets/shrooms/Ribcage.png" id="2_isb1p"]
+
+[node name="Object" instance=ExtResource("1_g5wth")]
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="2"]
+texture = ExtResource("2_isb1p")
