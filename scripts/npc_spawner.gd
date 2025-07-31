@@ -1,0 +1,45 @@
+extends Node2D
+
+@onready var npc_cowboy := preload("res://Character/NPCs/cowboy_npc.tscn")
+@onready var timer = $Timer
+
+@export var spawn_timer_min : float = 5.0
+@export var spawn_timer_max : float = 10.0
+
+var npc_list : Array = []
+var rng = RandomNumberGenerator.new()
+
+func _ready():
+	# Position auf 0 damit NPC nicht versetzt ist
+	position = Vector2(0,0)
+	
+	# NPC Liste alle NPCs hinzufügen
+	npc_list.append(npc_cowboy)
+	
+	# Spawn Timer Starten
+	randomize_timer()
+	
+	# Spawn Timmer immer dann starten wenn NPC abgefertigt
+	EventBus.npc_left_trapdoor.connect(randomize_timer)
+
+func spawn_npc():
+	var npc_to_spawn = npc_list.pick_random()
+	var npc : base_npc = npc_to_spawn.instantiate()
+	npc.position = position
+	
+	npc.path = get_tree().get_first_node_in_group("npc_path2D")
+	npc.path_follow = get_tree().get_first_node_in_group("npc_followpath2D")
+	
+	npc.path_follow.progress = 0
+	npc.position = npc.path.curve.get_point_position(0)
+	
+	add_child(npc)
+
+func _on_timer_timeout():
+	spawn_npc()
+
+func randomize_timer():
+	var rng = RandomNumberGenerator.new()
+	var random_nummer = rng.randf_range(5.0, 10.0)
+	timer.wait_time = random_nummer
+	timer.start()

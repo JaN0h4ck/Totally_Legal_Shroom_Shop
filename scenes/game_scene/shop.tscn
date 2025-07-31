@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://cbqqtabob4txw"]
+[gd_scene load_steps=45 format=3 uid="uid://cbqqtabob4txw"]
 
 [ext_resource type="Texture2D" uid="uid://vilqwodtna00" path="res://assets/store/room_base.PNG" id="1_81vyf"]
 [ext_resource type="Texture2D" uid="uid://b37d1uq1quc11" path="res://assets/store/room_border.PNG" id="2_4bti5"]
@@ -26,7 +26,6 @@
 [ext_resource type="Texture2D" uid="uid://dra6a1ox6f1lw" path="res://assets/store/rake.PNG" id="26_46vee"]
 [ext_resource type="Texture2D" uid="uid://dd5amwgg6l5mr" path="res://assets/store/flower_pot.PNG" id="27_f5d8s"]
 [ext_resource type="Texture2D" uid="uid://7r1ob1uqh3xj" path="res://assets/store/smolplant.PNG" id="28_2f5ol"]
-[ext_resource type="PackedScene" uid="uid://jnppjujmfxj1" path="res://Character/NPCs/cowboy_npc.tscn" id="28_81vyf"]
 [ext_resource type="Script" uid="uid://c6wik4urpqiw5" path="res://scenes/game_scene/scripts/interactable_basement.gd" id="29_4bti5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_81vyf"]
@@ -339,15 +338,10 @@ metadata/_custom_type_script = "uid://b1kccbwcfiryn"
 position = Vector2(0, 5)
 shape = SubResource("RectangleShape2D_0b5ro")
 
-[node name="NPC" parent="." node_paths=PackedStringArray("path", "path_follow") instance=ExtResource("28_81vyf")]
-position = Vector2(14, -17)
-path = NodePath("../Path2D")
-path_follow = NodePath("../Path2D/PathFollow2D")
-
-[node name="Path2D" type="Path2D" parent="."]
+[node name="Path2D" type="Path2D" parent="." groups=["npc_path2D"]]
 curve = SubResource("Curve2D_jn45p")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D" groups=["npc_followpath2D"]]
 position = Vector2(44, -38)
 rotation = 1.5708
 

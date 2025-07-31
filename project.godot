@@ -39,6 +39,8 @@ player="the player"
 saveable=""
 dialog_panel=""
 input_prompt=""
+npc_path2D=""
+npc_followpath2D=""
 
 [gui]
 
