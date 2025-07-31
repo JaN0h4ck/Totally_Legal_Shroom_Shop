@@ -17,6 +17,7 @@ func _ready():
 
 func teleport_basement():
 	audio_stream_player.set("parameters/switch_to_clip", &"Basement")
+	$teleport_point_basement/BasementDoorAudio.play()
 	var player : Player = get_tree().get_first_node_in_group("player")
 	player.position = basement_position.position
 	
@@ -25,6 +26,7 @@ func teleport_basement():
 
 func teleport_shop():
 	audio_stream_player.set("parameters/switch_to_clip", &"Shop")
+	$teleport_point_shopt/ShopDoorAudio.play()
 	var player : Player = get_tree().get_first_node_in_group("player")
 	player.position = shop_position.position
 	

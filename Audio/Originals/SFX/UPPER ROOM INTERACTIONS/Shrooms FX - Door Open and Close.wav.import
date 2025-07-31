@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://gjf8aowv1jdp"
+path="res://.godot/imported/Shrooms FX - Door Open and Close.wav-e7242e74bbe663b5edd6d2998f629ea5.sample"
+
+[deps]
+
+source_file="res://Audio/Originals/SFX/UPPER ROOM INTERACTIONS/Shrooms FX - Door Open and Close.wav"
+dest_files=["res://.godot/imported/Shrooms FX - Door Open and Close.wav-e7242e74bbe663b5edd6d2998f629ea5.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=false
+edit/loop_mode=1
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
