@@ -5,6 +5,7 @@ extends Node2D
 @onready var npc_conspiracy := preload("res://Character/NPCs/conspiracy_npc.tscn")
 @onready var npc_alien := preload("res://Character/NPCs/alien_npc.tscn")
 @onready var npc_cook := preload("res://Character/NPCs/cook_npc.tscn")
+@onready var npc_beff := preload("res://Character/NPCs/beff_npc.tscn")
 @onready var timer = $Timer
 
 @export var spawn_timer_min : float = 5.0
@@ -24,6 +25,7 @@ func _ready():
 	
 	# NPC Liste alle NPCs hinzufügen
 	# Alle seltenen nur ein mal
+	npc_list.append(npc_beff)
 	
 	# Alle etwas seltene 2 mal
 	for i in range (number_rare_npcs):
