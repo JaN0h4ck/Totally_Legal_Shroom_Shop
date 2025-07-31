@@ -8,12 +8,15 @@ extends Node2D
 
 @export var inv_scene: PackedScene
 
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
+
 func _ready():
 	EventBus.interact_basement.connect(teleport_basement)
 	EventBus.interact_shop.connect(teleport_shop)
 	EventBus.open_inventory.connect(open_inventory)
 
 func teleport_basement():
+	audio_stream_player.set("parameters/switch_to_clip", &"Basement")
 	var player : Player = get_tree().get_first_node_in_group("player")
 	player.position = basement_position.position
 	
@@ -21,6 +24,7 @@ func teleport_basement():
 	basement_camera.enabled = true
 
 func teleport_shop():
+	audio_stream_player.set("parameters/switch_to_clip", &"Shop")
 	var player : Player = get_tree().get_first_node_in_group("player")
 	player.position = shop_position.position
 	
