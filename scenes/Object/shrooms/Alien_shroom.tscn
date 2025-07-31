@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4cyj4u0nd8j2"]
+
+[ext_resource type="PackedScene" uid="uid://bj4wwt83kcsgp" path="res://scenes/Object/object.tscn" id="1_myc70"]
+[ext_resource type="Texture2D" uid="uid://cs7cljgetb8hy" path="res://assets/shrooms/Alien_shroom.png" id="2_52ya6"]
+
+[node name="Object" instance=ExtResource("1_myc70")]
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="2"]
+texture = ExtResource("2_52ya6")

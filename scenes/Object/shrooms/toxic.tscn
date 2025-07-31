@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://clcnx55lrl4hk"]
+
+[ext_resource type="PackedScene" uid="uid://bj4wwt83kcsgp" path="res://scenes/Object/object.tscn" id="1_wei3r"]
+[ext_resource type="Texture2D" uid="uid://b7krxrgb1wrg" path="res://assets/shrooms/toxic.png" id="2_14w0m"]
+
+[node name="Object" instance=ExtResource("1_wei3r")]
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="2"]
+texture = ExtResource("2_14w0m")
