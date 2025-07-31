@@ -1,8 +1,15 @@
-[gd_scene load_steps=11 format=3 uid="uid://dvvpcdcq4i0gr"]
+[gd_scene load_steps=18 format=3 uid="uid://dvvpcdcq4i0gr"]
 
 [ext_resource type="Texture2D" uid="uid://bdlpb63hi606r" path="res://assets/store/Theken.PNG" id="1_0o3k0"]
 [ext_resource type="Script" uid="uid://csgglkk7yra66" path="res://scenes/game_scene/scripts/interactable_mushrooms.gd" id="2_bfhk3"]
 [ext_resource type="Script" uid="uid://dwvlbfvvx22b3" path="res://scenes/game_scene/scripts/interactable_customer.gd" id="3_0cdgy"]
+[ext_resource type="Script" uid="uid://bgvv5m8tddxgf" path="res://scenes/game_scene/shop/world_iventory.gd" id="4_u2bdo"]
+[ext_resource type="Resource" uid="uid://h81bhujbxa5p" path="res://inventory/shroom_inv.tres" id="5_2ukm1"]
+[ext_resource type="Texture2D" uid="uid://b7krxrgb1wrg" path="res://assets/shrooms/toxic.png" id="5_kymah"]
+[ext_resource type="Texture2D" uid="uid://dg1rt4h6qsnw3" path="res://assets/shrooms/Ribcage.png" id="6_2ukm1"]
+[ext_resource type="Texture2D" uid="uid://cyg8f38uudxqc" path="res://assets/shrooms/Pfifferling.png" id="7_4jib5"]
+[ext_resource type="Texture2D" uid="uid://n6y403mre2ac" path="res://assets/shrooms/Blutpilz.png" id="8_s2cl2"]
+[ext_resource type="Texture2D" uid="uid://cs7cljgetb8hy" path="res://assets/shrooms/Alien_shroom.png" id="9_djdqj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f3u2c"]
 size = Vector2(45, 24)
@@ -74,6 +81,32 @@ metadata/_custom_type_script = "uid://b1kccbwcfiryn"
 visible = false
 position = Vector2(3.25, 0)
 shape = SubResource("RectangleShape2D_40ceo")
+
+[node name="WorldIventory" type="Node2D" parent="."]
+script = ExtResource("4_u2bdo")
+inventory_res = ExtResource("5_2ukm1")
+
+[node name="Sprite2D" type="Sprite2D" parent="WorldIventory"]
+position = Vector2(-27, -42)
+texture = ExtResource("5_kymah")
+
+[node name="Sprite2D2" type="Sprite2D" parent="WorldIventory"]
+position = Vector2(-42, -42)
+texture = ExtResource("6_2ukm1")
+
+[node name="Sprite2D3" type="Sprite2D" parent="WorldIventory"]
+position = Vector2(-58, -42)
+texture = ExtResource("7_4jib5")
+
+[node name="Sprite2D4" type="Sprite2D" parent="WorldIventory"]
+position = Vector2(-71, -24)
+rotation = -1.5708
+texture = ExtResource("8_s2cl2")
+
+[node name="Sprite2D5" type="Sprite2D" parent="WorldIventory"]
+position = Vector2(-71, -9)
+rotation = -1.5708
+texture = ExtResource("9_djdqj")
 
 [connection signal="player_interacted" from="interactable_mushrooms" to="interactable_mushrooms" method="_on_player_interacted"]
 [connection signal="player_interacted" from="interactable_customer" to="interactable_customer" method="_on_player_interacted"]
