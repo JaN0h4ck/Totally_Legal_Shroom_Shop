@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bgx1eldmsx2b3"]
+[gd_scene load_steps=12 format=3 uid="uid://bgx1eldmsx2b3"]
 
 [ext_resource type="Script" uid="uid://d2gk8bwh73wya" path="res://Character/NPCs/npc.gd" id="1_a8pm5"]
 [ext_resource type="Texture2D" uid="uid://cmxolpp5mnf7" path="res://assets/character/cowboy/cowboy_stand_back.png" id="2_0qv55"]
@@ -94,9 +94,14 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0qv55"]
-size = Vector2(2, 18)
+size = Vector2(2, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d3dbp"]
+size = Vector2(10, 22)
 
 [node name="NPC" type="CharacterBody2D" groups=["saveable"]]
+z_index = -1
+z_as_relative = false
 script = ExtResource("1_a8pm5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -106,5 +111,14 @@ sprite_frames = SubResource("SpriteFrames_jjqtu")
 animation = &"fall"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -9)
+position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_0qv55")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -12)
+shape = SubResource("RectangleShape2D_d3dbp")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

@@ -76,3 +76,13 @@ func start_falling():
 func fall_down():
 	falling = false
 	queue_free()
+
+
+func _on_area_2d_body_entered(body):
+	if body.is_in_group("player"):
+		self.z_index = 1
+
+
+func _on_area_2d_body_exited(body):
+	if body.is_in_group("player"):
+		self.z_index = -1
