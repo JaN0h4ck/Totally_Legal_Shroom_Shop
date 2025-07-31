@@ -1,7 +1,10 @@
 extends CharacterBody2D
 class_name base_npc
 
+# Animated Sprite 2D muss folgende Animationen haben:
+# "fall_down" "idle_back" "idle_front" "idle_left" "idle_right" "walk"
 @onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
+
 
 @export var path : Path2D
 @export var path_follow : PathFollow2D
@@ -42,13 +45,13 @@ func play_animation():
 		animated_sprite.play("walk")
 	else:
 		if last_direction == "f":
-			animated_sprite.play("stand_front")
+			animated_sprite.play("idle_front")
 		elif last_direction == "b":
-			animated_sprite.play("stand_back")
+			animated_sprite.play("idle_back")
 		elif last_direction == "r":
-			animated_sprite.play("stand_right")
+			animated_sprite.play("idle_right")
 		elif last_direction == "l":
-			animated_sprite.play("stand_left")
+			animated_sprite.play("idle_left")
 	
 	if movement.y > 0:
 		last_direction = "f"
@@ -70,7 +73,7 @@ func start_falling():
 		return
 	
 	falling = true
-	animated_sprite.play("fall")
+	animated_sprite.play("fall_down")
 	animated_sprite.animation_finished.connect(fall_down)
 
 func fall_down():
