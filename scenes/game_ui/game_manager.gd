@@ -1,7 +1,7 @@
 class_name GameManager
 extends Node
 
-@onready var ui_layer: Control = $"../UILayer"
+@onready var ui_layer: CanvasLayer = $"../UILayer"
 @export var interact_scene: PackedScene
 @export var pause_scene: PackedScene
 @export var inv_scene: PackedScene

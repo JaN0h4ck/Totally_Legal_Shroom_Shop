@@ -47,19 +47,10 @@ render_target_update_mode = 4
 
 [node name="Main" parent="SubViewportContainer/SubViewport" instance=ExtResource("1_sq0em")]
 
-[node name="UILayer" type="Control" parent="."]
-process_mode = 1
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 1
+[node name="UILayer" type="CanvasLayer" parent="."]
 
-[node name="DialogManager" type="Node" parent="." node_paths=PackedStringArray("ui_layer")]
+[node name="DialogManager" type="Node" parent="."]
 script = ExtResource("5_hk0ve")
-ui_layer = NodePath("../UILayer")
 dialogue_scene = ExtResource("6_8qcbp")
 dialogue_file_path = "res://resources/data/dialog.json"
 metadata/_custom_type_script = "uid://8r2f7xwlgakm"
