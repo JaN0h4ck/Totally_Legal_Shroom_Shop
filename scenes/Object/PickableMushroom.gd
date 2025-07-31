@@ -5,6 +5,7 @@ extends PickableObject
 
 func _ready() -> void:
 	super()
+	_init_sprite()
 
 func _init_sprite():
 	if item_res == null:
