@@ -161,4 +161,5 @@ current = true
 
 [node name="FootstepPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("14_xj0yq")
+bus = &"SFX"
 script = ExtResource("15_6y5aw")
