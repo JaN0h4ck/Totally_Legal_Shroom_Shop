@@ -4,6 +4,7 @@ extends Panel
 @onready var label: Label = $MarginContainer/Label
 @export var speed_char_ps: float = 32.0
 var tween: Tween
+@onready var dialog_audio: DialogAudio = $DialogAudio
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -17,6 +18,7 @@ func _input(event: InputEvent) -> void:
 	if not event.is_action_pressed("skip_dialogue"):
 		return
 	if tween and tween.is_valid(): 
+		_on_display_finished()
 		tween.kill()
 		label.visible_characters = -1
 		get_viewport().set_input_as_handled()
@@ -31,3 +33,8 @@ func _start_dialog(text: String):
 	if tween and tween.is_valid(): tween.kill()
 	tween = get_tree().create_tween()
 	tween.tween_property(label, "visible_characters", text.length(), seconds).from(0)
+	tween.finished.connect(_on_display_finished)
+	dialog_audio.start_playback(DialogAudio.VoiceTypes.MEDIUM)
+
+func _on_display_finished():
+	dialog_audio.stop_playback()
