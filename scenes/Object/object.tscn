@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://bj4wwt83kcsgp"]
+
+[ext_resource type="Script" uid="uid://cnc0in1p7iebh" path="res://scenes/Object/object.gd" id="1_d4nj2"]
+[ext_resource type="Texture2D" uid="uid://tfmfqxpa23s" path="res://assets/shrooms/IMG_0521.png" id="2_nn5bi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hyj0o"]
+size = Vector2(10, 10)
+
+[node name="Object" type="RigidBody2D"]
+script = ExtResource("1_d4nj2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_nn5bi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_hyj0o")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_hyj0o")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
