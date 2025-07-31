@@ -21,7 +21,6 @@ extends Node2D
 @export var number_rare_npcs : int = 2
 
 var npc_list : Array = []
-var rng = RandomNumberGenerator.new()
 
 func _ready():
 	# Position auf 0 damit NPC nicht versetzt ist
@@ -61,8 +60,9 @@ func spawn_npc():
 	var npc : base_npc = npc_to_spawn.instantiate()
 	npc.position = position
 	
-	npc.path = get_tree().get_first_node_in_group("npc_path2D")
-	npc.path_follow = get_tree().get_first_node_in_group("npc_followpath2D")
+	var picked_paths = random_path()
+	npc.path = picked_paths[0]
+	npc.path_follow = picked_paths[1]
 	
 	npc.path_follow.progress = 0
 	npc.position = npc.path.curve.get_point_position(0)
@@ -77,3 +77,14 @@ func randomize_timer():
 	var random_nummer = rng.randf_range(5.0, 10.0)
 	timer.wait_time = random_nummer
 	timer.start()
+
+func random_path():
+	var follow_path = get_tree().get_nodes_in_group("npc_followpath2D")
+	var path2d = get_tree().get_nodes_in_group("npc_path2D")
+	
+	var lenght = follow_path.size()
+	
+	var rng = RandomNumberGenerator.new()
+	var random_nummer = rng.randf_range(0, lenght-1)
+	
+	return [path2d[random_nummer], follow_path[random_nummer]]
