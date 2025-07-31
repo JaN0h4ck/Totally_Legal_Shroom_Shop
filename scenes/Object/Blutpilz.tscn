@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dk4mynculunnv"]
+
+[ext_resource type="PackedScene" uid="uid://bj4wwt83kcsgp" path="res://scenes/Object/object.tscn" id="1_1ddgp"]
+[ext_resource type="Texture2D" uid="uid://n6y403mre2ac" path="res://assets/shrooms/Blutpilz.png" id="2_rjoe2"]
+
+[node name="Object" instance=ExtResource("1_1ddgp")]
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="2"]
+texture = ExtResource("2_rjoe2")
