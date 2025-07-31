@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://dy1uiy23nc5he"]
+[gd_scene load_steps=30 format=3 uid="uid://dy1uiy23nc5he"]
 
 [ext_resource type="Texture2D" uid="uid://bhqas40v1sogj" path="res://assets/dungeon/dungeon_base.PNG" id="1_miufi"]
 [ext_resource type="Texture2D" uid="uid://bt4kb5hqwg4nl" path="res://assets/dungeon/dungeon_border.PNG" id="2_5623h"]
@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://5yym7638cog7" path="res://assets/dungeon/journal.PNG" id="9_hamwq"]
 [ext_resource type="Texture2D" uid="uid://bq2vvs6x38nnm" path="res://assets/dungeon/saw.PNG" id="10_4ovda"]
 [ext_resource type="Texture2D" uid="uid://ci7rt38s0ry1r" path="res://assets/dungeon/torch.PNG" id="11_554xe"]
-[ext_resource type="Texture2D" uid="uid://cmikvgcymv5sy" path="res://assets/dungeon/wood_chipper.PNG" id="12_dyy7o"]
+[ext_resource type="PackedScene" uid="uid://31fnvnrufja0" path="res://scenes/game_scene/dungeon/wood_chipper.tscn" id="14_0sevn"]
 [ext_resource type="Texture2D" uid="uid://dwr0060psd8kh" path="res://assets/dungeon/prison/prison_bottom.PNG" id="15_7taji"]
 [ext_resource type="Texture2D" uid="uid://df5m0n2gb7q36" path="res://assets/dungeon/prison/prison_top.PNG" id="16_0sevn"]
 [ext_resource type="Script" uid="uid://cfc8a16cgd5gl" path="res://scenes/game_scene/scripts/interactable_shop.gd" id="17_7taji"]
@@ -78,18 +78,6 @@ colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 gradient = SubResource("Gradient_2bcuf")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2bcuf"]
-size = Vector2(15, 23)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_004c8"]
-size = Vector2(8, 23)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dyy7o"]
-size = Vector2(15, 23)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7taji"]
-size = Vector2(8, 17)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6kpy7"]
 size = Vector2(39, 24)
@@ -252,30 +240,8 @@ energy = 2.0
 range_z_max = 9
 texture = SubResource("GradientTexture2D_004c8")
 
-[node name="wood_chipper" type="Sprite2D" parent="dungeon_base"]
-z_index = -5
-z_as_relative = false
+[node name="wood_chipper" parent="dungeon_base" instance=ExtResource("14_0sevn")]
 position = Vector2(24.5, 22)
-texture = ExtResource("12_dyy7o")
-
-[node name="chipper_body" type="StaticBody2D" parent="dungeon_base/wood_chipper"]
-visible = false
-
-[node name="chipper_shape" type="CollisionShape2D" parent="dungeon_base/wood_chipper/chipper_body"]
-position = Vector2(-8, -0.5)
-shape = SubResource("RectangleShape2D_2bcuf")
-
-[node name="chipper_shape2" type="CollisionShape2D" parent="dungeon_base/wood_chipper/chipper_body"]
-position = Vector2(3.5, -0.5)
-shape = SubResource("RectangleShape2D_004c8")
-
-[node name="chipper_shape3" type="CollisionShape2D" parent="dungeon_base/wood_chipper/chipper_body"]
-position = Vector2(15, -0.5)
-shape = SubResource("RectangleShape2D_dyy7o")
-
-[node name="chipper_shape4" type="CollisionShape2D" parent="dungeon_base/wood_chipper/chipper_body"]
-position = Vector2(-19.5, -0.5)
-shape = SubResource("RectangleShape2D_7taji")
 
 [node name="prison" type="Node2D" parent="dungeon_base"]
 z_index = -5
