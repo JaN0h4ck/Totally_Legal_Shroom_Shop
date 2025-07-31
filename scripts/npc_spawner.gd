@@ -58,10 +58,11 @@ func _ready():
 	# Spawn Timmer immer dann starten wenn NPC abgefertigt
 	EventBus.npc_left_trapdoor.connect(randomize_timer)
 	EventBus.npc_left_shop.connect(npc_left)
-	EventBus.npc_dropped.connect(npc_left)
+	EventBus.npc_dropped.connect(npc_with_name_left)
 
 func spawn_npc():
 	if npc_in_shop == true:
+		print("already npc in shop")
 		return
 	
 	npc_in_shop = true
@@ -82,16 +83,13 @@ func _on_timer_timeout():
 	spawn_npc()
 
 func randomize_timer():
-	print("NPC ist im Shop: ", npc_in_shop)
-	if npc_in_shop == true:
-		return
-	
 	var rng = RandomNumberGenerator.new()
 	var random_nummer = rng.randf_range(5.0, 10.0)
 	timer.wait_time = random_nummer
 	timer.one_shot = false
 	timer.stop()
 	timer.start()
+	print("Timer: ", random_nummer)
 
 func random_path():
 	var follow_path = get_tree().get_nodes_in_group("npc_followpath2D")
@@ -108,3 +106,7 @@ func random_path():
 
 func npc_left():
 	npc_in_shop = false
+
+func npc_with_name_left(npc_name):
+	npc_in_shop = false
+	print(npc_name, "left")
