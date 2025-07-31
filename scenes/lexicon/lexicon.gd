@@ -5,12 +5,12 @@ extends Node2D
 
 
 func _process(delta: float) -> void:
-	if(Input.is_action_pressed("ui_left")):
-		if count >= 0 && count <=5:
-			count += 1
-	if(Input.is_action_pressed("ui_right")):
-		if count >= 0 && count <=5:
+	if(Input.is_action_just_pressed("ui_left")):
 			count -= 1
+			page()
+	if(Input.is_action_just_pressed("ui_right")):
+			count += 1
+			page()
 	if(Input.is_action_pressed("ui_cancel")):
 		EventBus.lexicon_back.emit()
 		
