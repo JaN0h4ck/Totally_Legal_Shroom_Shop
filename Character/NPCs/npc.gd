@@ -2,7 +2,8 @@ extends CharacterBody2D
 class_name base_npc
 
 # Animated Sprite 2D muss folgende Animationen haben:
-# "fall_down" "idle_back" "idle_front" "idle_left" "idle_right" "walk"
+# "fall_down" "idle_back" "idle_front" "idle_left" "idle_right"
+# "walk_left" "walk_right" "walk_forward" "walk_backward"
 @onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
 
 
@@ -41,9 +42,9 @@ func _physics_process(delta : float) -> void:
 func play_animation():
 	if falling == true:
 		return
-	if not movement.x == 0 or not movement.y == 0:
-		animated_sprite.play("walk")
-	else:
+	
+	
+	if movement.x == 0 and movement.y == 0:
 		if last_direction == "f":
 			animated_sprite.play("idle_front")
 		elif last_direction == "b":
@@ -53,14 +54,22 @@ func play_animation():
 		elif last_direction == "l":
 			animated_sprite.play("idle_left")
 	
-	if movement.y > 0:
-		last_direction = "f"
-	elif movement.y < 0:
-		last_direction = "b"
-	elif movement.x > 0:
-		last_direction = "r"
-	elif movement.x < 0:
-		last_direction = "l"
+	else:
+		if movement.x > movement.y:
+			if movement.x > 0:
+				animated_sprite.play("walk_right")
+				last_direction = "r"
+			else:
+				animated_sprite.play("walk_left")
+				last_direction = "l"
+		else:
+			if movement.y > 0:
+				animated_sprite.play("walk_forward")
+				last_direction = "f"
+			else:
+				animated_sprite.play("walk_backward")
+				last_direction = "b"
+
 
 func enter_trapdoor():
 	on_trapdoor = true

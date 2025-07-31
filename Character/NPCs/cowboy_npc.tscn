@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://jnppjujmfxj1"]
+[gd_scene load_steps=19 format=3 uid="uid://jnppjujmfxj1"]
 
 [ext_resource type="PackedScene" uid="uid://bgx1eldmsx2b3" path="res://Character/NPCs/base_npc.tscn" id="1_tvjw0"]
 [ext_resource type="Texture2D" uid="uid://c4jak764u5xc8" path="res://assets/character/cowboy/cowboy_stand_front.PNG" id="2_q5dpb"]
@@ -6,13 +6,40 @@
 [ext_resource type="Texture2D" uid="uid://cmxolpp5mnf7" path="res://assets/character/cowboy/cowboy_stand_back.png" id="4_72b7k"]
 [ext_resource type="Texture2D" uid="uid://dxtolow3rm2b2" path="res://assets/character/cowboy/cowboy_stand_left.PNG" id="5_edby7"]
 [ext_resource type="Texture2D" uid="uid://dovv1y7fm2ckr" path="res://assets/character/cowboy/Cowboy_walk_front.png" id="6_a12hy"]
+[ext_resource type="Texture2D" uid="uid://cydd4tkdsh7p0" path="res://assets/character/cowboy/Cowboy_walk_back.png" id="6_edby7"]
+[ext_resource type="Texture2D" uid="uid://br8lksmjy6yxb" path="res://assets/character/cowboy/Cowboy_walk_left.png" id="8_a12hy"]
+[ext_resource type="Texture2D" uid="uid://40jsrj53d8g6" path="res://assets/character/cowboy/Cowboy_walk_right.png" id="9_piw7h"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_63nhl"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_dpwxh"]
+atlas = ExtResource("6_edby7")
+region = Rect2(0, 0, 28, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ag4gx"]
+atlas = ExtResource("6_edby7")
+region = Rect2(28, 0, 28, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5nmmc"]
 atlas = ExtResource("6_a12hy")
 region = Rect2(0, 0, 28, 33)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_j7hby"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_5scr0"]
 atlas = ExtResource("6_a12hy")
+region = Rect2(28, 0, 28, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ivdkq"]
+atlas = ExtResource("8_a12hy")
+region = Rect2(56, 0, 28, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_25j07"]
+atlas = ExtResource("8_a12hy")
+region = Rect2(84, 0, 28, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0iqn8"]
+atlas = ExtResource("9_piw7h")
+region = Rect2(0, 0, 28, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k0hrr"]
+atlas = ExtResource("9_piw7h")
 region = Rect2(28, 0, 28, 33)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_piw7h"]
@@ -83,13 +110,46 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_63nhl")
+"texture": SubResource("AtlasTexture_dpwxh")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_j7hby")
+"texture": SubResource("AtlasTexture_ag4gx")
 }],
 "loop": true,
-"name": &"walk",
+"name": &"walk_backward",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5nmmc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5scr0")
+}],
+"loop": true,
+"name": &"walk_forward",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ivdkq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_25j07")
+}],
+"loop": true,
+"name": &"walk_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0iqn8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k0hrr")
+}],
+"loop": true,
+"name": &"walk_right",
 "speed": 5.0
 }]
 
@@ -99,4 +159,4 @@ animations = [{
 position = Vector2(0, -12)
 scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_piw7h")
-animation = &"idle_right"
+animation = &"walk_left"
