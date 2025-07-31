@@ -83,8 +83,10 @@ func random_path():
 	var path2d = get_tree().get_nodes_in_group("npc_path2D")
 	
 	var lenght = follow_path.size()
+	print("lenght: ", lenght)
 	
 	var rng = RandomNumberGenerator.new()
-	var random_nummer = rng.randf_range(0, lenght-1)
+	var random_nummer = rng.randi_range(0, lenght-1)
+	print("number: ", random_nummer)
 	
 	return [path2d[random_nummer], follow_path[random_nummer]]
