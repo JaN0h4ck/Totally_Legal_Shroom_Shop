@@ -7,8 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://cbqqtabob4txw" path="res://scenes/game_scene/shop.tscn" id="3_n0m01"]
 [ext_resource type="PackedScene" uid="uid://dy1uiy23nc5he" path="res://scenes/game_scene/dungeon.tscn" id="4_io36f"]
 [ext_resource type="AudioStream" uid="uid://gjf8aowv1jdp" path="res://Audio/Originals/SFX/UPPER ROOM INTERACTIONS/Shrooms FX - Door Open and Close.wav" id="7_0bg0g"]
-[ext_resource type="AudioStream" uid="uid://ucwpye6owuym" path="res://Audio/Originals/Music/Shrooms Upper Room ST.wav" id="7_k8he3"]
-[ext_resource type="AudioStream" uid="uid://dfbyswom5852k" path="res://Audio/Originals/Music/Shrooms Basement ST.wav" id="8_0bg0g"]
+[ext_resource type="AudioStream" uid="uid://ucwpye6owuym" path="res://Audio/Originals/SFX/ITEMS/Music/Shrooms Upper Room ST.wav" id="7_k8he3"]
+[ext_resource type="AudioStream" uid="uid://dfbyswom5852k" path="res://Audio/Originals/SFX/ITEMS/Music/Shrooms Basement ST.wav" id="8_0bg0g"]
 
 [sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_q28bu"]
 clip_count = 2
