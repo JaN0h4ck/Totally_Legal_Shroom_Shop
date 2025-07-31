@@ -88,7 +88,7 @@ func start_falling():
 
 func fall_down():
 	falling = false
-	EventBus.npc_dropped.emit()
+	EventBus.npc_dropped.emit(npc_name)
 	queue_free()
 
 
