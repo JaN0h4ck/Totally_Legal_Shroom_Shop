@@ -13,6 +13,8 @@ var current_floor: AudioFloor.FloorTypes = AudioFloor.FloorTypes.Wood
 var block_input: bool = false
 var _is_inside: bool = false
 
+var carried_item: PickableObject = null
+
 var is_inside_interactable: bool:
 	get: return _is_inside
 	set(value):
