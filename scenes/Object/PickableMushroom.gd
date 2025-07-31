@@ -1,4 +1,5 @@
 extends PickableObject
+class_name PickableMushroom
 
 @export var item_res: InvItem
 @onready var sprite: Sprite2D = $Sprite2D

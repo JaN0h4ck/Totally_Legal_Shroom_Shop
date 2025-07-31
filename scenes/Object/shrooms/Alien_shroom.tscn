@@ -15,6 +15,8 @@ smol_tex = ExtResource("4_hn6lo")
 metadata/_custom_type_script = "uid://rnco6q5acyf"
 
 [node name="Object" instance=ExtResource("1_myc70")]
+z_index = -3
+z_as_relative = false
 script = ExtResource("2_oh2nc")
 item_res = SubResource("Resource_opqru")
 
