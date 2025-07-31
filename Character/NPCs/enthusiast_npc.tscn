@@ -154,7 +154,7 @@ animations = [{
 }]
 
 [node name="NPC" instance=ExtResource("1_xomjg")]
-npc_name = "enthusiast"
+npc_name = 7
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="2"]
 position = Vector2(0, -12)

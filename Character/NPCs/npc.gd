@@ -13,7 +13,8 @@ class_name base_npc
 @export var loop_path : bool = false
 
 ## Name des NPCs, lower case und mit _ als Leerzeichens
-@export var npc_name : String = ""
+enum npc_name_enum{alien, angry, beff, celeb, conspiracy, cook, cowboy, enthusiast, nerd, opa}
+@export var npc_name : npc_name_enum
 
 var last_position : Vector2
 var movement : Vector2

@@ -12,7 +12,7 @@ size = Vector2(10, 22)
 z_index = -1
 z_as_relative = false
 script = ExtResource("1_a8pm5")
-npc_name = "base"
+npc_name = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -0.5)

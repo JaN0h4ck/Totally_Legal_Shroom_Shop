@@ -155,7 +155,7 @@ animations = [{
 
 [node name="NPC" instance=ExtResource("1_pajgs")]
 move_speed = 20.0
-npc_name = "grandpa"
+npc_name = 9
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="2"]
 position = Vector2(0, -12)
