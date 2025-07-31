@@ -1,0 +1,79 @@
+[gd_scene load_steps=11 format=3 uid="uid://dvvpcdcq4i0gr"]
+
+[ext_resource type="Texture2D" uid="uid://bdlpb63hi606r" path="res://assets/store/Theken.PNG" id="1_0o3k0"]
+[ext_resource type="Script" uid="uid://csgglkk7yra66" path="res://scenes/game_scene/scripts/interactable_mushrooms.gd" id="2_bfhk3"]
+[ext_resource type="Script" uid="uid://dwvlbfvvx22b3" path="res://scenes/game_scene/scripts/interactable_customer.gd" id="3_0cdgy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f3u2c"]
+size = Vector2(45, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ailo"]
+size = Vector2(18, 57)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wo30k"]
+size = Vector2(65, 23)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eyhni"]
+size = Vector2(16, 34)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v5hj3"]
+size = Vector2(45, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yonj3"]
+size = Vector2(10, 23)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_40ceo"]
+size = Vector2(22.5, 10)
+
+[node name="theke" type="Sprite2D"]
+z_index = -5
+z_as_relative = false
+texture = ExtResource("1_0o3k0")
+
+[node name="theke_collision" type="StaticBody2D" parent="."]
+
+[node name="mushroom_top" type="CollisionShape2D" parent="theke_collision"]
+position = Vector2(-39.5, -37)
+shape = SubResource("RectangleShape2D_f3u2c")
+
+[node name="mushroom_left" type="CollisionShape2D" parent="theke_collision"]
+position = Vector2(-71, -20.5)
+shape = SubResource("RectangleShape2D_4ailo")
+
+[node name="cash_top" type="CollisionShape2D" parent="theke_collision"]
+position = Vector2(49.5, 10.5)
+shape = SubResource("RectangleShape2D_wo30k")
+
+[node name="cash_left" type="CollisionShape2D" parent="theke_collision"]
+position = Vector2(9, 16)
+shape = SubResource("RectangleShape2D_eyhni")
+
+[node name="interactable_mushrooms" type="Area2D" parent="."]
+position = Vector2(-59, -22)
+script = ExtResource("2_bfhk3")
+interact_prompt = "Mushrooms"
+metadata/_custom_type_script = "uid://b1kccbwcfiryn"
+
+[node name="top_collision_interactable_mushroom" type="CollisionShape2D" parent="interactable_mushrooms"]
+visible = false
+position = Vector2(19.5, 2)
+shape = SubResource("RectangleShape2D_v5hj3")
+
+[node name="left_collision_interactable_mushroom" type="CollisionShape2D" parent="interactable_mushrooms"]
+visible = false
+position = Vector2(2, 18.5)
+shape = SubResource("RectangleShape2D_yonj3")
+
+[node name="interactable_customer" type="Area2D" parent="."]
+position = Vector2(40, 27)
+script = ExtResource("3_0cdgy")
+interact_prompt = "Customer"
+metadata/_custom_type_script = "uid://b1kccbwcfiryn"
+
+[node name="collision_interactable_customer" type="CollisionShape2D" parent="interactable_customer"]
+visible = false
+position = Vector2(3.25, 0)
+shape = SubResource("RectangleShape2D_40ceo")
+
+[connection signal="player_interacted" from="interactable_mushrooms" to="interactable_mushrooms" method="_on_player_interacted"]
+[connection signal="player_interacted" from="interactable_customer" to="interactable_customer" method="_on_player_interacted"]

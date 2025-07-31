@@ -1,10 +1,8 @@
-[gd_scene load_steps=47 format=3 uid="uid://cbqqtabob4txw"]
+[gd_scene load_steps=38 format=3 uid="uid://cbqqtabob4txw"]
 
 [ext_resource type="Texture2D" uid="uid://vilqwodtna00" path="res://assets/store/room_base.PNG" id="1_81vyf"]
 [ext_resource type="Texture2D" uid="uid://b37d1uq1quc11" path="res://assets/store/room_border.PNG" id="2_4bti5"]
-[ext_resource type="Texture2D" uid="uid://bdlpb63hi606r" path="res://assets/store/Theken.PNG" id="3_7nhl3"]
-[ext_resource type="Script" uid="uid://csgglkk7yra66" path="res://scenes/game_scene/scripts/interactable_mushrooms.gd" id="4_jn45p"]
-[ext_resource type="Script" uid="uid://dwvlbfvvx22b3" path="res://scenes/game_scene/scripts/interactable_customer.gd" id="5_0b5ro"]
+[ext_resource type="PackedScene" uid="uid://dvvpcdcq4i0gr" path="res://scenes/game_scene/shop/theke.tscn" id="3_hvfww"]
 [ext_resource type="PackedScene" uid="uid://c7fbbmrlf6j6v" path="res://scenes/game_scene/shop/trap_door.tscn" id="6_81vyf"]
 [ext_resource type="Texture2D" uid="uid://dc1ft4te6wglg" path="res://assets/store/register/register_bottom.PNG" id="9_b25qi"]
 [ext_resource type="Texture2D" uid="uid://dqaq72bt5nfch" path="res://assets/store/register/register_top.PNG" id="10_bfrp6"]
@@ -40,27 +38,6 @@ size = Vector2(20, 100)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jn45p"]
 size = Vector2(20, 100)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_f3u2c"]
-size = Vector2(45, 24)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ailo"]
-size = Vector2(18, 57)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wo30k"]
-size = Vector2(65, 23)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_eyhni"]
-size = Vector2(16, 34)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_v5hj3"]
-size = Vector2(45, 10)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yonj3"]
-size = Vector2(10, 23)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_40ceo"]
-size = Vector2(22.5, 10)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g0p03"]
 size = Vector2(18, 10)
@@ -148,55 +125,7 @@ shape = SubResource("RectangleShape2D_7nhl3")
 position = Vector2(92, 0)
 shape = SubResource("RectangleShape2D_jn45p")
 
-[node name="theke" type="Sprite2D" parent="."]
-z_index = -5
-z_as_relative = false
-texture = ExtResource("3_7nhl3")
-
-[node name="theke_collision" type="StaticBody2D" parent="theke"]
-
-[node name="mushroom_top" type="CollisionShape2D" parent="theke/theke_collision"]
-position = Vector2(-39.5, -37)
-shape = SubResource("RectangleShape2D_f3u2c")
-
-[node name="mushroom_left" type="CollisionShape2D" parent="theke/theke_collision"]
-position = Vector2(-71, -20.5)
-shape = SubResource("RectangleShape2D_4ailo")
-
-[node name="cash_top" type="CollisionShape2D" parent="theke/theke_collision"]
-position = Vector2(49.5, 10.5)
-shape = SubResource("RectangleShape2D_wo30k")
-
-[node name="cash_left" type="CollisionShape2D" parent="theke/theke_collision"]
-position = Vector2(9, 16)
-shape = SubResource("RectangleShape2D_eyhni")
-
-[node name="interactable_mushrooms" type="Area2D" parent="theke"]
-position = Vector2(-59, -22)
-script = ExtResource("4_jn45p")
-interact_prompt = "Mushrooms"
-metadata/_custom_type_script = "uid://b1kccbwcfiryn"
-
-[node name="top_collision_interactable_mushroom" type="CollisionShape2D" parent="theke/interactable_mushrooms"]
-visible = false
-position = Vector2(19.5, 2)
-shape = SubResource("RectangleShape2D_v5hj3")
-
-[node name="left_collision_interactable_mushroom" type="CollisionShape2D" parent="theke/interactable_mushrooms"]
-visible = false
-position = Vector2(2, 18.5)
-shape = SubResource("RectangleShape2D_yonj3")
-
-[node name="interactable_customer" type="Area2D" parent="theke"]
-position = Vector2(40, 27)
-script = ExtResource("5_0b5ro")
-interact_prompt = "Customer"
-metadata/_custom_type_script = "uid://b1kccbwcfiryn"
-
-[node name="collision_interactable_customer" type="CollisionShape2D" parent="theke/interactable_customer"]
-visible = false
-position = Vector2(3.25, 0)
-shape = SubResource("RectangleShape2D_40ceo")
+[node name="theke" parent="." instance=ExtResource("3_hvfww")]
 
 [node name="trap_door" parent="." instance=ExtResource("6_81vyf")]
 position = Vector2(42, -15.5)
@@ -362,8 +291,6 @@ curve = SubResource("Curve2D_jn45p")
 position = Vector2(43, -36)
 rotation = 1.2925
 
-[connection signal="player_interacted" from="theke/interactable_mushrooms" to="theke/interactable_mushrooms" method="_on_player_interacted"]
-[connection signal="player_interacted" from="theke/interactable_customer" to="theke/interactable_customer" method="_on_player_interacted"]
 [connection signal="player_interacted" from="register/interactable_register" to="register/interactable_register" method="_on_player_interacted"]
 [connection signal="player_interacted" from="interactable_certificate" to="interactable_certificate" method="_on_player_interacted"]
 [connection signal="player_interacted" from="interactable_basement" to="interactable_basement" method="_on_player_interacted"]
