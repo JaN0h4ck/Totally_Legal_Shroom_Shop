@@ -1,3 +1,4 @@
+class_name PickableObject
 extends RigidBody2D
 
 
