@@ -7,6 +7,11 @@ extends Node2D
 @export var spawn_timer_min : float = 5.0
 @export var spawn_timer_max : float = 10.0
 
+## Wie of Common NPCs im NPC Array vorkommen sollen damit sie heufiger spawnen
+@export var number_common_npcs : int = 3
+## Wie of Rare NPCs im NPC Array vorkommen sollen damit sie heufiger spawnen
+@export var number_rare_npcs : int = 2
+
 var npc_list : Array = []
 var rng = RandomNumberGenerator.new()
 
@@ -17,6 +22,16 @@ func _ready():
 	# NPC Liste alle NPCs hinzufügen
 	npc_list.append(npc_cowboy)
 	npc_list.append(npc_angry)
+	
+	for npc : base_npc in npc_list:
+		if npc.rarity == 3:
+			pass
+		elif npc.rarity == 2:
+			for i in range (number_rare_npcs):
+				npc_list.append(npc)
+		elif npc.rarity == 1:
+			for i in range (number_common_npcs):
+				npc_list.append(npc)
 	
 	# Spawn Timer Starten
 	randomize_timer()

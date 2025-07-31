@@ -12,6 +12,9 @@ class_name base_npc
 @export var move_speed : float = 60.0
 @export var loop_path : bool = false
 
+## Defines the rarity of the npc, 1 = common, 2 = rare, 3 = ultra rare
+@export_range(1,3) var rarity : int = 1
+
 var last_position : Vector2
 var movement : Vector2
 
