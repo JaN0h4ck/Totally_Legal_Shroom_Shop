@@ -83,3 +83,9 @@ func play_animation(input_direction):
 func set_floor_type(type: AudioFloor.FloorTypes):
 	current_floor = type
 	footstep_player.change_sound(type)
+	
+func pick_up(duration):
+	
+	sprite_animation.play("idle")
+	
+	await get_tree().create_timer(duration).timeout

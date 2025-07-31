@@ -5,6 +5,7 @@ extends RigidBody2D
 
 var isPickedUp := false
 var canPickUp := false
+var animationTime := 0.5
 
 func _ready() -> void:
 	freeze = true
@@ -18,3 +19,20 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body == get_tree().get_first_node_in_group("player"):
 		canPickUp = false
+		
+func _input(event: InputEvent) -> void:
+	if canPickUp and event.is_action_pressed("interact"):
+		_pick_up_animation()
+		isPickedUp = true
+		canPickUp = false
+
+func _pick_up_animation():
+	var player = get_tree().get_first_node_in_group("player")
+	
+	player.pick_up(animationTime)
+	
+	var tween = get_tree().create_tween()
+	tween.tween_property(self, "global_position", player.global_position + Vector2(0, -14), animationTime)
+	await tween.finished
+	
+	reparent(player)
