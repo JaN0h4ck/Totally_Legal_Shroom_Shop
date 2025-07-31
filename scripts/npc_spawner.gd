@@ -12,8 +12,8 @@ extends Node2D
 @onready var npc_grandpa := preload("res://Character/NPCs/grandpa_npc.tscn")
 @onready var timer = $Timer
 
-@export var spawn_timer_min : float = 5.0
-@export var spawn_timer_max : float = 10.0
+@export var spawn_timer_min : float = 3.0
+@export var spawn_timer_max : float = 6.0
 
 ## Wie of Common NPCs im NPC Array vorkommen sollen damit sie heufiger spawnen
 @export var number_common_npcs : int = 3
@@ -21,6 +21,7 @@ extends Node2D
 @export var number_rare_npcs : int = 2
 
 var npc_list : Array = []
+var npc_in_shop : bool = false
 
 func _ready():
 	# Position auf 0 damit NPC nicht versetzt ist
@@ -50,12 +51,20 @@ func _ready():
 	
 	
 	# Spawn Timer Starten
+	timer.one_shot = true
+	timer.autostart = false
 	randomize_timer()
 	
 	# Spawn Timmer immer dann starten wenn NPC abgefertigt
 	EventBus.npc_left_trapdoor.connect(randomize_timer)
+	EventBus.npc_left_shop.connect(npc_left)
+	EventBus.npc_dropped.connect(npc_left)
 
 func spawn_npc():
+	if npc_in_shop == true:
+		return
+	
+	npc_in_shop = true
 	var npc_to_spawn = npc_list.pick_random()
 	var npc : base_npc = npc_to_spawn.instantiate()
 	npc.position = position
@@ -73,9 +82,15 @@ func _on_timer_timeout():
 	spawn_npc()
 
 func randomize_timer():
+	print("NPC ist im Shop: ", npc_in_shop)
+	if npc_in_shop == true:
+		return
+	
 	var rng = RandomNumberGenerator.new()
 	var random_nummer = rng.randf_range(5.0, 10.0)
 	timer.wait_time = random_nummer
+	timer.one_shot = false
+	timer.stop()
 	timer.start()
 
 func random_path():
@@ -90,3 +105,6 @@ func random_path():
 	print("number: ", random_nummer)
 	
 	return [path2d[random_nummer], follow_path[random_nummer]]
+
+func npc_left():
+	npc_in_shop = false
