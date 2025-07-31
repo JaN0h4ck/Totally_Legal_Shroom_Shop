@@ -21,19 +21,19 @@ func _ready():
 	position = Vector2(0,0)
 	
 	# NPC Liste alle NPCs hinzufügen
-	npc_list.append(npc_cowboy)
-	npc_list.append(npc_angry)
-	npc_list.append(npc_conspiracy)
+	# Alle seltenen nur ein mal
 	
-	for npc : base_npc in npc_list:
-		if npc.rarity == 3:
-			pass
-		elif npc.rarity == 2:
-			for i in range (number_rare_npcs):
-				npc_list.append(npc)
-		elif npc.rarity == 1:
-			for i in range (number_common_npcs):
-				npc_list.append(npc)
+	# Alle etwas seltene 2 mal
+	for i in range (number_rare_npcs):
+		pass
+	
+	# Alle normalen drei mal
+	# Cowboy, Conspiracy, Angry
+	for i in range (number_common_npcs):
+		npc_list.append(npc_cowboy)
+		npc_list.append(npc_angry)
+		npc_list.append(npc_conspiracy)
+	
 	
 	# Spawn Timer Starten
 	randomize_timer()
