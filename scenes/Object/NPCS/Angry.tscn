@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3yxytv201lgf"]
+
+[ext_resource type="PackedScene" uid="uid://oc2ty4554k24" path="res://scenes/Object/object_npc.tscn" id="1_v3c1r"]
+[ext_resource type="Texture2D" uid="uid://bedlmbqa0owij" path="res://assets/dead/angy_dead.png" id="2_ak86a"]
+
+[node name="Object" instance=ExtResource("1_v3c1r")]
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D/CollisionShape2D2" index="0"]
+texture = ExtResource("2_ak86a")
