@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://wgvolemsb07q"]
+
+[ext_resource type="Script" uid="uid://cgb50feimocx7" path="res://Audio/audio_floor.gd" id="1_hy04c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ppaq7"]
+size = Vector2(99, 80)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ja0t"]
+size = Vector2(63, 17)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tbl2k"]
+size = Vector2(63, 63)
+
+[node name="BasementFloors" type="Node2D"]
+
+[node name="MainFloor" type="Area2D" parent="."]
+script = ExtResource("1_hy04c")
+floor_type = 0
+metadata/_custom_type_script = "uid://cgb50feimocx7"
+
+[node name="Main" type="CollisionShape2D" parent="MainFloor"]
+position = Vector2(32.5, 5)
+shape = SubResource("RectangleShape2D_ppaq7")
+debug_color = Color(0, 0.643137, 0.294118, 0.419608)
+
+[node name="AboveDirt" type="CollisionShape2D" parent="MainFloor"]
+position = Vector2(-48.5, -26.5)
+shape = SubResource("RectangleShape2D_0ja0t")
+debug_color = Color(0, 0.643137, 0.294118, 0.419608)
+
+[node name="Dirt" type="Area2D" parent="."]
+position = Vector2(-48, 10)
+script = ExtResource("1_hy04c")
+floor_type = 2
+metadata/_custom_type_script = "uid://cgb50feimocx7"
+
+[node name="Main" type="CollisionShape2D" parent="Dirt"]
+position = Vector2(-0.5, 3.5)
+shape = SubResource("RectangleShape2D_tbl2k")
+debug_color = Color(0, 0.643137, 0.294118, 0.419608)

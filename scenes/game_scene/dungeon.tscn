@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://dy1uiy23nc5he"]
+[gd_scene load_steps=34 format=3 uid="uid://dy1uiy23nc5he"]
 
 [ext_resource type="Texture2D" uid="uid://bhqas40v1sogj" path="res://assets/dungeon/dungeon_base.PNG" id="1_miufi"]
 [ext_resource type="Texture2D" uid="uid://bt4kb5hqwg4nl" path="res://assets/dungeon/dungeon_border.PNG" id="2_5623h"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://dwr0060psd8kh" path="res://assets/dungeon/prison/prison_bottom.PNG" id="15_7taji"]
 [ext_resource type="Texture2D" uid="uid://df5m0n2gb7q36" path="res://assets/dungeon/prison/prison_top.PNG" id="16_0sevn"]
 [ext_resource type="Script" uid="uid://cfc8a16cgd5gl" path="res://scenes/game_scene/scripts/interactable_shop.gd" id="17_7taji"]
+[ext_resource type="PackedScene" uid="uid://wgvolemsb07q" path="res://scenes/game_scene/dungeon/basement_floors.tscn" id="18_0sevn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ikx5i"]
 size = Vector2(200, 20)
@@ -308,5 +309,7 @@ metadata/_custom_type_script = "uid://b1kccbwcfiryn"
 [node name="collision_interactable_basement" type="CollisionShape2D" parent="interactable_shop"]
 position = Vector2(0.5, 5)
 shape = SubResource("RectangleShape2D_j3unq")
+
+[node name="BasementFloors" parent="." instance=ExtResource("18_0sevn")]
 
 [connection signal="player_interacted" from="interactable_shop" to="interactable_shop" method="_on_player_interacted"]
