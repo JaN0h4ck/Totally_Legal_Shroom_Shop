@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ch72oviw1tjpi"
+path="res://.godot/imported/Shrooms FX - Footsteps Wood.wav-e222ea5aa8019c508cc43a480b3cdbc5.sample"
+
+[deps]
+
+source_file="res://Audio/Originals/SFX/FOOTSTEPS/Shrooms FX - Footsteps Wood.wav"
+dest_files=["res://.godot/imported/Shrooms FX - Footsteps Wood.wav-e222ea5aa8019c508cc43a480b3cdbc5.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

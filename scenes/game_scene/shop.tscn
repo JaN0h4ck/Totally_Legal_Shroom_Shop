@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://cbqqtabob4txw"]
+[gd_scene load_steps=52 format=3 uid="uid://cbqqtabob4txw"]
 
 [ext_resource type="Texture2D" uid="uid://vilqwodtna00" path="res://assets/store/room_base.PNG" id="1_81vyf"]
 [ext_resource type="Texture2D" uid="uid://b37d1uq1quc11" path="res://assets/store/room_border.PNG" id="2_4bti5"]
@@ -27,6 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://dd5amwgg6l5mr" path="res://assets/store/flower_pot.PNG" id="27_f5d8s"]
 [ext_resource type="Texture2D" uid="uid://7r1ob1uqh3xj" path="res://assets/store/smolplant.PNG" id="28_2f5ol"]
 [ext_resource type="Script" uid="uid://c6wik4urpqiw5" path="res://scenes/game_scene/scripts/interactable_basement.gd" id="29_4bti5"]
+[ext_resource type="Script" uid="uid://cgb50feimocx7" path="res://Audio/audio_floor.gd" id="29_7nhl3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_81vyf"]
 size = Vector2(200, 20)
@@ -111,6 +112,21 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 44, -38, 0, 0, 0, 0, 44, -29, 0, 0, 0, 0, -36, -17, 0, 0, 0, 0, -51, 3, 0, 0, 0, 0, -53, 30, 0, 0, 0, 0, -13, 22, 0, 0, 0, 0, -10, -13, 0, 0, 0, 0, 41, -21, 0, 0, 0, 0, 42, -13)
 }
 point_count = 9
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eada0"]
+size = Vector2(36, 45)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0m7m1"]
+size = Vector2(101, 83)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0dbjl"]
+size = Vector2(43, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b25qi"]
+size = Vector2(25, 66)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bfrp6"]
+size = Vector2(36, 21)
 
 [node name="shop" type="Sprite2D"]
 z_index = -10
@@ -344,6 +360,41 @@ curve = SubResource("Curve2D_jn45p")
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D" groups=["npc_followpath2D"]]
 position = Vector2(44, -38)
 rotation = 1.5708
+
+[node name="FloorTypes" type="Node2D" parent="."]
+
+[node name="Carpet" type="Area2D" parent="FloorTypes"]
+position = Vector2(-37, 0)
+script = ExtResource("29_7nhl3")
+floor_type = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FloorTypes/Carpet"]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_eada0")
+debug_color = Color(0, 0.643776, 0.293722, 0.42)
+
+[node name="Wood" type="Area2D" parent="FloorTypes"]
+script = ExtResource("29_7nhl3")
+
+[node name="Main" type="CollisionShape2D" parent="FloorTypes/Wood"]
+position = Vector2(31.5, 3.5)
+shape = SubResource("RectangleShape2D_0m7m1")
+debug_color = Color(0, 0.643137, 0.294118, 0.419608)
+
+[node name="AboveCarpet" type="CollisionShape2D" parent="FloorTypes/Wood"]
+position = Vector2(-40.5, -23)
+shape = SubResource("RectangleShape2D_0dbjl")
+debug_color = Color(0, 0.643137, 0.294118, 0.419608)
+
+[node name="LeftCarpet" type="CollisionShape2D" parent="FloorTypes/Wood"]
+position = Vector2(-67.5, 12)
+shape = SubResource("RectangleShape2D_b25qi")
+debug_color = Color(0, 0.643137, 0.294118, 0.419608)
+
+[node name="BelowCarpet" type="CollisionShape2D" parent="FloorTypes/Wood"]
+position = Vector2(-37, 34.5)
+shape = SubResource("RectangleShape2D_bfrp6")
+debug_color = Color(0, 0.643137, 0.294118, 0.419608)
 
 [connection signal="player_interacted" from="theke/interactable_mushrooms" to="theke/interactable_mushrooms" method="_on_player_interacted"]
 [connection signal="player_interacted" from="theke/interactable_customer" to="theke/interactable_customer" method="_on_player_interacted"]

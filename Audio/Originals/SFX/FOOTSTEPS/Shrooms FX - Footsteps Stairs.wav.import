@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://7th7c52cgkd4"
+path="res://.godot/imported/Shrooms FX - Footsteps Stairs.wav-6e4cc384e1e034a12401feb1d1553b16.sample"
+
+[deps]
+
+source_file="res://Audio/Originals/SFX/FOOTSTEPS/Shrooms FX - Footsteps Stairs.wav"
+dest_files=["res://.godot/imported/Shrooms FX - Footsteps Stairs.wav-6e4cc384e1e034a12401feb1d1553b16.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

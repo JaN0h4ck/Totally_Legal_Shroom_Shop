@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://d0o5dug26555l"]
+[gd_scene load_steps=26 format=3 uid="uid://d0o5dug26555l"]
 
 [ext_resource type="Script" uid="uid://bw4y2g3n5jvan" path="res://Character/player.gd" id="1_3c51y"]
 [ext_resource type="Texture2D" uid="uid://e530b28wy4cx" path="res://assets/character/player/player_idle_back.png" id="3_m6p0u"]
@@ -13,6 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://l8lfjqje8j04" path="res://assets/character/player/player_walkleft2.PNG" id="11_m6avg"]
 [ext_resource type="Texture2D" uid="uid://dt1w540iam524" path="res://assets/character/player/player_walkright1.PNG" id="12_wl30t"]
 [ext_resource type="Texture2D" uid="uid://cskgwtqwia0le" path="res://assets/character/player/player_walkright2.PNG" id="13_3j4vf"]
+[ext_resource type="AudioStream" uid="uid://ch72oviw1tjpi" path="res://Audio/Originals/SFX/FOOTSTEPS/Shrooms FX - Footsteps Wood.wav" id="14_xj0yq"]
+[ext_resource type="Script" uid="uid://d0it67nj7vct1" path="res://Audio/footstep_player.gd" id="15_6y5aw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o003e"]
 atlas = ExtResource("3_m6p0u")
@@ -140,13 +142,15 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_raa3c"]
 size = Vector2(12, 9)
 
-[node name="Player" type="CharacterBody2D" groups=["player"]]
+[node name="Player" type="CharacterBody2D" groups=["player", "stepper"]]
 script = ExtResource("1_3c51y")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_bfpf6")
 animation = &"idle_right"
+frame = 1
+frame_progress = 0.53044
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 8)
@@ -154,3 +158,7 @@ shape = SubResource("RectangleShape2D_raa3c")
 
 [node name="AudioListener2D" type="AudioListener2D" parent="."]
 current = true
+
+[node name="FootstepPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_xj0yq")
+script = ExtResource("15_6y5aw")

@@ -1,8 +1,13 @@
 class_name Player
 extends CharacterBody2D
 
+enum Directions { FRONT, BACK, LEFT, RIGHT }
+
 @onready var sprite_animation = $AnimatedSprite2D
-var last_direction : String = "f"
+var last_direction : Directions = Directions.FRONT
+
+var current_floor: AudioFloor.FloorTypes = AudioFloor.FloorTypes.Wood
+@onready var footstep_player: FootstepPlayer = $FootstepPlayer
 
 @export var speed = 4000
 var block_input: bool = false
@@ -33,34 +38,48 @@ func _physics_process(delta: float):
 	var input_direction = getInput(delta)
 	move_and_slide()
 	
-	play_animation(input_direction)
+	if velocity.is_zero_approx():
+		select_idle()
+		if footstep_player.playing:
+			footstep_player.stop()
+	else:
+		play_animation(input_direction)
+		if not footstep_player.playing:
+			footstep_player.play()
 
 
 func _on_dialogue_started():
+	footstep_player.stop()
 	block_input = true
 
 func _on_dialogue_ended():
 	block_input = false
 
+func select_idle():
+	match last_direction:
+		Directions.FRONT:
+			sprite_animation.play("idle_front")
+		Directions.BACK:
+			sprite_animation.play("idle_back")
+		Directions.RIGHT:
+			sprite_animation.play("idle_right")
+		Directions.LEFT:
+			sprite_animation.play("idle_left")
+
 func play_animation(input_direction):
 	if input_direction.y > 0:
 		sprite_animation.play("walk_forward")
-		last_direction = "f"
+		last_direction = Directions.FRONT
 	elif input_direction.y < 0:
 		sprite_animation.play("walk_backward")
-		last_direction = "b"
+		last_direction = Directions.BACK
 	elif input_direction.x > 0:
 		sprite_animation.play("walk_right")
-		last_direction = "r"
+		last_direction = Directions.RIGHT
 	elif input_direction.x < 0:
 		sprite_animation.play("walk_left")
-		last_direction = "l"
-	else:
-		if last_direction == "f":
-			sprite_animation.play("idle_front")
-		elif last_direction == "b":
-			sprite_animation.play("idle_back")
-		elif last_direction == "r":
-			sprite_animation.play("idle_right")
-		elif last_direction == "l":
-			sprite_animation.play("idle_left")
+		last_direction = Directions.LEFT
+
+func set_floor_type(type: AudioFloor.FloorTypes):
+	current_floor = type
+	footstep_player.change_sound(type)
