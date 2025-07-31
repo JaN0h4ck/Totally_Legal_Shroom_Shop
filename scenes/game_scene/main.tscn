@@ -81,9 +81,9 @@ autoplay = true
 bus = &"Music"
 
 [node name="Lexicon_Camera2D" type="Camera2D" parent="."]
-position = Vector2(1550, -20)
+position = Vector2(1555, -20)
 offset = Vector2(164.14, 0)
-zoom = Vector2(0.75, 0.6)
+zoom = Vector2(0.6, 0.6)
 
 [node name="Lexicon" parent="." instance=ExtResource("10_q28bu")]
 position = Vector2(1723, -21)
