@@ -1,9 +1,27 @@
-[gd_scene load_steps=3 format=3 uid="uid://b7fecdpuah10g"]
+[gd_scene load_steps=14 format=3 uid="uid://b7fecdpuah10g"]
 
 [ext_resource type="Script" uid="uid://bu05imyuwv2yl" path="res://scenes/game_ui/dialog_system/dialog_panel.gd" id="1_0om7c"]
+[ext_resource type="AudioStream" uid="uid://dbotfhw3rag17" path="res://Audio/Originals/Voices/Voice_Low_1.wav" id="2_5ms7g"]
+[ext_resource type="AudioStream" uid="uid://cvrqo1dxk60x7" path="res://Audio/Originals/Voices/Voice_Low_2.wav" id="3_wq83t"]
+[ext_resource type="AudioStream" uid="uid://cahp66k86kh4s" path="res://Audio/Originals/Voices/Voice_Low_3.wav" id="4_aby5p"]
+[ext_resource type="Script" uid="uid://54xncp1ljmib" path="res://scenes/game_ui/dialog_system/dialog_audio.gd" id="5_h8nx1"]
+[ext_resource type="AudioStream" uid="uid://l576evkx8hub" path="res://Audio/Originals/Voices/Voice_High_1.wav" id="6_5ms7g"]
+[ext_resource type="AudioStream" uid="uid://dukneovmhds8d" path="res://Audio/Originals/Voices/Voice_High_2.wav" id="7_wq83t"]
+[ext_resource type="AudioStream" uid="uid://ba44uiw132ea6" path="res://Audio/Originals/Voices/Voice_High_3.wav" id="8_aby5p"]
+[ext_resource type="AudioStream" uid="uid://c3wuimyws51ls" path="res://Audio/Originals/Voices/Voice_Medium_1.wav" id="9_h8nx1"]
+[ext_resource type="AudioStream" uid="uid://bkv8h0t6g28p0" path="res://Audio/Originals/Voices/Voice_Medium_2.wav" id="10_v8oon"]
+[ext_resource type="AudioStream" uid="uid://df0t1r42poy3q" path="res://Audio/Originals/Voices/Voice_Medium_3.wav" id="11_vbyli"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_7d2xt"]
 font_size = 26
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_0ag80"]
+random_pitch = 1.1
+random_volume_offset_db = 0.2
+streams_count = 3
+stream_0/stream = ExtResource("2_5ms7g")
+stream_1/stream = ExtResource("3_wq83t")
+stream_2/stream = ExtResource("4_aby5p")
 
 [node name="DialogPanel" type="Panel"]
 anchors_preset = 12
@@ -32,3 +50,12 @@ custom_minimum_size = Vector2(100, 120)
 layout_mode = 2
 label_settings = SubResource("LabelSettings_7d2xt")
 autowrap_mode = 3
+
+[node name="DialogAudio" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_0ag80")
+mix_target = 2
+bus = &"SFX"
+script = ExtResource("5_h8nx1")
+voice_high = Array[AudioStreamWAV]([ExtResource("6_5ms7g"), ExtResource("7_wq83t"), ExtResource("8_aby5p")])
+voice_medium = Array[AudioStreamWAV]([ExtResource("9_h8nx1"), ExtResource("10_v8oon"), ExtResource("11_vbyli")])
+voice_low = Array[AudioStreamWAV]([ExtResource("2_5ms7g"), ExtResource("3_wq83t"), ExtResource("4_aby5p")])
