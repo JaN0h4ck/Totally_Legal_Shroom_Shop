@@ -76,6 +76,7 @@ pitch_scale = 2.0
 bus = &"SFX"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
 stream = SubResource("AudioStreamInteractive_q28bu")
 autoplay = true
 bus = &"Music"
