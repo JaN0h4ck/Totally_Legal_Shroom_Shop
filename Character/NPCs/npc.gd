@@ -22,8 +22,8 @@ var on_trapdoor : bool = false
 
 func _ready() -> void:
 	path_follow.loop = loop_path
-	position = path_follow.global_position
-	last_position = position
+	global_position = path_follow.global_position
+	last_position = global_position
 	
 	EventBus.npc_entered_trapdoor.connect(enter_trapdoor)
 	EventBus.npc_left_trapdoor.connect(exit_trapdoor)
@@ -32,10 +32,7 @@ func _ready() -> void:
 
 func _physics_process(delta : float) -> void:
 	path_follow.progress += move_speed * delta
-	position = path_follow.global_position
-	
-	movement = position - last_position
-	last_position = position
+	global_position = path_follow.global_position
 	
 	play_animation()
 
@@ -43,19 +40,11 @@ func play_animation():
 	if falling == true:
 		return
 	
+	movement = global_position - last_position
+	last_position = global_position
 	
-	if movement.x == 0 and movement.y == 0:
-		if last_direction == "f":
-			animated_sprite.play("idle_front")
-		elif last_direction == "b":
-			animated_sprite.play("idle_back")
-		elif last_direction == "r":
-			animated_sprite.play("idle_right")
-		elif last_direction == "l":
-			animated_sprite.play("idle_left")
-	
-	else:
-		if movement.x > movement.y:
+	if movement.length() > 0.1:
+		if abs(movement.x) > abs(movement.y):
 			if movement.x > 0:
 				animated_sprite.play("walk_right")
 				last_direction = "r"
@@ -69,6 +58,15 @@ func play_animation():
 			else:
 				animated_sprite.play("walk_backward")
 				last_direction = "b"
+	else:
+		if last_direction == "f":
+			animated_sprite.play("idle_front")
+		elif last_direction == "b":
+			animated_sprite.play("idle_back")
+		elif last_direction == "r":
+			animated_sprite.play("idle_right")
+		elif last_direction == "l":
+			animated_sprite.play("idle_left")
 
 
 func enter_trapdoor():
@@ -84,10 +82,10 @@ func start_falling():
 	falling = true
 	animated_sprite.play("fall_down")
 	animated_sprite.animation_finished.connect(fall_down)
-	EventBus.npc_dropped.emit()
 
 func fall_down():
 	falling = false
+	EventBus.npc_dropped.emit()
 	queue_free()
 
 
