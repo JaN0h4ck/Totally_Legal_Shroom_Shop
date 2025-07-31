@@ -3,13 +3,13 @@
 [ext_resource type="Script" uid="uid://cgb50feimocx7" path="res://Audio/audio_floor.gd" id="1_tfxgx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eada0"]
-size = Vector2(36, 45)
+size = Vector2(36, 49)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0m7m1"]
 size = Vector2(101, 83)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0dbjl"]
-size = Vector2(43, 4)
+size = Vector2(7, 4)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b25qi"]
 size = Vector2(25, 66)
@@ -25,7 +25,7 @@ script = ExtResource("1_tfxgx")
 floor_type = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Carpet"]
-position = Vector2(0, 1.5)
+position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_eada0")
 debug_color = Color(0, 0.643776, 0.293722, 0.42)
 
@@ -38,7 +38,7 @@ shape = SubResource("RectangleShape2D_0m7m1")
 debug_color = Color(0, 0.643137, 0.294118, 0.419608)
 
 [node name="AboveCarpet" type="CollisionShape2D" parent="Wood"]
-position = Vector2(-40.5, -23)
+position = Vector2(-58.5, -23)
 shape = SubResource("RectangleShape2D_0dbjl")
 debug_color = Color(0, 0.643137, 0.294118, 0.419608)
 
