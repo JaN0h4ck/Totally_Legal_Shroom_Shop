@@ -9,7 +9,7 @@ class_name base_npc
 
 @export var path : Path2D
 @export var path_follow : PathFollow2D
-@export var move_speed : float = 60.0
+@export var move_speed : float = 40.0
 @export var loop_path : bool = false
 
 var last_position : Vector2
@@ -84,6 +84,7 @@ func start_falling():
 	falling = true
 	animated_sprite.play("fall_down")
 	animated_sprite.animation_finished.connect(fall_down)
+	EventBus.npc_dropped.emit()
 
 func fall_down():
 	falling = false

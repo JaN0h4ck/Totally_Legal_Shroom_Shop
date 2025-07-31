@@ -115,9 +115,9 @@ point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_jn45p"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 43, -36, 0, 0, 0, 0, 43, -21, 0, 0, 0, 0, -54, -20, 0, 0, 0, 0, -54, 7, 0, 0, 0, 0, -13, 7, 0, 0, 0, 0, -13, -14, 0, 0, 0, 0, 45, -14, 0, 0, 0, 0, 45, -12)
+"points": PackedVector2Array(0, 0, 0, 0, 43, -36, 0, 0, 0, 0, 45, -29, 0, 0, 0, 0, -10, -29, 0, 0, 0, 0, -4, -16, 0, 0, 0, 0, -56, -16, 0, 0, 0, 0, -56, 6, 0, 0, 0, 0, -48, 5, 0, 0, 0, 0, -48, 25, 0, 0, 0, 0, -55, 25, 0, 0, 0, 0, -56, 37, 0, 0, 0, 0, -16, 37, 0, 0, 0, 0, -13, 36, 0, 0, 0, 0, -14, -8, 0, 0, 0, 0, 18, -7, 0, 0, 0, 0, 14, -17, 0, 0, 0, 0, 43, -17, 0, 0, 0, 0, 43, -14)
 }
-point_count = 8
+point_count = 17
 
 [node name="shop" type="Sprite2D"]
 z_index = -10
@@ -353,13 +353,14 @@ position = Vector2(43, -36)
 rotation = 1.5708
 
 [node name="FloorTypes" parent="." instance=ExtResource("28_81vyf")]
+position = Vector2(-1, 1)
 
 [node name="Path2D_long" type="Path2D" parent="." groups=["npc_path2D"]]
 curve = SubResource("Curve2D_jn45p")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D_long" groups=["npc_followpath2D"]]
 position = Vector2(43, -36)
-rotation = 1.5708
+rotation = 1.2925
 
 [connection signal="player_interacted" from="theke/interactable_mushrooms" to="theke/interactable_mushrooms" method="_on_player_interacted"]
 [connection signal="player_interacted" from="theke/interactable_customer" to="theke/interactable_customer" method="_on_player_interacted"]

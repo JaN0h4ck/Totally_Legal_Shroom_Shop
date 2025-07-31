@@ -10,6 +10,8 @@ signal interact_shop
 
 signal npc_entered_trapdoor
 signal npc_left_trapdoor
+signal npc_left_shop
+signal npc_dropped
 
 signal dialog_started
 signal dialog_ended
