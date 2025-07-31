@@ -16,6 +16,10 @@ var ultra_rare_shrooms: Array
 func _ready() -> void:
 	randomize()
 	parse_json()
+	EventBus.interact_customer.connect(start_random_dialogue)
+
+func start_random_dialogue():
+	init_dialogue(DialogTypes.GENERIC)
 
 func parse_json():
 	if FileAccess.file_exists(dialogue_file_path):
