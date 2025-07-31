@@ -1,0 +1,86 @@
+[gd_scene load_steps=10 format=3 uid="uid://bpg8lyxgg0rkt"]
+
+[ext_resource type="Texture2D" uid="uid://dnogg28bv4bwt" path="res://assets/ButtonLexikon-sheet.png" id="1_566mw"]
+[ext_resource type="Script" uid="uid://dc1cmf14215gd" path="res://scenes/lexicon/lexicon.gd" id="1_etx67"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_etx67"]
+atlas = ExtResource("1_566mw")
+region = Rect2(0, 0, 1680, 1190)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c6ilk"]
+atlas = ExtResource("1_566mw")
+region = Rect2(1680, 0, 1680, 1190)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ihle"]
+atlas = ExtResource("1_566mw")
+region = Rect2(3360, 0, 1680, 1190)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_upreb"]
+atlas = ExtResource("1_566mw")
+region = Rect2(5040, 0, 1680, 1190)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uitdy"]
+atlas = ExtResource("1_566mw")
+region = Rect2(6720, 0, 1680, 1190)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ngwnk"]
+atlas = ExtResource("1_566mw")
+region = Rect2(8400, 0, 1680, 1190)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_shews"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_etx67")
+}],
+"loop": true,
+"name": &"Page1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c6ilk")
+}],
+"loop": true,
+"name": &"Page2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ihle")
+}],
+"loop": true,
+"name": &"Page3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_upreb")
+}],
+"loop": true,
+"name": &"Page4",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uitdy")
+}],
+"loop": true,
+"name": &"Page5",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ngwnk")
+}],
+"loop": true,
+"name": &"Page6",
+"speed": 5.0
+}]
+
+[node name="Lexicon" type="Node2D"]
+script = ExtResource("1_etx67")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_shews")
+animation = &"Page1"

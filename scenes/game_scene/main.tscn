@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b4r1rx3y0kcdn"]
+[gd_scene load_steps=12 format=3 uid="uid://b4r1rx3y0kcdn"]
 
 [ext_resource type="Script" uid="uid://caarja1bexjx8" path="res://scenes/game_scene/scripts/main.gd" id="1_bt4sa"]
 [ext_resource type="PackedScene" uid="uid://d0o5dug26555l" path="res://Character/player.tscn" id="1_ycr2w"]
@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://gjf8aowv1jdp" path="res://Audio/Originals/SFX/UPPER ROOM INTERACTIONS/Shrooms FX - Door Open and Close.wav" id="7_0bg0g"]
 [ext_resource type="AudioStream" uid="uid://ucwpye6owuym" path="res://Audio/Originals/SFX/ITEMS/Music/Shrooms Upper Room ST.wav" id="7_k8he3"]
 [ext_resource type="AudioStream" uid="uid://dfbyswom5852k" path="res://Audio/Originals/SFX/ITEMS/Music/Shrooms Basement ST.wav" id="8_0bg0g"]
+[ext_resource type="PackedScene" uid="uid://bpg8lyxgg0rkt" path="res://scenes/lexicon/lexicon.tscn" id="10_q28bu"]
 
 [sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_q28bu"]
 clip_count = 2
@@ -27,12 +28,13 @@ Vector2i(-1, -1): {
 }
 }
 
-[node name="Main" type="Node2D" node_paths=PackedStringArray("basement_position", "shop_position", "shop_camera", "basement_camera")]
+[node name="Main" type="Node2D" node_paths=PackedStringArray("basement_position", "shop_position", "shop_camera", "basement_camera", "lexicon_camera")]
 script = ExtResource("1_bt4sa")
 basement_position = NodePath("teleport_point_basement")
 shop_position = NodePath("teleport_point_shopt")
 shop_camera = NodePath("Shop_Camera2D")
 basement_camera = NodePath("Basement_Camera2D")
+lexicon_camera = NodePath("Lexicon_Camera2D")
 
 [node name="npc_spawner" parent="." instance=ExtResource("3_0bg0g")]
 
@@ -77,3 +79,11 @@ bus = &"SFX"
 stream = SubResource("AudioStreamInteractive_q28bu")
 autoplay = true
 bus = &"Music"
+
+[node name="Lexicon_Camera2D" type="Camera2D" parent="."]
+position = Vector2(1550, -20)
+offset = Vector2(164.14, 0)
+zoom = Vector2(0.75, 0.6)
+
+[node name="Lexicon" parent="." instance=ExtResource("10_q28bu")]
+position = Vector2(1723, -21)

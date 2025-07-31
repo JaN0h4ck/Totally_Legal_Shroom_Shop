@@ -18,6 +18,8 @@ signal dialog_ended
 
 signal open_inventory
 
+signal lexicon_back
+
 func _on_interact_customer():
 	interact_customer.emit()
 
