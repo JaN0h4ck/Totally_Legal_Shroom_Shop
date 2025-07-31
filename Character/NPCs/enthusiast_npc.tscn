@@ -1,0 +1,162 @@
+[gd_scene load_steps=19 format=3 uid="uid://h3jg7s867rd2"]
+
+[ext_resource type="PackedScene" uid="uid://bgx1eldmsx2b3" path="res://Character/NPCs/base_npc.tscn" id="1_xomjg"]
+[ext_resource type="Texture2D" uid="uid://cltky8do07wv4" path="res://assets/character/enthusiast/enthusiast_idle_front.png" id="2_xomjg"]
+[ext_resource type="Texture2D" uid="uid://b1m2jfxe6dnuv" path="res://assets/character/enthusiast/enthusiast_idle_right.png" id="3_s25pe"]
+[ext_resource type="Texture2D" uid="uid://dgb5yh7vrr21v" path="res://assets/character/enthusiast/enthusiast_idle_back.png" id="4_1h84f"]
+[ext_resource type="Texture2D" uid="uid://b85dm85vkxwlk" path="res://assets/character/enthusiast/enthusiast_idle_left.png" id="5_36oba"]
+[ext_resource type="Texture2D" uid="uid://c1iot5ii2bsd8" path="res://assets/character/enthusiast/enthusiast_walk_backward.png" id="6_pk0af"]
+[ext_resource type="Texture2D" uid="uid://dcv3tccr36wtx" path="res://assets/character/enthusiast/enthusiast_walk_forward.png" id="7_7jhmp"]
+[ext_resource type="Texture2D" uid="uid://di817p58c0j3j" path="res://assets/character/enthusiast/enthusiast_walk_right.png" id="8_if7yy"]
+[ext_resource type="Texture2D" uid="uid://c0i0vrv3rmla8" path="res://assets/character/enthusiast/enthusiast_walk_left.png" id="9_gjug3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jfuc8"]
+atlas = ExtResource("6_pk0af")
+region = Rect2(0, 0, 28, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xygx0"]
+atlas = ExtResource("6_pk0af")
+region = Rect2(28, 0, 28, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tgis5"]
+atlas = ExtResource("7_7jhmp")
+region = Rect2(0, 0, 28, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oqyr5"]
+atlas = ExtResource("7_7jhmp")
+region = Rect2(28, 0, 28, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qq6r1"]
+atlas = ExtResource("8_if7yy")
+region = Rect2(0, 0, 28, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ido8r"]
+atlas = ExtResource("8_if7yy")
+region = Rect2(28, 0, 28, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cc4do"]
+atlas = ExtResource("9_gjug3")
+region = Rect2(0, 0, 28, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ndkfx"]
+atlas = ExtResource("9_gjug3")
+region = Rect2(28, 0, 28, 33)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_piw7h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_xomjg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_s25pe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_1h84f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_36oba")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_xomjg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_s25pe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_1h84f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_36oba")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_xomjg")
+}],
+"loop": false,
+"name": &"fall_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_1h84f")
+}],
+"loop": true,
+"name": &"idle_back",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_xomjg")
+}],
+"loop": true,
+"name": &"idle_front",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_36oba")
+}],
+"loop": true,
+"name": &"idle_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_s25pe")
+}],
+"loop": true,
+"name": &"idle_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jfuc8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xygx0")
+}],
+"loop": true,
+"name": &"walk_backward",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tgis5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oqyr5")
+}],
+"loop": true,
+"name": &"walk_forward",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qq6r1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ido8r")
+}],
+"loop": true,
+"name": &"walk_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cc4do")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ndkfx")
+}],
+"loop": true,
+"name": &"walk_right",
+"speed": 5.0
+}]
+
+[node name="NPC" instance=ExtResource("1_xomjg")]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="2"]
+position = Vector2(0, -12)
+scale = Vector2(0.8, 0.8)
+sprite_frames = SubResource("SpriteFrames_piw7h")
+animation = &"fall_down"

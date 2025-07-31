@@ -7,6 +7,7 @@ extends Node2D
 @onready var npc_cook := preload("res://Character/NPCs/cook_npc.tscn")
 @onready var npc_beff := preload("res://Character/NPCs/beff_npc.tscn")
 @onready var npc_celebrity := preload("res://Character/NPCs/celebrity_npc.tscn")
+@onready var npc_enthusiast := preload("res://Character/NPCs/enthusiast_npc.tscn")
 @onready var timer = $Timer
 
 @export var spawn_timer_min : float = 5.0
@@ -42,6 +43,7 @@ func _ready():
 		npc_list.append(npc_angry)
 		npc_list.append(npc_conspiracy)
 		npc_list.append(npc_cook)
+		npc_list.append(npc_enthusiast)
 	
 	
 	# Spawn Timer Starten
