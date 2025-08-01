@@ -3,7 +3,6 @@ extends Node2D
 @onready var timer_step_1 : Timer = $Timer_Step_1
 @onready var timer_step_2 : Timer = $Timer_Step_2
 @onready var timer_regrow = $Timer_regrow
-@onready var pickable_mushroom : RigidBody2D = $pickable_mushroom
 
 @onready var alien_shroom := preload("res://scenes/Object/shrooms/Alien_shroom.tscn")
 @onready var blutpilz := preload("res://scenes/Object/shrooms/Blutpilz.tscn")
