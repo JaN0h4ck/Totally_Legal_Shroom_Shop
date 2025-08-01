@@ -8,5 +8,5 @@ script = ExtResource("1_icb3o")
 base_texture = ExtResource("1_xbpgm")
 interact_box_size = Vector2(50, 40)
 pickup_time = 0.3
-rarity = 0
+rarity = 2
 metadata/_custom_type_script = "uid://xuoda7gtmwd0"
