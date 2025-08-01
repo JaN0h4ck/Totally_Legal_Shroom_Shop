@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="pickable_mushroom_resource" load_steps=5 format=3 uid="uid://82q1nq7gaiaa"]
+
+[ext_resource type="Texture2D" uid="uid://b0fga1xi6c1cj" path="res://assets/shrooms/freshlyplanted.png" id="1_mu4ko"]
+[ext_resource type="Texture2D" uid="uid://tfmfqxpa23s" path="res://assets/shrooms/Chanpignon.png" id="2_ag26b"]
+[ext_resource type="Texture2D" uid="uid://ciyyue120cy3u" path="res://assets/shrooms/small/champignon_small.png" id="3_yqrtw"]
+[ext_resource type="Script" uid="uid://cg67u7xegh8j7" path="res://pick_up_system/mushroom/pickable_mushrooms_resource.gd" id="4_r1c7k"]
+
+[resource]
+script = ExtResource("4_r1c7k")
+middle_stage_texture = ExtResource("3_yqrtw")
+end_stage_texture = ExtResource("2_ag26b")
+grow_time_middle = 1.0
+grow_time_end = 1.0
+base_texture = ExtResource("1_mu4ko")
+interact_box_size = Vector2(0, 0)
+pickup_time = 0.3
+rarity = 0
+metadata/_custom_type_script = "uid://cg67u7xegh8j7"
