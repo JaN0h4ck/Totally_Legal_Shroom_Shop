@@ -106,7 +106,22 @@ func mushroom_grow(sprite : Sprite2D):
 func drop_object():
 	if not is_picked:
 		return
-	var new_parent = get_tree().get_first_node_in_group("dropped_items_container")
-	self.reparent(new_parent, true)
 	set_collision_size()
 	is_picked = false
+	var new_parent = get_tree().get_first_node_in_group("dropped_items_container")
+	self.reparent(new_parent, true)
+	throw_object(20)
+
+## Wirft das Objekt in die Blickrichtung des Spielers
+func throw_object(lenght : float):
+	var player : Player = get_tree().get_first_node_in_group("player")
+	var player_locking_direction = player.last_direction
+	match player_locking_direction:
+		player.Directions.FRONT:
+			animated_movement(position + Vector2(0,lenght))
+		player.Directions.BACK:
+			animated_movement(position + Vector2(0,lenght))
+		player.Directions.RIGHT:
+			animated_movement(position + Vector2(lenght,lenght))
+		player.Directions.LEFT:
+			animated_movement(position + Vector2(-lenght,lenght))
