@@ -19,9 +19,14 @@ func _ready():
 	EventBus.drop_object.connect(drop_object)
 	# Fügt das Objekt der passenden Gruppe hinzu
 	if selected_object is pickable_mushroom_resource:
-		self.add_to_group("pickable_mushroom")
+		add_object_to_group("pickable_mushroom")
 	elif selected_object is pickable_corpses_resource:
-		self.add_to_group("pickable_corpse")
+		add_object_to_group("pickable_corpse")
+
+## Fügt Note und Interact Area zur eingegebenen Gruppe hinzu
+func add_object_to_group(group : String):
+	self.add_to_group(group)
+	interact_manager.add_to_group(group)
 
 ## Erstellte die nötigen Sachen für einen Pilz
 func create_mushroom():
@@ -33,6 +38,7 @@ func create_mushroom():
 	# Ändern der Anzeige mit was der Spieler interagieren kann
 	interact_manager.interact_prompt = "Interact Mushroom"
 	mushroom_grow(sprite)
+	add_object_to_group("pickable_mushroom")
 
 ## Erstellte eine Sprite2D mit dem aussehen der Leiche
 func create_corpse():
@@ -42,6 +48,7 @@ func create_corpse():
 	set_collision_size()
 	# Ändern der Anzeige mit was der Spieler interagieren kann
 	interact_manager.interact_prompt = "Interact Corpse"
+	add_object_to_group("pickable_corpse")
 
 ## Legt die Größe der Collision Box fest auf die Werte aus dem ausgewähltem Objekt
 func set_collision_size():
@@ -116,6 +123,13 @@ func drop_object():
 	var new_parent = get_tree().get_first_node_in_group("dropped_items_container")
 	self.reparent(new_parent, true)
 	throw_object(20)
+
+## Objekt in den Schredder werfen
+func crush_object():
+	is_random_dropped = false
+	is_picked = false
+	var new_parent = get_tree().get_first_node_in_group("dropped_items_container")
+	self.reparent(new_parent, true)
 
 ## Wirft das Objekt in die Blickrichtung des Spielers
 func throw_object(lenght : float):

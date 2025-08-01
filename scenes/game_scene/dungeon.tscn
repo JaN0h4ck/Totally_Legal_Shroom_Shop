@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://dmdlnr87n1wxl" path="res://spawn_system/mushroom/mushroom_field.tscn" id="9_tkn77"]
 [ext_resource type="Texture2D" uid="uid://bq2vvs6x38nnm" path="res://assets/dungeon/saw.PNG" id="10_4ovda"]
 [ext_resource type="Texture2D" uid="uid://ci7rt38s0ry1r" path="res://assets/dungeon/torch.PNG" id="11_554xe"]
-[ext_resource type="PackedScene" uid="uid://31fnvnrufja0" path="res://scenes/game_scene/dungeon/wood_chipper.tscn" id="14_0sevn"]
+[ext_resource type="PackedScene" uid="uid://31fnvnrufja0" path="res://crush_system/wood_chipper.tscn" id="14_0sevn"]
 [ext_resource type="Texture2D" uid="uid://dwr0060psd8kh" path="res://assets/dungeon/prison/prison_bottom.PNG" id="15_7taji"]
 [ext_resource type="Texture2D" uid="uid://df5m0n2gb7q36" path="res://assets/dungeon/prison/prison_top.PNG" id="16_0sevn"]
 [ext_resource type="Script" uid="uid://cfc8a16cgd5gl" path="res://scenes/game_scene/scripts/interactable_shop.gd" id="17_7taji"]

@@ -1,0 +1,75 @@
+[gd_scene load_steps=10 format=3 uid="uid://31fnvnrufja0"]
+
+[ext_resource type="Texture2D" uid="uid://cmikvgcymv5sy" path="res://assets/dungeon/wood_chipper.PNG" id="1_n3a2q"]
+[ext_resource type="Script" uid="uid://c6f57qoocin2f" path="res://crush_system/crush_system.gd" id="1_rngt7"]
+[ext_resource type="AudioStream" uid="uid://b3sbpjovs1dgr" path="res://Audio/Originals/SFX/BASEMENT INTERACTIONS/Shrooms FX - Basement engine rattle.wav" id="2_ev1rk"]
+[ext_resource type="Script" uid="uid://clfjovnhmnf5o" path="res://crush_system/crusher_interactable.gd" id="4_rngt7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2bcuf"]
+size = Vector2(15, 23)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_004c8"]
+size = Vector2(8, 23)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dyy7o"]
+size = Vector2(15, 23)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7taji"]
+size = Vector2(8, 17)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4y1d4"]
+size = Vector2(60, 30)
+
+[node name="wood_chipper" type="Node2D"]
+script = ExtResource("1_rngt7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -5
+z_as_relative = false
+texture = ExtResource("1_n3a2q")
+
+[node name="chipper_hitbox" type="StaticBody2D" parent="."]
+visible = false
+
+[node name="chipper_shape" type="CollisionShape2D" parent="chipper_hitbox"]
+position = Vector2(-8, -0.5)
+shape = SubResource("RectangleShape2D_2bcuf")
+
+[node name="chipper_shape2" type="CollisionShape2D" parent="chipper_hitbox"]
+position = Vector2(3.5, -0.5)
+shape = SubResource("RectangleShape2D_004c8")
+
+[node name="chipper_shape3" type="CollisionShape2D" parent="chipper_hitbox"]
+position = Vector2(15, -0.5)
+shape = SubResource("RectangleShape2D_dyy7o")
+
+[node name="chipper_shape4" type="CollisionShape2D" parent="chipper_hitbox"]
+position = Vector2(-19.5, -0.5)
+shape = SubResource("RectangleShape2D_7taji")
+
+[node name="AmbientSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_ev1rk")
+volume_db = 8.0
+autoplay = true
+max_distance = 120.0
+attenuation = 0.25
+bus = &"SFX"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_4y1d4")
+
+[node name="Interactable" type="Area2D" parent="."]
+script = ExtResource("4_rngt7")
+interact_prompt = "Interact Chipper"
+metadata/_custom_type_script = "uid://b1kccbwcfiryn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable"]
+shape = SubResource("RectangleShape2D_4y1d4")
+
+[node name="corpse_point" type="Node2D" parent="."]
+position = Vector2(-15, -1)
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="player_interacted" from="Interactable" to="Interactable" method="_on_player_interacted"]

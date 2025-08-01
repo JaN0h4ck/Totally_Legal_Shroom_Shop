@@ -37,6 +37,7 @@ enabled=PackedStringArray("res://addons/maaacks_menus_template/plugin.cfg")
 [file_customization]
 
 folder_colors={
+"res://crush_system/": "green",
 "res://pick_up_system/": "orange",
 "res://spawn_system/": "yellow"
 }
