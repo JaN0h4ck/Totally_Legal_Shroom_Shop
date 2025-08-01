@@ -265,6 +265,7 @@ shape = SubResource("RectangleShape2D_6kpy7")
 [node name="interactable_shop" type="Area2D" parent="."]
 position = Vector2(-38, -35)
 script = ExtResource("17_7taji")
+interact_prompt = "Interact Door"
 metadata/_custom_type_script = "uid://b1kccbwcfiryn"
 
 [node name="collision_interactable_basement" type="CollisionShape2D" parent="interactable_shop"]
