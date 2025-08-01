@@ -36,4 +36,4 @@ func _pick_up_animation():
 	tween.tween_property(self, "global_position", player.global_position + Vector2(0, -14), animationTime)
 	await tween.finished
 	
-	reparent(player)
+#	reparent(player)
