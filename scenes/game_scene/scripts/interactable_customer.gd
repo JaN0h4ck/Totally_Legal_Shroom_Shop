@@ -6,7 +6,7 @@ func _ready():
 	super()
 	EventBus.npc_entered_trapdoor.connect(_on_enter_trapdoor)
 	EventBus.npc_left_trapdoor.connect(_on_left_trapdoor)
-	EventBus.npc_dropped.connect(_on_left_trapdoor)
+	EventBus.npc_dropped.connect(_on_dropped_from_trapdoor)
 
 func _on_enter_trapdoor():
 	is_blocked = false
@@ -17,6 +17,9 @@ func _on_left_trapdoor():
 	is_blocked = true
 	if(player_is_inside):
 		player_left.emit(name)
+
+func _on_dropped_from_trapdoor(_npc_name : base_npc.npc_name_enum):
+	_on_left_trapdoor()
 
 func _on_body_entered(body: Node2D):
 	if body.is_in_group(&"player"):
