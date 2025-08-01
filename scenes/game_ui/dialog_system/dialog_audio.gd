@@ -9,8 +9,6 @@ enum VoiceTypes { HIGH, MEDIUM, LOW }
 
 var timer: Timer = Timer.new()
 
-var is_playing: bool = false
-
 func _ready() -> void:
 	timer.wait_time = .15
 	timer.one_shot = false
@@ -23,7 +21,7 @@ func _on_timeout():
 
 func start_playback(type: VoiceTypes):
 	set_voice(type)
-	is_playing = true
+	playing = true
 	timer.start()
 	play()
 
@@ -42,4 +40,4 @@ func set_voice(type: VoiceTypes):
 
 func stop_playback():
 	timer.stop()
-	is_playing = false
+	playing = false
