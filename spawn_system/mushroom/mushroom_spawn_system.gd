@@ -3,16 +3,31 @@ class_name mushroom_spawn_system
 
 @onready var pickable_object_scene := preload("res://pick_up_system/pickable_object.tscn")
 @onready var mushroom_resource_alien := preload("res://pick_up_system/mushroom/alien_mushroom.tres")
+@onready var murhroom_resource_bleeding := preload("res://pick_up_system/mushroom/bleeding_mushroom.tres")
+@onready var murhroom_resource_button := preload("res://pick_up_system/mushroom/button_mushroom.tres")
+@onready var murhroom_resource_chanterella := preload("res://pick_up_system/mushroom/chanterella_mushroom.tres")
+@onready var murhroom_resource_ribcage := preload("res://pick_up_system/mushroom/ribcage_mushroom.tres")
+@onready var murhroom_resource_toxic := preload("res://pick_up_system/mushroom/toxic_mushroom.tres")
 
 var common_mushroom : Array
 var rare_mushroom : Array
 var ultra_rare_mushroom : Array
+var position_to_bool := {}
 
 func _ready():
 	add_mushroom_to_array(mushroom_resource_alien)
+	add_mushroom_to_array(murhroom_resource_bleeding)
+	add_mushroom_to_array(murhroom_resource_button)
+	add_mushroom_to_array(murhroom_resource_chanterella)
+	add_mushroom_to_array(murhroom_resource_ribcage)
+	add_mushroom_to_array(murhroom_resource_toxic)
 
 ## Legt werte fest und erzeugt den Pilz
 func spawn_mushroom_seed(location : Vector2):
+	# Schauen ob dort bereits ein Pilz ist
+	if get_position_value(location):
+		return
+	set_position_value(location, true)
 	print("interacted at ", location)
 	var check = check_if_player_has_soil()
 	if not check[0]:
@@ -55,3 +70,11 @@ func add_mushroom_to_array(mushroom):
 			rare_mushroom.append(mushroom)
 		pickable_object_resource.rarity_enum.ultra_rare:
 			ultra_rare_mushroom.append(mushroom)
+
+## Speichern dass ein Pilz bereits an diesem Ort ist
+func set_position_value(pos: Vector2, value: bool) -> void:
+	position_to_bool[pos] = value
+
+## Schauen ob an diesem Ort bereits ein Pilz ist
+func get_position_value(pos: Vector2) -> bool:
+	return position_to_bool.get(pos, false)
