@@ -7,3 +7,6 @@ class_name pickable_object_resource
 @export var interact_box_size : Vector2
 ## Wie lange es dauert das Objekt hochzuheben
 @export var pickup_time : float = 1.0
+
+enum rarity_enum {common, rare, ultra_rare}
+@export var rarity: rarity_enum

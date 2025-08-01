@@ -14,4 +14,5 @@ grow_time_end = 1.0
 base_texture = ExtResource("1_8s5mo")
 interact_box_size = Vector2(12, 12)
 pickup_time = 1.0
+rarity = 0
 metadata/_custom_type_script = "uid://cg67u7xegh8j7"
