@@ -38,6 +38,9 @@ signal lexicon_back
 ## Ausgelöst wenn der Spieler das Objekt welches er gerade trägt fallen lässt
 signal drop_object
 
+## Ausgelöst wenn ein Objekt aufgehoben wird, Globale Position des Objekts und Bool ob das Objekt einfach nur im Level abgelegt wurde wird mit übergeben
+signal pickup_object(position : Vector2, is_random_dropped : bool)
+
 func _on_interact_customer():
 	interact_customer.emit()
 
@@ -85,3 +88,6 @@ func _on_lexikon_closed():
 
 func _on_drop_object():
 	drop_object.emit()
+
+func _on_pickup_object(position : Vector2, is_random_dropped : bool):
+	pickup_object.emit(position, is_random_dropped)

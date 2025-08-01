@@ -12,6 +12,8 @@ class_name pickable_object
 ## True wenn Objekt mommentan aufgehoben werden kann
 var is_pickable : bool = true
 var is_picked : bool = false
+## True wenn der Spieler das Objekt irgendwo im Level abgelegt hat
+var is_random_dropped : bool = false
 
 func _ready():
 	EventBus.drop_object.connect(drop_object)
@@ -56,6 +58,7 @@ func _on_player_interacted() -> void:
 
 ## Objekt auf den Spieler Kopf legen
 func add_to_player():
+	EventBus.pickup_object.emit(global_position, is_random_dropped)
 	var player : Player = get_tree().get_first_node_in_group("player")
 	# Schauen ob Spieler bereits ein Objekt trägt
 	if player.carries_object:
@@ -69,6 +72,7 @@ func add_to_player():
 	# Dafür sorgen dass es nicht doppelt aufgehoben werden kann
 	is_picked = true
 	set_collision_size_to_zero()
+	is_random_dropped = false
 
 ## Setzt die Größe der Interact Collision auf Null
 func set_collision_size_to_zero():
@@ -106,6 +110,7 @@ func mushroom_grow(sprite : Sprite2D):
 func drop_object():
 	if not is_picked:
 		return
+	is_random_dropped = true
 	set_collision_size()
 	is_picked = false
 	var new_parent = get_tree().get_first_node_in_group("dropped_items_container")

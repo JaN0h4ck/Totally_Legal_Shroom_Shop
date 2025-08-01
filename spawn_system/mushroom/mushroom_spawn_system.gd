@@ -15,6 +15,7 @@ var ultra_rare_mushroom : Array
 var position_to_bool := {}
 
 func _ready():
+	EventBus.pickup_object.connect(clear_field)
 	add_mushroom_to_array(mushroom_resource_alien)
 	add_mushroom_to_array(murhroom_resource_bleeding)
 	add_mushroom_to_array(murhroom_resource_button)
@@ -78,3 +79,18 @@ func set_position_value(pos: Vector2, value: bool) -> void:
 ## Schauen ob an diesem Ort bereits ein Pilz ist
 func get_position_value(pos: Vector2) -> bool:
 	return position_to_bool.get(pos, false)
+
+## Feld wieder frei machen wenn Pilz aufgehoben wird
+func clear_field(field_position : Vector2, is_random_dropped : bool):
+	if is_random_dropped:
+		return
+	if get_position_value(field_position):
+		set_position_value(field_position, false)
+
+## Schaut ob der Spieler mommentan einen Pilz in der Hand hat
+func check_if_player_has_mushroom():
+	var player : Player = get_tree().get_first_node_in_group("player")
+	for child in player.object_place.get_children():
+		if child.is_in_group("pickable_mushroom"):
+			return true
+	return false
