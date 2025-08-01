@@ -13,8 +13,9 @@ class_name pickable_object
 var is_pickable : bool = true
 var is_picked : bool = false
 
-## Fügt das Objekt den passenden untergruppen hinzu
 func _ready():
+	EventBus.drop_object.connect(drop_object)
+	# Fügt das Objekt der passenden Gruppe hinzu
 	if selected_object is pickable_mushroom_resource:
 		self.add_to_group("pickable_mushroom")
 	else:
@@ -100,3 +101,11 @@ func mushroom_grow(sprite : Sprite2D):
 	sprite.texture = selected_object.end_stage_texture
 	# Einstellen das Pilz ab jetzt aufgehoben werden kann
 	is_pickable = true
+
+## Objekt fallen lassen
+func drop_object():
+	if not is_picked:
+		return
+	self.reparent(get_tree().root, true)
+	set_collision_size()
+	is_picked = false

@@ -35,6 +35,9 @@ signal open_inventory
 ## Ausgelöst wenn Lexikon geschlossen wird
 signal lexicon_back
 
+## Ausgelöst wenn der Spieler das Objekt welches er gerade trägt fallen lässt
+signal drop_object
+
 func _on_interact_customer():
 	interact_customer.emit()
 
@@ -79,3 +82,6 @@ func _on_open_inventory():
 
 func _on_lexikon_closed():
 	lexicon_back.emit()
+
+func _on_drop_object():
+	drop_object.emit()

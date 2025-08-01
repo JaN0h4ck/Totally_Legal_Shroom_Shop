@@ -49,6 +49,10 @@ func _physics_process(delta: float):
 		play_animation(input_direction)
 		if not footstep_player.playing:
 			footstep_player.play()
+	
+	if Input.is_action_just_pressed("drop_object") and carries_object:
+		EventBus.drop_object.emit()
+		carries_object = false
 
 
 func _on_dialogue_started():
