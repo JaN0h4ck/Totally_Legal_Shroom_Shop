@@ -106,6 +106,7 @@ func mushroom_grow(sprite : Sprite2D):
 func drop_object():
 	if not is_picked:
 		return
-	self.reparent(get_tree().root, true)
+	var new_parent = get_tree().get_first_node_in_group("dropped_items_container")
+	self.reparent(new_parent, true)
 	set_collision_size()
 	is_picked = false

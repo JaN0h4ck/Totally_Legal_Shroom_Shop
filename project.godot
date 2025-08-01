@@ -54,6 +54,7 @@ mushroom_container=""
 pickable_mushroom=""
 pickable_soil=""
 pickable_corpse=""
+dropped_items_container=""
 
 [gui]
 
