@@ -4,6 +4,9 @@ extends Node2D
 @export var count: int = 0
 
 
+func _ready():
+	anim.play("Page1")
+
 func _process(_delta: float) -> void:
 	if(Input.is_action_just_pressed("ui_left")):
 			count -= 1
