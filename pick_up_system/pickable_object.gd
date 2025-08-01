@@ -13,6 +13,13 @@ class_name pickable_object
 var is_pickable : bool = true
 var is_picked : bool = false
 
+## Fügt das Objekt den passenden untergruppen hinzu
+func _ready():
+	if selected_object is pickable_mushroom_resource:
+		self.add_to_group("pickable_mushroom")
+	else:
+		self.add_to_group("pickable_corpse")
+
 ## Erstellte eine Sprite2D mit dem aussehen der Leiche
 func create_corpse():
 	var sprite : Sprite2D = Sprite2D.new()
