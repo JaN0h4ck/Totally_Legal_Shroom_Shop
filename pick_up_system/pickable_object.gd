@@ -20,6 +20,17 @@ func _ready():
 	else:
 		self.add_to_group("pickable_corpse")
 
+## Erstellte die nötigen Sachen für einen Pilz
+func create_mushroom():
+	is_pickable = false
+	var sprite : Sprite2D = Sprite2D.new()
+	sprite.texture = selected_object.base_texture
+	add_child(sprite)
+	set_collision_size()
+	# Ändern der Anzeige mit was der Spieler interagieren kann
+	interact_manager.interact_prompt = "Interact Mushroom"
+	mushroom_grow(sprite)
+
 ## Erstellte eine Sprite2D mit dem aussehen der Leiche
 func create_corpse():
 	var sprite : Sprite2D = Sprite2D.new()
@@ -69,6 +80,28 @@ func set_collision_size_to_zero():
 	zero_shape.extents = Vector2(0,0)
 	interact_collision.shape = zero_shape
 
+## Bewegt das aufgehobene Objekt zum Spieler
 func animated_movement(target : Vector2):
 	var tween = get_tree().create_tween()
 	tween.tween_property(self, "position", target, selected_object.pickup_time).from_current()
+
+## Funktion um den Pilz über Zeit wachsen zu lassen, braucht das Sprite welches das Pilz bild anzeigt
+func mushroom_grow(sprite : Sprite2D):
+	# Erstellen eines Timers
+	var timer = Timer.new()
+	add_child(timer)
+	timer.wait_time = selected_object.grow_time_middle
+	timer.one_shot = true
+	timer.autostart = false
+	timer.start()
+	# Warten bis Timer fertig ist
+	await timer.timeout
+	sprite.texture = selected_object.middle_stage_texture
+	# Timer neu einstellen und starten
+	timer.wait_time = selected_object.grow_time_end
+	timer.start()
+	# Warten bis zwiter Timer fertig ist
+	await timer.timeout
+	sprite.texture = selected_object.end_stage_texture
+	# Einstellen das Pilz ab jetzt aufgehoben werden kann
+	is_pickable = true

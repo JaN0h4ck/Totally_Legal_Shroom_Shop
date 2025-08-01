@@ -21,4 +21,31 @@ metadata/_custom_type_script = "uid://b1kccbwcfiryn"
 [node name="collision_field" type="CollisionShape2D" parent="interactable_field_1"]
 shape = SubResource("RectangleShape2D_daepo")
 
+[node name="interactable_field_2" type="Area2D" parent="."]
+position = Vector2(-7.5, -19)
+script = ExtResource("3_1sdfm")
+metadata/_custom_type_script = "uid://b1kccbwcfiryn"
+
+[node name="collision_field" type="CollisionShape2D" parent="interactable_field_2"]
+shape = SubResource("RectangleShape2D_daepo")
+
+[node name="interactable_field_3" type="Area2D" parent="."]
+position = Vector2(7.5, -19)
+script = ExtResource("3_1sdfm")
+metadata/_custom_type_script = "uid://b1kccbwcfiryn"
+
+[node name="collision_field" type="CollisionShape2D" parent="interactable_field_3"]
+shape = SubResource("RectangleShape2D_daepo")
+
+[node name="interactable_field_4" type="Area2D" parent="."]
+position = Vector2(22.5, -19)
+script = ExtResource("3_1sdfm")
+metadata/_custom_type_script = "uid://b1kccbwcfiryn"
+
+[node name="collision_field" type="CollisionShape2D" parent="interactable_field_4"]
+shape = SubResource("RectangleShape2D_daepo")
+
 [connection signal="player_interacted" from="interactable_field_1" to="interactable_field_1" method="_on_player_interacted"]
+[connection signal="player_interacted" from="interactable_field_2" to="interactable_field_2" method="_on_player_interacted"]
+[connection signal="player_interacted" from="interactable_field_3" to="interactable_field_3" method="_on_player_interacted"]
+[connection signal="player_interacted" from="interactable_field_4" to="interactable_field_4" method="_on_player_interacted"]
