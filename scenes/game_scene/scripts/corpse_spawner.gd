@@ -1,15 +1,15 @@
 extends Node2D
 
-@onready var corpse_alien := preload("res://scenes/Object/NPCS/Alien.tscn")
-@onready var corpse_angry := preload("res://scenes/Object/NPCS/Angry.tscn")
-@onready var corpse_beff := preload("res://scenes/Object/NPCS/Beff_jezoz.tscn")
-@onready var corpse_celeb := preload("res://scenes/Object/NPCS/celeb.tscn")
-@onready var corpse_conspirary := preload("res://scenes/Object/NPCS/conspiracy.tscn")
-@onready var corpse_cook := preload("res://scenes/Object/NPCS/cook.tscn")
-@onready var corpse_cowboy := preload("res://scenes/Object/NPCS/cowboy.tscn")
-@onready var corpse_enthusiast := preload("res://scenes/Object/NPCS/enthusiast.tscn")
-@onready var corpse_nerd := preload("res://scenes/Object/NPCS/nerd.tscn")
-@onready var corpse_opa := preload("res://scenes/Object/NPCS/opa.tscn")
+@onready var corpse_alien := preload("res://scenes/Object/corpses/alien_corpse.tscn")
+@onready var corpse_angry := preload("res://scenes/Object/corpses/angry_corpse.tscn")
+@onready var corpse_beff := preload("res://scenes/Object/corpses/beff_jezoz_corpse.tscn")
+@onready var corpse_celeb := preload("res://scenes/Object/corpses/celeb_corpse.tscn")
+@onready var corpse_conspirary := preload("res://scenes/Object/corpses/conspiracy_corpse.tscn")
+@onready var corpse_cook := preload("res://scenes/Object/corpses/cook_corpse.tscn")
+@onready var corpse_cowboy := preload("res://scenes/Object/corpses/cowboy_corpse.tscn")
+@onready var corpse_enthusiast := preload("res://scenes/Object/corpses/enthusiast_corpse.tscn")
+@onready var corpse_nerd := preload("res://scenes/Object/corpses/nerd_corpse.tscn")
+@onready var corpse_opa := preload("res://scenes/Object/corpses/opa_corpse.tscn")
 
 var corpse
 
