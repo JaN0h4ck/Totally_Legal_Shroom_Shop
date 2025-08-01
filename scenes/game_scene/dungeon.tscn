@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://dy1uiy23nc5he"]
+[gd_scene load_steps=31 format=3 uid="uid://dy1uiy23nc5he"]
 
 [ext_resource type="Texture2D" uid="uid://bhqas40v1sogj" path="res://assets/dungeon/dungeon_base.PNG" id="1_miufi"]
 [ext_resource type="Texture2D" uid="uid://bt4kb5hqwg4nl" path="res://assets/dungeon/dungeon_border.PNG" id="2_5623h"]
@@ -8,9 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://cw2h6s26burpl" path="res://assets/dungeon/cross.PNG" id="4_mv2yw"]
 [ext_resource type="Texture2D" uid="uid://c2bunm23f5bcb" path="res://assets/dungeon/dungeon_barrel.PNG" id="5_egi2s"]
 [ext_resource type="Texture2D" uid="uid://bqxpw7dx16l1d" path="res://assets/dungeon/dungeon_chest.PNG" id="6_vnu48"]
-[ext_resource type="Texture2D" uid="uid://cvju2c860ren4" path="res://assets/dungeon/dungeon_mushroom_field.PNG" id="7_sw1wa"]
 [ext_resource type="Texture2D" uid="uid://cn8w7nj28gjup" path="res://assets/dungeon/dungeon_table.PNG" id="8_epj33"]
 [ext_resource type="Texture2D" uid="uid://5yym7638cog7" path="res://assets/dungeon/journal.PNG" id="9_hamwq"]
+[ext_resource type="PackedScene" uid="uid://dmdlnr87n1wxl" path="res://spawn_system/mushroom/mushroom_field.tscn" id="9_tkn77"]
 [ext_resource type="Texture2D" uid="uid://bq2vvs6x38nnm" path="res://assets/dungeon/saw.PNG" id="10_4ovda"]
 [ext_resource type="Texture2D" uid="uid://ci7rt38s0ry1r" path="res://assets/dungeon/torch.PNG" id="11_554xe"]
 [ext_resource type="PackedScene" uid="uid://31fnvnrufja0" path="res://scenes/game_scene/dungeon/wood_chipper.tscn" id="14_0sevn"]
@@ -18,10 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://df5m0n2gb7q36" path="res://assets/dungeon/prison/prison_top.PNG" id="16_0sevn"]
 [ext_resource type="Script" uid="uid://cfc8a16cgd5gl" path="res://scenes/game_scene/scripts/interactable_shop.gd" id="17_7taji"]
 [ext_resource type="PackedScene" uid="uid://wgvolemsb07q" path="res://scenes/game_scene/dungeon/basement_floors.tscn" id="18_0sevn"]
-[ext_resource type="PackedScene" uid="uid://bj4wwt83kcsgp" path="res://scenes/Object/object.tscn" id="19_6kpy7"]
-[ext_resource type="Script" uid="uid://63rccir43lh3" path="res://scenes/game_scene/scripts/corpse_spawner.gd" id="20_ikx5i"]
-[ext_resource type="PackedScene" uid="uid://b8jkgcrh5ql3v" path="res://scenes/game_scene/dungeon/mushroom.tscn" id="21_uf2vu"]
-[ext_resource type="Texture2D" uid="uid://b0fga1xi6c1cj" path="res://assets/shrooms/freshlyplanted.png" id="22_ppaq7"]
+[ext_resource type="Script" uid="uid://bwtta7g7ucgg2" path="res://spawn_system/corpse_spawn_system.gd" id="20_j3unq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ikx5i"]
 size = Vector2(200, 20)
@@ -161,12 +158,6 @@ position = Vector2(-67, -34)
 position = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_0sevn")
 
-[node name="dungeon_mushroom_field" type="Sprite2D" parent="dungeon_base"]
-z_index = -5
-z_as_relative = false
-position = Vector2(-47.5, 13.5)
-texture = ExtResource("7_sw1wa")
-
 [node name="dungeon_table" type="Sprite2D" parent="dungeon_base"]
 z_index = 5
 z_as_relative = false
@@ -282,87 +273,11 @@ shape = SubResource("RectangleShape2D_j3unq")
 
 [node name="BasementFloors" parent="." instance=ExtResource("18_0sevn")]
 
-[node name="Object" parent="." instance=ExtResource("19_6kpy7")]
-position = Vector2(-39, 24)
-
 [node name="corpse_spawner" type="Node2D" parent="."]
 position = Vector2(41, -15)
-script = ExtResource("20_ikx5i")
+script = ExtResource("20_j3unq")
 
-[node name="mushrooms" type="Node2D" parent="." groups=["mushroom_container"]]
-
-[node name="mushroom_fields" type="Node2D" parent="."]
-
-[node name="field_1" parent="mushroom_fields" instance=ExtResource("21_uf2vu")]
-position = Vector2(-70, -6)
-timer_step_1_lenght = 3.0
-timer_step_2_lenght = 3.0
-step_0_sprite = ExtResource("22_ppaq7")
-
-[node name="field_2" parent="mushroom_fields" instance=ExtResource("21_uf2vu")]
-position = Vector2(-55, -6)
-timer_step_1_lenght = 3.0
-timer_step_2_lenght = 3.0
-step_0_sprite = ExtResource("22_ppaq7")
-
-[node name="field_3" parent="mushroom_fields" instance=ExtResource("21_uf2vu")]
-position = Vector2(-40, -6)
-timer_step_1_lenght = 3.0
-timer_step_2_lenght = 3.0
-step_0_sprite = ExtResource("22_ppaq7")
-
-[node name="field_4" parent="mushroom_fields" instance=ExtResource("21_uf2vu")]
-position = Vector2(-25, -6)
-timer_step_1_lenght = 3.0
-timer_step_2_lenght = 3.0
-step_0_sprite = ExtResource("22_ppaq7")
-
-[node name="field_5" parent="mushroom_fields" instance=ExtResource("21_uf2vu")]
-position = Vector2(-70, 10)
-timer_step_1_lenght = 3.0
-timer_step_2_lenght = 3.0
-step_0_sprite = ExtResource("22_ppaq7")
-
-[node name="field_6" parent="mushroom_fields" instance=ExtResource("21_uf2vu")]
-position = Vector2(-55, 10)
-timer_step_1_lenght = 3.0
-timer_step_2_lenght = 3.0
-step_0_sprite = ExtResource("22_ppaq7")
-
-[node name="field_7" parent="mushroom_fields" instance=ExtResource("21_uf2vu")]
-position = Vector2(-40, 10)
-timer_step_1_lenght = 3.0
-timer_step_2_lenght = 3.0
-step_0_sprite = ExtResource("22_ppaq7")
-
-[node name="field_8" parent="mushroom_fields" instance=ExtResource("21_uf2vu")]
-position = Vector2(-25, 10)
-timer_step_1_lenght = 3.0
-timer_step_2_lenght = 3.0
-step_0_sprite = ExtResource("22_ppaq7")
-
-[node name="field_9" parent="mushroom_fields" instance=ExtResource("21_uf2vu")]
-position = Vector2(-70, 26)
-timer_step_1_lenght = 3.0
-timer_step_2_lenght = 3.0
-step_0_sprite = ExtResource("22_ppaq7")
-
-[node name="field_10" parent="mushroom_fields" instance=ExtResource("21_uf2vu")]
-position = Vector2(-55, 26)
-timer_step_1_lenght = 3.0
-timer_step_2_lenght = 3.0
-step_0_sprite = ExtResource("22_ppaq7")
-
-[node name="field_11" parent="mushroom_fields" instance=ExtResource("21_uf2vu")]
-position = Vector2(-40, 26)
-timer_step_1_lenght = 3.0
-timer_step_2_lenght = 3.0
-step_0_sprite = ExtResource("22_ppaq7")
-
-[node name="field_12" parent="mushroom_fields" instance=ExtResource("21_uf2vu")]
-position = Vector2(-25, 26)
-timer_step_1_lenght = 3.0
-timer_step_2_lenght = 3.0
-step_0_sprite = ExtResource("22_ppaq7")
+[node name="mushroom_field" parent="." instance=ExtResource("9_tkn77")]
+position = Vector2(-47.5, 13.5)
 
 [connection signal="player_interacted" from="interactable_shop" to="interactable_shop" method="_on_player_interacted"]
