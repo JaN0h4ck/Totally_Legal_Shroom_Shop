@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://dmdlnr87n1wxl"]
+
+[ext_resource type="Texture2D" uid="uid://cvju2c860ren4" path="res://assets/dungeon/dungeon_mushroom_field.PNG" id="1_gh51r"]
+[ext_resource type="Script" uid="uid://c1xxun2q5cig1" path="res://spawn_system/mushroom/mushroom_spawn_system.gd" id="2_1sdfm"]
+[ext_resource type="Script" uid="uid://cuicy71t2pwd6" path="res://spawn_system/mushroom/interactable_field.gd" id="3_1sdfm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_daepo"]
+size = Vector2(14, 15)
+
+[node name="mushroom_field" type="Sprite2D"]
+z_index = -5
+z_as_relative = false
+texture = ExtResource("1_gh51r")
+script = ExtResource("2_1sdfm")
+
+[node name="interactable_field_1" type="Area2D" parent="."]
+position = Vector2(-22.5, -19)
+script = ExtResource("3_1sdfm")
+metadata/_custom_type_script = "uid://b1kccbwcfiryn"
+
+[node name="collision_field" type="CollisionShape2D" parent="interactable_field_1"]
+shape = SubResource("RectangleShape2D_daepo")
+
+[connection signal="player_interacted" from="interactable_field_1" to="interactable_field_1" method="_on_player_interacted"]
