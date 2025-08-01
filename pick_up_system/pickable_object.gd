@@ -60,14 +60,9 @@ func add_to_player():
 	if player.carries_object:
 		print("Player is already carring an object")
 		return
-	# Aktuelle Position Speichern
-	var old_position : Vector2 = global_position
 	# Objekt zum Spieler hinzufügen
-	get_parent().remove_child(self)
-	player.object_place.add_child(self)
+	self.reparent(player.object_place, true)
 	player.carries_object = true
-	# Setzen der Position auf die alte Position, damit gleich Position durch eine "Animation" getauscht wird
-	global_position = old_position
 	# Position des Objekts auf die neue Position durch eine Bewegung setzten
 	animated_movement(Vector2(0,0))
 	# Dafür sorgen dass es nicht doppelt aufgehoben werden kann
