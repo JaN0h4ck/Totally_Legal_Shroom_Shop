@@ -20,7 +20,7 @@ func _ready():
 	# Fügt das Objekt der passenden Gruppe hinzu
 	if selected_object is pickable_mushroom_resource:
 		self.add_to_group("pickable_mushroom")
-	else:
+	elif selected_object is pickable_corpses_resource:
 		self.add_to_group("pickable_corpse")
 
 ## Erstellte die nötigen Sachen für einen Pilz
