@@ -1,6 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://b7fecdpuah10g"]
+[gd_scene load_steps=16 format=3 uid="uid://b7fecdpuah10g"]
 
 [ext_resource type="Script" uid="uid://bu05imyuwv2yl" path="res://scenes/game_ui/dialog_system/dialog_panel.gd" id="1_0om7c"]
+[ext_resource type="PackedScene" uid="uid://bv5ulmbmtwuyw" path="res://scenes/game_ui/input_prompt.tscn" id="1_aby5p"]
 [ext_resource type="Theme" uid="uid://d31137rsk15ng" path="res://resources/themes/expedition.tres" id="1_wq83t"]
 [ext_resource type="AudioStream" uid="uid://dbotfhw3rag17" path="res://Audio/Originals/Voices/Voice_Low_1.wav" id="2_5ms7g"]
 [ext_resource type="AudioStream" uid="uid://cvrqo1dxk60x7" path="res://Audio/Originals/Voices/Voice_Low_2.wav" id="3_wq83t"]
@@ -24,7 +25,31 @@ stream_0/stream = ExtResource("2_5ms7g")
 stream_1/stream = ExtResource("3_wq83t")
 stream_2/stream = ExtResource("4_aby5p")
 
-[node name="DialogPanel" type="Panel"]
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -233.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("1_0om7c")
+
+[node name="InputPrompt" parent="." instance=ExtResource("1_aby5p")]
+layout_mode = 1
+anchors_preset = 1
+anchor_top = 0.0
+anchor_bottom = 0.0
+offset_top = 0.0
+offset_bottom = 64.0
+grow_vertical = 1
+text = "Continue"
+action_name = "skip_dialogue"
+
+[node name="DialogPanel" type="Panel" parent="."]
+layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
@@ -33,9 +58,8 @@ offset_top = -170.0
 grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("1_wq83t")
-script = ExtResource("1_0om7c")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="DialogPanel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -47,7 +71,7 @@ theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 8
 
-[node name="Label" type="Label" parent="MarginContainer"]
+[node name="Label" type="Label" parent="DialogPanel/MarginContainer"]
 custom_minimum_size = Vector2(100, 120)
 layout_mode = 2
 label_settings = SubResource("LabelSettings_7d2xt")
