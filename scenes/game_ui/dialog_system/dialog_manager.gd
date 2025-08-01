@@ -17,6 +17,7 @@ func _ready() -> void:
 	randomize()
 	parse_json()
 	EventBus.interact_customer.connect(start_random_dialogue)
+	EventBus.dialog_ended.connect(_on_dialogue_ended)
 
 func start_random_dialogue():
 	init_dialogue(DialogTypes.GENERIC)
@@ -39,6 +40,7 @@ func parse_json():
 			queue_free()
 
 func init_dialogue(type: DialogTypes):
+	if dialogue_panel != null: return
 	var instance = dialogue_scene.instantiate()
 	ui_layer.add_child(instance)
 	dialogue_panel = instance
@@ -46,3 +48,6 @@ func init_dialogue(type: DialogTypes):
 		DialogTypes.GENERIC:
 			var line: String = generic[randi() % generic.size()] % [randi() % 2, basic_shrooms[randi() % basic_shrooms.size()]]
 			dialogue_panel._start_dialog(line)
+
+func _on_dialogue_ended():
+	dialogue_panel = null

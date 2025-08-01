@@ -6,6 +6,7 @@ func _ready():
 	super()
 	EventBus.npc_entered_trapdoor.connect(_on_enter_trapdoor)
 	EventBus.npc_left_trapdoor.connect(_on_left_trapdoor)
+	EventBus.npc_dropped.connect(_on_left_trapdoor)
 
 func _on_enter_trapdoor():
 	is_blocked = false
@@ -26,8 +27,11 @@ func _on_body_entered(body: Node2D):
 func _on_body_exited(body: Node2D):
 	if body.is_in_group(&"player"):
 		player_is_inside = false
-	if is_blocked: return
 	super(body)
+
+func _input(event: InputEvent) -> void:
+	if is_blocked: return
+	super(event)
 
 func _on_player_interacted():
 	EventBus.interact_customer.emit()

@@ -1,6 +1,7 @@
-[gd_scene load_steps=429 format=3 uid="uid://bv5ulmbmtwuyw"]
+[gd_scene load_steps=430 format=3 uid="uid://bv5ulmbmtwuyw"]
 
 [ext_resource type="Script" uid="uid://dcgofbpurm8ic" path="res://scenes/game_ui/input_prompt.gd" id="1_0ia3v"]
+[ext_resource type="Theme" uid="uid://d31137rsk15ng" path="res://resources/themes/expedition.tres" id="1_a1wwc"]
 [ext_resource type="Texture2D" uid="uid://hx8hex46qc33" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_e_outline.svg" id="1_nh33n"]
 [ext_resource type="PackedScene" uid="uid://qoexj4ptqt8a" path="res://addons/maaacks_menus_template/base/scenes/menus/options_menu/input/input_icon_mapper.tscn" id="3_a1wwc"]
 [ext_resource type="Texture2D" uid="uid://8unhnfmvfpo" path="res://assets/kenney_input-prompts/Keyboard & Mouse/Vector/keyboard_0.svg" id="4_bxi1f"]
@@ -439,6 +440,7 @@ offset_left = -198.0
 offset_top = -64.0
 grow_horizontal = 0
 grow_vertical = 0
+theme = ExtResource("1_a1wwc")
 script = ExtResource("1_0ia3v")
 text = "Interact"
 action_name = "interact"
