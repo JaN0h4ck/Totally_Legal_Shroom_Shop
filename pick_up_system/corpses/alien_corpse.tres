@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="pickable_objects" load_steps=3 format=3 uid="uid://cna5q0000c06v"]
+
+[ext_resource type="Texture2D" uid="uid://cpe5jjjcms4bg" path="res://assets/dead/alien_dead.png" id="1_djboj"]
+[ext_resource type="Script" uid="uid://dt06nru80qep6" path="res://pick_up_system/pickable_objects_resource.gd" id="1_pthj7"]
+
+[resource]
+script = ExtResource("1_pthj7")
+base_texture = ExtResource("1_djboj")
+interact_box_size = Vector2(33, 17)
+pickup_time = 1.0
+metadata/_custom_type_script = "uid://dt06nru80qep6"
