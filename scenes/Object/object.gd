@@ -28,7 +28,7 @@ func _input(event: InputEvent) -> void:
 		player = null
 
 func _pick_up_animation():
-	var player = get_tree().get_first_node_in_group("player")
+	player = get_tree().get_first_node_in_group("player")
 	
 	player.pick_up(animationTime)
 	

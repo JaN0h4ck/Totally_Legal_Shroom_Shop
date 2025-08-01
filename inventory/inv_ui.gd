@@ -21,6 +21,6 @@ func render_inv():
 	for i in range(NR_OF_ITEMS):
 		buttons[i].mushroom = inventory.items[i]
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
 		close()

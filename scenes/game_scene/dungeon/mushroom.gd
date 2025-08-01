@@ -33,7 +33,7 @@ func _ready():
 	mushroom_list.append(toxic)
 	plant_mushroom()
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if planted_mushroom.global_position == global_position:
 		timer_regrow.start()
 
