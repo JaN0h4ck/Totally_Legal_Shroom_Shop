@@ -1,12 +1,12 @@
 extends Node2D
 
 @onready var pickable_object_scene := preload("res://pick_up_system/pickable_object.tscn")
-@onready var corpse_resource_alien := preload("res://pick_up_system/corpses/alien_corpse.tres")
+@onready var corpse_resource_alien := preload("res://pick_up_system/corpse/alien_corpse.tres")
 
 func _ready():
 	EventBus.npc_dropped.connect(spawn_corpse)
 
-# Aktuell Verfügbare Leichen alien, angry, beff, celeb, conspiracy, cook, cowboy, enthusiast, nerd, opa
+# Aktuell Verfügbare Leichen alien, angry, beff, celeb, conspiracy, cook, cowboy, enthusiast, nerd, grandpa
 func spawn_corpse(corpse_name : base_npc.npc_name_enum):
 	var scene : pickable_object = pickable_object_scene.instantiate()
 	add_child(scene)
