@@ -62,7 +62,6 @@ func _ready():
 
 func spawn_npc():
 	if npc_in_shop == true:
-		print("already npc in shop")
 		return
 	
 	npc_in_shop = true
@@ -89,18 +88,15 @@ func randomize_timer():
 	timer.one_shot = false
 	timer.stop()
 	timer.start()
-	print("Timer: ", random_nummer)
 
 func random_path():
 	var follow_path = get_tree().get_nodes_in_group("npc_followpath2D")
 	var path2d = get_tree().get_nodes_in_group("npc_path2D")
 	
 	var lenght = follow_path.size()
-	print("lenght: ", lenght)
 	
 	var rng = RandomNumberGenerator.new()
 	var random_nummer = rng.randi_range(0, lenght-1)
-	print("number: ", random_nummer)
 	
 	return [path2d[random_nummer], follow_path[random_nummer]]
 
@@ -109,4 +105,3 @@ func npc_left():
 
 func npc_with_name_left(npc_name):
 	npc_in_shop = false
-	print(npc_name, "left")

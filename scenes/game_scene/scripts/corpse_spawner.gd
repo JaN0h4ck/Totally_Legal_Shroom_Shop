@@ -41,5 +41,3 @@ func spawn_npc_corpse(corpse_name : base_npc.npc_name_enum):
 			corpse = corpse_opa.instantiate()
 	
 	add_child(corpse)
-	
-	print("Spawned: ", corpse, " Name: ", corpse_name)
