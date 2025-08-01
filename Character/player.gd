@@ -88,6 +88,6 @@ func set_floor_type(type: AudioFloor.FloorTypes):
 	
 func pick_up(duration):
 	
-	sprite_animation.play("idle")
+	sprite_animation.play("idle_front")
 	
 	await get_tree().create_timer(duration).timeout

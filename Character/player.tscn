@@ -148,9 +148,7 @@ script = ExtResource("1_3c51y")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_bfpf6")
-animation = &"idle_right"
-frame = 1
-frame_progress = 0.53044
+animation = &"idle_front"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 8)
