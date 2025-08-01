@@ -26,7 +26,6 @@ func _on_body_entered(body: Node2D):
 func _on_body_exited(body: Node2D):
 	if body.is_in_group(&"player"):
 		player_is_inside = false
-	if is_blocked: return
 	super(body)
 
 func _on_player_interacted():
