@@ -51,6 +51,7 @@ npc_path2D=""
 npc_followpath2D=""
 stepper="everything that makes footsteps, need to track floor type"
 mushroom_container=""
+pickable_object=""
 
 [gui]
 

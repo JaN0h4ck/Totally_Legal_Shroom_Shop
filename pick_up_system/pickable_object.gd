@@ -11,7 +11,7 @@ class_name pickable_object
 
 ## True wenn Objekt mommentan aufgehoben werden kann
 var is_pickable : bool = true
-
+var is_picked : bool = false
 
 ## Erstellte eine Sprite2D mit dem aussehen der Leiche
 func create_corpse():
@@ -30,8 +30,38 @@ func set_collision_size():
 
 ## Was passieren soll wenn der Spieler mit dem Objekt interagiert
 func _on_player_interacted() -> void:
-	if not is_pickable:
+	if not is_pickable or is_picked:
 		print("Cant be picked right now")
 		return
-	
-	print("player_interacted")
+	add_to_player()
+
+## Objekt auf den Spieler Kopf legen
+func add_to_player():
+	var player : Player = get_tree().get_first_node_in_group("player")
+	# Schauen ob Spieler bereits ein Objekt trägt
+	if player.carries_object:
+		print("Player is already carring an object")
+		return
+	# Aktuelle Position Speichern
+	var old_position : Vector2 = global_position
+	# Objekt zum Spieler hinzufügen
+	get_parent().remove_child(self)
+	player.object_place.add_child(self)
+	player.carries_object = true
+	# Setzen der Position auf die alte Position, damit gleich Position durch eine "Animation" getauscht wird
+	global_position = old_position
+	# Position des Objekts auf die neue Position durch eine Bewegung setzten
+	animated_movement(Vector2(0,0))
+	# Dafür sorgen dass es nicht doppelt aufgehoben werden kann
+	is_picked = true
+	set_collision_size_to_zero()
+
+## Setzt die Größe der Interact Collision auf Null
+func set_collision_size_to_zero():
+	var zero_shape = interact_collision.shape as RectangleShape2D
+	zero_shape.extents = Vector2(0,0)
+	interact_collision.shape = zero_shape
+
+func animated_movement(target : Vector2):
+	var tween = get_tree().create_tween()
+	tween.tween_property(self, "position", target, selected_object.pickup_time).from_current()
