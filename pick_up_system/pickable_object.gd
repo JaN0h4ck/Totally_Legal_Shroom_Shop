@@ -6,42 +6,32 @@ class_name pickable_object
 
 ## Collision Shape in welcher der Spieler zum Interagieren stehen muss
 @onready var interact_collision: CollisionShape2D = $interact_object/interact_collision
+## Objekte welches das Interagieren des Spielers abgreift
+@onready var interact_manager: Interactable = $interact_object
 
-## True wenn es ein Pilz ist
-var is_mushroom : bool = false
 ## True wenn Objekt mommentan aufgehoben werden kann
 var is_pickable : bool = true
 
-func _ready() -> void:
-	set_collision_size()
-	check_slected_object_type()
-	
-	if is_mushroom:
-		pass
-	else:
-		create_corpse()
-
-## Überprüft ob das ausgewählte Objekt ein Pilz ist
-func check_slected_object_type():
-	if selected_object is pickable_mushroom_resource:
-		is_mushroom = true
-	else:
-		is_mushroom = false
-
-## Legt die Größe der Collision Box fest auf die Werte aus dem ausgewähltem Objekt
-func set_collision_size():
-	interact_collision.shape.get_rect().size.x = selected_object.interact_box_size.x
-	interact_collision.shape.get_rect().size.y = selected_object.interact_box_size.y
 
 ## Erstellte eine Sprite2D mit dem aussehen der Leiche
 func create_corpse():
 	var sprite : Sprite2D = Sprite2D.new()
 	sprite.texture = selected_object.base_texture
 	add_child(sprite)
+	set_collision_size()
+	# Ändern der Anzeige mit was der Spieler interagieren kann
+	interact_manager.interact_prompt = "Interact Corpse"
 
-func create_mushroom():
-	var base_sprite : Sprite2D
+## Legt die Größe der Collision Box fest auf die Werte aus dem ausgewähltem Objekt
+func set_collision_size():
+	var rect_shape = interact_collision.shape as RectangleShape2D
+	rect_shape.extents = selected_object.interact_box_size / 2
+	interact_collision.shape = rect_shape
 
-
+## Was passieren soll wenn der Spieler mit dem Objekt interagiert
 func _on_player_interacted() -> void:
-	pass # Replace with function body.
+	if not is_pickable:
+		print("Cant be picked right now")
+		return
+	
+	print("player_interacted")

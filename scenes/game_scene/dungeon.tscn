@@ -19,7 +19,7 @@
 [ext_resource type="Script" uid="uid://cfc8a16cgd5gl" path="res://scenes/game_scene/scripts/interactable_shop.gd" id="17_7taji"]
 [ext_resource type="PackedScene" uid="uid://wgvolemsb07q" path="res://scenes/game_scene/dungeon/basement_floors.tscn" id="18_0sevn"]
 [ext_resource type="PackedScene" uid="uid://bj4wwt83kcsgp" path="res://scenes/Object/object.tscn" id="19_6kpy7"]
-[ext_resource type="Script" uid="uid://63rccir43lh3" path="res://scenes/game_scene/scripts/corpse_spawner.gd" id="20_ikx5i"]
+[ext_resource type="Script" uid="uid://bwtta7g7ucgg2" path="res://spawn_system/corpse_spawn_system.gd" id="20_j3unq"]
 [ext_resource type="PackedScene" uid="uid://b8jkgcrh5ql3v" path="res://scenes/game_scene/dungeon/mushroom.tscn" id="21_uf2vu"]
 [ext_resource type="Texture2D" uid="uid://b0fga1xi6c1cj" path="res://assets/shrooms/freshlyplanted.png" id="22_ppaq7"]
 
@@ -287,7 +287,7 @@ position = Vector2(-39, 24)
 
 [node name="corpse_spawner" type="Node2D" parent="."]
 position = Vector2(41, -15)
-script = ExtResource("20_ikx5i")
+script = ExtResource("20_j3unq")
 
 [node name="mushrooms" type="Node2D" parent="." groups=["mushroom_container"]]
 
