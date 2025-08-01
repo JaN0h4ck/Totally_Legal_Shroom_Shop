@@ -1,5 +1,5 @@
 extends Resource
-class_name pickable_objects
+class_name pickable_object_resource
 
 ## Das Standard Aussehen des Objektes
 @export var base_texture : Texture2D

@@ -1,5 +1,5 @@
-extends pickable_objects
-class_name pickable_mushrooms
+extends pickable_object_resource
+class_name pickable_mushroom_resource
 
 ## Texture wenn der Pilz zur hälfte gewachsen ist
 @export var middle_stage_texture : Texture2D
