@@ -103,5 +103,5 @@ func random_path():
 func npc_left():
 	npc_in_shop = false
 
-func npc_with_name_left(npc_name):
+func npc_with_name_left(_npc_name):
 	npc_in_shop = false
