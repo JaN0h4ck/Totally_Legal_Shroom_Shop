@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://b7fecdpuah10g"]
+[gd_scene load_steps=15 format=3 uid="uid://b7fecdpuah10g"]
 
 [ext_resource type="Script" uid="uid://bu05imyuwv2yl" path="res://scenes/game_ui/dialog_system/dialog_panel.gd" id="1_0om7c"]
+[ext_resource type="Theme" uid="uid://d31137rsk15ng" path="res://resources/themes/expedition.tres" id="1_wq83t"]
 [ext_resource type="AudioStream" uid="uid://dbotfhw3rag17" path="res://Audio/Originals/Voices/Voice_Low_1.wav" id="2_5ms7g"]
 [ext_resource type="AudioStream" uid="uid://cvrqo1dxk60x7" path="res://Audio/Originals/Voices/Voice_Low_2.wav" id="3_wq83t"]
 [ext_resource type="AudioStream" uid="uid://cahp66k86kh4s" path="res://Audio/Originals/Voices/Voice_Low_3.wav" id="4_aby5p"]
@@ -31,6 +32,7 @@ anchor_bottom = 1.0
 offset_top = -170.0
 grow_horizontal = 2
 grow_vertical = 0
+theme = ExtResource("1_wq83t")
 script = ExtResource("1_0om7c")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
