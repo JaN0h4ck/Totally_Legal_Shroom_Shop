@@ -13,6 +13,7 @@ var common_mushroom : Array
 var rare_mushroom : Array
 var ultra_rare_mushroom : Array
 var position_to_bool := {}
+var current_position : Vector2 = Vector2(0,0)
 
 func _ready():
 	EventBus.pickup_object.connect(clear_field)
@@ -28,6 +29,7 @@ func spawn_mushroom_seed(location : Vector2):
 	# Schauen ob dort bereits ein Pilz ist
 	if get_position_value(location):
 		return
+	current_position = location
 	set_position_value(location, true)
 	print("interacted at ", location)
 	var check = check_if_player_has_fertilizer()
@@ -39,6 +41,7 @@ func spawn_mushroom_seed(location : Vector2):
 		var player : Player = get_tree().get_first_node_in_group("player")
 		var fertilizer : pickable_object = player.object_place.get_child(check[1])
 		create_mushroom(fertilizer.selected_object.rarity, location)
+		use_fertilizer(fertilizer)
 
 ## Schaut ob der Spieler mommentan Dünger in der Hand hat
 func check_if_player_has_fertilizer():
@@ -61,6 +64,16 @@ func create_mushroom(soil_rarity : pickable_object_resource.rarity_enum, locatio
 			scene.selected_object = ultra_rare_mushroom.pick_random()
 	scene.global_position = location
 	scene.create_mushroom()
+
+## Dünger zu Feld bewegen und dann löschen
+func use_fertilizer(fertilizer : pickable_object):
+	fertilizer.crush_object()
+	var tween = get_tree().create_tween()
+	tween.tween_property(fertilizer, "global_position", current_position, fertilizer.selected_object.pickup_time).from_current()
+	# Warten bevor Leiche verschwindet
+	await get_tree().create_timer(fertilizer.selected_object.pickup_time + 0.1).timeout
+	if is_instance_valid(fertilizer):
+		fertilizer.queue_free()
 
 ## Fügt den Pilz zum passenden Array hinzu
 func add_mushroom_to_array(mushroom):

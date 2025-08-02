@@ -20,9 +20,10 @@ var is_inside_interactable: bool:
 	get: return _is_inside
 	set(value):
 		if(not value and interactable_queue.size() > 0):
-			var interactable: Interactable = interactable_queue.pop_front()
-			if interactable.player_is_inside:
-				interactable.emit_inside()
+			if is_instance_valid(interactable_queue[0]):
+				var interactable: Interactable = interactable_queue.pop_front()
+				if interactable.player_is_inside:
+					interactable.emit_inside()
 		else:
 			_is_inside = value
 var interactable_queue: Array[Interactable]

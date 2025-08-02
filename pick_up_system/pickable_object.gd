@@ -34,7 +34,7 @@ func create_mushroom():
 	var sprite : Sprite2D = Sprite2D.new()
 	sprite.texture = selected_object.base_texture
 	add_child(sprite)
-	set_collision_size()
+	set_collision_size(false, Vector2(0,0))
 	# Ändern der Anzeige mit was der Spieler interagieren kann
 	interact_manager.interact_prompt = "Interact Mushroom"
 	mushroom_grow(sprite)
@@ -45,15 +45,30 @@ func create_corpse():
 	var sprite : Sprite2D = Sprite2D.new()
 	sprite.texture = selected_object.base_texture
 	add_child(sprite)
-	set_collision_size()
+	set_collision_size(false, Vector2(0,0))
 	# Ändern der Anzeige mit was der Spieler interagieren kann
 	interact_manager.interact_prompt = "Interact Corpse"
 	add_object_to_group("pickable_corpse")
 
+## Erstellt den Dünger
+func create_fertilizer():
+	var sprite : Sprite2D = Sprite2D.new()
+	sprite.texture = selected_object.base_texture
+	add_child(sprite)
+	## Eigener Collision Size Code damit die Collison wenn der Dünger auf dem Maschine leigt groß genug zum erreichen ist
+	set_collision_size(true, Vector2(30,30))
+	# Ändern der Anzeige mit was der Spieler interagieren kann
+	interact_manager.interact_prompt = "Interact Fertilizer"
+	add_object_to_group("pickable_fertilizer")
+	print("created ", sprite.texture)
+
 ## Legt die Größe der Collision Box fest auf die Werte aus dem ausgewähltem Objekt
-func set_collision_size():
+func set_collision_size(custom_collision : bool, new_collision : Vector2):
 	var rect_shape = interact_collision.shape as RectangleShape2D
-	rect_shape.extents = selected_object.interact_box_size / 2
+	if custom_collision:
+		rect_shape.extents = new_collision / 2
+	else:
+		rect_shape.extents = selected_object.interact_box_size / 2
 	interact_collision.shape = rect_shape
 
 ## Was passieren soll wenn der Spieler mit dem Objekt interagiert
@@ -118,7 +133,7 @@ func drop_object():
 	if not is_picked:
 		return
 	is_random_dropped = true
-	set_collision_size()
+	set_collision_size(false, Vector2(0,0))
 	is_picked = false
 	var new_parent = get_tree().get_first_node_in_group("dropped_items_container")
 	self.reparent(new_parent, true)
@@ -127,7 +142,8 @@ func drop_object():
 ## Objekt in den Schredder werfen
 func crush_object():
 	is_random_dropped = false
-	is_picked = false
+	var player : Player = get_tree().get_first_node_in_group("player")
+	player.carries_object = false
 	var new_parent = get_tree().get_first_node_in_group("dropped_items_container")
 	self.reparent(new_parent, true)
 

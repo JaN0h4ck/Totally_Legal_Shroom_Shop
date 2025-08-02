@@ -56,6 +56,8 @@ pickable_mushroom=""
 pickable_corpse=""
 dropped_items_container=""
 pickable_fertilizer=""
+paused_nodes=""
+wood_chipper=""
 
 [gui]
 
