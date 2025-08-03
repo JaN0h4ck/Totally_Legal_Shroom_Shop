@@ -1,7 +1,7 @@
 class_name DialogPanel
-extends Panel
+extends Control
 
-@onready var label: Label = $MarginContainer/Label
+@onready var label: Label = $DialogPanel/MarginContainer/Label
 @export var speed_char_ps: float = 32.0
 var tween: Tween
 @onready var dialog_audio: DialogAudio = $DialogAudio
