@@ -13,15 +13,17 @@ var current_floor: AudioFloor.FloorTypes = AudioFloor.FloorTypes.Wood
 var block_input: bool = false
 var _is_inside: bool = false
 
-var carried_item: PickableObject = null
+@onready var object_place: Node2D = $object_place
+var carries_object : bool = false
 
 var is_inside_interactable: bool:
 	get: return _is_inside
 	set(value):
 		if(not value and interactable_queue.size() > 0):
-			var interactable: Interactable = interactable_queue.pop_front()
-			if interactable.player_is_inside:
-				interactable.emit_inside()
+			if is_instance_valid(interactable_queue[0]):
+				var interactable: Interactable = interactable_queue.pop_front()
+				if interactable.player_is_inside:
+					interactable.emit_inside()
 		else:
 			_is_inside = value
 var interactable_queue: Array[Interactable]
@@ -48,6 +50,10 @@ func _physics_process(delta: float):
 		play_animation(input_direction)
 		if not footstep_player.playing:
 			footstep_player.play()
+	
+	if Input.is_action_just_pressed("drop_object") and carries_object:
+		EventBus.drop_object.emit()
+		carries_object = false
 
 
 func _on_dialogue_started():
@@ -85,9 +91,3 @@ func play_animation(input_direction):
 func set_floor_type(type: AudioFloor.FloorTypes):
 	current_floor = type
 	footstep_player.change_sound(type)
-	
-func pick_up(duration):
-	
-	sprite_animation.play("idle_front")
-	
-	await get_tree().create_timer(duration).timeout

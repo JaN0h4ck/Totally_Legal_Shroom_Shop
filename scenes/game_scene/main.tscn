@@ -88,3 +88,9 @@ zoom = Vector2(0.6, 0.6)
 
 [node name="Lexicon" parent="." instance=ExtResource("10_q28bu")]
 position = Vector2(1723, -21)
+
+[node name="dropped_items_container" type="Node2D" parent="." groups=["dropped_items_container"]]
+
+[node name="paused_nodes" type="Node2D" parent="." groups=["paused_nodes"]]
+editor_description = "Node an die alle Nodes angehängt werden die aktuell Pausiert sein sollen"
+position = Vector2(-323, 0)

@@ -268,6 +268,7 @@ shape = SubResource("RectangleShape2D_dk418")
 [node name="interactable_basement" type="Area2D" parent="."]
 position = Vector2(-37, 35)
 script = ExtResource("29_4bti5")
+interact_prompt = "Interact Stairs"
 metadata/_custom_type_script = "uid://b1kccbwcfiryn"
 
 [node name="collision_interactable_basement" type="CollisionShape2D" parent="interactable_basement"]

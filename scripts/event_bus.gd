@@ -35,6 +35,15 @@ signal open_inventory
 ## Ausgelöst wenn Lexikon geschlossen wird
 signal lexicon_back
 
+## Ausgelöst wenn der Spieler das Objekt welches er gerade trägt fallen lässt
+signal drop_object
+
+## Ausgelöst wenn ein Objekt aufgehoben wird, Globale Position des Objekts und Bool ob das Objekt einfach nur im Level abgelegt wurde wird mit übergeben
+signal pickup_object(position : Vector2, is_random_dropped : bool)
+
+## Ausgelöst wenn Dünger erstellt werden soll, Position und Seltenheit wird übergeben
+signal spawn_fertilizer(new_global_position : Vector2, rarity : pickable_object_resource.rarity_enum)
+
 func _on_interact_customer():
 	interact_customer.emit()
 
@@ -79,3 +88,12 @@ func _on_open_inventory():
 
 func _on_lexikon_closed():
 	lexicon_back.emit()
+
+func _on_drop_object():
+	drop_object.emit()
+
+func _on_pickup_object(position : Vector2, is_random_dropped : bool):
+	pickup_object.emit(position, is_random_dropped)
+
+func _on_spawn_fertilizer(new_global_position : Vector2, rarity : pickable_object_resource.rarity_enum):
+	spawn_fertilizer.emit(new_global_position, rarity)

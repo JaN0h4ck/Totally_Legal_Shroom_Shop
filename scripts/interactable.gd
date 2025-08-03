@@ -40,3 +40,7 @@ func _on_body_exited(body: Node2D):
 		player_left.emit(name)
 		player_is_inside = false
 		body.is_inside_interactable = false
+
+
+func _on_player_interacted() -> void:
+	pass # Replace with function body.

@@ -161,3 +161,6 @@ current = true
 stream = ExtResource("14_xj0yq")
 bus = &"SFX"
 script = ExtResource("15_6y5aw")
+
+[node name="object_place" type="Node2D" parent="."]
+position = Vector2(0, -15)
