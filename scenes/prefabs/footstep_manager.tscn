@@ -12,6 +12,7 @@ collision_mask = 4
 script = ExtResource("1_mgr7d")
 
 [node name="FootstepPlayer" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(0, 11)
 stream = ExtResource("2_8cq6v")
 bus = &"SFX"
 
