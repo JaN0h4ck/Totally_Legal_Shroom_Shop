@@ -15,9 +15,6 @@
 [ext_resource type="AudioStream" uid="uid://df0t1r42poy3q" path="res://Audio/Originals/Voices/Voice_Medium_3.wav" id="11_vbyli"]
 [ext_resource type="Texture2D" uid="uid://cm23p2wtdqcpq" path="res://assets/character/alien/alien_portrait.png" id="14_h8nx1"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_7d2xt"]
-font_size = 26
-
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_0ag80"]
 random_pitch = 1.1
 random_volume_offset_db = 0.2
@@ -26,42 +23,67 @@ stream_0/stream = ExtResource("2_5ms7g")
 stream_1/stream = ExtResource("3_wq83t")
 stream_2/stream = ExtResource("4_aby5p")
 
+[sub_resource type="LabelSettings" id="LabelSettings_7d2xt"]
+font_size = 26
+
 [node name="Control" type="Control"]
 layout_mode = 3
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -301.0
+offset_top = -367.0
 offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("1_wq83t")
 script = ExtResource("1_0om7c")
 
-[node name="InputPrompt" parent="." instance=ExtResource("1_aby5p")]
+[node name="DialogAudio" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_0ag80")
+mix_target = 2
+bus = &"SFX"
+script = ExtResource("5_h8nx1")
+voice_high = Array[AudioStreamWAV]([ExtResource("6_5ms7g"), ExtResource("7_wq83t"), ExtResource("8_aby5p")])
+voice_medium = Array[AudioStreamWAV]([ExtResource("9_h8nx1"), ExtResource("10_v8oon"), ExtResource("11_vbyli")])
+voice_low = Array[AudioStreamWAV]([ExtResource("2_5ms7g"), ExtResource("3_wq83t"), ExtResource("4_aby5p")])
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 1
-anchor_top = 0.0
-anchor_bottom = 0.0
-offset_top = 69.0
-offset_bottom = 133.0
-grow_vertical = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="PortraitContainer" type="PanelContainer" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(179, 200)
+layout_mode = 2
+theme = ExtResource("1_wq83t")
+theme_type_variation = &"PortraitContainer"
+
+[node name="Portrait" type="TextureRect" parent="VBoxContainer/HBoxContainer/PortraitContainer"]
+layout_mode = 2
+texture = ExtResource("14_h8nx1")
+
+[node name="InputPrompt" parent="VBoxContainer/HBoxContainer" instance=ExtResource("1_aby5p")]
+custom_minimum_size = Vector2(200, 66)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 8
 text = "Continue"
 action_name = "skip_dialogue"
 
-[node name="DialogPanel" type="Panel" parent="."]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -170.0
-grow_horizontal = 2
-grow_vertical = 0
+[node name="DialogPanel" type="Panel" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
 theme = ExtResource("1_wq83t")
 
-[node name="MarginContainer" type="MarginContainer" parent="DialogPanel"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/DialogPanel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -73,28 +95,8 @@ theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 8
 
-[node name="Label" type="Label" parent="DialogPanel/MarginContainer"]
+[node name="Label" type="Label" parent="VBoxContainer/DialogPanel/MarginContainer"]
 custom_minimum_size = Vector2(100, 120)
 layout_mode = 2
 label_settings = SubResource("LabelSettings_7d2xt")
 autowrap_mode = 3
-
-[node name="DialogAudio" type="AudioStreamPlayer" parent="."]
-stream = SubResource("AudioStreamRandomizer_0ag80")
-mix_target = 2
-bus = &"SFX"
-script = ExtResource("5_h8nx1")
-voice_high = Array[AudioStreamWAV]([ExtResource("6_5ms7g"), ExtResource("7_wq83t"), ExtResource("8_aby5p")])
-voice_medium = Array[AudioStreamWAV]([ExtResource("9_h8nx1"), ExtResource("10_v8oon"), ExtResource("11_vbyli")])
-voice_low = Array[AudioStreamWAV]([ExtResource("2_5ms7g"), ExtResource("3_wq83t"), ExtResource("4_aby5p")])
-
-[node name="PortraitContainer" type="PanelContainer" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-theme = ExtResource("1_wq83t")
-theme_type_variation = &"PortraitContainer"
-
-[node name="Portrait" type="TextureRect" parent="PortraitContainer"]
-layout_mode = 2
-texture = ExtResource("14_h8nx1")
