@@ -140,6 +140,11 @@ drop_object={
 
 locale/translations=PackedStringArray("res://addons/maaacks_menus_template/base/translations/menus_translations.en.translation", "res://addons/maaacks_menus_template/base/translations/menus_translations.fr.translation")
 
+[layer_names]
+
+2d_physics/layer_1="Player"
+2d_physics/layer_3="Audio"
+
 [maaacks_menus_template]
 
 copy_path="res://"
