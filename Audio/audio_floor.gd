@@ -7,8 +7,8 @@ enum FloorTypes { Concrete, Rug, Soil, Wood }
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	body_entered.connect(_on_body_entered)
+	area_entered.connect(_on_area_entered)
 
-func _on_body_entered(body: Node2D):
-	if body.is_in_group(&"stepper") and body.has_method("set_floor_type"):
-		body.set_floor_type(floor_type)
+func _on_area_entered(area: Area2D):
+	if area.has_method("set_floor_type"):
+		area.set_floor_type(floor_type)

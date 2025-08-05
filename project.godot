@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Completly Legal Shroomshop"
+config/name="Completely Legal Shroomshop"
 config/version="1.0.2"
 run/main_scene="res://scenes/opening/opening_with_logo.tscn"
 config/features=PackedStringArray("4.4")
@@ -52,7 +52,6 @@ dialog_panel=""
 input_prompt=""
 npc_path2D=""
 npc_followpath2D=""
-stepper="everything that makes footsteps, need to track floor type"
 mushroom_container=""
 pickable_mushroom=""
 pickable_corpse=""
@@ -139,6 +138,11 @@ drop_object={
 [internationalization]
 
 locale/translations=PackedStringArray("res://addons/maaacks_menus_template/base/translations/menus_translations.en.translation", "res://addons/maaacks_menus_template/base/translations/menus_translations.fr.translation")
+
+[layer_names]
+
+2d_physics/layer_1="Player"
+2d_physics/layer_3="Audio"
 
 [maaacks_menus_template]
 
