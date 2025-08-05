@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://l8lfjqje8j04" path="res://assets/character/player/player_walkleft2.PNG" id="11_m6avg"]
 [ext_resource type="Texture2D" uid="uid://dt1w540iam524" path="res://assets/character/player/player_walkright1.PNG" id="12_wl30t"]
 [ext_resource type="Texture2D" uid="uid://cskgwtqwia0le" path="res://assets/character/player/player_walkright2.PNG" id="13_3j4vf"]
-[ext_resource type="PackedScene" uid="uid://bsnrdvemonhyj" path="res://scenes/prefabs/footstep_manager.tscn" id="14_m6p0u"]
+[ext_resource type="PackedScene" uid="uid://bsnrdvemonhyj" path="res://scenes/prefabs/player_footstep_manager.tscn" id="14_m6p0u"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o003e"]
 atlas = ExtResource("3_m6p0u")

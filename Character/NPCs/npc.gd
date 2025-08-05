@@ -40,6 +40,9 @@ func _physics_process(delta : float) -> void:
 	
 	play_animation()
 
+func is_moving() -> bool:
+	return not is_zero_approx(movement.length())
+
 func play_animation():
 	if falling == true:
 		return
@@ -47,7 +50,7 @@ func play_animation():
 	movement = global_position - last_position
 	last_position = global_position
 	
-	if movement.length() > 0.1:
+	if is_moving():
 		if abs(movement.x) > abs(movement.y):
 			if movement.x > 0:
 				animated_sprite.play("walk_right")

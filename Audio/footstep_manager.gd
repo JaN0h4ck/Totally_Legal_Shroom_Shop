@@ -11,12 +11,13 @@ const FOOTSTEPS_WOOD: AudioStreamWAV = preload("res://Audio/Originals/SFX/FOOTST
 
 @onready var footstep_player: AudioStreamPlayer2D = $FootstepPlayer
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if footstep_player.playing:
 		if parent.velocity.is_zero_approx():
 			footstep_player.stop()
-		return
-	footstep_player.play()
+			return
+	else:
+		footstep_player.play()
 
 func set_floor_type(type: AudioFloor.FloorTypes):
 	footstep_player.stop()
