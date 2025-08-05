@@ -1,9 +1,11 @@
 extends Node2D
 
+const FIRST_PAGE: int = 0
+const LAST_PAGE: int = 5
+
 @onready var anim = $AnimatedSprite2D
 @export var count: int = 0
 @onready var sub_viewport_container: SubViewportContainer = $"../.."
-
 
 func _ready():
 	anim.play("Page1")
@@ -12,12 +14,12 @@ func _ready():
 func _process(_delta: float) -> void:
 	if(Input.is_action_just_pressed("ui_left")):
 		count -= 1
-		count = clampi(count, 0, 5)
+		count = clampi(count, FIRST_PAGE, LAST_PAGE)
 		page()
 		return
 	if(Input.is_action_just_pressed("ui_right")):
 		count += 1
-		count = clampi(count, 0, 5)
+		count = clampi(count, FIRST_PAGE, LAST_PAGE)
 		page()
 		return
 	if(Input.is_action_pressed("ui_cancel")):
