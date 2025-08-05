@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://bpg8lyxgg0rkt"]
+[gd_scene load_steps=11 format=3 uid="uid://bpg8lyxgg0rkt"]
 
 [ext_resource type="Texture2D" uid="uid://dnogg28bv4bwt" path="res://assets/ButtonLexikon-sheet.png" id="1_566mw"]
 [ext_resource type="Script" uid="uid://dc1cmf14215gd" path="res://scenes/lexicon/lexicon.gd" id="1_etx67"]
+[ext_resource type="PackedScene" uid="uid://bv5ulmbmtwuyw" path="res://scenes/game_ui/input_prompt.tscn" id="3_c6ilk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_etx67"]
 atlas = ExtResource("1_566mw")
@@ -100,3 +101,8 @@ animation = &"Page1"
 
 [node name="Camera2D" type="Camera2D" parent="SubViewport/Lexicon"]
 zoom = Vector2(0.5, 0.5)
+
+[node name="InputPrompt" parent="." instance=ExtResource("3_c6ilk")]
+layout_mode = 2
+text = "Return"
+action_name = "ui_cancel"
