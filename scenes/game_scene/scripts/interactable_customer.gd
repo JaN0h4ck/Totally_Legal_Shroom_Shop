@@ -1,6 +1,7 @@
 extends Interactable
 
 var is_blocked: bool = true
+var npc: base_npc
 
 func _ready():
 	super()
@@ -8,12 +9,14 @@ func _ready():
 	EventBus.npc_left_trapdoor.connect(_on_left_trapdoor)
 	EventBus.npc_dropped.connect(_on_dropped_from_trapdoor)
 
-func _on_enter_trapdoor():
+func _on_enter_trapdoor(_npc: base_npc):
+	npc = _npc
 	is_blocked = false
 	if(player_is_inside):
 		player_entered.emit(interact_prompt, name)
 
 func _on_left_trapdoor():
+	npc = null
 	is_blocked = true
 	if(player_is_inside):
 		player_left.emit(name)
@@ -37,4 +40,4 @@ func _input(event: InputEvent) -> void:
 	super(event)
 
 func _on_player_interacted():
-	EventBus.interact_customer.emit()
+	EventBus.interact_customer.emit(npc)

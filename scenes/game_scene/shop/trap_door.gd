@@ -23,7 +23,7 @@ func _on_timer_timeout():
 
 func _on_area_2d_body_entered(body):
 	if body is base_npc:
-		EventBus.npc_entered_trapdoor.emit()
+		EventBus.npc_entered_trapdoor.emit(body)
 		npc_on_trapdoor = true
 
 func _on_area_2d_body_exited(body):

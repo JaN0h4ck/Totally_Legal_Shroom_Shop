@@ -5,6 +5,7 @@ extends Control
 @export var speed_char_ps: float = 32.0
 var tween: Tween
 @onready var dialog_audio: DialogAudio = $DialogAudio
+@onready var portrait: TextureRect = $PortraitContainer/Portrait
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

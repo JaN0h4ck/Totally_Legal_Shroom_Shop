@@ -1,6 +1,7 @@
-[gd_scene load_steps=27 format=3 uid="uid://cu2pnrsoa22jf"]
+[gd_scene load_steps=28 format=3 uid="uid://cu2pnrsoa22jf"]
 
 [ext_resource type="PackedScene" uid="uid://bgx1eldmsx2b3" path="res://Character/NPCs/base_npc.tscn" id="1_fjmci"]
+[ext_resource type="Texture2D" uid="uid://cm23p2wtdqcpq" path="res://assets/character/alien/alien_portrait.png" id="2_6uwdk"]
 [ext_resource type="Texture2D" uid="uid://cvq3ixgynp62x" path="res://assets/character/alien/alien_idle_front.png" id="2_fjmci"]
 [ext_resource type="Texture2D" uid="uid://ddw8yfghc7xrv" path="res://assets/character/alien/alien_idle_right.png" id="3_6uwdk"]
 [ext_resource type="Texture2D" uid="uid://ds7jhdtlp7dh8" path="res://assets/character/alien/alien_idle_back.png" id="4_2snw3"]
@@ -210,7 +211,9 @@ animations = [{
 }]
 
 [node name="NPC" instance=ExtResource("1_fjmci")]
-npc_name = "alien"
+portrait = ExtResource("2_6uwdk")
+lines = Array[String](["Hello Person. I would like a Soilfruit. Please hand me over %s of what you call Phallus impudicus", "Welcome fellow human being. I want to request a Home-m... I mean an Alien-Mushroom."])
+npc_name = 0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="2"]
 position = Vector2(0, -12)

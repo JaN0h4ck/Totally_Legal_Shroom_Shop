@@ -1,7 +1,8 @@
-[gd_scene load_steps=19 format=3 uid="uid://2kh62pmo6qlp"]
+[gd_scene load_steps=20 format=3 uid="uid://2kh62pmo6qlp"]
 
 [ext_resource type="PackedScene" uid="uid://bgx1eldmsx2b3" path="res://Character/NPCs/base_npc.tscn" id="1_4gnhw"]
 [ext_resource type="Texture2D" uid="uid://0l8pseejul85" path="res://assets/character/beff/beff_idle_front.png" id="2_4gnhw"]
+[ext_resource type="Texture2D" uid="uid://nuni2wb0tyk1" path="res://assets/character/beff/beff_portrait.png" id="2_b3ksc"]
 [ext_resource type="Texture2D" uid="uid://dgffe6bmxqe4x" path="res://assets/character/beff/beff_idle_right.png" id="3_b3ksc"]
 [ext_resource type="Texture2D" uid="uid://bltqx8oyb0s1k" path="res://assets/character/beff/beff_idle_back.png" id="4_wb22y"]
 [ext_resource type="Texture2D" uid="uid://dvmn0iyyu10g0" path="res://assets/character/beff/beff_idle_left.png" id="5_fm67u"]
@@ -154,6 +155,8 @@ animations = [{
 }]
 
 [node name="NPC" instance=ExtResource("1_4gnhw")]
+portrait = ExtResource("2_b3ksc")
+lines = Array[String](["beff %s"])
 npc_name = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="2"]

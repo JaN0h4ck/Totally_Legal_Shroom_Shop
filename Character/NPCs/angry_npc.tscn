@@ -1,6 +1,7 @@
-[gd_scene load_steps=19 format=3 uid="uid://bf2p47rvftlao"]
+[gd_scene load_steps=20 format=3 uid="uid://bf2p47rvftlao"]
 
 [ext_resource type="PackedScene" uid="uid://bgx1eldmsx2b3" path="res://Character/NPCs/base_npc.tscn" id="1_5ngi4"]
+[ext_resource type="Texture2D" uid="uid://1pdapoxfo42q" path="res://assets/character/angry/angry_portrait.png" id="2_j8aas"]
 [ext_resource type="Texture2D" uid="uid://di4y37vdea3d2" path="res://assets/character/angry/angy_idle_back.png" id="6_13quf"]
 [ext_resource type="Texture2D" uid="uid://cftn6088x67b8" path="res://assets/character/angry/angy_idle_front.png" id="7_yy64w"]
 [ext_resource type="Texture2D" uid="uid://bqukjrhw74jq2" path="res://assets/character/angry/angy_idle_left.png" id="8_d1802"]
@@ -154,6 +155,8 @@ animations = [{
 }]
 
 [node name="NPC" instance=ExtResource("1_5ngi4")]
+portrait = ExtResource("2_j8aas")
+lines = Array[String](["angry %s"])
 npc_name = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="2"]

@@ -6,6 +6,7 @@ enum DialogTypes { GENERIC }
 @export var ui_layer: CanvasLayer
 @export var dialogue_scene: PackedScene
 @export var dialogue_file_path: String
+
 var dialogue_panel: DialogPanel
 var generic: Array
 var basic_shrooms: Array
@@ -16,11 +17,19 @@ var ultra_rare_shrooms: Array
 func _ready() -> void:
 	randomize()
 	parse_json()
-	EventBus.interact_customer.connect(start_random_dialogue)
+	EventBus.interact_customer.connect(start_npc_dialogue)
 	EventBus.dialog_ended.connect(_on_dialogue_ended)
 
+func start_npc_dialogue(npc: base_npc):
+	if dialogue_panel != null: return
+	var instance = dialogue_scene.instantiate()
+	ui_layer.add_child(instance)
+	dialogue_panel = instance
+	dialogue_panel.portrait.texture = npc.portrait
+	dialogue_panel._start_dialog(npc.lines[randi() % npc.lines.size()])
+
 func start_random_dialogue():
-	init_dialogue(DialogTypes.GENERIC)
+	init_dialogue_deprec(DialogTypes.GENERIC)
 
 func parse_json():
 	if FileAccess.file_exists(dialogue_file_path):
@@ -39,7 +48,8 @@ func parse_json():
 			push_error("Dialogue JSON not valid")
 			queue_free()
 
-func init_dialogue(type: DialogTypes):
+## DEPRECATED leaving this for debug reasons
+func init_dialogue_deprec(type: DialogTypes):
 	if dialogue_panel != null: return
 	var instance = dialogue_scene.instantiate()
 	ui_layer.add_child(instance)

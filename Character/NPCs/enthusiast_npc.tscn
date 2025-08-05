@@ -1,6 +1,7 @@
-[gd_scene load_steps=19 format=3 uid="uid://h3jg7s867rd2"]
+[gd_scene load_steps=20 format=3 uid="uid://h3jg7s867rd2"]
 
 [ext_resource type="PackedScene" uid="uid://bgx1eldmsx2b3" path="res://Character/NPCs/base_npc.tscn" id="1_xomjg"]
+[ext_resource type="Texture2D" uid="uid://b22v36el5fqbv" path="res://assets/character/enthusiast/enthusiast_portrait.png" id="2_s25pe"]
 [ext_resource type="Texture2D" uid="uid://cltky8do07wv4" path="res://assets/character/enthusiast/enthusiast_idle_front.png" id="2_xomjg"]
 [ext_resource type="Texture2D" uid="uid://b1m2jfxe6dnuv" path="res://assets/character/enthusiast/enthusiast_idle_right.png" id="3_s25pe"]
 [ext_resource type="Texture2D" uid="uid://dgb5yh7vrr21v" path="res://assets/character/enthusiast/enthusiast_idle_back.png" id="4_1h84f"]
@@ -154,6 +155,8 @@ animations = [{
 }]
 
 [node name="NPC" instance=ExtResource("1_xomjg")]
+portrait = ExtResource("2_s25pe")
+lines = Array[String](["enthusiast %s"])
 npc_name = 7
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="2"]

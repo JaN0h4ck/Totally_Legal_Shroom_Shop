@@ -1,6 +1,7 @@
-[gd_scene load_steps=19 format=3 uid="uid://jnppjujmfxj1"]
+[gd_scene load_steps=20 format=3 uid="uid://jnppjujmfxj1"]
 
 [ext_resource type="PackedScene" uid="uid://bgx1eldmsx2b3" path="res://Character/NPCs/base_npc.tscn" id="1_tvjw0"]
+[ext_resource type="Texture2D" uid="uid://c2d5yk8vqug7r" path="res://assets/character/cowboy/cowboy_portrait.png" id="2_a12hy"]
 [ext_resource type="Texture2D" uid="uid://c4jak764u5xc8" path="res://assets/character/cowboy/cowboy_stand_front.PNG" id="2_q5dpb"]
 [ext_resource type="Texture2D" uid="uid://c7va0kb4tb0k0" path="res://assets/character/cowboy/cowboy_stand_right.png" id="3_cr3yc"]
 [ext_resource type="Texture2D" uid="uid://cmxolpp5mnf7" path="res://assets/character/cowboy/cowboy_stand_back.png" id="4_72b7k"]
@@ -154,6 +155,8 @@ animations = [{
 }]
 
 [node name="NPC" instance=ExtResource("1_tvjw0")]
+portrait = ExtResource("2_a12hy")
+lines = Array[String](["cowboy %s"])
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="2"]
 position = Vector2(0, -12)
