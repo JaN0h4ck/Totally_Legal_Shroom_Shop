@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://dt1w540iam524" path="res://assets/character/player/player_walkright1.PNG" id="12_wl30t"]
 [ext_resource type="Texture2D" uid="uid://cskgwtqwia0le" path="res://assets/character/player/player_walkright2.PNG" id="13_3j4vf"]
 [ext_resource type="AudioStream" uid="uid://ch72oviw1tjpi" path="res://Audio/Originals/SFX/FOOTSTEPS/Shrooms FX - Footsteps Wood.wav" id="14_xj0yq"]
-[ext_resource type="Script" uid="uid://d0it67nj7vct1" path="res://Audio/footstep_player.gd" id="15_6y5aw"]
+[ext_resource type="Script" uid="uid://d0it67nj7vct1" path="res://Audio/footstep_manager.gd" id="15_6y5aw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o003e"]
 atlas = ExtResource("3_m6p0u")
@@ -160,16 +160,16 @@ shape = SubResource("RectangleShape2D_raa3c")
 [node name="AudioListener2D" type="AudioListener2D" parent="."]
 current = true
 
-[node name="Footsteps" type="Area2D" parent="."]
+[node name="FootstepManager" type="Area2D" parent="."]
 collision_layer = 4
 collision_mask = 4
-
-[node name="FootstepPlayer" type="AudioStreamPlayer2D" parent="Footsteps"]
-stream = ExtResource("14_xj0yq")
-bus = &"SFX"
 script = ExtResource("15_6y5aw")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Footsteps"]
+[node name="FootstepPlayer" type="AudioStreamPlayer2D" parent="FootstepManager"]
+stream = ExtResource("14_xj0yq")
+bus = &"SFX"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FootstepManager"]
 position = Vector2(0, 11)
 shape = SubResource("RectangleShape2D_xj0yq")
 debug_color = Color(0.936128, 0.187372, 0.434898, 0.42)

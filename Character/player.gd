@@ -7,7 +7,6 @@ enum Directions { FRONT, BACK, LEFT, RIGHT }
 var last_direction : Directions = Directions.FRONT
 
 var current_floor: AudioFloor.FloorTypes = AudioFloor.FloorTypes.Wood
-@onready var footstep_player: FootstepPlayer = $FootstepPlayer
 
 @export var speed = 4000
 var block_input: bool = false
@@ -44,12 +43,8 @@ func _physics_process(delta: float):
 	
 	if velocity.is_zero_approx():
 		select_idle()
-		if footstep_player.playing:
-			footstep_player.stop()
 	else:
 		play_animation(input_direction)
-		if not footstep_player.playing:
-			footstep_player.play()
 	
 	if Input.is_action_just_pressed("drop_object") and carries_object:
 		EventBus.drop_object.emit()
@@ -57,7 +52,6 @@ func _physics_process(delta: float):
 
 
 func _on_dialogue_started():
-	footstep_player.stop()
 	block_input = true
 
 func _on_dialogue_ended():
@@ -87,7 +81,3 @@ func play_animation(input_direction):
 	elif input_direction.x < 0:
 		sprite_animation.play("walk_left")
 		last_direction = Directions.LEFT
-
-func set_floor_type(type: AudioFloor.FloorTypes):
-	current_floor = type
-	footstep_player.change_sound(type)
