@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bsnrdvemonhyj"]
+
+[ext_resource type="Script" uid="uid://d0it67nj7vct1" path="res://Audio/footstep_manager.gd" id="1_mgr7d"]
+[ext_resource type="AudioStream" uid="uid://ch72oviw1tjpi" path="res://Audio/Originals/SFX/FOOTSTEPS/Shrooms FX - Footsteps Wood.wav" id="2_8cq6v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xj0yq"]
+size = Vector2(8, 3)
+
+[node name="FootstepManager" type="Area2D"]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_mgr7d")
+
+[node name="FootstepPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_8cq6v")
+bus = &"SFX"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 11)
+shape = SubResource("RectangleShape2D_xj0yq")
+debug_color = Color(0.936128, 0.187372, 0.434898, 0.42)

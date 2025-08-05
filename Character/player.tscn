@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://d0o5dug26555l"]
+[gd_scene load_steps=25 format=3 uid="uid://d0o5dug26555l"]
 
 [ext_resource type="Script" uid="uid://bw4y2g3n5jvan" path="res://Character/player.gd" id="1_3c51y"]
 [ext_resource type="Texture2D" uid="uid://e530b28wy4cx" path="res://assets/character/player/player_idle_back.png" id="3_m6p0u"]
@@ -13,8 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://l8lfjqje8j04" path="res://assets/character/player/player_walkleft2.PNG" id="11_m6avg"]
 [ext_resource type="Texture2D" uid="uid://dt1w540iam524" path="res://assets/character/player/player_walkright1.PNG" id="12_wl30t"]
 [ext_resource type="Texture2D" uid="uid://cskgwtqwia0le" path="res://assets/character/player/player_walkright2.PNG" id="13_3j4vf"]
-[ext_resource type="AudioStream" uid="uid://ch72oviw1tjpi" path="res://Audio/Originals/SFX/FOOTSTEPS/Shrooms FX - Footsteps Wood.wav" id="14_xj0yq"]
-[ext_resource type="Script" uid="uid://d0it67nj7vct1" path="res://Audio/footstep_manager.gd" id="15_6y5aw"]
+[ext_resource type="PackedScene" uid="uid://bsnrdvemonhyj" path="res://scenes/prefabs/footstep_manager.tscn" id="14_m6p0u"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o003e"]
 atlas = ExtResource("3_m6p0u")
@@ -142,9 +141,6 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_raa3c"]
 size = Vector2(12, 9)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xj0yq"]
-size = Vector2(8, 3)
-
 [node name="Player" type="CharacterBody2D" groups=["player", "stepper"]]
 script = ExtResource("1_3c51y")
 
@@ -160,19 +156,7 @@ shape = SubResource("RectangleShape2D_raa3c")
 [node name="AudioListener2D" type="AudioListener2D" parent="."]
 current = true
 
-[node name="FootstepManager" type="Area2D" parent="."]
-collision_layer = 4
-collision_mask = 4
-script = ExtResource("15_6y5aw")
-
-[node name="FootstepPlayer" type="AudioStreamPlayer2D" parent="FootstepManager"]
-stream = ExtResource("14_xj0yq")
-bus = &"SFX"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FootstepManager"]
-position = Vector2(0, 11)
-shape = SubResource("RectangleShape2D_xj0yq")
-debug_color = Color(0.936128, 0.187372, 0.434898, 0.42)
+[node name="FootstepManager" parent="." instance=ExtResource("14_m6p0u")]
 
 [node name="object_place" type="Node2D" parent="."]
 position = Vector2(0, -15)
