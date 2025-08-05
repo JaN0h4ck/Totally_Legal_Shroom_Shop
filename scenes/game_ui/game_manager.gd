@@ -5,11 +5,13 @@ extends Node
 @export var interact_scene: PackedScene
 @export var pause_scene: PackedScene
 @export var inv_scene: PackedScene
+@export var lexicon_scene: PackedScene
 
 var is_paused: bool = false
 
 func _ready() -> void:
 	EventBus.open_inventory.connect(_on_open_inventory)
+	EventBus.interact_lexikon.connect(_on_open_lexikon)
 
 func _on_open_inventory():
 	var instance = inv_scene.instantiate()
@@ -38,3 +40,7 @@ func destroy_interact_prompt(interactable_name: String):
 	for node in nodes:
 		if node.interactable_name == interactable_name: 
 			node.queue_free()
+
+func _on_open_lexikon():
+	var instance = lexicon_scene.instantiate()
+	ui_layer.add_child(instance)

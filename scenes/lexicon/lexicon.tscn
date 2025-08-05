@@ -78,9 +78,25 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Lexicon" type="Node2D"]
+[node name="SubViewportContainer" type="SubViewportContainer"]
+process_mode = 2
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="."]
+size = Vector2i(1280, 720)
+
+[node name="Lexicon" type="Node2D" parent="SubViewport"]
+process_mode = 2
 script = ExtResource("1_etx67")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SubViewport/Lexicon"]
 sprite_frames = SubResource("SpriteFrames_shews")
-animation = &"Page6"
+animation = &"Page1"
+
+[node name="Camera2D" type="Camera2D" parent="SubViewport/Lexicon"]
+zoom = Vector2(0.5, 0.5)

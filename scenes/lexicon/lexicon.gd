@@ -2,21 +2,27 @@ extends Node2D
 
 @onready var anim = $AnimatedSprite2D
 @export var count: int = 0
+@onready var sub_viewport_container: SubViewportContainer = $"../.."
 
 
 func _ready():
 	anim.play("Page1")
+	get_tree().paused = true
 
 func _process(_delta: float) -> void:
 	if(Input.is_action_just_pressed("ui_left")):
-			count -= 1
-			page()
+		count -= 1
+		count = clampi(count, 0, 5)
+		page()
+		return
 	if(Input.is_action_just_pressed("ui_right")):
-			count += 1
-			page()
+		count += 1
+		count = clampi(count, 0, 5)
+		page()
+		return
 	if(Input.is_action_pressed("ui_cancel")):
-		EventBus.lexicon_back.emit()
-		
+		get_tree().paused = false
+		sub_viewport_container.queue_free()
 
 func page():
 	match count:
