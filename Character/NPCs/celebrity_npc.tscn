@@ -1,6 +1,7 @@
-[gd_scene load_steps=19 format=3 uid="uid://j74f48umwc8"]
+[gd_scene load_steps=20 format=3 uid="uid://j74f48umwc8"]
 
 [ext_resource type="PackedScene" uid="uid://bgx1eldmsx2b3" path="res://Character/NPCs/base_npc.tscn" id="1_n4g8d"]
+[ext_resource type="Texture2D" uid="uid://c1dc6l8lbh4xs" path="res://assets/character/celebrity/celeb_portrait.png" id="2_mcufr"]
 [ext_resource type="Texture2D" uid="uid://cq40tjam18uys" path="res://assets/character/celebrity/celeb_idle_front.png" id="2_n4g8d"]
 [ext_resource type="Texture2D" uid="uid://bkfyjis8extkd" path="res://assets/character/celebrity/celeb_idle_right.png" id="3_mcufr"]
 [ext_resource type="Texture2D" uid="uid://cydg0wxuuseme" path="res://assets/character/celebrity/celeb_idle_back.png" id="4_whlx1"]
@@ -154,6 +155,8 @@ animations = [{
 }]
 
 [node name="NPC" instance=ExtResource("1_n4g8d")]
+portrait = ExtResource("2_mcufr")
+lines = Array[String](["celeb %s"])
 npc_name = 3
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="2"]

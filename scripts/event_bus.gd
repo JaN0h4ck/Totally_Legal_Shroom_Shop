@@ -1,7 +1,7 @@
 extends Node
 
 ## Ausgelöst wenn mit Kunden geredet wird
-signal interact_customer
+signal interact_customer(customer: base_npc)
 ## Ausgelöst wenn mit Kasse interagiert wird
 signal interact_register
 ## Ausgelöst wenn mit Lexikon interagiert wird
@@ -16,7 +16,7 @@ signal interact_basement
 signal interact_shop
 
 ## Ausgelöst wenn ein NPC auf die Falltür tritt
-signal npc_entered_trapdoor
+signal npc_entered_trapdoor(npc: base_npc)
 ## Ausgelöst wenn ein NPC die Falltür verlässt
 signal npc_left_trapdoor
 ## Ausgelöst wenn ein NPC den Shop verlässt (entweder durch Falltür oder als Kunde)

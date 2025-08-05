@@ -1,10 +1,11 @@
 class_name DialogPanel
 extends Control
 
-@onready var label: Label = $DialogPanel/MarginContainer/Label
+@onready var label: Label = $VBoxContainer/DialogPanel/MarginContainer/Label
 @export var speed_char_ps: float = 32.0
 var tween: Tween
 @onready var dialog_audio: DialogAudio = $DialogAudio
+@onready var portrait: TextureRect = $VBoxContainer/HBoxContainer/PortraitContainer/Portrait
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

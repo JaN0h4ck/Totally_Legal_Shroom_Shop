@@ -6,7 +6,8 @@ class_name base_npc
 # "walk_left" "walk_right" "walk_forward" "walk_backward"
 @onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
 
-
+@export var portrait: Texture2D
+@export var lines: Array[String]
 @export var path : Path2D
 @export var path_follow : PathFollow2D
 @export var move_speed : float = 40.0
@@ -76,7 +77,7 @@ func play_animation():
 			animated_sprite.play("idle_left")
 
 
-func enter_trapdoor():
+func enter_trapdoor(_npc: base_npc):
 	on_trapdoor = true
 
 func exit_trapdoor():

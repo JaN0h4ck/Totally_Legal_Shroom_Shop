@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=8 format=3 uid="uid://d31137rsk15ng"]
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://d31137rsk15ng"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g0sbc"]
 content_margin_left = 4.0
@@ -52,6 +52,18 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vklli"]
+bg_color = Color(0.670588, 0.588235, 0.584314, 0.490196)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.133364, 0.133364, 0.133364, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wsakr"]
 content_margin_left = 4.0
 content_margin_top = 4.0
@@ -92,6 +104,8 @@ Button/styles/normal = SubResource("StyleBoxFlat_krvwn")
 Button/styles/pressed = SubResource("StyleBoxFlat_gfyr3")
 Panel/styles/panel = SubResource("StyleBoxFlat_tytr8")
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_tytr8")
+PortraitContainer/base_type = &"PanelContainer"
+PortraitContainer/styles/panel = SubResource("StyleBoxFlat_vklli")
 TabContainer/styles/panel = SubResource("StyleBoxFlat_tytr8")
 TabContainer/styles/tab_hovered = SubResource("StyleBoxFlat_wsakr")
 TabContainer/styles/tab_selected = SubResource("StyleBoxFlat_1ngrn")

@@ -1,7 +1,8 @@
-[gd_scene load_steps=19 format=3 uid="uid://cp5yp8511mc0u"]
+[gd_scene load_steps=20 format=3 uid="uid://cp5yp8511mc0u"]
 
 [ext_resource type="PackedScene" uid="uid://bgx1eldmsx2b3" path="res://Character/NPCs/base_npc.tscn" id="1_a1w6x"]
 [ext_resource type="Texture2D" uid="uid://dfiwh7lg0kykx" path="res://assets/character/nerd/nerd_idle_front.png" id="2_a1w6x"]
+[ext_resource type="Texture2D" uid="uid://bh6ihvjjcywwf" path="res://assets/character/nerd/nerd_portrait.png" id="2_swnoa"]
 [ext_resource type="Texture2D" uid="uid://bmvgrrj6772mr" path="res://assets/character/nerd/nerd_idle_right.png" id="3_swnoa"]
 [ext_resource type="Texture2D" uid="uid://co1t7sf0nxgxn" path="res://assets/character/nerd/nerd_idle_back.png" id="4_6jqw1"]
 [ext_resource type="Texture2D" uid="uid://booqfa6s6in3v" path="res://assets/character/nerd/nerd_idle_left.png" id="5_pe2xm"]
@@ -154,6 +155,8 @@ animations = [{
 }]
 
 [node name="NPC" instance=ExtResource("1_a1w6x")]
+portrait = ExtResource("2_swnoa")
+lines = Array[String](["nerd %s"])
 npc_name = 8
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="2"]

@@ -89,7 +89,11 @@ grow_vertical = 2
 stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="."]
+handle_input_locally = false
+snap_2d_transforms_to_pixel = true
+snap_2d_vertices_to_pixel = true
 size = Vector2i(1280, 720)
+render_target_update_mode = 4
 
 [node name="Lexicon" type="Node2D" parent="SubViewport"]
 process_mode = 2
