@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Completly Legal Shroomshop"
+config/name="Completely Legal Shroomshop"
 config/version="1.0.2"
 run/main_scene="res://scenes/opening/opening_with_logo.tscn"
 config/features=PackedStringArray("4.4")
