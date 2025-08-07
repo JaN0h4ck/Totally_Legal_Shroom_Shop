@@ -60,7 +60,7 @@ func create_fertilizer():
 	# Ändern der Anzeige mit was der Spieler interagieren kann
 	interact_manager.interact_prompt = "Interact Fertilizer"
 	add_object_to_group("pickable_fertilizer")
-	print("created ", sprite.texture)
+	#print("created ", sprite.texture)
 
 ## Legt die Größe der Collision Box fest auf die Werte aus dem ausgewähltem Objekt
 func set_collision_size(custom_collision : bool, new_collision : Vector2):

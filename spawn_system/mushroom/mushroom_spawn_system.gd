@@ -31,16 +31,18 @@ func spawn_mushroom_seed(location : Vector2):
 		return
 	current_position = location
 	set_position_value(location, true)
-	print("interacted at ", location)
+	#print("interacted at ", location)
 	var check = check_if_player_has_fertilizer()
 	if not check[0]:
 		print("no fertilizer")
-		create_mushroom(pickable_object_resource.rarity_enum.common, location)
-		#return
+		#create_mushroom(pickable_object_resource.rarity_enum.common, location)
+		return
 	else:
 		var player : Player = get_tree().get_first_node_in_group("player")
 		var fertilizer : pickable_object = player.object_place.get_child(check[1])
-		create_mushroom(fertilizer.selected_object.rarity, location)
+		var fertilizer_rarity : pickable_object_resource.rarity_enum = fertilizer.selected_object.rarity
+		create_mushroom(fertilizer_rarity, location)
+		#print("Fertilizer Rarity: ", fertilizer_rarity)
 		use_fertilizer(fertilizer)
 
 ## Schaut ob der Spieler mommentan Dünger in der Hand hat

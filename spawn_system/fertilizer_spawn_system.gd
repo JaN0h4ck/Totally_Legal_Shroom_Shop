@@ -22,7 +22,7 @@ func spawn_fertilizer(new_global_position : Vector2, rarity : pickable_object_re
 	
 	scene.create_fertilizer()
 	scene.global_position = new_global_position
-	print("created", scene)
+	#print("created", scene)
 
 func delayed_fertilizer_spawn(new_global_position : Vector2, rarity : pickable_object_resource.rarity_enum):
 	call_deferred("spawn_fertilizer", new_global_position, rarity)

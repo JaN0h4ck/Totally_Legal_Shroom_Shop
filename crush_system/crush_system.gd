@@ -54,4 +54,4 @@ func crush_corpse(corpse : pickable_object):
 func create_fertilizer(corpse : pickable_object):
 	var corpse_rarity : pickable_object_resource.rarity_enum = corpse.selected_object.rarity
 	EventBus.spawn_fertilizer.emit(fertillizer_point.global_position, corpse_rarity)
-	print("Spawn fertilizer")
+	#print("Spawn fertilizer")
