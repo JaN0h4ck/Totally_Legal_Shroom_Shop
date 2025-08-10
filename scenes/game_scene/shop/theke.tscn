@@ -30,13 +30,15 @@ size = Vector2(10, 23)
 size = Vector2(22.5, 10)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_yk1t4"]
-polygon = PackedVector2Array(-62, -32, -17, -32, -17, -25, -62, -25)
+cull_mode = 2
+polygon = PackedVector2Array(-18, -33, -17, -33, -17, -10, -18, -10)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_u2bdo"]
-polygon = PackedVector2Array(-62, 8, -82, 8, -82, 1, -62, 1)
+cull_mode = 2
+polygon = PackedVector2Array(-62, 8, -82, 8, -82, 0, -62, 0)
 
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_xghkk"]
-polygon = PackedVector2Array(2, -2, 2, -0.400002, 1.6, 0, 0, 0, 0, 31.6, 2, 32.6, 2, 34, 15.4, 34, 18, 31.4, 18, 23, 82.6, 23, 83.6, 21, 85, 21, 85, 16, 86.3, 16, 84.8, 10, 84.2, 10, 85, 4.1, 85, 0.400002, 83, -0.599998, 83, -2)
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_2ukm1"]
+polygon = PackedVector2Array(17, -1, 17, 33, 16, 33, 16, -1)
 
 [node name="theke" type="Sprite2D"]
 z_index = -5
@@ -115,14 +117,18 @@ rotation = -1.5708
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 self_modulate = Color(1, 1, 1, 0)
+position = Vector2(0, -15)
 occluder = SubResource("OccluderPolygon2D_yk1t4")
 
 [node name="LightOccluder2D3" type="LightOccluder2D" parent="."]
+modulate = Color(1, 1, 1, 0)
 self_modulate = Color(1, 1, 1, 0)
+show_behind_parent = true
 occluder = SubResource("OccluderPolygon2D_u2bdo")
 
-[node name="LightOccluder2D2" type="LightOccluder2D" parent="."]
-occluder = SubResource("OccluderPolygon2D_xghkk")
+[node name="LightOccluder2D5" type="LightOccluder2D" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+occluder = SubResource("OccluderPolygon2D_2ukm1")
 
 [connection signal="player_interacted" from="interactable_mushroom_theke" to="interactable_mushroom_theke" method="_on_player_interacted"]
 [connection signal="player_interacted" from="interactable_customer" to="interactable_customer" method="_on_player_interacted"]

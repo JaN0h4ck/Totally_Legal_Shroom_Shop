@@ -59,6 +59,7 @@ bus = &"SFX"
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
 shape = SubResource("RectangleShape2D_4y1d4")
 
 [node name="Interactable" type="Area2D" parent="."]
@@ -67,6 +68,7 @@ interact_prompt = "Interact Chipper"
 metadata/_custom_type_script = "uid://b1kccbwcfiryn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable"]
+visible = false
 shape = SubResource("RectangleShape2D_4y1d4")
 
 [node name="corpse_point" type="Node2D" parent="."]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://cbqqtabob4txw"]
+[gd_scene load_steps=48 format=3 uid="uid://cbqqtabob4txw"]
 
 [ext_resource type="Texture2D" uid="uid://vilqwodtna00" path="res://assets/store/room_base.PNG" id="1_81vyf"]
 [ext_resource type="Texture2D" uid="uid://b37d1uq1quc11" path="res://assets/store/room_border.PNG" id="2_4bti5"]
@@ -20,9 +20,11 @@
 [ext_resource type="Texture2D" uid="uid://bg4ahawnaxwrw" path="res://assets/store/watering_can.PNG" id="22_ko11f"]
 [ext_resource type="Texture2D" uid="uid://dfipb1sihr85x" path="res://assets/store/tablecloth.PNG" id="23_woib1"]
 [ext_resource type="Texture2D" uid="uid://b4d2ub4apk3oj" path="res://assets/store/scissors.PNG" id="24_8b1pq"]
+[ext_resource type="Shader" uid="uid://dx2snx00gynq4" path="res://scripts/drop_shadow.gdshader" id="25_81vyf"]
 [ext_resource type="Texture2D" uid="uid://7ds7fd21grff" path="res://assets/store/shovel.PNG" id="25_yya2p"]
+[ext_resource type="Texture2D" uid="uid://cj4swoqagol5e" path="res://assets/store/flower_pot/flower_pot_n.png" id="26_4bti5"]
 [ext_resource type="Texture2D" uid="uid://dra6a1ox6f1lw" path="res://assets/store/rake.PNG" id="26_46vee"]
-[ext_resource type="Texture2D" uid="uid://dd5amwgg6l5mr" path="res://assets/store/flower_pot.PNG" id="27_f5d8s"]
+[ext_resource type="Texture2D" uid="uid://dd5amwgg6l5mr" path="res://assets/store/flower_pot/flower_pot.PNG" id="27_f5d8s"]
 [ext_resource type="PackedScene" uid="uid://d0o5dug26555l" path="res://Character/player.tscn" id="27_lpp72"]
 [ext_resource type="Texture2D" uid="uid://7r1ob1uqh3xj" path="res://assets/store/smolplant.PNG" id="28_2f5ol"]
 [ext_resource type="PackedScene" uid="uid://bbhkiwxfhduko" path="res://scenes/game_scene/shop/floor_types.tscn" id="28_81vyf"]
@@ -79,6 +81,30 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e6eah"]
 size = Vector2(12, 45)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_81vyf"]
+shader = ExtResource("25_81vyf")
+shader_parameter/debug = false
+shader_parameter/border_scale = 2.0
+shader_parameter/shadow_offset = Vector2(1, 1)
+shader_parameter/color = Color(0, 0, 0, 0.45098)
+shader_parameter/blur_amount = 0.0
+shader_parameter/shadow_scale = 1.5
+shader_parameter/disable_rotating = false
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_7nhl3"]
+diffuse_texture = ExtResource("27_f5d8s")
+normal_texture = ExtResource("26_4bti5")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7nhl3"]
+shader = ExtResource("25_81vyf")
+shader_parameter/debug = false
+shader_parameter/border_scale = 2.0
+shader_parameter/shadow_offset = Vector2(-1, 1)
+shader_parameter/color = Color(0, 0, 0, 0.572549)
+shader_parameter/blur_amount = 0.0
+shader_parameter/shadow_scale = 1.5
+shader_parameter/disable_rotating = false
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dk418"]
 size = Vector2(24, 13)
 
@@ -101,12 +127,29 @@ point_count = 17
 background_mode = 3
 glow_enabled = true
 
+[sub_resource type="Gradient" id="Gradient_4bti5"]
+offsets = PackedFloat32Array(0, 0.753247)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7nhl3"]
+gradient = SubResource("Gradient_4bti5")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4bti5"]
+gradient = SubResource("Gradient_4bti5")
+width = 4
+height = 4
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [node name="shop" type="Sprite2D"]
 z_index = -10
 z_as_relative = false
 texture = ExtResource("1_81vyf")
 
 [node name="Player" parent="." instance=ExtResource("27_lpp72")]
+z_index = 10
 position = Vector2(6, -30)
 
 [node name="room_border" type="Sprite2D" parent="."]
@@ -256,13 +299,15 @@ texture = ExtResource("26_46vee")
 [node name="flower_pot" type="Sprite2D" parent="plants_left"]
 z_index = -5
 z_as_relative = false
-position = Vector2(-73.5, 8.5)
-texture = ExtResource("27_f5d8s")
+material = SubResource("ShaderMaterial_81vyf")
+position = Vector2(-75, 9)
+texture = SubResource("CanvasTexture_7nhl3")
 
 [node name="smolplant" type="Sprite2D" parent="plants_left"]
 z_index = -5
 z_as_relative = false
-position = Vector2(-62, 12.5)
+material = SubResource("ShaderMaterial_7nhl3")
+position = Vector2(-62, 14)
 texture = ExtResource("28_2f5ol")
 
 [node name="plants_body" type="StaticBody2D" parent="plants_left"]
@@ -306,6 +351,31 @@ environment = SubResource("Environment_lpp72")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.74978, 0.74978, 0.74978, 1)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(43, -25)
+color = Color(1, 1, 0.682353, 1)
+energy = 0.7
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_7nhl3")
+height = 400.0
+
+[node name="PointLight2D3" type="PointLight2D" parent="."]
+texture_filter = 1
+position = Vector2(-52, -27)
+color = Color(1, 1, 0.682353, 1)
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_4bti5")
+texture_scale = 20.0
+height = 400.0
+
+[node name="PointLight2D2" type="PointLight2D" parent="."]
+position = Vector2(43, 25)
+color = Color(1, 1, 0.682353, 1)
+energy = 0.7
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_7nhl3")
+height = 400.0
 
 [connection signal="player_interacted" from="register/interactable_register" to="register/interactable_register" method="_on_player_interacted"]
 [connection signal="player_interacted" from="interactable_certificate" to="interactable_certificate" method="_on_player_interacted"]

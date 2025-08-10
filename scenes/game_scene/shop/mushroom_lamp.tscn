@@ -28,6 +28,7 @@ range_z_min = -100
 range_z_max = 9
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_f3u2c")
+height = 80.0
 
 [node name="lamp_collision" type="StaticBody2D" parent="."]
 visible = false

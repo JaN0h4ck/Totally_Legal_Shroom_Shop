@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://dy1uiy23nc5he"]
+[gd_scene load_steps=51 format=3 uid="uid://dy1uiy23nc5he"]
 
 [ext_resource type="Texture2D" uid="uid://bhqas40v1sogj" path="res://assets/dungeon/dungeon_base.PNG" id="1_miufi"]
 [ext_resource type="Texture2D" uid="uid://bt4kb5hqwg4nl" path="res://assets/dungeon/dungeon_border.PNG" id="2_5623h"]
@@ -8,11 +8,13 @@
 [ext_resource type="Texture2D" uid="uid://cw2h6s26burpl" path="res://assets/dungeon/cross.PNG" id="4_mv2yw"]
 [ext_resource type="Texture2D" uid="uid://c2bunm23f5bcb" path="res://assets/dungeon/dungeon_barrel.PNG" id="5_egi2s"]
 [ext_resource type="Texture2D" uid="uid://bqxpw7dx16l1d" path="res://assets/dungeon/dungeon_chest.PNG" id="6_vnu48"]
+[ext_resource type="Shader" uid="uid://dx2snx00gynq4" path="res://scripts/drop_shadow.gdshader" id="7_4somj"]
 [ext_resource type="Texture2D" uid="uid://cn8w7nj28gjup" path="res://assets/dungeon/dungeon_table.PNG" id="8_epj33"]
 [ext_resource type="Texture2D" uid="uid://5yym7638cog7" path="res://assets/dungeon/journal.PNG" id="9_hamwq"]
 [ext_resource type="PackedScene" uid="uid://dmdlnr87n1wxl" path="res://spawn_system/mushroom/mushroom_field.tscn" id="9_tkn77"]
 [ext_resource type="Texture2D" uid="uid://bq2vvs6x38nnm" path="res://assets/dungeon/saw.PNG" id="10_4ovda"]
 [ext_resource type="Texture2D" uid="uid://ci7rt38s0ry1r" path="res://assets/dungeon/torch.PNG" id="11_554xe"]
+[ext_resource type="Script" uid="uid://cymhhbstmtfdt" path="res://scripts/flickering_light.gd" id="13_ikx5i"]
 [ext_resource type="PackedScene" uid="uid://31fnvnrufja0" path="res://crush_system/wood_chipper.tscn" id="14_0sevn"]
 [ext_resource type="Texture2D" uid="uid://dwr0060psd8kh" path="res://assets/dungeon/prison/prison_bottom.PNG" id="15_7taji"]
 [ext_resource type="Texture2D" uid="uid://df5m0n2gb7q36" path="res://assets/dungeon/prison/prison_top.PNG" id="16_0sevn"]
@@ -65,26 +67,134 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4somj"]
+shader = ExtResource("7_4somj")
+shader_parameter/debug = false
+shader_parameter/border_scale = 2.0
+shader_parameter/shadow_offset = Vector2(0, -1)
+shader_parameter/color = Color(0, 0, 0, 0.333333)
+shader_parameter/blur_amount = 0.0
+shader_parameter/shadow_scale = 1.5
+shader_parameter/disable_rotating = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tkn77"]
+shader = ExtResource("7_4somj")
+shader_parameter/debug = false
+shader_parameter/border_scale = 2.0
+shader_parameter/shadow_offset = Vector2(0, -1)
+shader_parameter/color = Color(0, 0, 0, 0.364706)
+shader_parameter/blur_amount = 0.0
+shader_parameter/shadow_scale = 1.5
+shader_parameter/disable_rotating = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uf2vu"]
+shader = ExtResource("7_4somj")
+shader_parameter/debug = false
+shader_parameter/border_scale = 2.0
+shader_parameter/shadow_offset = Vector2(1, -1)
+shader_parameter/color = Color(0, 0, 0, 0.431373)
+shader_parameter/blur_amount = 0.0
+shader_parameter/shadow_scale = 1.5
+shader_parameter/disable_rotating = false
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0sevn"]
 size = Vector2(30, 8)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h67ak"]
 size = Vector2(17.5, 28)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j3unq"]
+shader = ExtResource("7_4somj")
+shader_parameter/debug = false
+shader_parameter/border_scale = 2.0
+shader_parameter/shadow_offset = Vector2(1, 0)
+shader_parameter/color = Color(0, 0, 0, 0.427451)
+shader_parameter/blur_amount = 0.0
+shader_parameter/shadow_scale = 1.5
+shader_parameter/disable_rotating = false
+
 [sub_resource type="Gradient" id="Gradient_2bcuf"]
-offsets = PackedFloat32Array(0, 0.350649)
+offsets = PackedFloat32Array(0, 0.597403)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_004c8"]
 gradient = SubResource("Gradient_2bcuf")
 fill = 1
-fill_from = Vector2(0.5, 0.5)
+fill_from = Vector2(0.5, 0.1)
+fill_to = Vector2(1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_4somj"]
+noise_type = 3
+frequency = 0.0668
+metadata/_preview_in_3d_space_ = true
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_4somj"]
+noise = SubResource("FastNoiseLite_4somj")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ikx5i"]
+noise_type = 3
+seed = 295
+frequency = 0.0668
+metadata/_preview_in_3d_space_ = true
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ikx5i"]
+noise = SubResource("FastNoiseLite_ikx5i")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_tkn77"]
+noise_type = 3
+seed = 165
+frequency = 0.0668
+metadata/_preview_in_3d_space_ = true
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_uf2vu"]
+noise = SubResource("FastNoiseLite_tkn77")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_uf2vu"]
+noise_type = 3
+seed = 560
+frequency = 0.0668
+metadata/_preview_in_3d_space_ = true
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_j3unq"]
+noise = SubResource("FastNoiseLite_uf2vu")
+
+[sub_resource type="Gradient" id="Gradient_4somj"]
+offsets = PackedFloat32Array(0, 0.597403)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_tkn77"]
+gradient = SubResource("Gradient_4somj")
+fill = 1
+fill_from = Vector2(0.5, 0)
+fill_to = Vector2(1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_uf2vu"]
+gradient = SubResource("Gradient_4somj")
+fill = 1
+fill_from = Vector2(0.5, 0)
+fill_to = Vector2(1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_j3unq"]
+gradient = SubResource("Gradient_4somj")
+fill = 1
+fill_from = Vector2(0.5, 0)
+fill_to = Vector2(1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ppaq7"]
+gradient = SubResource("Gradient_4somj")
+fill = 1
+fill_from = Vector2(0.5, 0)
+fill_to = Vector2(1, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6kpy7"]
 size = Vector2(39, 24)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j3unq"]
 size = Vector2(19, 10)
+
+[sub_resource type="Environment" id="Environment_4somj"]
+background_mode = 3
+glow_enabled = true
 
 [node name="Dungeon" type="Node2D"]
 
@@ -99,6 +209,7 @@ z_as_relative = false
 texture = ExtResource("2_5623h")
 
 [node name="dungeon_collision_border" type="StaticBody2D" parent="dungeon_base"]
+visible = false
 
 [node name="dungeon_bottom" type="CollisionShape2D" parent="dungeon_base/dungeon_collision_border"]
 position = Vector2(0, 55)
@@ -125,6 +236,7 @@ animation = &"open"
 [node name="axe" type="Sprite2D" parent="dungeon_base"]
 z_index = -5
 z_as_relative = false
+material = SubResource("ShaderMaterial_4somj")
 position = Vector2(1, -38)
 texture = ExtResource("3_5623h")
 
@@ -141,12 +253,14 @@ z_as_relative = false
 [node name="dungeon_barrel" type="Sprite2D" parent="dungeon_base/chest_and_barrel"]
 z_index = -5
 z_as_relative = false
+material = SubResource("ShaderMaterial_tkn77")
 position = Vector2(-56, -36.5)
 texture = ExtResource("5_egi2s")
 
 [node name="dungeon_chest" type="Sprite2D" parent="dungeon_base/chest_and_barrel"]
 z_index = -5
 z_as_relative = false
+material = SubResource("ShaderMaterial_uf2vu")
 position = Vector2(-71, -36)
 texture = ExtResource("6_vnu48")
 
@@ -180,60 +294,139 @@ texture = ExtResource("9_hamwq")
 [node name="saw" type="Sprite2D" parent="dungeon_base"]
 z_index = -5
 z_as_relative = false
+material = SubResource("ShaderMaterial_j3unq")
 position = Vector2(66.5, -45.5)
 texture = ExtResource("10_4ovda")
 
-[node name="torch_1" type="Sprite2D" parent="dungeon_base"]
+[node name="Lights" type="Node2D" parent="dungeon_base"]
+
+[node name="Upper" type="Node2D" parent="dungeon_base/Lights"]
+
+[node name="torch_1" type="Sprite2D" parent="dungeon_base/Lights/Upper"]
 z_index = -5
 z_as_relative = false
 position = Vector2(-64, -45.5)
 texture = ExtResource("11_554xe")
 
-[node name="PointLight2D" type="PointLight2D" parent="dungeon_base/torch_1"]
-position = Vector2(0, -3.5)
-color = Color(0.905882, 0, 1, 1)
-energy = 2.0
+[node name="PointLight2D" type="PointLight2D" parent="dungeon_base/Lights/Upper/torch_1"]
+position = Vector2(0, 23.5)
+color = Color(1, 0.518058, 0.519394, 1)
+energy = 1.18673
 range_z_max = 9
 texture = SubResource("GradientTexture2D_004c8")
+height = 20.0
+script = ExtResource("13_ikx5i")
+noise = SubResource("NoiseTexture2D_4somj")
+sample_scale = 3.5
+speed = 3.5
 
-[node name="torch_2" type="Sprite2D" parent="dungeon_base"]
+[node name="torch_2" type="Sprite2D" parent="dungeon_base/Lights/Upper"]
 z_index = -5
 z_as_relative = false
 position = Vector2(-17, -45.5)
 texture = ExtResource("11_554xe")
 
-[node name="PointLight2D" type="PointLight2D" parent="dungeon_base/torch_2"]
-position = Vector2(0, -3.5)
-color = Color(0.905882, 0, 1, 1)
-energy = 2.0
+[node name="PointLight2D" type="PointLight2D" parent="dungeon_base/Lights/Upper/torch_2"]
+position = Vector2(0, 23.5)
+color = Color(1, 0.518058, 0.519394, 1)
+energy = 1.47136
 range_z_max = 9
 texture = SubResource("GradientTexture2D_004c8")
+height = 20.0
+script = ExtResource("13_ikx5i")
+noise = SubResource("NoiseTexture2D_ikx5i")
+sample_scale = 2.0
+speed = 2.0
 
-[node name="torch_3" type="Sprite2D" parent="dungeon_base"]
+[node name="torch_3" type="Sprite2D" parent="dungeon_base/Lights/Upper"]
 z_index = -5
 z_as_relative = false
 position = Vector2(31, -45.5)
 texture = ExtResource("11_554xe")
 
-[node name="PointLight2D" type="PointLight2D" parent="dungeon_base/torch_3"]
-position = Vector2(0, -3.5)
-color = Color(0.905882, 0, 1, 1)
-energy = 2.0
+[node name="PointLight2D" type="PointLight2D" parent="dungeon_base/Lights/Upper/torch_3"]
+position = Vector2(0, 23.5)
+color = Color(1, 0.518058, 0.519394, 1)
+energy = 1.17773
 range_z_max = 9
 texture = SubResource("GradientTexture2D_004c8")
+height = 20.0
+script = ExtResource("13_ikx5i")
+noise = SubResource("NoiseTexture2D_uf2vu")
+sample_scale = 3.0
+speed = 1.0
 
-[node name="torch_4" type="Sprite2D" parent="dungeon_base"]
+[node name="torch_4" type="Sprite2D" parent="dungeon_base/Lights/Upper"]
 z_index = -5
 z_as_relative = false
 position = Vector2(78, -45.5)
 texture = ExtResource("11_554xe")
 
-[node name="PointLight2D" type="PointLight2D" parent="dungeon_base/torch_4"]
-position = Vector2(0, -3.5)
-color = Color(0.905882, 0, 1, 1)
-energy = 2.0
+[node name="PointLight2D" type="PointLight2D" parent="dungeon_base/Lights/Upper/torch_4"]
+position = Vector2(0, 23.5)
+color = Color(1, 0.518058, 0.519394, 1)
+energy = 1.39538
 range_z_max = 9
 texture = SubResource("GradientTexture2D_004c8")
+height = 20.0
+script = ExtResource("13_ikx5i")
+noise = SubResource("NoiseTexture2D_j3unq")
+sample_scale = 3.0
+speed = 3.0
+
+[node name="Lower" type="Node2D" parent="dungeon_base/Lights"]
+
+[node name="PointLight2D" type="PointLight2D" parent="dungeon_base/Lights/Lower"]
+position = Vector2(-60, 14)
+rotation = 3.14159
+color = Color(1, 0.518058, 0.519394, 1)
+energy = 1.10679
+range_z_max = 9
+texture = SubResource("GradientTexture2D_tkn77")
+height = 20.0
+script = ExtResource("13_ikx5i")
+noise = SubResource("NoiseTexture2D_4somj")
+sample_scale = 3.5
+speed = 3.5
+
+[node name="PointLight2D2" type="PointLight2D" parent="dungeon_base/Lights/Lower"]
+position = Vector2(-13, 14)
+rotation = 3.14159
+color = Color(1, 0.518058, 0.519394, 1)
+energy = 1.53358
+range_z_max = 9
+texture = SubResource("GradientTexture2D_uf2vu")
+height = 20.0
+script = ExtResource("13_ikx5i")
+noise = SubResource("NoiseTexture2D_4somj")
+sample_scale = 3.5
+speed = 3.5
+
+[node name="PointLight2D3" type="PointLight2D" parent="dungeon_base/Lights/Lower"]
+position = Vector2(28, 14)
+rotation = 3.14159
+color = Color(1, 0.518058, 0.519394, 1)
+energy = 1.6152
+range_z_max = 9
+texture = SubResource("GradientTexture2D_j3unq")
+height = 20.0
+script = ExtResource("13_ikx5i")
+noise = SubResource("NoiseTexture2D_4somj")
+sample_scale = 3.5
+speed = 3.5
+
+[node name="PointLight2D4" type="PointLight2D" parent="dungeon_base/Lights/Lower"]
+position = Vector2(74, 14)
+rotation = 3.14159
+color = Color(1, 0.518058, 0.519394, 1)
+energy = 1.39082
+range_z_max = 9
+texture = SubResource("GradientTexture2D_ppaq7")
+height = 20.0
+script = ExtResource("13_ikx5i")
+noise = SubResource("NoiseTexture2D_4somj")
+sample_scale = 3.5
+speed = 3.5
 
 [node name="wood_chipper" parent="dungeon_base" instance=ExtResource("14_0sevn")]
 position = Vector2(24.5, 22)
@@ -263,6 +456,7 @@ position = Vector2(0.5, 3)
 shape = SubResource("RectangleShape2D_6kpy7")
 
 [node name="interactable_shop" type="Area2D" parent="."]
+visible = false
 position = Vector2(-38, -35)
 script = ExtResource("17_7taji")
 interact_prompt = "Interact Door"
@@ -273,6 +467,7 @@ position = Vector2(0.5, 5)
 shape = SubResource("RectangleShape2D_j3unq")
 
 [node name="BasementFloors" parent="." instance=ExtResource("18_0sevn")]
+visible = false
 
 [node name="corpse_spawner" type="Node2D" parent="."]
 position = Vector2(41, -15)
@@ -280,5 +475,11 @@ script = ExtResource("20_j3unq")
 
 [node name="mushroom_field" parent="." instance=ExtResource("9_tkn77")]
 position = Vector2(-47.5, 13.5)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_4somj")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.491891, 0.694334, 0.770546, 1)
 
 [connection signal="player_interacted" from="interactable_shop" to="interactable_shop" method="_on_player_interacted"]
