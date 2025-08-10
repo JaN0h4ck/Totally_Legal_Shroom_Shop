@@ -1,0 +1,50 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpnsftbiwns4p"]
+
+[ext_resource type="PackedScene" uid="uid://cbqqtabob4txw" path="res://scenes/game_scene/shop.tscn" id="1_8uh7m"]
+[ext_resource type="PackedScene" uid="uid://dy1uiy23nc5he" path="res://scenes/game_scene/dungeon.tscn" id="2_6uqi0"]
+
+[node name="Node2D" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Shop" type="SubViewportContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="Shop"]
+handle_input_locally = false
+snap_2d_transforms_to_pixel = true
+snap_2d_vertices_to_pixel = true
+canvas_item_default_texture_filter = 0
+size = Vector2i(1280, 720)
+render_target_update_mode = 4
+
+[node name="shop" parent="Shop/SubViewport" instance=ExtResource("1_8uh7m")]
+
+[node name="Camera2D" type="Camera2D" parent="Shop/SubViewport/shop"]
+zoom = Vector2(5, 5)
+
+[node name="Basement" type="SubViewportContainer" parent="."]
+process_mode = 4
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="Basement"]
+handle_input_locally = false
+render_target_update_mode = 0
+
+[node name="Dungeon" parent="Basement/SubViewport" instance=ExtResource("2_6uqi0")]

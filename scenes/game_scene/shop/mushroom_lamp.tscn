@@ -26,6 +26,7 @@ color = Color(1, 1, 0.682353, 1)
 energy = 0.7
 range_z_min = -100
 range_z_max = 9
+shadow_enabled = true
 texture = SubResource("GradientTexture2D_f3u2c")
 
 [node name="lamp_collision" type="StaticBody2D" parent="."]
