@@ -9,6 +9,10 @@ class_name pickable_object
 ## Objekte welches das Interagieren des Spielers abgreift
 @onready var interact_manager: Interactable = $interact_object
 
+
+## Globale Cinfig Ressource
+var config : GlobalConfig = load("res://resources/global_config.tres")
+
 ## True wenn Objekt mommentan aufgehoben werden kann
 var is_pickable : bool = true
 var is_picked : bool = false
@@ -83,7 +87,7 @@ func add_to_player():
 	EventBus.pickup_object.emit(global_position, is_random_dropped)
 	var player : Player = get_tree().get_first_node_in_group("player")
 	# Schauen ob Spieler bereits ein Objekt trägt
-	if player.carries_object:
+	if player.carries_object and config.player_carry_only_one_item:
 		print("Player is already carring an object")
 		return
 	# Objekt zum Spieler hinzufügen
