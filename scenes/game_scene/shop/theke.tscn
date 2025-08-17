@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dvvpcdcq4i0gr"]
+[gd_scene load_steps=15 format=3 uid="uid://dvvpcdcq4i0gr"]
 
 [ext_resource type="Texture2D" uid="uid://bdlpb63hi606r" path="res://assets/store/Theken.PNG" id="1_0o3k0"]
 [ext_resource type="Script" uid="uid://csgglkk7yra66" path="res://scenes/game_scene/scripts/interactable_mushroom_theke.gd" id="2_bfhk3"]
@@ -28,17 +28,6 @@ size = Vector2(10, 23)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_40ceo"]
 size = Vector2(22.5, 10)
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_yk1t4"]
-cull_mode = 2
-polygon = PackedVector2Array(-18, -33, -17, -33, -17, -10, -18, -10)
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_u2bdo"]
-cull_mode = 2
-polygon = PackedVector2Array(-62, 8, -82, 8, -82, 0, -62, 0)
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_2ukm1"]
-polygon = PackedVector2Array(17, -1, 17, 33, 16, 33, 16, -1)
 
 [node name="theke" type="Sprite2D"]
 z_index = -5
@@ -114,21 +103,6 @@ texture = ExtResource("7_yk1t4")
 [node name="Sprite2D5" type="Sprite2D" parent="WorldIventory"]
 position = Vector2(-71, -9)
 rotation = -1.5708
-
-[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
-self_modulate = Color(1, 1, 1, 0)
-position = Vector2(0, -15)
-occluder = SubResource("OccluderPolygon2D_yk1t4")
-
-[node name="LightOccluder2D3" type="LightOccluder2D" parent="."]
-modulate = Color(1, 1, 1, 0)
-self_modulate = Color(1, 1, 1, 0)
-show_behind_parent = true
-occluder = SubResource("OccluderPolygon2D_u2bdo")
-
-[node name="LightOccluder2D5" type="LightOccluder2D" parent="."]
-self_modulate = Color(1, 1, 1, 0)
-occluder = SubResource("OccluderPolygon2D_2ukm1")
 
 [connection signal="player_interacted" from="interactable_mushroom_theke" to="interactable_mushroom_theke" method="_on_player_interacted"]
 [connection signal="player_interacted" from="interactable_customer" to="interactable_customer" method="_on_player_interacted"]
