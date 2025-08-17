@@ -9,6 +9,9 @@ class_name mushroom_spawn_system
 @onready var murhroom_resource_ribcage := preload("res://pick_up_system/mushroom/ribcage_mushroom.tres")
 @onready var murhroom_resource_toxic := preload("res://pick_up_system/mushroom/toxic_mushroom.tres")
 
+## Globale Cinfig Ressource
+var config : GlobalConfig = load("res://resources/global_config.tres")
+
 var common_mushroom : Array
 var rare_mushroom : Array
 var ultra_rare_mushroom : Array
@@ -34,8 +37,10 @@ func spawn_mushroom_seed(location : Vector2):
 	#print("interacted at ", location)
 	var check = check_if_player_has_fertilizer()
 	if not check[0]:
-		print("no fertilizer")
-		#create_mushroom(pickable_object_resource.rarity_enum.common, location)
+		if config.grow_without_fertilizer:
+			create_mushroom(pickable_object_resource.rarity_enum.common, location)
+		else:
+			print("no fertilizer")
 		return
 	else:
 		var player : Player = get_tree().get_first_node_in_group("player")
