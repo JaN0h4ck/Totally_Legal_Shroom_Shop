@@ -1,35 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://b4r1rx3y0kcdn"]
+[gd_scene load_steps=6 format=3 uid="uid://b4r1rx3y0kcdn"]
 
 [ext_resource type="Script" uid="uid://caarja1bexjx8" path="res://scenes/game_scene/scripts/main.gd" id="1_bt4sa"]
-[ext_resource type="PackedScene" uid="uid://d0o5dug26555l" path="res://Character/player.tscn" id="1_ycr2w"]
-[ext_resource type="Script" uid="uid://c6rtvq67bfv0c" path="res://scenes/game_scene/shroom_display.gd" id="2_4t1xn"]
 [ext_resource type="PackedScene" uid="uid://bub6chbsebwhh" path="res://Character/NPCs/npc_spawner.tscn" id="3_0bg0g"]
 [ext_resource type="PackedScene" uid="uid://cbqqtabob4txw" path="res://scenes/game_scene/shop.tscn" id="3_n0m01"]
 [ext_resource type="PackedScene" uid="uid://dy1uiy23nc5he" path="res://scenes/game_scene/dungeon.tscn" id="4_io36f"]
 [ext_resource type="AudioStream" uid="uid://gjf8aowv1jdp" path="res://Audio/Originals/SFX/UPPER ROOM INTERACTIONS/Shrooms FX - Door Open and Close.wav" id="7_0bg0g"]
 
-[node name="Main" type="Node2D" node_paths=PackedStringArray("basement_position", "shop_position", "shop_camera", "basement_camera")]
+[node name="Main" type="Node2D"]
 script = ExtResource("1_bt4sa")
-basement_position = NodePath("teleport_point_basement")
-shop_position = NodePath("teleport_point_shopt")
-shop_camera = NodePath("Shop_Camera2D")
-basement_camera = NodePath("Basement_Camera2D")
 
 [node name="npc_spawner" parent="." instance=ExtResource("3_0bg0g")]
-
-[node name="Player" parent="." instance=ExtResource("1_ycr2w")]
-position = Vector2(31, -39)
-
-[node name="Shop_Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(5, 5)
-
-[node name="Basement_Camera2D" type="Camera2D" parent="."]
-position = Vector2(0, 160)
-enabled = false
-zoom = Vector2(5, 5)
-
-[node name="Shroom_Display" type="Node2D" parent="."]
-script = ExtResource("2_4t1xn")
 
 [node name="shop" parent="." instance=ExtResource("3_n0m01")]
 

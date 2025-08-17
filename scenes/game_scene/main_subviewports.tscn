@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://dpnsftbiwns4p"]
+[gd_scene load_steps=8 format=3 uid="uid://dpnsftbiwns4p"]
 
 [ext_resource type="PackedScene" uid="uid://cbqqtabob4txw" path="res://scenes/game_scene/shop.tscn" id="1_8uh7m"]
 [ext_resource type="Script" uid="uid://dcm2k4221o2tc" path="res://scenes/game_scene/scripts/main_subviewports.gd" id="1_56s3k"]
 [ext_resource type="PackedScene" uid="uid://dy1uiy23nc5he" path="res://scenes/game_scene/dungeon.tscn" id="2_6uqi0"]
 [ext_resource type="AudioStream" uid="uid://ucwpye6owuym" path="res://Audio/Originals/SFX/ITEMS/Music/Shrooms Upper Room ST.wav" id="4_h24d7"]
 [ext_resource type="AudioStream" uid="uid://dfbyswom5852k" path="res://Audio/Originals/SFX/ITEMS/Music/Shrooms Basement ST.wav" id="5_2y4ce"]
+[ext_resource type="AudioStream" uid="uid://gjf8aowv1jdp" path="res://Audio/Originals/SFX/UPPER ROOM INTERACTIONS/Shrooms FX - Door Open and Close.wav" id="6_2y4ce"]
 
 [sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_js1nl"]
 clip_count = 2
@@ -76,3 +77,7 @@ process_mode = 3
 stream = SubResource("AudioStreamInteractive_js1nl")
 autoplay = true
 bus = &"Music"
+
+[node name="DoorSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_2y4ce")
+bus = &"SFX"
