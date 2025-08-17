@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b4r1rx3y0kcdn"]
+[gd_scene load_steps=8 format=3 uid="uid://b4r1rx3y0kcdn"]
 
 [ext_resource type="Script" uid="uid://caarja1bexjx8" path="res://scenes/game_scene/scripts/main.gd" id="1_bt4sa"]
 [ext_resource type="PackedScene" uid="uid://d0o5dug26555l" path="res://Character/player.tscn" id="1_ycr2w"]
@@ -7,25 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://cbqqtabob4txw" path="res://scenes/game_scene/shop.tscn" id="3_n0m01"]
 [ext_resource type="PackedScene" uid="uid://dy1uiy23nc5he" path="res://scenes/game_scene/dungeon.tscn" id="4_io36f"]
 [ext_resource type="AudioStream" uid="uid://gjf8aowv1jdp" path="res://Audio/Originals/SFX/UPPER ROOM INTERACTIONS/Shrooms FX - Door Open and Close.wav" id="7_0bg0g"]
-[ext_resource type="AudioStream" uid="uid://ucwpye6owuym" path="res://Audio/Originals/SFX/ITEMS/Music/Shrooms Upper Room ST.wav" id="7_k8he3"]
-[ext_resource type="AudioStream" uid="uid://dfbyswom5852k" path="res://Audio/Originals/SFX/ITEMS/Music/Shrooms Basement ST.wav" id="8_0bg0g"]
-
-[sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_q28bu"]
-clip_count = 2
-clip_0/name = &"Shop"
-clip_0/stream = ExtResource("7_k8he3")
-clip_0/auto_advance = 0
-clip_1/name = &"Basement"
-clip_1/stream = ExtResource("8_0bg0g")
-clip_1/auto_advance = 0
-_transitions = {
-Vector2i(-1, -1): {
-"fade_beats": 1.0,
-"fade_mode": 3,
-"from_time": 2,
-"to_time": 2
-}
-}
 
 [node name="Main" type="Node2D" node_paths=PackedStringArray("basement_position", "shop_position", "shop_camera", "basement_camera")]
 script = ExtResource("1_bt4sa")
@@ -72,12 +53,6 @@ position = Vector2(0, 8)
 stream = ExtResource("7_0bg0g")
 pitch_scale = 2.0
 bus = &"SFX"
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-process_mode = 3
-stream = SubResource("AudioStreamInteractive_q28bu")
-autoplay = true
-bus = &"Music"
 
 [node name="dropped_items_container" type="Node2D" parent="." groups=["dropped_items_container"]]
 
