@@ -545,7 +545,4 @@ script = ExtResource("20_j3unq")
 [node name="mushroom_field" parent="." instance=ExtResource("9_tkn77")]
 position = Vector2(-47.5, 13.5)
 
-[node name="DungeonCanvas" type="CanvasModulate" parent="."]
-color = Color(0.925939, 0.734643, 0.72068, 1)
-
 [connection signal="player_interacted" from="interactable_shop" to="interactable_shop" method="_on_player_interacted"]
