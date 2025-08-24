@@ -228,7 +228,6 @@ texture = ExtResource("11_554xe")
 [node name="PointLight2D" type="PointLight2D" parent="dungeon_base/torch_1"]
 position = Vector2(0, 23.5)
 color = Color(0.905882, 0, 1, 1)
-energy = 1.47493
 range_z_max = 9
 texture = SubResource("GradientTexture2D_004c8")
 script = ExtResource("13_ikx5i")
@@ -243,7 +242,6 @@ texture = ExtResource("11_554xe")
 [node name="PointLight2D" type="PointLight2D" parent="dungeon_base/torch_2"]
 position = Vector2(0, 23.5)
 color = Color(0.905882, 0, 1, 1)
-energy = 2.0
 range_z_max = 9
 texture = SubResource("GradientTexture2D_004c8")
 script = ExtResource("13_ikx5i")
@@ -258,7 +256,6 @@ texture = ExtResource("11_554xe")
 [node name="PointLight2D" type="PointLight2D" parent="dungeon_base/torch_3"]
 position = Vector2(0, 23.5)
 color = Color(0.905882, 0, 1, 1)
-energy = 2.0
 range_z_max = 9
 texture = SubResource("GradientTexture2D_004c8")
 script = ExtResource("13_ikx5i")
@@ -273,7 +270,6 @@ texture = ExtResource("11_554xe")
 [node name="PointLight2D" type="PointLight2D" parent="dungeon_base/torch_4"]
 position = Vector2(0, 23.5)
 color = Color(0.905882, 0, 1, 1)
-energy = 2.0
 range_z_max = 9
 texture = SubResource("GradientTexture2D_004c8")
 script = ExtResource("13_ikx5i")

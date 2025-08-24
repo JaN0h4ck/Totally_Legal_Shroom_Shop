@@ -17,3 +17,7 @@ func _process(delta: float) -> void:
 	sample = abs(sample)
 	
 	energy = sample * sample_scale + base_energy
+
+func _notification(what: int) -> void:
+	if(what == NOTIFICATION_EDITOR_PRE_SAVE):
+		energy = base_energy
