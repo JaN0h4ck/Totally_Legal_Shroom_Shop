@@ -84,8 +84,8 @@ shader = ExtResource("23_lpp72")
 shader_parameter/debug = false
 shader_parameter/border_scale = 2.0
 shader_parameter/shadow_offset = Vector2(1, 1)
-shader_parameter/color = Color(0, 0, 0, 1)
-shader_parameter/blur_amount = 0.0
+shader_parameter/color = Color(0.136826, 0.136826, 0.136826, 1)
+shader_parameter/blur_amount = 0.5
 shader_parameter/shadow_scale = 1.5
 shader_parameter/disable_rotating = false
 
@@ -94,8 +94,8 @@ shader = ExtResource("23_lpp72")
 shader_parameter/debug = false
 shader_parameter/border_scale = 2.0
 shader_parameter/shadow_offset = Vector2(-1, 1)
-shader_parameter/color = Color(0, 0, 0, 1)
-shader_parameter/blur_amount = 0.0
+shader_parameter/color = Color(0.137255, 0.137255, 0.137255, 1)
+shader_parameter/blur_amount = 0.5
 shader_parameter/shadow_scale = 1.5
 shader_parameter/disable_rotating = false
 
@@ -306,6 +306,7 @@ position = Vector2(43, -36)
 rotation = 1.5708
 
 [node name="FloorTypes" parent="." instance=ExtResource("28_81vyf")]
+visible = false
 position = Vector2(-1, 1)
 
 [node name="Path2D_long" type="Path2D" parent="." groups=["npc_path2D"]]
