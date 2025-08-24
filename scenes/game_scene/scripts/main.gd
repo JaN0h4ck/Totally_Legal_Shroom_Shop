@@ -4,7 +4,9 @@ extends Node2D
 @export var shop_position : Node2D
 
 @export var shop_camera : Camera2D
+@onready var shop_canvas: CanvasModulate = $shop/ShopCanvas
 @export var basement_camera : Camera2D
+@onready var dungeon_canvas: CanvasModulate = $Dungeon/DungeonCanvas
 
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 
@@ -20,6 +22,8 @@ func teleport_basement():
 	
 	shop_camera.enabled = false
 	basement_camera.enabled = true
+	shop_canvas.visible = false
+	dungeon_canvas.visible = true
 
 func teleport_shop():
 	audio_stream_player.set("parameters/switch_to_clip", &"Shop")
@@ -29,6 +33,8 @@ func teleport_shop():
 	
 	basement_camera.enabled = false
 	shop_camera.enabled = true
+	dungeon_canvas.visible = false
+	shop_canvas.visible = true
 
 func cameraShop():
 	shop_camera.enabled = true
