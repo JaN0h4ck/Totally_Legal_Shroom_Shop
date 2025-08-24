@@ -1,36 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://b4r1rx3y0kcdn"]
+[gd_scene load_steps=3 format=3 uid="uid://b4r1rx3y0kcdn"]
 
-[ext_resource type="PackedScene" uid="uid://bub6chbsebwhh" path="res://Character/NPCs/npc_spawner.tscn" id="3_0bg0g"]
 [ext_resource type="PackedScene" uid="uid://cbqqtabob4txw" path="res://scenes/game_scene/shop.tscn" id="3_n0m01"]
 [ext_resource type="PackedScene" uid="uid://dy1uiy23nc5he" path="res://scenes/game_scene/dungeon.tscn" id="4_io36f"]
-[ext_resource type="AudioStream" uid="uid://gjf8aowv1jdp" path="res://Audio/Originals/SFX/UPPER ROOM INTERACTIONS/Shrooms FX - Door Open and Close.wav" id="7_0bg0g"]
 
 [node name="Main" type="Node2D"]
-
-[node name="npc_spawner" parent="." instance=ExtResource("3_0bg0g")]
 
 [node name="shop" parent="." instance=ExtResource("3_n0m01")]
 
 [node name="Dungeon" parent="." instance=ExtResource("4_io36f")]
 position = Vector2(0, 160)
-
-[node name="teleport_point_basement" type="Node2D" parent="."]
-position = Vector2(-37, 134)
-
-[node name="BasementDoorAudio" type="AudioStreamPlayer2D" parent="teleport_point_basement"]
-position = Vector2(0, -4)
-stream = ExtResource("7_0bg0g")
-pitch_scale = 2.0
-bus = &"SFX"
-
-[node name="teleport_point_shopt" type="Node2D" parent="."]
-position = Vector2(-37, 32)
-
-[node name="ShopDoorAudio" type="AudioStreamPlayer2D" parent="teleport_point_shopt"]
-position = Vector2(0, 8)
-stream = ExtResource("7_0bg0g")
-pitch_scale = 2.0
-bus = &"SFX"
 
 [node name="dropped_items_container" type="Node2D" parent="." groups=["dropped_items_container"]]
 

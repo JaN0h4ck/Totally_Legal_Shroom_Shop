@@ -1,9 +1,10 @@
-[gd_scene load_steps=49 format=3 uid="uid://cbqqtabob4txw"]
+[gd_scene load_steps=51 format=3 uid="uid://cbqqtabob4txw"]
 
 [ext_resource type="Texture2D" uid="uid://vilqwodtna00" path="res://assets/store/room_base.PNG" id="1_81vyf"]
 [ext_resource type="Texture2D" uid="uid://b37d1uq1quc11" path="res://assets/store/room_border.PNG" id="2_4bti5"]
 [ext_resource type="Script" uid="uid://di6hicrw1265e" path="res://scenes/game_scene/scripts/shop.gd" id="2_7nhl3"]
 [ext_resource type="PackedScene" uid="uid://dvvpcdcq4i0gr" path="res://scenes/game_scene/shop/theke.tscn" id="3_hvfww"]
+[ext_resource type="PackedScene" uid="uid://bub6chbsebwhh" path="res://Character/NPCs/npc_spawner.tscn" id="3_jn45p"]
 [ext_resource type="PackedScene" uid="uid://c7fbbmrlf6j6v" path="res://scenes/game_scene/shop/trap_door.tscn" id="6_81vyf"]
 [ext_resource type="Texture2D" uid="uid://dc1ft4te6wglg" path="res://assets/store/register/register_bottom.PNG" id="9_b25qi"]
 [ext_resource type="Texture2D" uid="uid://dqaq72bt5nfch" path="res://assets/store/register/register_top.PNG" id="10_bfrp6"]
@@ -30,6 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://7r1ob1uqh3xj" path="res://assets/store/smolplant.PNG" id="28_2f5ol"]
 [ext_resource type="PackedScene" uid="uid://bbhkiwxfhduko" path="res://scenes/game_scene/shop/floor_types.tscn" id="28_81vyf"]
 [ext_resource type="Script" uid="uid://c6wik4urpqiw5" path="res://scenes/game_scene/scripts/interactable_basement.gd" id="29_4bti5"]
+[ext_resource type="Script" uid="uid://dqcmt3upfhisc" path="res://scripts/dropped_items_container.gd" id="32_0b5ro"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_81vyf"]
 size = Vector2(200, 20)
@@ -149,6 +151,8 @@ z_index = -10
 z_as_relative = false
 texture = ExtResource("1_81vyf")
 script = ExtResource("2_7nhl3")
+
+[node name="npc_spawner" parent="." instance=ExtResource("3_jn45p")]
 
 [node name="PlayerSpawn" type="Node2D" parent="."]
 position = Vector2(-37, 40)
@@ -384,6 +388,9 @@ height = 400.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(5, 5)
+
+[node name="dropped_items_container" type="Node2D" parent="."]
+script = ExtResource("32_0b5ro")
 
 [connection signal="player_interacted" from="register/interactable_register" to="register/interactable_register" method="_on_player_interacted"]
 [connection signal="player_interacted" from="interactable_certificate" to="interactable_certificate" method="_on_player_interacted"]

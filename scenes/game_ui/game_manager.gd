@@ -6,12 +6,29 @@ extends Node
 @export var pause_scene: PackedScene
 @export var inv_scene: PackedScene
 @export var lexicon_scene: PackedScene
+var container_shop: Node2D
+var container_dungeon: Node2D
 
 var is_paused: bool = false
+var is_in_shop: bool = false
 
 func _ready() -> void:
 	EventBus.open_inventory.connect(_on_open_inventory)
 	EventBus.interact_lexikon.connect(_on_open_lexikon)
+	EventBus.interact_shop.connect(_on_enter_shop)
+	EventBus.interact_basement.connect(_on_enter_basement)
+
+func register_container(is_shop: bool, container: Node2D):
+	if is_shop:
+		container_shop = container
+	else:
+		container_dungeon = container
+
+func _on_enter_shop():
+	is_in_shop = true
+
+func _on_enter_basement():
+	is_in_shop = false
 
 func _on_open_inventory():
 	var instance = inv_scene.instantiate()

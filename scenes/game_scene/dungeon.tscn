@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://dy1uiy23nc5he"]
+[gd_scene load_steps=54 format=3 uid="uid://dy1uiy23nc5he"]
 
 [ext_resource type="Texture2D" uid="uid://bhqas40v1sogj" path="res://assets/dungeon/dungeon_base.PNG" id="1_miufi"]
 [ext_resource type="Script" uid="uid://qrrstnc2b3oi" path="res://scenes/game_scene/scripts/dungeon.gd" id="1_uf2vu"]
@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://wgvolemsb07q" path="res://scenes/game_scene/dungeon/basement_floors.tscn" id="18_0sevn"]
 [ext_resource type="Script" uid="uid://bwtta7g7ucgg2" path="res://spawn_system/corpse_spawn_system.gd" id="20_j3unq"]
 [ext_resource type="PackedScene" uid="uid://d0o5dug26555l" path="res://Character/player.tscn" id="22_tkn77"]
+[ext_resource type="Script" uid="uid://dqcmt3upfhisc" path="res://scripts/dropped_items_container.gd" id="24_j3unq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ikx5i"]
 size = Vector2(200, 20)
@@ -321,7 +322,7 @@ texture = ExtResource("11_554xe")
 [node name="PointLight2D" type="PointLight2D" parent="dungeon_base/Lights/Upper/torch_1"]
 position = Vector2(0, 23.5)
 color = Color(1, 0.518058, 0.519394, 1)
-energy = 1.14351
+energy = 1.44061
 range_z_max = 9
 texture = SubResource("GradientTexture2D_004c8")
 height = 20.0
@@ -339,7 +340,7 @@ texture = ExtResource("11_554xe")
 [node name="PointLight2D" type="PointLight2D" parent="dungeon_base/Lights/Upper/torch_2"]
 position = Vector2(0, 23.5)
 color = Color(1, 0.518058, 0.519394, 1)
-energy = 1.01402
+energy = 1.00198
 range_z_max = 9
 texture = SubResource("GradientTexture2D_004c8")
 height = 20.0
@@ -357,7 +358,7 @@ texture = ExtResource("11_554xe")
 [node name="PointLight2D" type="PointLight2D" parent="dungeon_base/Lights/Upper/torch_3"]
 position = Vector2(0, 23.5)
 color = Color(1, 0.518058, 0.519394, 1)
-energy = 1.05223
+energy = 1.51811
 range_z_max = 9
 texture = SubResource("GradientTexture2D_004c8")
 height = 20.0
@@ -375,7 +376,7 @@ texture = ExtResource("11_554xe")
 [node name="PointLight2D" type="PointLight2D" parent="dungeon_base/Lights/Upper/torch_4"]
 position = Vector2(0, 23.5)
 color = Color(1, 0.518058, 0.519394, 1)
-energy = 1.02663
+energy = 1.77506
 range_z_max = 9
 texture = SubResource("GradientTexture2D_004c8")
 height = 20.0
@@ -390,7 +391,7 @@ speed = 3.0
 position = Vector2(-60, 14)
 rotation = 3.14159
 color = Color(1, 0.518058, 0.519394, 1)
-energy = 1.14351
+energy = 1.44061
 range_z_max = 9
 texture = SubResource("GradientTexture2D_tkn77")
 height = 20.0
@@ -403,7 +404,7 @@ speed = 3.5
 position = Vector2(-13, 14)
 rotation = 3.14159
 color = Color(1, 0.518058, 0.519394, 1)
-energy = 1.14351
+energy = 1.44061
 range_z_max = 9
 texture = SubResource("GradientTexture2D_uf2vu")
 height = 20.0
@@ -416,7 +417,7 @@ speed = 3.5
 position = Vector2(28, 14)
 rotation = 3.14159
 color = Color(1, 0.518058, 0.519394, 1)
-energy = 1.14351
+energy = 1.44061
 range_z_max = 9
 texture = SubResource("GradientTexture2D_j3unq")
 height = 20.0
@@ -429,7 +430,7 @@ speed = 3.5
 position = Vector2(74, 14)
 rotation = 3.14159
 color = Color(1, 0.518058, 0.519394, 1)
-energy = 1.14351
+energy = 1.44061
 range_z_max = 9
 texture = SubResource("GradientTexture2D_ppaq7")
 height = 20.0
@@ -494,5 +495,9 @@ color = Color(0.491891, 0.694334, 0.770546, 1)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(5, 5)
+
+[node name="dropped_items_container" type="Node2D" parent="."]
+script = ExtResource("24_j3unq")
+is_shop = false
 
 [connection signal="player_interacted" from="interactable_shop" to="interactable_shop" method="_on_player_interacted"]
