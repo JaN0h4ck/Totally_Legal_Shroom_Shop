@@ -27,6 +27,8 @@ energy = 0.7
 range_z_min = -100
 range_z_max = 9
 texture = SubResource("GradientTexture2D_f3u2c")
+texture_scale = 2.0
+height = 20.0
 
 [node name="lamp_collision" type="StaticBody2D" parent="."]
 visible = false

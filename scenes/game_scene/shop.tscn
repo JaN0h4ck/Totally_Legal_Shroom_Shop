@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://cbqqtabob4txw"]
+[gd_scene load_steps=41 format=3 uid="uid://cbqqtabob4txw"]
 
 [ext_resource type="Texture2D" uid="uid://vilqwodtna00" path="res://assets/store/room_base.PNG" id="1_81vyf"]
 [ext_resource type="Texture2D" uid="uid://b37d1uq1quc11" path="res://assets/store/room_border.PNG" id="2_4bti5"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://2ggw1uraq2p3" path="res://assets/store/Fass.PNG" id="20_fq550"]
 [ext_resource type="Texture2D" uid="uid://dali3pseathdc" path="res://assets/store/chest.PNG" id="21_fduq2"]
 [ext_resource type="Texture2D" uid="uid://bg4ahawnaxwrw" path="res://assets/store/watering_can.PNG" id="22_ko11f"]
+[ext_resource type="Shader" uid="uid://cixrxdx4xtfdp" path="res://scripts/shaders/drop_shadow.gdshader" id="23_lpp72"]
 [ext_resource type="Texture2D" uid="uid://dfipb1sihr85x" path="res://assets/store/tablecloth.PNG" id="23_woib1"]
 [ext_resource type="Texture2D" uid="uid://b4d2ub4apk3oj" path="res://assets/store/scissors.PNG" id="24_8b1pq"]
 [ext_resource type="Texture2D" uid="uid://7ds7fd21grff" path="res://assets/store/shovel.PNG" id="25_yya2p"]
@@ -77,6 +78,26 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e6eah"]
 size = Vector2(12, 45)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_81vyf"]
+shader = ExtResource("23_lpp72")
+shader_parameter/debug = false
+shader_parameter/border_scale = 2.0
+shader_parameter/shadow_offset = Vector2(1, 1)
+shader_parameter/color = Color(0.136826, 0.136826, 0.136826, 1)
+shader_parameter/blur_amount = 0.5
+shader_parameter/shadow_scale = 1.5
+shader_parameter/disable_rotating = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lpp72"]
+shader = ExtResource("23_lpp72")
+shader_parameter/debug = false
+shader_parameter/border_scale = 2.0
+shader_parameter/shadow_offset = Vector2(-1, 1)
+shader_parameter/color = Color(0.137255, 0.137255, 0.137255, 1)
+shader_parameter/blur_amount = 0.5
+shader_parameter/shadow_scale = 1.5
+shader_parameter/disable_rotating = false
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dk418"]
 size = Vector2(24, 13)
@@ -248,12 +269,14 @@ texture = ExtResource("26_46vee")
 [node name="flower_pot" type="Sprite2D" parent="plants_left"]
 z_index = -5
 z_as_relative = false
+material = SubResource("ShaderMaterial_81vyf")
 position = Vector2(-73.5, 8.5)
 texture = ExtResource("27_f5d8s")
 
 [node name="smolplant" type="Sprite2D" parent="plants_left"]
 z_index = -5
 z_as_relative = false
+material = SubResource("ShaderMaterial_lpp72")
 position = Vector2(-62, 12.5)
 texture = ExtResource("28_2f5ol")
 
@@ -283,6 +306,7 @@ position = Vector2(43, -36)
 rotation = 1.5708
 
 [node name="FloorTypes" parent="." instance=ExtResource("28_81vyf")]
+visible = false
 position = Vector2(-1, 1)
 
 [node name="Path2D_long" type="Path2D" parent="." groups=["npc_path2D"]]

@@ -52,8 +52,15 @@ script = ExtResource("2_4t1xn")
 
 [node name="shop" parent="." instance=ExtResource("3_n0m01")]
 
+[node name="ShopCanvas" type="CanvasModulate" parent="shop"]
+color = Color(0.82606, 0.82606, 0.82606, 1)
+
 [node name="Dungeon" parent="." instance=ExtResource("4_io36f")]
 position = Vector2(0, 160)
+
+[node name="DungeonCanvas" type="CanvasModulate" parent="Dungeon"]
+visible = false
+color = Color(0.92549, 0.733333, 0.721569, 1)
 
 [node name="teleport_point_basement" type="Node2D" parent="."]
 position = Vector2(-37, 134)
