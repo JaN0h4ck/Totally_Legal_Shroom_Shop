@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://dy1uiy23nc5he"]
+[gd_scene load_steps=61 format=3 uid="uid://dy1uiy23nc5he"]
 
 [ext_resource type="Texture2D" uid="uid://bhqas40v1sogj" path="res://assets/dungeon/dungeon_base.PNG" id="1_miufi"]
 [ext_resource type="Texture2D" uid="uid://bt4kb5hqwg4nl" path="res://assets/dungeon/dungeon_border.PNG" id="2_5623h"]
@@ -72,7 +72,7 @@ shader = ExtResource("5_4somj")
 shader_parameter/debug = false
 shader_parameter/border_scale = 2.0
 shader_parameter/shadow_offset = Vector2(0, -1)
-shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/color = Color(0.051971, 0.051971, 0.051971, 1)
 shader_parameter/blur_amount = 1.0
 shader_parameter/shadow_scale = 1.5
 shader_parameter/disable_rotating = false
@@ -82,7 +82,7 @@ shader = ExtResource("5_4somj")
 shader_parameter/debug = false
 shader_parameter/border_scale = 2.0
 shader_parameter/shadow_offset = Vector2(1, -1)
-shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/color = Color(0.0728426, 0.0728426, 0.0728426, 1)
 shader_parameter/blur_amount = 1.0
 shader_parameter/shadow_scale = 1.5
 shader_parameter/disable_rotating = false
@@ -92,7 +92,7 @@ shader = ExtResource("5_4somj")
 shader_parameter/debug = false
 shader_parameter/border_scale = 2.0
 shader_parameter/shadow_offset = Vector2(-1, -1)
-shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/color = Color(0.0846899, 0.0846899, 0.0846899, 1)
 shader_parameter/blur_amount = 1.0
 shader_parameter/shadow_scale = 1.5
 shader_parameter/disable_rotating = false
@@ -133,6 +133,16 @@ shader_parameter/blur_amount = 1.0
 shader_parameter/shadow_scale = 1.5
 shader_parameter/disable_rotating = false
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nnpvd"]
+shader = ExtResource("5_4somj")
+shader_parameter/debug = false
+shader_parameter/border_scale = 2.0
+shader_parameter/shadow_offset = Vector2(0, -1)
+shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/blur_amount = 0.0
+shader_parameter/shadow_scale = 1.5
+shader_parameter/disable_rotating = false
+
 [sub_resource type="Gradient" id="Gradient_2bcuf"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
@@ -149,6 +159,16 @@ frequency = 0.0607
 seamless = true
 noise = SubResource("FastNoiseLite_ikx5i")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1ek56"]
+shader = ExtResource("5_4somj")
+shader_parameter/debug = false
+shader_parameter/border_scale = 2.0
+shader_parameter/shadow_offset = Vector2(0, -1)
+shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/blur_amount = 0.0
+shader_parameter/shadow_scale = 1.5
+shader_parameter/disable_rotating = false
+
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_4somj"]
 noise_type = 3
 seed = 1
@@ -158,6 +178,16 @@ frequency = 0.0607
 seamless = true
 noise = SubResource("FastNoiseLite_4somj")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dcphp"]
+shader = ExtResource("5_4somj")
+shader_parameter/debug = false
+shader_parameter/border_scale = 2.0
+shader_parameter/shadow_offset = Vector2(0, -1)
+shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/blur_amount = 0.0
+shader_parameter/shadow_scale = 1.5
+shader_parameter/disable_rotating = false
+
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_tkn77"]
 noise_type = 3
 seed = 2
@@ -166,6 +196,16 @@ frequency = 0.0607
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_uf2vu"]
 seamless = true
 noise = SubResource("FastNoiseLite_tkn77")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lcf54"]
+shader = ExtResource("5_4somj")
+shader_parameter/debug = false
+shader_parameter/border_scale = 2.0
+shader_parameter/shadow_offset = Vector2(0, -1)
+shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/blur_amount = 0.0
+shader_parameter/shadow_scale = 1.5
+shader_parameter/disable_rotating = false
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_j3unq"]
 noise_type = 3
@@ -349,7 +389,8 @@ texture = ExtResource("10_4ovda")
 [node name="torch_1" type="Sprite2D" parent="dungeon_base/Lights/Upper"]
 z_index = -5
 z_as_relative = false
-position = Vector2(-64, -45.5)
+material = SubResource("ShaderMaterial_nnpvd")
+position = Vector2(-64, -46)
 texture = ExtResource("11_554xe")
 
 [node name="PointLight2D" type="PointLight2D" parent="dungeon_base/Lights/Upper/torch_1"]
@@ -363,7 +404,8 @@ noise = SubResource("NoiseTexture2D_4somj")
 [node name="torch_2" type="Sprite2D" parent="dungeon_base/Lights/Upper"]
 z_index = -5
 z_as_relative = false
-position = Vector2(-17, -45.5)
+material = SubResource("ShaderMaterial_1ek56")
+position = Vector2(-17, -46)
 texture = ExtResource("11_554xe")
 
 [node name="PointLight2D" type="PointLight2D" parent="dungeon_base/Lights/Upper/torch_2"]
@@ -379,7 +421,8 @@ speed = 2.0
 [node name="torch_3" type="Sprite2D" parent="dungeon_base/Lights/Upper"]
 z_index = -5
 z_as_relative = false
-position = Vector2(31, -45.5)
+material = SubResource("ShaderMaterial_dcphp")
+position = Vector2(31, -46)
 texture = ExtResource("11_554xe")
 
 [node name="PointLight2D" type="PointLight2D" parent="dungeon_base/Lights/Upper/torch_3"]
@@ -395,7 +438,8 @@ speed = 2.0
 [node name="torch_4" type="Sprite2D" parent="dungeon_base/Lights/Upper"]
 z_index = -5
 z_as_relative = false
-position = Vector2(78, -45.5)
+material = SubResource("ShaderMaterial_lcf54")
+position = Vector2(78, -46)
 texture = ExtResource("11_554xe")
 
 [node name="PointLight2D" type="PointLight2D" parent="dungeon_base/Lights/Upper/torch_4"]
