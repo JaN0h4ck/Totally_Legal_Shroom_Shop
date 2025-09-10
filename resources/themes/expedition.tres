@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=9 format=3 uid="uid://d31137rsk15ng"]
+[gd_resource type="Theme" load_steps=10 format=3 uid="uid://d31137rsk15ng"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g0sbc"]
 content_margin_left = 4.0
@@ -37,6 +37,13 @@ bg_color = Color(0.466529, 0.360525, 0.333165, 1)
 border_width_right = 2
 border_width_bottom = 2
 border_color = Color(0.282353, 0.231067, 0.227161, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vklli"]
+bg_color = Color(0.192157, 0.129412, 0.113725, 1)
 corner_radius_top_left = 4
 corner_radius_top_right = 4
 corner_radius_bottom_right = 4
@@ -92,6 +99,8 @@ corner_radius_top_right = 4
 Button/styles/hover = SubResource("StyleBoxFlat_g0sbc")
 Button/styles/normal = SubResource("StyleBoxFlat_krvwn")
 Button/styles/pressed = SubResource("StyleBoxFlat_gfyr3")
+InteractPrompt/base_type = &"Panel"
+InteractPrompt/styles/panel = SubResource("StyleBoxFlat_vklli")
 Panel/styles/panel = SubResource("StyleBoxFlat_tytr8")
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_tytr8")
 PortraitContainer/base_type = &"PanelContainer"
