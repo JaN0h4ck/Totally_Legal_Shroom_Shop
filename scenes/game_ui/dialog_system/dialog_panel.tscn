@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://b7fecdpuah10g"]
+[gd_scene load_steps=20 format=3 uid="uid://b7fecdpuah10g"]
 
 [ext_resource type="Script" uid="uid://bu05imyuwv2yl" path="res://scenes/game_ui/dialog_system/dialog_panel.gd" id="1_0om7c"]
 [ext_resource type="PackedScene" uid="uid://bv5ulmbmtwuyw" path="res://scenes/game_ui/input_prompt.tscn" id="1_aby5p"]
@@ -13,7 +13,9 @@
 [ext_resource type="AudioStream" uid="uid://c3wuimyws51ls" path="res://Audio/Originals/Voices/Voice_Medium_1.wav" id="9_h8nx1"]
 [ext_resource type="AudioStream" uid="uid://bkv8h0t6g28p0" path="res://Audio/Originals/Voices/Voice_Medium_2.wav" id="10_v8oon"]
 [ext_resource type="AudioStream" uid="uid://df0t1r42poy3q" path="res://Audio/Originals/Voices/Voice_Medium_3.wav" id="11_vbyli"]
-[ext_resource type="Texture2D" uid="uid://cm23p2wtdqcpq" path="res://assets/character/alien/alien_portrait.png" id="14_h8nx1"]
+[ext_resource type="Texture2D" uid="uid://ddoafuh8eydxx" path="res://assets/ui/Portrait_Nine.png" id="13_v8oon"]
+[ext_resource type="Texture2D" uid="uid://c2d5yk8vqug7r" path="res://assets/character/cowboy/cowboy_portrait.png" id="14_vbyli"]
+[ext_resource type="Texture2D" uid="uid://dxrhgcfwptt3d" path="res://assets/ui/Textbox_Nine.png" id="16_odk3v"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_0ag80"]
 random_pitch = 1.1
@@ -23,19 +25,18 @@ stream_0/stream = ExtResource("2_5ms7g")
 stream_1/stream = ExtResource("3_wq83t")
 stream_2/stream = ExtResource("4_aby5p")
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vbyli"]
+
 [sub_resource type="LabelSettings" id="LabelSettings_7d2xt"]
 font_size = 26
 
 [node name="Control" type="Control"]
 layout_mode = 3
-anchors_preset = 12
-anchor_top = 1.0
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -367.0
-offset_bottom = 2.0
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
 theme = ExtResource("1_wq83t")
 script = ExtResource("1_0om7c")
 
@@ -60,15 +61,35 @@ theme_override_constants/separation = 0
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 
-[node name="PortraitContainer" type="PanelContainer" parent="VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(179, 200)
+[node name="VSeparator" type="VSeparator" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
-theme = ExtResource("1_wq83t")
-theme_type_variation = &"PortraitContainer"
+theme_override_constants/separation = 100
+theme_override_styles/separator = SubResource("StyleBoxEmpty_vbyli")
 
-[node name="Portrait" type="TextureRect" parent="VBoxContainer/HBoxContainer/PortraitContainer"]
+[node name="PortraitContainer" type="NinePatchRect" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(400, 400)
 layout_mode = 2
-texture = ExtResource("14_h8nx1")
+texture = ExtResource("13_v8oon")
+patch_margin_left = 55
+patch_margin_top = 55
+patch_margin_right = 55
+patch_margin_bottom = 22
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/PortraitContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 22
+theme_override_constants/margin_top = 22
+theme_override_constants/margin_right = 22
+theme_override_constants/margin_bottom = 22
+
+[node name="Portrait" type="TextureRect" parent="VBoxContainer/HBoxContainer/PortraitContainer/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("14_vbyli")
 
 [node name="InputPrompt" parent="VBoxContainer/HBoxContainer" instance=ExtResource("1_aby5p")]
 custom_minimum_size = Vector2(200, 66)
@@ -78,25 +99,51 @@ size_flags_vertical = 8
 text = "Continue"
 action_name = "skip_dialogue"
 
-[node name="DialogPanel" type="Panel" parent="VBoxContainer"]
+[node name="VSeparator2" type="VSeparator" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 100
+theme_override_styles/separator = SubResource("StyleBoxEmpty_vbyli")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme = ExtResource("1_wq83t")
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/DialogPanel"]
+[node name="VSeparator2" type="VSeparator" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 100
+theme_override_styles/separator = SubResource("StyleBoxEmpty_vbyli")
+
+[node name="DialogPanel" type="NinePatchRect" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_wq83t")
+texture = ExtResource("16_odk3v")
+patch_margin_left = 54
+patch_margin_top = 54
+patch_margin_right = 54
+patch_margin_bottom = 54
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer2/DialogPanel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 8
+theme_override_constants/margin_left = 54
+theme_override_constants/margin_top = 54
+theme_override_constants/margin_right = 54
+theme_override_constants/margin_bottom = 54
 
-[node name="Label" type="Label" parent="VBoxContainer/DialogPanel/MarginContainer"]
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2/DialogPanel/MarginContainer"]
 custom_minimum_size = Vector2(100, 120)
 layout_mode = 2
+size_flags_vertical = 1
 label_settings = SubResource("LabelSettings_7d2xt")
 autowrap_mode = 3
+
+[node name="VSeparator" type="VSeparator" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 100
+theme_override_styles/separator = SubResource("StyleBoxEmpty_vbyli")
