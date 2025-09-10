@@ -10,6 +10,7 @@
 | Dünger Spawn System | fertilizer_spawn_system.gd | res://spawn_system/ |
 | Pilz Spawn System | mushroom_spawn_system.gd | res://spawn_system/mushroom/ |
 | Leichen Spawn System | corpse_spawn_system.gd | res://spawn_system/ |
+| Kunden Spawn System | npc_spawner.gd | res://scripts/ |
 
 ## Neue Objekte hinzufügen
 ### Info
@@ -22,8 +23,7 @@
  Ordner: res://pick_up_system/mushroom
  Name: [name]_mushroom.tres
  Passende Bilder auswählen, Base Texture Standard = freshlyplanted.png (Einfach per Drag and Drop)
- Interact Box Size = 	x = 12 px
-						y = 12 px
+ Interact Box Size = (x = 12 px, y = 12 px)
  Rarity auswählen
 #### Zu Spawn System hinzufügen
  mushroom_spawn_system.gd öffnen
@@ -60,8 +60,7 @@ Person zur Leiche muss erstellt sein und als Namens Enum [name] haben
  Ordner: res://pick_up_system/corpse
  Name: [name]_corpse.tres
  Passendes Bild auswählen (einfach per Drag and Drop)
- Interact Box Size =	x = 50 px
-						y = 40 px
+ Interact Box Size = (x = 50 px, y = 40 px)
  Rarity auswählen
 #### Zu Spawn System hinzufügen
  corpse_spawn_system.gd öffnen
