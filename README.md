@@ -1,6 +1,20 @@
 # Shrooms
 Game Jam Project from [Auxjam 2025](https://itch.io/jam/auxjam-2025)
 
+## Neue Pilze hinzufügen
+### Resource erstellen
+ Rechtsklick -> Create New -> Resource -> pickable_mushroom_resource
+ Ordner: res://pick_up_system/mushroom
+ Name: [name]_mushroom.tres
+ Passende Bilder auswählen, Base Texture Standard = freshlyplanted.png (Einfach per Drag and Drop)
+ Interact Box Size = 	x = 12 px
+						y = 12 px
+ Rarity auswählen
+### Zu Spawn System hinzufügen
+ mushroom_spawn_system.gd öffnen
+ Variable für Resource hinzufügen => @onready var murhroom_resource_[name] := preload([Pfad zu Resouce, einfach per Drag and Drop an diese Stelle])
+ in _ready() variable in funktion add_mushroom_to_array([variablen name]) übergeben
+
 ## Godot Menus Template
 For Godot 4.4 (4.3+ compatible)
 
