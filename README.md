@@ -8,15 +8,10 @@
 ## Wichtige Dateien
 
 | Funktion | Name  | Pfad  |
-| :-------:| :-------: | :-------: |
 | Globale Settings | global_config.gd | res://scripts/ |
-| :-------:| :-------: | :-------: |
 | Signal Datei | event_bus.gd | res://scripts/ |
-| :-------:| :-------: | :-------: |
 | Dünger Spawn System | fertilizer_spawn_system.gd | res://spawn_system/ |
-| :-------:| :-------: | :-------: |
 | Pilz Spawn System | mushroom_spawn_system.gd | res://spawn_system/mushroom/ |
-| :-------:| :-------: | :-------: |
 | Leichen Spawn System | corpse_spawn_system.gd | res://spawn_system/ |
 
 
