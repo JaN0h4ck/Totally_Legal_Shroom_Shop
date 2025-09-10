@@ -1,5 +1,24 @@
 # Shrooms
-Game Jam Project from [Auxjam 2025](https://itch.io/jam/auxjam-2025)
+ Game Jam Project from [Auxjam 2025](https://itch.io/jam/auxjam-2025)
+
+## Info
+ [name] ist Platzhalter für den jeweiligen Namen des zu erstellenden Objektes
+
+
+## Wichtige Dateien
+
+| Funktion | Name  | Pfad  |
+| :-------:| :-------: | :-------: |
+| Globale Settings | global_config.gd | res://scripts/ |
+| :-------:| :-------: | :-------: |
+| Signal Datei | event_bus.gd | res://scripts/ |
+| :-------:| :-------: | :-------: |
+| Dünger Spawn System | fertilizer_spawn_system.gd | res://spawn_system/ |
+| :-------:| :-------: | :-------: |
+| Pilz Spawn System | mushroom_spawn_system.gd | res://spawn_system/mushroom/ |
+| :-------:| :-------: | :-------: |
+| Leichen Spawn System | corpse_spawn_system.gd | res://spawn_system/ |
+
 
 ## Neue Pilze hinzufügen
 ### Resource erstellen
@@ -14,6 +33,24 @@ Game Jam Project from [Auxjam 2025](https://itch.io/jam/auxjam-2025)
  mushroom_spawn_system.gd öffnen
  Variable für Resource hinzufügen => @onready var murhroom_resource_[name] := preload([Pfad zu Resouce, einfach per Drag and Drop an diese Stelle])
  in _ready() variable in funktion add_mushroom_to_array([variablen name]) übergeben
+
+## Neue Leichen hinzufügen
+! Wichtig !
+Person zur Leiche muss erstellt sein und als Namens Enum [name] haben
+## Resource erstellen
+ Rechtsklick -> Create New -> Resource -> pickable_corpse_resource
+ Ordner: res://pick_up_system/corpse
+ Name: [name]_corpse.tres
+ Passendes Bild auswählen (einfach per Drag and Drop)
+ Interact Box Size =	x = 50 px
+						y = 40 px
+ Rarity auswählen
+### Zu Spawn System hinzufügen
+ corpse_spawn_system.gd öffnen
+ Variable für Resourcen hinzufügen => @onready var corpse_resource_[name] := preload([Pfad zu Resource, einach per Drag and Drop an diese Stelle])
+ in spawn_corpse() in match corpse_name: folgenden Code hinzufügen:
+	base_npc.npc_name_enum.[name]:
+		scene.selected_object = corpse_resource_[name]
 
 ## Godot Menus Template
 For Godot 4.4 (4.3+ compatible)
