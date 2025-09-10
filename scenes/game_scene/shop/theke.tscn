@@ -35,6 +35,7 @@ z_as_relative = false
 texture = ExtResource("1_0o3k0")
 
 [node name="theke_collision" type="StaticBody2D" parent="."]
+visible = false
 
 [node name="mushroom_top" type="CollisionShape2D" parent="theke_collision"]
 position = Vector2(-39.5, -37)
