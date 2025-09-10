@@ -158,6 +158,7 @@ animations = [{
 portrait = ExtResource("2_b3ksc")
 lines = Array[String](["Hello poorling! I want %s %s. I don`t care how much you charge me. I only want the most exquisite Mushrooms there are.", "Hey you poor scum! You can`t afford to breath the same Air as me. Make it quick and give me %s %s !"])
 npc_name = 2
+rarity = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="2"]
 position = Vector2(0, -12)
