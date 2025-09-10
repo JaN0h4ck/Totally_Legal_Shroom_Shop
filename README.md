@@ -48,7 +48,7 @@
 #### Zu Spawn System hinzufügen
  npc_spawner.tscn öffnen
  Variable für Kunden hinzufügen => @onready var npc_[name] := preload([Pfad zu Kunden Szene, einfach per Drag and Drop an dieser Stelle Pfad einfügen])
- in _ready() an stelle für passende Seltenheit hinzufügen durch npc_list.append(npc_[name])
+ in _ready() Kunde an array übergeben add_npc(npc_[name])
 
 
 ### Neue Leichen hinzufügen
