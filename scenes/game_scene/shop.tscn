@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://cbqqtabob4txw"]
+[gd_scene load_steps=52 format=3 uid="uid://cbqqtabob4txw"]
 
 [ext_resource type="Texture2D" uid="uid://vilqwodtna00" path="res://assets/store/room_base.PNG" id="1_81vyf"]
 [ext_resource type="Texture2D" uid="uid://b37d1uq1quc11" path="res://assets/store/room_border.PNG" id="2_4bti5"]
@@ -47,6 +47,16 @@ size = Vector2(20, 100)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g0p03"]
 size = Vector2(18, 10)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0b5ro"]
+shader = ExtResource("25_81vyf")
+shader_parameter/debug = false
+shader_parameter/border_scale = 2.0
+shader_parameter/shadow_offset = Vector2(-1, -4)
+shader_parameter/color = Color(0, 0, 0, 0.309804)
+shader_parameter/blur_amount = 0.0
+shader_parameter/shadow_scale = 1.5
+shader_parameter/disable_rotating = false
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_whber"]
 animations = [{
@@ -228,6 +238,7 @@ shape = SubResource("RectangleShape2D_g0p03")
 position = Vector2(22, 7)
 
 [node name="lever" parent="." instance=ExtResource("14_6ghwu")]
+material = SubResource("ShaderMaterial_0b5ro")
 position = Vector2(79, 39)
 
 [node name="door" type="AnimatedSprite2D" parent="."]
