@@ -4,6 +4,7 @@
 ## Wichtige Dateien
 
 | Funktion | Name  | Pfad  |
+| :-------:| :-------: | :-------: |
 | Globale Settings | global_config.gd | res://scripts/ |
 | Signal Datei | event_bus.gd | res://scripts/ |
 | Dünger Spawn System | fertilizer_spawn_system.gd | res://spawn_system/ |
@@ -26,7 +27,7 @@
  Rarity auswählen
 #### Zu Spawn System hinzufügen
  mushroom_spawn_system.gd öffnen
- Variable für Resource hinzufügen => @onready var murhroom_resource_[name] := preload([Pfad zu Resouce, einfach per Drag and Drop an diese Stelle])
+ Variable für Resource hinzufügen => @onready var murhroom_resource_[name] := preload([Pfad zu Resouce, einfach per Drag and Drop an diese Stelle um Pfad einzufügen])
  in _ready() variable in funktion add_mushroom_to_array([variablen name]) übergeben
 
 ### Neue Leichen hinzufügen
@@ -43,7 +44,7 @@ Person zur Leiche muss erstellt sein und als Namens Enum [name] haben
  Rarity auswählen
 #### Zu Spawn System hinzufügen
  corpse_spawn_system.gd öffnen
- Variable für Resourcen hinzufügen => @onready var corpse_resource_[name] := preload([Pfad zu Resource, einach per Drag and Drop an diese Stelle])
+ Variable für Resourcen hinzufügen => @onready var corpse_resource_[name] := preload([Pfad zu Resource, einach per Drag and Drop an diese Stelle um Pfad einzufügen])
  in spawn_corpse() in match corpse_name: folgenden Code hinzufügen:
 	base_npc.npc_name_enum.[name]:
 		scene.selected_object = corpse_resource_[name]
