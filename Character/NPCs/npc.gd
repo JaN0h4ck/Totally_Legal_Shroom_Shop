@@ -17,6 +17,8 @@ class_name base_npc
 enum npc_name_enum{alien, angry, beff, celeb, conspiracy, cook, cowboy, enthusiast, nerd, opa}
 @export var npc_name : npc_name_enum
 
+@export var rarity : pickable_object_resource.rarity_enum
+
 var last_position : Vector2
 var movement : Vector2
 

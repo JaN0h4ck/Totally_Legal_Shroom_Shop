@@ -19,6 +19,8 @@ extends Node2D
 @export var number_common_npcs : int = 3
 ## Wie of Rare NPCs im NPC Array vorkommen sollen damit sie heufiger spawnen
 @export var number_rare_npcs : int = 2
+## Wie of Ultra Rare NPCs im NPC Array vorkommen sollen damit sie seltener spawnen
+@export var number_ultra_rare_npcs : int = 1
 
 var npc_list : Array = []
 var npc_in_shop : bool = false
@@ -27,27 +29,17 @@ func _ready():
 	# Position auf 0 damit NPC nicht versetzt ist
 	position = Vector2(0,0)
 	
-	# NPC Liste alle NPCs hinzufügen
-	# Alle seltenen nur ein mal
-	# Beff Jezos
-	npc_list.append(npc_beff)
-	
-	# Alle etwas seltene 2 mal
-	# Alien, Celebrity
-	for i in range (number_rare_npcs):
-		npc_list.append(npc_alien)
-		npc_list.append(npc_celebrity)
-	
-	# Alle normalen drei mal
-	# Cowboy, Conspiracy, Angry
-	for i in range (number_common_npcs):
-		npc_list.append(npc_cowboy)
-		npc_list.append(npc_angry)
-		npc_list.append(npc_conspiracy)
-		npc_list.append(npc_cook)
-		npc_list.append(npc_enthusiast)
-		npc_list.append(npc_nerd)
-		npc_list.append(npc_grandpa)
+	# NPCs zu Spawn Array hinzufügen
+	add_npc(npc_cowboy)
+	add_npc(npc_angry)
+	add_npc(npc_conspiracy)
+	add_npc(npc_alien)
+	add_npc(npc_cook)
+	add_npc(npc_beff)
+	add_npc(npc_celebrity)
+	add_npc(npc_enthusiast)
+	add_npc(npc_nerd)
+	add_npc(npc_grandpa)
 	
 	
 	# Spawn Timer Starten
@@ -59,6 +51,20 @@ func _ready():
 	EventBus.npc_left_trapdoor.connect(randomize_timer)
 	EventBus.npc_left_shop.connect(npc_left)
 	EventBus.npc_dropped.connect(npc_with_name_left)
+
+func add_npc(npc):
+	var npc_instance = npc.instantiate()
+	match npc_instance.rarity:
+		pickable_object_resource.rarity_enum.common:
+			for i in range (number_common_npcs):
+				npc_list.append(npc)
+		pickable_object_resource.rarity_enum.rare:
+			for i in range (number_rare_npcs):
+				npc_list.append(npc)
+		pickable_object_resource.rarity_enum.ultra_rare:
+			for i in range (number_ultra_rare_npcs):
+				npc_list.append(npc)
+	npc_instance.queue_free()
 
 func spawn_npc():
 	if npc_in_shop == true:
