@@ -8,6 +8,7 @@ class_name mushroom_spawn_system
 @onready var murhroom_resource_chanterella := preload("res://pick_up_system/mushroom/chanterella_mushroom.tres")
 @onready var murhroom_resource_ribcage := preload("res://pick_up_system/mushroom/ribcage_mushroom.tres")
 @onready var murhroom_resource_toxic := preload("res://pick_up_system/mushroom/toxic_mushroom.tres")
+@onready var mushroom_resource_flyagaric := preload("res://pick_up_system/mushroom/flyagaric_mushroom.tres")
 
 ## Globale Cinfig Ressource
 var config : GlobalConfig = load("res://resources/global_config.tres")
@@ -26,6 +27,7 @@ func _ready():
 	add_mushroom_to_array(murhroom_resource_chanterella)
 	add_mushroom_to_array(murhroom_resource_ribcage)
 	add_mushroom_to_array(murhroom_resource_toxic)
+	add_mushroom_to_array(mushroom_resource_flyagaric)
 
 ## Legt werte fest und erzeugt den Pilz
 func spawn_mushroom_seed(location : Vector2):
