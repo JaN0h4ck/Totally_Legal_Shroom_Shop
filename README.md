@@ -39,7 +39,7 @@
  Skript npc.gd öffnen (Doppelklick auf Schriffrollensimbol im Node Tree neben NPC (Drittes Simbol von Links))
  Namen des Kunden in Zeile 17 hinzufügen, kleingeschrieben mit Unterstrich als Leerzeichen
  Skript änderung speichern (Str + S)
- Rechts im Inspector Portrait, Lines und Kunden Name auswählen
+ Rechts im Inspector Portrait, Lines, Kunden Name und Rarity auswählen
  Links im Node Tree AnimatedSprite2D auswählen und Animationen anpassen
 #### Animationen anpassen
  Schauen welche Bilder im Original verwendet wurden und selbe von neuen Charakter per Drag and Drop hinzufügen
