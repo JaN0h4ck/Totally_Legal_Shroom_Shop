@@ -156,7 +156,7 @@ animations = [{
 
 [node name="NPC" instance=ExtResource("1_tvjw0")]
 portrait = ExtResource("2_a12hy")
-lines = Array[String](["cowboy %s"])
+lines = Array[String](["Howdy! I'm feeling a bit down today, and my friend told me you're the right person if I wanna have a good time! I need some mushrooms. To be specific, I need %s %s. And make it quick - I don't want my wife to know about this."])
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="2"]
 position = Vector2(0, -12)

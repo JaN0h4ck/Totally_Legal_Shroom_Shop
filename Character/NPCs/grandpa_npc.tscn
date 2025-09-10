@@ -156,7 +156,7 @@ animations = [{
 
 [node name="NPC" instance=ExtResource("1_pajgs")]
 portrait = ExtResource("2_v46ev")
-lines = Array[String](["grandpa %s"])
+lines = Array[String](["Hello my dearest! I love the outfit your wearing! I`m searching for a very specific mushroom! I need %s and it's called %s."])
 move_speed = 20.0
 npc_name = 9
 

@@ -156,7 +156,7 @@ animations = [{
 
 [node name="NPC" instance=ExtResource("1_a1w6x")]
 portrait = ExtResource("2_swnoa")
-lines = Array[String](["nerd %s"])
+lines = Array[String](["Allow myself to buy %s of %s for further investigations. It has a very interesting structure under the microscope!"])
 npc_name = 8
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="2"]
