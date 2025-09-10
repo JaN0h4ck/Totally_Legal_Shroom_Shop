@@ -1,10 +1,6 @@
 # Shrooms
  Game Jam Project from [Auxjam 2025](https://itch.io/jam/auxjam-2025)
 
-## Info
- [name] ist Platzhalter für den jeweiligen Namen des zu erstellenden Objektes
-
-
 ## Wichtige Dateien
 
 | Funktion | Name  | Pfad  |
@@ -14,9 +10,13 @@
 | Pilz Spawn System | mushroom_spawn_system.gd | res://spawn_system/mushroom/ |
 | Leichen Spawn System | corpse_spawn_system.gd | res://spawn_system/ |
 
+## Neue Objekte hinzufügen
+### Info
+ [name] ist Platzhalter für den jeweiligen Namen des zu erstellenden Objektes
 
-## Neue Pilze hinzufügen
-### Resource erstellen
+### Neue Pilze hinzufügen
+#### Resource erstellen
+ Bilder in Godot einfügen in Ordner res://assets/shrooms/ (Einfach per Drag and Drop)
  Rechtsklick -> Create New -> Resource -> pickable_mushroom_resource
  Ordner: res://pick_up_system/mushroom
  Name: [name]_mushroom.tres
@@ -24,15 +24,16 @@
  Interact Box Size = 	x = 12 px
 						y = 12 px
  Rarity auswählen
-### Zu Spawn System hinzufügen
+#### Zu Spawn System hinzufügen
  mushroom_spawn_system.gd öffnen
  Variable für Resource hinzufügen => @onready var murhroom_resource_[name] := preload([Pfad zu Resouce, einfach per Drag and Drop an diese Stelle])
  in _ready() variable in funktion add_mushroom_to_array([variablen name]) übergeben
 
-## Neue Leichen hinzufügen
+### Neue Leichen hinzufügen
 ! Wichtig !
 Person zur Leiche muss erstellt sein und als Namens Enum [name] haben
-## Resource erstellen
+#### Resource erstellen
+ Bilder in Godot einfügen in Ordner res://assets/dead/ (Einfach per Drag and Drop)
  Rechtsklick -> Create New -> Resource -> pickable_corpse_resource
  Ordner: res://pick_up_system/corpse
  Name: [name]_corpse.tres
@@ -40,7 +41,7 @@ Person zur Leiche muss erstellt sein und als Namens Enum [name] haben
  Interact Box Size =	x = 50 px
 						y = 40 px
  Rarity auswählen
-### Zu Spawn System hinzufügen
+#### Zu Spawn System hinzufügen
  corpse_spawn_system.gd öffnen
  Variable für Resourcen hinzufügen => @onready var corpse_resource_[name] := preload([Pfad zu Resource, einach per Drag and Drop an diese Stelle])
  in spawn_corpse() in match corpse_name: folgenden Code hinzufügen:
