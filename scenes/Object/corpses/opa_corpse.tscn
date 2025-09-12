@@ -1,9 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://bmbshqfwt8cqk"]
-
-[ext_resource type="PackedScene" uid="uid://oc2ty4554k24" path="res://scenes/Object/object_npc.tscn" id="1_kct2b"]
-[ext_resource type="Texture2D" uid="uid://btpwq8h6sbr2b" path="res://assets/dead/grandpadead.png" id="2_j66i5"]
-
-[node name="Object" instance=ExtResource("1_kct2b")]
-
-[node name="Sprite2D" type="Sprite2D" parent="Area2D/CollisionShape2D2" index="0"]
-texture = ExtResource("2_j66i5")
