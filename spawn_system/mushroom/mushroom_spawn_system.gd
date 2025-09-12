@@ -11,6 +11,9 @@ class_name mushroom_spawn_system
 @onready var mushroom_resource_flyagaric := preload("res://pick_up_system/mushroom/flyagaric_mushroom.tres")
 @onready var mushroom_resource_shiitake := preload("res://pick_up_system/mushroom/shiitake_mushroom.tres")
 @onready var mushroom_resource_oyster := preload("res://pick_up_system/mushroom/oyster_mushroom.tres")
+@onready var mushroom_resource_chestnut := preload("res://pick_up_system/mushroom/chestnut_mushroom.tres")
+@onready var mushroom_resource_enoki := preload("res://pick_up_system/mushroom/enoki_mushroom.tres")
+
 ## Globale Cinfig Ressource
 var config : GlobalConfig = load("res://resources/global_config.tres")
 
@@ -31,6 +34,8 @@ func _ready():
 	add_mushroom_to_array(mushroom_resource_flyagaric)
 	add_mushroom_to_array(mushroom_resource_shiitake)
 	add_mushroom_to_array(mushroom_resource_oyster)
+	add_mushroom_to_array(mushroom_resource_chestnut)
+	add_mushroom_to_array(mushroom_resource_enoki)
 
 ## Legt werte fest und erzeugt den Pilz
 func spawn_mushroom_seed(location : Vector2):
