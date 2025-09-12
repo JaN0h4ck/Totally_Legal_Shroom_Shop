@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="pickable_corpses_resource" load_steps=3 format=3 uid="uid://64wt3u3lqudq"]
 
 [ext_resource type="Texture2D" uid="uid://ca6fswjtm40h" path="res://assets/dead/conspiracydead.png" id="1_1qtc2"]
-[ext_resource type="Script" uid="uid://xuoda7gtmwd0" path="res://pick_up_system/corpse/pickable_corpses_resource.gd" id="1_otsty"]
+[ext_resource type="Script" uid="uid://xuoda7gtmwd0" path="res://PickUpSystem/corpse/pickable_corpses_resource.gd" id="1_otsty"]
 
 [resource]
 script = ExtResource("1_otsty")

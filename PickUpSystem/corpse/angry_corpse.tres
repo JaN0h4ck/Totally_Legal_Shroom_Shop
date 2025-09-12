@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="pickable_corpses_resource" load_steps=3 format=3 uid="uid://dp2y3kf44g6sq"]
 
-[ext_resource type="Script" uid="uid://xuoda7gtmwd0" path="res://pick_up_system/corpse/pickable_corpses_resource.gd" id="1_i2jbh"]
+[ext_resource type="Script" uid="uid://xuoda7gtmwd0" path="res://PickUpSystem/corpse/pickable_corpses_resource.gd" id="1_i2jbh"]
 [ext_resource type="Texture2D" uid="uid://bedlmbqa0owij" path="res://assets/dead/angy_dead.png" id="1_y7h2c"]
 
 [resource]
