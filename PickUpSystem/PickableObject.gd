@@ -1,8 +1,8 @@
 @abstract class PickableObject extends Node2D:
 	## Collision Shape in welcher der Spieler zum Interagieren stehen muss
-	@onready var interact_collision: CollisionShape2D = $interact_object/interact_collision
+	var interact_collision: CollisionShape2D
 	## Objekte welches das Interagieren des Spielers abgreift
-	@onready var interact_manager: Interactable = $interact_object
+	var interact_manager: Interactable
 	## Globale Cinfig Ressource
 	var config : GlobalConfig = load("res://resources/global_config.tres")
 
@@ -19,9 +19,20 @@
 		return []
 	
 	func _ready():
+		_setup_collisions()
 		EventBus.drop_object.connect(drop_object)
 		prepare_item()
 		set_collision_size()
+	
+	func _setup_collisions():
+		interact_manager = Interactable.new()
+		add_child(interact_manager)
+		interact_collision = CollisionShape2D.new()
+		var shape: RectangleShape2D = RectangleShape2D.new()
+		shape.size = Vector2(20,20)
+		interact_collision.shape = shape
+		interact_manager.add_child(interact_collision)
+		
 
 	## Fügt Note und Interact Area zur eingegebenen Gruppe hinzu
 	func add_object_to_group(group : String):
