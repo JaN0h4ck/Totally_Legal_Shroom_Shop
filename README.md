@@ -5,6 +5,7 @@
 
 | Funktion | Name  | Pfad  |
 | :-------:| :-------: | :-------: |
+| Globale Script Konstanten | globals.gd (GLOBALS) | res://scripts/ |
 | Globale Settings | global_config.gd | res://scripts/ |
 | Signal Datei | event_bus.gd | res://scripts/ |
 | Dünger Spawn System | fertilizer_spawn_system.gd | res://spawn_system/ |
