@@ -1,10 +1,8 @@
 class_name Player
 extends CharacterBody2D
 
-enum Directions { FRONT, BACK, LEFT, RIGHT }
-
 @onready var sprite_animation = $AnimatedSprite2D
-var last_direction : Directions = Directions.FRONT
+var last_direction : GLOBALS.directions = GLOBALS.directions.FRONT
 
 var current_floor: AudioFloor.FloorTypes = AudioFloor.FloorTypes.Wood
 
@@ -59,25 +57,25 @@ func _on_dialogue_ended():
 
 func select_idle():
 	match last_direction:
-		Directions.FRONT:
+		GLOBALS.directions.FRONT:
 			sprite_animation.play("idle_front")
-		Directions.BACK:
+		GLOBALS.directions.BACK:
 			sprite_animation.play("idle_back")
-		Directions.RIGHT:
+		GLOBALS.directions.RIGHT:
 			sprite_animation.play("idle_right")
-		Directions.LEFT:
+		GLOBALS.directions.LEFT:
 			sprite_animation.play("idle_left")
 
 func play_animation(input_direction):
 	if input_direction.y > 0:
 		sprite_animation.play("walk_forward")
-		last_direction = Directions.FRONT
+		last_direction = GLOBALS.directions.FRONT
 	elif input_direction.y < 0:
 		sprite_animation.play("walk_backward")
-		last_direction = Directions.BACK
+		last_direction = GLOBALS.directions.BACK
 	elif input_direction.x > 0:
 		sprite_animation.play("walk_right")
-		last_direction = Directions.RIGHT
+		last_direction = GLOBALS.directions.RIGHT
 	elif input_direction.x < 0:
 		sprite_animation.play("walk_left")
-		last_direction = Directions.LEFT
+		last_direction = GLOBALS.directions.LEFT

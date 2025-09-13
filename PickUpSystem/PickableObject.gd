@@ -95,11 +95,11 @@
 		var player : Player = get_tree().get_first_node_in_group("player")
 		var player_locking_direction = player.last_direction
 		match player_locking_direction:
-			player.Directions.FRONT:
+			GLOBALS.directions.FRONT:
 				pick_up_animation(position + Vector2(0,length))
-			player.Directions.BACK:
+			GLOBALS.directions.BACK:
 				pick_up_animation(position + Vector2(0,length))
-			player.Directions.RIGHT:
+			GLOBALS.directions.RIGHT:
 				pick_up_animation(position + Vector2(length,length))
-			player.Directions.LEFT:
+			GLOBALS.directions.LEFT:
 				pick_up_animation(position + Vector2(-length,length))

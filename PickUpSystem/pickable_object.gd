@@ -156,11 +156,11 @@ func throw_object(lenght : float):
 	var player : Player = get_tree().get_first_node_in_group("player")
 	var player_locking_direction = player.last_direction
 	match player_locking_direction:
-		player.Directions.FRONT:
+		GLOBALS.directions.FRONT:
 			animated_movement(position + Vector2(0,lenght))
-		player.Directions.BACK:
+		GLOBALS.directions.BACK:
 			animated_movement(position + Vector2(0,lenght))
-		player.Directions.RIGHT:
+		GLOBALS.directions.RIGHT:
 			animated_movement(position + Vector2(lenght,lenght))
-		player.Directions.LEFT:
+		GLOBALS.directions.LEFT:
 			animated_movement(position + Vector2(-lenght,lenght))
