@@ -19,37 +19,39 @@
 
 ### Neue Pilze hinzufügen
 #### Resource erstellen
- Bilder in Godot einfügen in Ordner res://assets/shrooms/ (Einfach per Drag and Drop)
- Rechtsklick -> Create New -> Resource -> ShroomRes
- Ordner: res://PickUpSystem/mushroom
- Name: [name]_mushroom.tres
- Passende Bilder auswählen, Base Texture Standard = freshlyplanted.png (Einfach per Drag and Drop)
- Interact Box Size = (x = 12 px, y = 12 px)
- Rarity auswählen
+- Bilder in Godot einfügen in Ordner res://assets/shrooms/ (Einfach per Drag and Drop)
+- Rechtsklick -> Create New -> Resource -> ShroomRes
+- Ordner: res://PickUpSystem/mushroom
+- Name: [name]_mushroom.tres
+- Variablen setzen:
+	- Passende Bilder auswählen
+	- Base Texture Standard = freshlyplanted.png (Einfach per Drag and Drop)
+	- Interact Box Size = (x = 12 px, y = 12 px)
+	- Rarity auswählen
 #### Zu Spawn System hinzufügen
- mushroom_spawn_system.gd öffnen
- Variable für Resource hinzufügen => @onready var murhroom_resource_[name] := preload([Pfad zu Resouce, einfach per Drag and Drop an diese Stelle um Pfad einzufügen])
- in _ready() variable in funktion add_mushroom_to_array([variablen name]) übergeben
+- mushroom_spawn_system.gd öffnen
+- Variable für Resource hinzufügen => @onready var murhroom_resource_[name] := preload([Pfad zu Resouce, einfach per Drag and Drop an diese Stelle um Pfad einzufügen])
+- in _ready() variable in funktion add_mushroom_to_array([variablen name]) übergeben
 
 
 ### Neuer Kunde hinzufügen
 #### Resource erstellen
- Bilder in Godot einfügen in Ordner res://assets/character/[name]/ (Einfach per Drag and Drop)
- Bestehenden Kunden dupliezieren, Ort: res://Character/NPCs/ (Str + D zum Dupliezieren), Name: [name]_npc.tscn
- Neuen Kunden mit Doppelklick öffnen (es öffnet sich eine neue Szene)
- Skript npc.gd öffnen (Doppelklick auf Schriffrollensimbol im Node Tree neben NPC (Drittes Simbol von Links))
- Namen des Kunden in Zeile 17 hinzufügen, kleingeschrieben mit Unterstrich als Leerzeichen
- Skript änderung speichern (Str + S)
- Rechts im Inspector Portrait, Lines, Kunden Name und Rarity auswählen
- Links im Node Tree AnimatedSprite2D auswählen und Animationen anpassen
+- Bilder in Godot einfügen in Ordner res://assets/character/[name]/ (Einfach per Drag and Drop)
+- Bestehenden Kunden dupliezieren, Ort: res://Character/NPCs/ (Str + D zum Dupliezieren), Name: [name]_npc.tscn
+- Neuen Kunden mit Doppelklick öffnen (es öffnet sich eine neue Szene)
+- Skript npc.gd öffnen (Doppelklick auf Schriffrollensimbol im Node Tree neben NPC (Drittes Simbol von Links))
+- Namen des Kunden in Zeile 17 hinzufügen, kleingeschrieben mit Unterstrich als Leerzeichen
+- Skript änderung speichern (Str + S)
+- Rechts im Inspector Portrait, Lines, Kunden Name und Rarity auswählen
+- Links im Node Tree AnimatedSprite2D auswählen und Animationen anpassen
 #### Animationen anpassen
- Schauen welche Bilder im Original verwendet wurden und selbe von neuen Charakter per Drag and Drop hinzufügen
- Alte Bilder dannach raus löschen (Markieren -> Entf Taste)
- So alle Animationen durchgehen
+- Schauen welche Bilder im Original verwendet wurden und selbe von neuen Charakter per Drag and Drop hinzufügen
+- Alte Bilder dannach raus löschen (Markieren -> Entf Taste)
+- So alle Animationen durchgehen
 #### Zu Spawn System hinzufügen
- npc_spawner.tscn öffnen
- Variable für Kunden hinzufügen => @onready var npc_[name] := preload([Pfad zu Kunden Szene, einfach per Drag and Drop an dieser Stelle Pfad einfügen])
- in _ready() Kunde an array übergeben add_npc(npc_[name])
+- npc_spawner.tscn öffnen
+- Variable für Kunden hinzufügen => @onready var npc_[name] := preload([Pfad zu Kunden Szene, einfach per Drag and Drop an dieser Stelle Pfad einfügen])
+- in \_ready() Kunde an array übergeben add_npc(npc_[name])
 
 
 ### Neue Leichen hinzufügen
