@@ -14,10 +14,6 @@
 	## Load from res on ready
 	var pickup_time
 
-	#TODO check for collision to be there
-	func _get_configuration_warnings() -> PackedStringArray:
-		return []
-	
 	func _ready():
 		_setup_collisions()
 		EventBus.drop_object.connect(drop_object)
