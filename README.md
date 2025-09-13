@@ -20,7 +20,7 @@
 ### Neue Pilze hinzufügen
 #### Resource erstellen
  Bilder in Godot einfügen in Ordner res://assets/shrooms/ (Einfach per Drag and Drop)
- Rechtsklick -> Create New -> Resource -> pickable_mushroom_resource
+ Rechtsklick -> Create New -> Resource -> ShroomRes
  Ordner: res://PickUpSystem/mushroom
  Name: [name]_mushroom.tres
  Passende Bilder auswählen, Base Texture Standard = freshlyplanted.png (Einfach per Drag and Drop)

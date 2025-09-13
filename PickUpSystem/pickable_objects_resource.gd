@@ -1,5 +1,4 @@
-extends Resource
-class_name pickable_object_resource
+@abstract class_name PickableRes extends Resource
 
 ## Globale Cinfig Ressource
 var config : GlobalConfig = load("res://resources/global_config.tres")

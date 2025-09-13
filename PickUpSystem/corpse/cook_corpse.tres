@@ -1,6 +1,6 @@
-[gd_resource type="Resource" script_class="pickable_corpses_resource" load_steps=3 format=3 uid="uid://jufl7yrifaku"]
+[gd_resource type="Resource" script_class="CorpseRes" load_steps=3 format=3 uid="uid://jufl7yrifaku"]
 
-[ext_resource type="Script" uid="uid://xuoda7gtmwd0" path="res://PickUpSystem/corpse/pickable_corpses_resource.gd" id="1_5b36b"]
+[ext_resource type="Script" uid="uid://xuoda7gtmwd0" path="res://PickUpSystem/corpse/CorpseRes.gd" id="1_5b36b"]
 [ext_resource type="Texture2D" uid="uid://ovcmg1bqdkpp" path="res://assets/dead/cookdead.png" id="1_a4hon"]
 
 [resource]

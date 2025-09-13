@@ -2,7 +2,7 @@ extends Node2D
 class_name pickable_object
 
 ## Um was für ein pickable_object es sich handelt
-@export var selected_object : pickable_object_resource
+@export var selected_object : PickableRes
 
 ## Collision Shape in welcher der Spieler zum Interagieren stehen muss
 @onready var interact_collision: CollisionShape2D = $interact_object/interact_collision
@@ -22,9 +22,9 @@ var is_random_dropped : bool = false
 func _ready():
 	EventBus.drop_object.connect(drop_object)
 	# Fügt das Objekt der passenden Gruppe hinzu
-	if selected_object is pickable_mushroom_resource:
+	if selected_object is ShroomRes:
 		add_object_to_group("pickable_mushroom")
-	elif selected_object is pickable_corpses_resource:
+	elif selected_object is CorpseRes:
 		add_object_to_group("pickable_corpse")
 
 ## Fügt Note und Interact Area zur eingegebenen Gruppe hinzu

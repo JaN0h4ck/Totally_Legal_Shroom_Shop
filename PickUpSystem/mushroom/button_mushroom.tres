@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="pickable_mushroom_resource" load_steps=5 format=3 uid="uid://82q1nq7gaiaa"]
+[gd_resource type="Resource" script_class="ShroomRes" load_steps=5 format=3 uid="uid://82q1nq7gaiaa"]
 
 [ext_resource type="Texture2D" uid="uid://b0fga1xi6c1cj" path="res://assets/shrooms/freshlyplanted.png" id="1_mu4ko"]
 [ext_resource type="Texture2D" uid="uid://tfmfqxpa23s" path="res://assets/shrooms/Chanpignon.png" id="2_ag26b"]

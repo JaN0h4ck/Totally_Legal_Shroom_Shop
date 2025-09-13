@@ -1,6 +1,6 @@
-[gd_resource type="Resource" script_class="pickable_fertilizer_resource" load_steps=3 format=3 uid="uid://m02o17sce225"]
+[gd_resource type="Resource" script_class="FertilizerRes" load_steps=3 format=3 uid="uid://m02o17sce225"]
 
-[ext_resource type="Script" uid="uid://cfplqtq1yxo12" path="res://PickUpSystem/fertilizer/pickable_fertilizer_resource.gd" id="1_8hynr"]
+[ext_resource type="Script" uid="uid://cfplqtq1yxo12" path="res://PickUpSystem/fertilizer/FertilizerRes.gd" id="1_8hynr"]
 [ext_resource type="Texture2D" uid="uid://2uneskrnyka1" path="res://assets/dungeon/fertilizer/fertilizer_orange.png" id="1_nnqg0"]
 
 [resource]
