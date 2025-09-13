@@ -1,16 +1,16 @@
 extends Node
 class_name mushroom_spawn_system
 
-@onready var pickable_object_scene := preload("res://pick_up_system/pickable_object.tscn")
-@onready var mushroom_resource_alien := preload("res://pick_up_system/mushroom/alien_mushroom.tres")
-@onready var murhroom_resource_bleeding := preload("res://pick_up_system/mushroom/bleeding_mushroom.tres")
-@onready var murhroom_resource_button := preload("res://pick_up_system/mushroom/button_mushroom.tres")
-@onready var murhroom_resource_chanterella := preload("res://pick_up_system/mushroom/chanterella_mushroom.tres")
-@onready var murhroom_resource_ribcage := preload("res://pick_up_system/mushroom/ribcage_mushroom.tres")
-@onready var murhroom_resource_toxic := preload("res://pick_up_system/mushroom/toxic_mushroom.tres")
-@onready var mushroom_resource_flyagaric := preload("res://pick_up_system/mushroom/flyagaric_mushroom.tres")
-@onready var mushroom_resource_shiitake := preload("res://pick_up_system/mushroom/shiitake_mushroom.tres")
-@onready var mushroom_resource_oyster := preload("res://pick_up_system/mushroom/oyster_mushroom.tres")
+@onready var pickable_object_scene := preload("res://PickUpSystem/pickable_object.tscn")
+@onready var mushroom_resource_alien := preload("res://PickUpSystem/mushroom/alien_mushroom.tres")
+@onready var murhroom_resource_bleeding := preload("res://PickUpSystem/mushroom/bleeding_mushroom.tres")
+@onready var murhroom_resource_button := preload("res://PickUpSystem/mushroom/button_mushroom.tres")
+@onready var murhroom_resource_chanterella := preload("res://PickUpSystem/mushroom/chanterella_mushroom.tres")
+@onready var murhroom_resource_ribcage := preload("res://PickUpSystem/mushroom/ribcage_mushroom.tres")
+@onready var murhroom_resource_toxic := preload("res://PickUpSystem/mushroom/toxic_mushroom.tres")
+@onready var mushroom_resource_flyagaric := preload("res://PickUpSystem/mushroom/flyagaric_mushroom.tres")
+@onready var mushroom_resource_shiitake := preload("res://PickUpSystem/mushroom/shiitake_mushroom.tres")
+@onready var mushroom_resource_oyster := preload("res://PickUpSystem/mushroom/oyster_mushroom.tres")
 ## Globale Cinfig Ressource
 var config : GlobalConfig = load("res://resources/global_config.tres")
 
@@ -43,14 +43,14 @@ func spawn_mushroom_seed(location : Vector2):
 	var check = check_if_player_has_fertilizer()
 	if not check[0]:
 		if config.grow_without_fertilizer:
-			create_mushroom(pickable_object_resource.rarity_enum.common, location)
+			create_mushroom(GLOBALS.rarity.common, location)
 		else:
 			print("no fertilizer")
 		return
 	else:
 		var player : Player = get_tree().get_first_node_in_group("player")
 		var fertilizer : pickable_object = player.object_place.get_child(check[1])
-		var fertilizer_rarity : pickable_object_resource.rarity_enum = fertilizer.selected_object.rarity
+		var fertilizer_rarity : GLOBALS.rarity = fertilizer.selected_object.rarity
 		create_mushroom(fertilizer_rarity, location)
 		#print("Fertilizer Rarity: ", fertilizer_rarity)
 		use_fertilizer(fertilizer)
@@ -64,15 +64,15 @@ func check_if_player_has_fertilizer():
 	return [false, 0]
 
 ## Wählt einen zufälligen Pilz bassierend auf der seltenheit des Düngers aus
-func create_mushroom(soil_rarity : pickable_object_resource.rarity_enum, location : Vector2):
+func create_mushroom(soil_rarity : GLOBALS.rarity, location : Vector2):
 	var scene : pickable_object = pickable_object_scene.instantiate()
 	add_child(scene)
 	match soil_rarity:
-		pickable_object_resource.rarity_enum.common:
+		GLOBALS.rarity.common:
 			scene.selected_object = common_mushroom.pick_random()
-		pickable_object_resource.rarity_enum.rare:
+		GLOBALS.rarity.rare:
 			scene.selected_object = rare_mushroom.pick_random()
-		pickable_object_resource.rarity_enum.ultra_rare:
+		GLOBALS.rarity.ultra_rare:
 			scene.selected_object = ultra_rare_mushroom.pick_random()
 	scene.global_position = location
 	scene.create_mushroom()
@@ -90,11 +90,11 @@ func use_fertilizer(fertilizer : pickable_object):
 ## Fügt den Pilz zum passenden Array hinzu
 func add_mushroom_to_array(mushroom):
 	match mushroom.rarity:
-		pickable_object_resource.rarity_enum.common:
+		GLOBALS.rarity.common:
 			common_mushroom.append(mushroom)
-		pickable_object_resource.rarity_enum.rare:
+		GLOBALS.rarity.rare:
 			rare_mushroom.append(mushroom)
-		pickable_object_resource.rarity_enum.ultra_rare:
+		GLOBALS.rarity.ultra_rare:
 			ultra_rare_mushroom.append(mushroom)
 
 ## Speichern dass ein Pilz bereits an diesem Ort ist

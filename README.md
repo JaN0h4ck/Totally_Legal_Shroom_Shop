@@ -20,7 +20,7 @@
 #### Resource erstellen
  Bilder in Godot einfügen in Ordner res://assets/shrooms/ (Einfach per Drag and Drop)
  Rechtsklick -> Create New -> Resource -> pickable_mushroom_resource
- Ordner: res://pick_up_system/mushroom
+ Ordner: res://PickUpSystem/mushroom
  Name: [name]_mushroom.tres
  Passende Bilder auswählen, Base Texture Standard = freshlyplanted.png (Einfach per Drag and Drop)
  Interact Box Size = (x = 12 px, y = 12 px)
@@ -57,7 +57,7 @@ Person zur Leiche muss erstellt sein und als Namens Enum [name] haben
 #### Resource erstellen
  Bilder in Godot einfügen in Ordner res://assets/dead/ (Einfach per Drag and Drop)
  Rechtsklick -> Create New -> Resource -> pickable_corpse_resource
- Ordner: res://pick_up_system/corpse
+ Ordner: res://PickUpSystem/corpse
  Name: [name]_corpse.tres
  Passendes Bild auswählen (einfach per Drag and Drop)
  Interact Box Size = (x = 50 px, y = 40 px)

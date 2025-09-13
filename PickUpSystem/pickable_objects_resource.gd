@@ -11,5 +11,4 @@ var config : GlobalConfig = load("res://resources/global_config.tres")
 ## Wie lange es dauert das Objekt hochzuheben
 var pickup_time : float = config.pickup_time
 
-enum rarity_enum {common, rare, ultra_rare}
-@export var rarity: rarity_enum
+@export var rarity: GLOBALS.rarity

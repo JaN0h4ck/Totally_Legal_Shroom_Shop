@@ -10,11 +10,11 @@ class_name pickable_mushroom_resource
 var grow_time_middle : float:
 	get:
 		match rarity:
-			rarity_enum.common:
+			GLOBALS.rarity.common:
 				return config.common_mushroom_grow_time_stage_1
-			rarity_enum.rare:
+			GLOBALS.rarity.rare:
 				return config.rare_mushroom_grow_time_stage_1
-			rarity_enum.ultra_rare:
+			GLOBALS.rarity.ultra_rare:
 				return config.ultra_rare_mushroom_grow_time_stage_1
 			_:
 				print("Mushroom resource not matching rarity selected")
@@ -24,11 +24,11 @@ var grow_time_middle : float:
 var grow_time_end : float:
 	get:
 		match rarity:
-			rarity_enum.common:
+			GLOBALS.rarity.common:
 				return config.common_mushroom_grow_time_stage_2
-			rarity_enum.rare:
+			GLOBALS.rarity.rare:
 				return config.rare_mushroom_grow_time_stage_2
-			rarity_enum.ultra_rare:
+			GLOBALS.rarity.ultra_rare:
 				return config.ultra_rare_mushroom_grow_time_stage_2
 			_:
 				print("Mushroom resource not matching rarity selected")

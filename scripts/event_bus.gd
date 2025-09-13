@@ -39,7 +39,7 @@ signal drop_object
 signal pickup_object(position : Vector2, is_random_dropped : bool)
 
 ## Ausgelöst wenn Dünger erstellt werden soll, Position und Seltenheit wird übergeben
-signal spawn_fertilizer(new_global_position : Vector2, rarity : pickable_object_resource.rarity_enum)
+signal spawn_fertilizer(new_global_position : Vector2, rarity : GLOBALS.rarity)
 
 func _on_interact_customer():
 	interact_customer.emit()
@@ -89,5 +89,5 @@ func _on_drop_object():
 func _on_pickup_object(position : Vector2, is_random_dropped : bool):
 	pickup_object.emit(position, is_random_dropped)
 
-func _on_spawn_fertilizer(new_global_position : Vector2, rarity : pickable_object_resource.rarity_enum):
+func _on_spawn_fertilizer(new_global_position : Vector2, rarity : GLOBALS.rarity):
 	spawn_fertilizer.emit(new_global_position, rarity)

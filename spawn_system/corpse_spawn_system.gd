@@ -1,16 +1,16 @@
 extends Node2D
 
-@onready var pickable_object_scene := preload("res://pick_up_system/pickable_object.tscn")
-@onready var corpse_resource_alien := preload("res://pick_up_system/corpse/alien_corpse.tres")
-@onready var corpse_resource_angry := preload("res://pick_up_system/corpse/angry_corpse.tres")
-@onready var corpse_resource_beff := preload("res://pick_up_system/corpse/beff_corpse.tres")
-@onready var corpse_resource_celeb := preload("res://pick_up_system/corpse/celeb_corpse.tres")
-@onready var corpse_resource_conspiracy := preload("res://pick_up_system/corpse/conspiracy_corpse.tres")
-@onready var corpse_resource_cook := preload("res://pick_up_system/corpse/cook_corpse.tres")
-@onready var corpse_resource_cowboy := preload("res://pick_up_system/corpse/cowboy_corpse.tres")
-@onready var corpse_resource_enthusiast := preload("res://pick_up_system/corpse/enthusiast_corpse.tres")
-@onready var corpse_resource_grandpa := preload("res://pick_up_system/corpse/grandpa_corpse.tres")
-@onready var corpse_resource_nerd := preload("res://pick_up_system/corpse/nerd_corpse.tres")
+@onready var pickable_object_scene := preload("res://PickUpSystem/pickable_object.tscn")
+@onready var corpse_resource_alien := preload("res://PickUpSystem/corpse/alien_corpse.tres")
+@onready var corpse_resource_angry := preload("res://PickUpSystem/corpse/angry_corpse.tres")
+@onready var corpse_resource_beff := preload("res://PickUpSystem/corpse/beff_corpse.tres")
+@onready var corpse_resource_celeb := preload("res://PickUpSystem/corpse/celeb_corpse.tres")
+@onready var corpse_resource_conspiracy := preload("res://PickUpSystem/corpse/conspiracy_corpse.tres")
+@onready var corpse_resource_cook := preload("res://PickUpSystem/corpse/cook_corpse.tres")
+@onready var corpse_resource_cowboy := preload("res://PickUpSystem/corpse/cowboy_corpse.tres")
+@onready var corpse_resource_enthusiast := preload("res://PickUpSystem/corpse/enthusiast_corpse.tres")
+@onready var corpse_resource_grandpa := preload("res://PickUpSystem/corpse/grandpa_corpse.tres")
+@onready var corpse_resource_nerd := preload("res://PickUpSystem/corpse/nerd_corpse.tres")
 
 func _ready():
 	EventBus.npc_dropped.connect(spawn_corpse)
