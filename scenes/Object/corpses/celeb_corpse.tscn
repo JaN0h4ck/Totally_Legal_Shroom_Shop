@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://jp7fdcp6is1v"]
+
+[ext_resource type="PackedScene" uid="uid://oc2ty4554k24" path="res://scenes/Object/object_npc.tscn" id="1_l1qs5"]
+[ext_resource type="Texture2D" uid="uid://cj7tn63dm5sn1" path="res://assets/dead/celebrity_dead.png" id="2_wtsim"]
+
+[node name="Object" instance=ExtResource("1_l1qs5")]
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D/CollisionShape2D2" index="0"]
+texture = ExtResource("2_wtsim")
