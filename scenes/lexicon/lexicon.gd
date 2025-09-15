@@ -1,7 +1,7 @@
 extends Node2D
 
 const FIRST_PAGE: int = 0
-const LAST_PAGE: int = 5
+const LAST_PAGE: int = 8
 
 @onready var anim = $AnimatedSprite2D
 @export var count: int = 0
@@ -34,3 +34,6 @@ func page():
 		3: anim.play("Page4")
 		4: anim.play("Page5")
 		5: anim.play("Page6")
+		6: anim.play("Page7")
+		7: anim.play("Page8")
+		8: anim.play("Page9")
