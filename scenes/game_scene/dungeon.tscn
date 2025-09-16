@@ -156,8 +156,8 @@ noise_type = 3
 frequency = 0.0607
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_4somj"]
-seamless = true
 noise = SubResource("FastNoiseLite_ikx5i")
+seamless = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1ek56"]
 shader = ExtResource("5_4somj")
@@ -175,8 +175,8 @@ seed = 1
 frequency = 0.0607
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_tkn77"]
-seamless = true
 noise = SubResource("FastNoiseLite_4somj")
+seamless = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dcphp"]
 shader = ExtResource("5_4somj")
@@ -194,8 +194,8 @@ seed = 2
 frequency = 0.0607
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_uf2vu"]
-seamless = true
 noise = SubResource("FastNoiseLite_tkn77")
+seamless = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lcf54"]
 shader = ExtResource("5_4somj")
@@ -213,8 +213,8 @@ seed = 4
 frequency = 0.0607
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ppaq7"]
-seamless = true
 noise = SubResource("FastNoiseLite_j3unq")
+seamless = true
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_uf2vu"]
 noise_type = 3
@@ -222,8 +222,8 @@ seed = 5
 frequency = 0.0607
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_j3unq"]
-seamless = true
 noise = SubResource("FastNoiseLite_uf2vu")
+seamless = true
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_ppaq7"]
 noise_type = 3
@@ -231,8 +231,8 @@ seed = 6
 frequency = 0.0607
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_cj0f8"]
-seamless = true
 noise = SubResource("FastNoiseLite_ppaq7")
+seamless = true
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_cj0f8"]
 noise_type = 3
@@ -240,8 +240,8 @@ seed = 7
 frequency = 0.0607
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_0ja0t"]
-seamless = true
 noise = SubResource("FastNoiseLite_cj0f8")
+seamless = true
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_0ja0t"]
 noise_type = 3
@@ -249,8 +249,8 @@ seed = 8
 frequency = 0.0607
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_tbl2k"]
-seamless = true
 noise = SubResource("FastNoiseLite_0ja0t")
+seamless = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cj0f8"]
 shader = ExtResource("5_4somj")

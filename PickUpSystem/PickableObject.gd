@@ -17,7 +17,6 @@ var pickup_time
 func _ready():
 	_setup_collisions()
 	EventBus.drop_object.connect(drop_object)
-	set_collision_size()
 
 func _setup_collisions():
 	interact_manager = Interactable.new()

@@ -20,24 +20,27 @@ func spawn_corpse(corpse_name: GLOBALS.npc_names):
 	add_child(node)
 	match corpse_name:
 		GLOBALS.npc_names.alien:
-			node.selected_object = corpse_resource_alien
+			node.corpse_res = corpse_resource_alien
 		GLOBALS.npc_names.angry:
-			node.selected_object = corpse_resource_angry
+			node.corpse_res = corpse_resource_angry
 		GLOBALS.npc_names.beff:
-			node.selected_object = corpse_resource_beff
+			node.corpse_res = corpse_resource_beff
 		GLOBALS.npc_names.celeb:
-			node.selected_object = corpse_resource_celeb
+			node.corpse_res = corpse_resource_celeb
 		GLOBALS.npc_names.conspiracy:
-			node.selected_object = corpse_resource_conspiracy
+			node.corpse_res = corpse_resource_conspiracy
 		GLOBALS.npc_names.cook:
-			node.selected_object = corpse_resource_cook
+			node.corpse_res = corpse_resource_cook
 		GLOBALS.npc_names.cowboy:
-			node.selected_object = corpse_resource_cowboy
+			node.corpse_res = corpse_resource_cowboy
 		GLOBALS.npc_names.enthusiast:
-			node.selected_object = corpse_resource_enthusiast
+			node.corpse_res = corpse_resource_enthusiast
 		GLOBALS.npc_names.nerd:
-			node.selected_object = corpse_resource_nerd
+			node.corpse_res = corpse_resource_nerd
 		GLOBALS.npc_names.opa:
-			node.selected_object = corpse_resource_grandpa
+			node.corpse_res = corpse_resource_grandpa
+		_:
+			node.queue_free()
+			printerr("NPC Name not found: ", corpse_name)
 	
 	node.prepare_item()

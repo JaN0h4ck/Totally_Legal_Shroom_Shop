@@ -13,7 +13,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 			if node.global_position == fertillizer_point.global_position:
 				return
 		
-		var corpse : pickable_object = area.get_parent()
+		var corpse : PickableCorpse = area.get_parent()
 		if corpse.is_picked:
 			return
 		crush_corpse(corpse)
@@ -39,7 +39,7 @@ func check_if_player_has_corpse():
 	return [false, 0]
 
 ## Leiche verarbeiten
-func crush_corpse(corpse : pickable_object):
+func crush_corpse(corpse : PickableCorpse):
 	create_fertilizer(corpse)
 	corpse.crush_object()
 	# Leiche an den Passenden Ort bewegen
@@ -51,7 +51,7 @@ func crush_corpse(corpse : pickable_object):
 		corpse.queue_free()
 
 ## Gibt an den EventBus anzweisung um passenden Dünger zu erstellen
-func create_fertilizer(corpse : pickable_object):
+func create_fertilizer(corpse : PickableCorpse):
 	var corpse_rarity : GLOBALS.rarity = corpse.selected_object.rarity
 	EventBus.spawn_fertilizer.emit(fertillizer_point.global_position, corpse_rarity)
 	#print("Spawn fertilizer")

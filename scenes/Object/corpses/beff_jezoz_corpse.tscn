@@ -1,9 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://dlh8n42juuly7"]
-
-[ext_resource type="PackedScene" uid="uid://oc2ty4554k24" path="res://scenes/Object/object_npc.tscn" id="1_0wjr5"]
-[ext_resource type="Texture2D" uid="uid://v36f7vqhpg52" path="res://assets/dead/beff_dead.png" id="2_w4vp6"]
-
-[node name="Object" instance=ExtResource("1_0wjr5")]
-
-[node name="Sprite2D" type="Sprite2D" parent="Area2D/CollisionShape2D2" index="0"]
-texture = ExtResource("2_w4vp6")

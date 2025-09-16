@@ -48,7 +48,7 @@ func spawn_mushroom_seed(location : Vector2):
 		return
 	else:
 		var player : Player = get_tree().get_first_node_in_group("player")
-		var fertilizer : pickable_object = player.object_place.get_child(check[1])
+		var fertilizer : PickableFertilizer = player.object_place.get_child(check[1])
 		var fertilizer_rarity : GLOBALS.rarity = fertilizer.selected_object.rarity
 		create_mushroom(fertilizer_rarity, location)
 		#print("Fertilizer Rarity: ", fertilizer_rarity)
@@ -77,7 +77,7 @@ func create_mushroom(soil_rarity : GLOBALS.rarity, location : Vector2):
 	node.prepare_item()
 
 ## Dünger zu Feld bewegen und dann löschen
-func use_fertilizer(fertilizer : pickable_object):
+func use_fertilizer(fertilizer : PickableFertilizer):
 	fertilizer.crush_object()
 	var tween = get_tree().create_tween()
 	tween.tween_property(fertilizer, "global_position", current_position, fertilizer.selected_object.pickup_time).from_current()

@@ -1,9 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://qlensv60mywf"]
-
-[ext_resource type="PackedScene" uid="uid://oc2ty4554k24" path="res://scenes/Object/object_npc.tscn" id="1_vxet7"]
-[ext_resource type="Texture2D" uid="uid://ovcmg1bqdkpp" path="res://assets/dead/cookdead.png" id="2_h0qh7"]
-
-[node name="Object" instance=ExtResource("1_vxet7")]
-
-[node name="Sprite2D" type="Sprite2D" parent="Area2D/CollisionShape2D2" index="0"]
-texture = ExtResource("2_h0qh7")

@@ -1,9 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://42y5tfirfkr4"]
-
-[ext_resource type="PackedScene" uid="uid://oc2ty4554k24" path="res://scenes/Object/object_npc.tscn" id="1_g8sf1"]
-[ext_resource type="Texture2D" uid="uid://btx06i0loln4o" path="res://assets/dead/cowboydead.png" id="2_8mass"]
-
-[node name="Object" instance=ExtResource("1_g8sf1")]
-
-[node name="Sprite2D" type="Sprite2D" parent="Area2D/CollisionShape2D2" index="0"]
-texture = ExtResource("2_8mass")
