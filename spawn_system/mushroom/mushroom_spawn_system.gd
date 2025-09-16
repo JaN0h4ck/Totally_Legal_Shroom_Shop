@@ -1,7 +1,6 @@
 extends Node
 class_name mushroom_spawn_system
 
-@onready var pickable_object_scene := preload("res://PickUpSystem/pickable_object.tscn")
 @onready var mushroom_resource_alien := preload("res://PickUpSystem/mushroom/alien_mushroom.tres")
 @onready var murhroom_resource_bleeding := preload("res://PickUpSystem/mushroom/bleeding_mushroom.tres")
 @onready var murhroom_resource_button := preload("res://PickUpSystem/mushroom/button_mushroom.tres")
@@ -65,17 +64,17 @@ func check_if_player_has_fertilizer():
 
 ## Wählt einen zufälligen Pilz bassierend auf der seltenheit des Düngers aus
 func create_mushroom(soil_rarity : GLOBALS.rarity, location : Vector2):
-	var scene : pickable_object = pickable_object_scene.instantiate()
-	add_child(scene)
+	var node : PickableMushroom = PickableMushroom.new()
+	add_child(node)
 	match soil_rarity:
 		GLOBALS.rarity.common:
-			scene.selected_object = common_mushroom.pick_random()
+			node.shroom_res = common_mushroom.pick_random()
 		GLOBALS.rarity.rare:
-			scene.selected_object = rare_mushroom.pick_random()
+			node.shroom_res = rare_mushroom.pick_random()
 		GLOBALS.rarity.ultra_rare:
-			scene.selected_object = ultra_rare_mushroom.pick_random()
-	scene.global_position = location
-	scene.create_mushroom()
+			node.shroom_res = ultra_rare_mushroom.pick_random()
+	node.global_position = location
+	node.prepare_item()
 
 ## Dünger zu Feld bewegen und dann löschen
 func use_fertilizer(fertilizer : pickable_object):
