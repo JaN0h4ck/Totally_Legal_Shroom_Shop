@@ -9,19 +9,18 @@ func _ready():
 	EventBus.spawn_fertilizer.connect(delayed_fertilizer_spawn)
 
 func spawn_fertilizer(new_global_position : Vector2, rarity : GLOBALS.rarity):
-	var scene : pickable_object = pickable_object_scene.instantiate()
-	#call_deferred("add_child", scene)
-	add_child(scene)
+	var node : PickableFertilizer = PickableFertilizer.new()
+	add_child(node)
 	match rarity:
 		GLOBALS.rarity.common:
-			scene.selected_object = common_fertilizer_resource
+			node.selected_object = common_fertilizer_resource
 		GLOBALS.rarity.rare:
-			scene.selected_object = rare_fertilizer_resource
+			node.selected_object = rare_fertilizer_resource
 		GLOBALS.rarity.ultra_rare:
-			scene.selected_object = ultra_rare_fertilizer_resource
+			node.selected_object = ultra_rare_fertilizer_resource
 	
-	scene.create_fertilizer()
-	scene.global_position = new_global_position
+	node.prepare_item()
+	node.global_position = new_global_position
 	#print("created", scene)
 
 func delayed_fertilizer_spawn(new_global_position : Vector2, rarity : GLOBALS.rarity):
