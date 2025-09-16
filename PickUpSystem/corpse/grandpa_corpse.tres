@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CorpseRes" load_steps=3 format=3 uid="uid://cqs4dnf04ltqe"]
+
+[ext_resource type="Script" uid="uid://xuoda7gtmwd0" path="res://PickUpSystem/corpse/PickableCorpseRes.gd" id="1_lu7bj"]
+[ext_resource type="Texture2D" uid="uid://btpwq8h6sbr2b" path="res://assets/dead/grandpadead.png" id="1_wtk2i"]
+
+[resource]
+script = ExtResource("1_lu7bj")
+base_texture = ExtResource("1_wtk2i")
+interact_box_size = Vector2(50, 40)
+pickup_time = 0.3
+rarity = 0
+metadata/_custom_type_script = "uid://xuoda7gtmwd0"

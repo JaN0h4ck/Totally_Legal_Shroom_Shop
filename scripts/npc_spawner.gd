@@ -55,13 +55,13 @@ func _ready():
 func add_npc(npc):
 	var npc_instance = npc.instantiate()
 	match npc_instance.rarity:
-		pickable_object_resource.rarity_enum.common:
+		GLOBALS.rarity.common:
 			for i in range (number_common_npcs):
 				npc_list.append(npc)
-		pickable_object_resource.rarity_enum.rare:
+		GLOBALS.rarity.rare:
 			for i in range (number_rare_npcs):
 				npc_list.append(npc)
-		pickable_object_resource.rarity_enum.ultra_rare:
+		GLOBALS.rarity.ultra_rare:
 			for i in range (number_ultra_rare_npcs):
 				npc_list.append(npc)
 	npc_instance.queue_free()

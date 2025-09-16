@@ -1,0 +1,2 @@
+extends PickableRes
+class_name FertilizerRes

@@ -13,7 +13,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 			if node.global_position == fertillizer_point.global_position:
 				return
 		
-		var corpse : pickable_object = area.get_parent()
+		var corpse : PickableCorpse = area.get_parent()
 		if corpse.is_picked:
 			return
 		crush_corpse(corpse)
@@ -39,19 +39,19 @@ func check_if_player_has_corpse():
 	return [false, 0]
 
 ## Leiche verarbeiten
-func crush_corpse(corpse : pickable_object):
+func crush_corpse(corpse : PickableCorpse):
 	create_fertilizer(corpse)
 	corpse.crush_object()
 	# Leiche an den Passenden Ort bewegen
 	var tween = get_tree().create_tween()
-	tween.tween_property(corpse, "global_position", corpse_point.global_position, corpse.selected_object.pickup_time).from_current()
+	tween.tween_property(corpse, "global_position", corpse_point.global_position, corpse.corpse_res.pickup_time).from_current()
 	# Warten bevor Leiche verschwindet
-	await get_tree().create_timer(corpse.selected_object.pickup_time + 0.1).timeout
+	await get_tree().create_timer(corpse.corpse_res.pickup_time + 0.1).timeout
 	if is_instance_valid(corpse):
 		corpse.queue_free()
 
 ## Gibt an den EventBus anzweisung um passenden Dünger zu erstellen
-func create_fertilizer(corpse : pickable_object):
-	var corpse_rarity : pickable_object_resource.rarity_enum = corpse.selected_object.rarity
+func create_fertilizer(corpse : PickableCorpse):
+	var corpse_rarity : GLOBALS.rarity = corpse.corpse_res.rarity
 	EventBus.spawn_fertilizer.emit(fertillizer_point.global_position, corpse_rarity)
 	#print("Spawn fertilizer")

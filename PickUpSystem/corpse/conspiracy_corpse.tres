@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CorpseRes" load_steps=3 format=3 uid="uid://64wt3u3lqudq"]
+
+[ext_resource type="Texture2D" uid="uid://ca6fswjtm40h" path="res://assets/dead/conspiracydead.png" id="1_1qtc2"]
+[ext_resource type="Script" uid="uid://xuoda7gtmwd0" path="res://PickUpSystem/corpse/PickableCorpseRes.gd" id="1_otsty"]
+
+[resource]
+script = ExtResource("1_otsty")
+base_texture = ExtResource("1_1qtc2")
+interact_box_size = Vector2(50, 40)
+pickup_time = 0.3
+rarity = 0
+metadata/_custom_type_script = "uid://xuoda7gtmwd0"

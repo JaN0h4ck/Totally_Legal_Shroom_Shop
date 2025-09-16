@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ShroomRes" load_steps=5 format=3 uid="uid://kcvq4dsl8ctm"]
+
+[ext_resource type="Texture2D" uid="uid://b0fga1xi6c1cj" path="res://assets/shrooms/freshlyplanted.png" id="1_qhfbp"]
+[ext_resource type="Texture2D" uid="uid://cyg8f38uudxqc" path="res://assets/shrooms/Pfifferling.png" id="2_yac1b"]
+[ext_resource type="Texture2D" uid="uid://d2uwyfvavcaeo" path="res://assets/shrooms/small/pfifferling_small.png" id="3_1wve0"]
+[ext_resource type="Script" uid="uid://cg67u7xegh8j7" path="res://PickUpSystem/mushroom/PickableShroomRes.gd" id="4_1qjff"]
+
+[resource]
+script = ExtResource("4_1qjff")
+middle_stage_texture = ExtResource("3_1wve0")
+end_stage_texture = ExtResource("2_yac1b")
+grow_time_middle = 1.0
+grow_time_end = 1.0
+base_texture = ExtResource("1_qhfbp")
+interact_box_size = Vector2(12, 12)
+pickup_time = 0.3
+rarity = 0
+metadata/_custom_type_script = "uid://cg67u7xegh8j7"

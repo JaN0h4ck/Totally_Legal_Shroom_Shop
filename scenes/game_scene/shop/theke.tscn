@@ -60,12 +60,10 @@ interact_prompt = "Mushrooms"
 metadata/_custom_type_script = "uid://b1kccbwcfiryn"
 
 [node name="top_collision_interactable_mushroom_theke" type="CollisionShape2D" parent="interactable_mushroom_theke"]
-visible = false
 position = Vector2(19.5, 2)
 shape = SubResource("RectangleShape2D_v5hj3")
 
 [node name="left_collision_interactable_mushroom_theke" type="CollisionShape2D" parent="interactable_mushroom_theke"]
-visible = false
 position = Vector2(2, 18.5)
 shape = SubResource("RectangleShape2D_yonj3")
 

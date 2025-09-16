@@ -13,11 +13,9 @@ class_name base_npc
 @export var move_speed : float = 40.0
 @export var loop_path : bool = false
 
-## Name des NPCs, lower case und mit _ als Leerzeichens
-enum npc_name_enum{alien, angry, beff, celeb, conspiracy, cook, cowboy, enthusiast, nerd, opa}
-@export var npc_name : npc_name_enum
+@export var npc_name : GLOBALS.npc_names
 
-@export var rarity : pickable_object_resource.rarity_enum
+@export var rarity : GLOBALS.rarity
 
 var last_position : Vector2
 var movement : Vector2
