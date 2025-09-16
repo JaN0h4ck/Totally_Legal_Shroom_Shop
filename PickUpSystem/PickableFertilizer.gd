@@ -7,7 +7,7 @@ func prepare_item():
 	var sprite : Sprite2D = Sprite2D.new()
 	sprite.texture = fert_res.base_texture
 	add_child(sprite)
-	set_collision_size(true, 30, 30)
+	set_collision_size(true, 40, 40) #override so it's reachable on the machine
 	interact_manager.interact_prompt = "Pick up Fertilizer"
 	add_object_to_group("pickable_fertilizer")
 	pickup_time = fert_res.pickup_time

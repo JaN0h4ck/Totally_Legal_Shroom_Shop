@@ -20,7 +20,7 @@ func spawn_fertilizer(new_global_position : Vector2, rarity : GLOBALS.rarity):
 	
 	node.prepare_item()
 	node.global_position = new_global_position
-	#print("created", scene)
+	node.z_index = 5
 
 func delayed_fertilizer_spawn(new_global_position : Vector2, rarity : GLOBALS.rarity):
 	call_deferred("spawn_fertilizer", new_global_position, rarity)
