@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://b0fga1xi6c1cj" path="res://assets/shrooms/freshlyplanted.png" id="1_mu4ko"]
 [ext_resource type="Texture2D" uid="uid://tfmfqxpa23s" path="res://assets/shrooms/Chanpignon.png" id="2_ag26b"]
 [ext_resource type="Texture2D" uid="uid://ciyyue120cy3u" path="res://assets/shrooms/small/champignon_small.png" id="3_yqrtw"]
-[ext_resource type="Script" uid="uid://cg67u7xegh8j7" path="res://PickUpSystem/mushroom/pickable_mushrooms_resource.gd" id="4_r1c7k"]
+[ext_resource type="Script" uid="uid://cg67u7xegh8j7" path="res://PickUpSystem/mushroom/PickableShroomRes.gd" id="4_r1c7k"]
 
 [resource]
 script = ExtResource("4_r1c7k")

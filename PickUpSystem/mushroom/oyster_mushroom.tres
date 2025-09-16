@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ShroomRes" load_steps=4 format=3 uid="uid://d2rtd805vbtqh"]
 
 [ext_resource type="Texture2D" uid="uid://5u1bxhewtpui" path="res://assets/shrooms/austernpilz_grown.png" id="1_s0tdx"]
-[ext_resource type="Script" uid="uid://cg67u7xegh8j7" path="res://PickUpSystem/mushroom/pickable_mushrooms_resource.gd" id="1_yku2g"]
+[ext_resource type="Script" uid="uid://cg67u7xegh8j7" path="res://PickUpSystem/mushroom/PickableShroomRes.gd" id="1_yku2g"]
 [ext_resource type="Texture2D" uid="uid://btp3p5cvlx77b" path="res://assets/shrooms/small/austernpilz_small.png" id="2_xm225"]
 
 [resource]

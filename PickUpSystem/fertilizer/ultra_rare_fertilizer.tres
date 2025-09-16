@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="FertilizerRes" load_steps=3 format=3 uid="uid://dcnvecikh2gxf"]
 
-[ext_resource type="Script" uid="uid://cfplqtq1yxo12" path="res://PickUpSystem/fertilizer/FertilizerRes.gd" id="1_8mvin"]
+[ext_resource type="Script" uid="uid://cfplqtq1yxo12" path="res://PickUpSystem/fertilizer/PickableFertRes.gd" id="1_8mvin"]
 [ext_resource type="Texture2D" uid="uid://cmphumag6o08k" path="res://assets/dungeon/fertilizer/fertilizer_purple.png" id="1_pmd6g"]
 
 [resource]
