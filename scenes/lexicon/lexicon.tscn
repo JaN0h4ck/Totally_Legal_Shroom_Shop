@@ -1,8 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://bpg8lyxgg0rkt"]
+[gd_scene load_steps=14 format=3 uid="uid://bpg8lyxgg0rkt"]
 
 [ext_resource type="Texture2D" uid="uid://dnogg28bv4bwt" path="res://assets/ButtonLexikon-sheet.png" id="1_566mw"]
 [ext_resource type="Script" uid="uid://dc1cmf14215gd" path="res://scenes/lexicon/lexicon.gd" id="1_etx67"]
+[ext_resource type="Texture2D" uid="uid://crkrnnuesvhh7" path="res://assets/new_lexikon_pages/OysterLexikon.png" id="3_3ihle"]
 [ext_resource type="PackedScene" uid="uid://bv5ulmbmtwuyw" path="res://scenes/game_ui/input_prompt.tscn" id="3_c6ilk"]
+[ext_resource type="Texture2D" uid="uid://cphkdjegr07cn" path="res://assets/new_lexikon_pages/ShiitakeLexikon.png" id="4_uitdy"]
+[ext_resource type="Texture2D" uid="uid://cjxotdlq0hlfp" path="res://assets/new_lexikon_pages/FlyAgaricLexikon.png" id="5_ngwnk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_etx67"]
 atlas = ExtResource("1_566mw")
@@ -48,7 +51,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3ihle")
+"texture": ExtResource("3_3ihle")
 }],
 "loop": true,
 "name": &"Page3",
@@ -56,7 +59,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_upreb")
+"texture": ExtResource("4_uitdy")
 }],
 "loop": true,
 "name": &"Page4",
@@ -64,7 +67,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_uitdy")
+"texture": ExtResource("5_ngwnk")
 }],
 "loop": true,
 "name": &"Page5",
@@ -72,10 +75,34 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ngwnk")
+"texture": SubResource("AtlasTexture_3ihle")
 }],
 "loop": true,
 "name": &"Page6",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_upreb")
+}],
+"loop": true,
+"name": &"Page7",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uitdy")
+}],
+"loop": true,
+"name": &"Page8",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ngwnk")
+}],
+"loop": true,
+"name": &"Page9",
 "speed": 5.0
 }]
 
@@ -101,7 +128,7 @@ script = ExtResource("1_etx67")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SubViewport/Lexicon"]
 sprite_frames = SubResource("SpriteFrames_shews")
-animation = &"Page1"
+animation = &"Page9"
 
 [node name="Camera2D" type="Camera2D" parent="SubViewport/Lexicon"]
 zoom = Vector2(0.5, 0.5)

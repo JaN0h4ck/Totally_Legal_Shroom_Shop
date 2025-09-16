@@ -1,12 +1,12 @@
 {
 	"generic": [
 		"Howdy! I'm feeling a bit down today, and my friend told me you're the right person if I wanna have a good time! I need some mushrooms. To be specific, I need %s %s. And make it quick - I don't want my wife to know about this.",
-		"Hello my dearest! I love the outfit your wearing! I`m searching for a very specific mushroom! I need %s and it's called %s.",
+		"Hello my dearest! I love the outfit you're wearing! I`m searching for a very specific mushroom! I need %s and it's called %s.",
 		"Yo! Give me %s %s now! Or else...",
 		"H..H..Hey my mother sent me to buy %s %s. Believe me! I don`t even like mushrooms. I would never ever eat them. You have to believe me!",
 		"Shhhh be quiet! The goverment is watching us! Quick give me %s %s before they spot us. And don`t tell them I was here!",
 		"Allow myself to buy %s of %s for further investigations. It has a very interesting structure under the microscope!",
-		"Did you know the biggest mushroom is a honey fungus? It`s over 9 square kilometers big and weighs over 600 tons. Its also about 2400 old. Do you have something similar? If not im going to take %s %s."
+		"Did you know the biggest mushroom is a honey fungus? It`s over 9 square kilometers big and weighs over 600 tons. Its also about 2400 years old. Do you have something similar? If not im going to take %s %s."
 	],
 	"basic_shrooms": ["Button mushroom", "Chanterelle"],
 	"rare_shrooms": ["Fly agaric", "Alien mushroom"],
