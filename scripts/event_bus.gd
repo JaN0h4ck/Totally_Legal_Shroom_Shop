@@ -22,7 +22,7 @@ signal npc_left_trapdoor
 ## Ausgelöst wenn ein NPC den Shop verlässt (entweder durch Falltür oder als Kunde)
 signal npc_left_shop
 ## Ausgelöst wenn ein NPC durch die Falltür fällt, NPC Enum Name wird mit übergeben
-signal npc_dropped(npc_name : base_npc.npc_name_enum)
+signal npc_dropped(npc_name: GLOBALS.npc_names)
 
 ## Ausgelöst wenn ein Dialog gestartet wird
 signal dialog_started
@@ -36,10 +36,10 @@ signal open_inventory
 signal drop_object
 
 ## Ausgelöst wenn ein Objekt aufgehoben wird, Globale Position des Objekts und Bool ob das Objekt einfach nur im Level abgelegt wurde wird mit übergeben
-signal pickup_object(position : Vector2, is_random_dropped : bool)
+signal pickup_object(position: Vector2, is_random_dropped: bool)
 
 ## Ausgelöst wenn Dünger erstellt werden soll, Position und Seltenheit wird übergeben
-signal spawn_fertilizer(new_global_position : Vector2, rarity : GLOBALS.rarity)
+signal spawn_fertilizer(new_global_position: Vector2, rarity: GLOBALS.rarity)
 
 func _on_interact_customer():
 	interact_customer.emit()
@@ -71,7 +71,7 @@ func _on_npc_left_trapdoor():
 func _on_npc_left_shop():
 	npc_left_shop.emit()
 
-func _on_npc_dropped(npc_name : base_npc.npc_name_enum):
+func _on_npc_dropped(npc_name: GLOBALS.npc_names):
 	npc_dropped.emit(npc_name)
 
 func _on_dialog_started():
@@ -86,8 +86,8 @@ func _on_open_inventory():
 func _on_drop_object():
 	drop_object.emit()
 
-func _on_pickup_object(position : Vector2, is_random_dropped : bool):
+func _on_pickup_object(position: Vector2, is_random_dropped: bool):
 	pickup_object.emit(position, is_random_dropped)
 
-func _on_spawn_fertilizer(new_global_position : Vector2, rarity : GLOBALS.rarity):
+func _on_spawn_fertilizer(new_global_position: Vector2, rarity: GLOBALS.rarity):
 	spawn_fertilizer.emit(new_global_position, rarity)
