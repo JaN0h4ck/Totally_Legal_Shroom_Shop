@@ -16,7 +16,6 @@ var pickup_time
 
 func _ready():
 	_setup_collisions()
-	EventBus.drop_object.connect(drop_object)
 
 func _setup_collisions():
 	interact_manager = Interactable.new()
@@ -49,6 +48,7 @@ func _on_player_interacted() -> void:
 
 ## Objekt auf den Spieler Kopf legen
 func add_to_player():
+	EventBus.drop_object.connect(drop_object)
 	EventBus.pickup_object.emit(global_position, is_random_dropped)
 	var player : Player = get_tree().get_first_node_in_group("player")
 	# Schauen ob Spieler bereits ein Objekt trägt
@@ -87,6 +87,7 @@ func drop_object():
 	var new_parent = get_tree().get_first_node_in_group("dropped_items_container")
 	self.reparent(new_parent, true)
 	throw_object(20)
+	EventBus.drop_object.disconnect(drop_object)
 
 ## Objekt in den Schredder werfen
 func crush_object():
