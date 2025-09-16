@@ -70,7 +70,7 @@ Person zur Leiche muss erstellt sein und als Namens Enum [name] haben
  Variable für Resourcen hinzufügen => @onready var corpse_resource_[name] := preload([Pfad zu Resource, einach per Drag and Drop an diese Stelle um Pfad einzufügen])
  in spawn_corpse() in match corpse_name: folgenden Code hinzufügen:
 	GLOBALS.npc_names.[name]:
-		scene.selected_object = corpse_resource_[name]
+		scene.corpse_res = corpse_resource_[name]
 
 ## Godot Menus Template
 For Godot 4.4 (4.3+ compatible)

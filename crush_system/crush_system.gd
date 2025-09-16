@@ -44,14 +44,14 @@ func crush_corpse(corpse : PickableCorpse):
 	corpse.crush_object()
 	# Leiche an den Passenden Ort bewegen
 	var tween = get_tree().create_tween()
-	tween.tween_property(corpse, "global_position", corpse_point.global_position, corpse.selected_object.pickup_time).from_current()
+	tween.tween_property(corpse, "global_position", corpse_point.global_position, corpse.corpse_res.pickup_time).from_current()
 	# Warten bevor Leiche verschwindet
-	await get_tree().create_timer(corpse.selected_object.pickup_time + 0.1).timeout
+	await get_tree().create_timer(corpse.corpse_res.pickup_time + 0.1).timeout
 	if is_instance_valid(corpse):
 		corpse.queue_free()
 
 ## Gibt an den EventBus anzweisung um passenden Dünger zu erstellen
 func create_fertilizer(corpse : PickableCorpse):
-	var corpse_rarity : GLOBALS.rarity = corpse.selected_object.rarity
+	var corpse_rarity : GLOBALS.rarity = corpse.corpse_res.rarity
 	EventBus.spawn_fertilizer.emit(fertillizer_point.global_position, corpse_rarity)
 	#print("Spawn fertilizer")

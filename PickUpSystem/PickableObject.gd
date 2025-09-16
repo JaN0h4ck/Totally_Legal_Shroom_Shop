@@ -26,6 +26,7 @@ func _setup_collisions():
 	shape.size = Vector2(20,20)
 	interact_collision.shape = shape
 	interact_manager.add_child(interact_collision)
+	interact_manager.player_interacted.connect(_on_player_interacted)
 	
 
 ## Fügt Note und Interact Area zur eingegebenen Gruppe hinzu

@@ -14,6 +14,7 @@ func prepare_item():
 	interact_manager.interact_prompt = "Pick up Mushroom"
 	mushroom_grow(sprite)
 	add_object_to_group("pickable_mushroom")
+	pickup_time = shroom_res.pickup_time
 
 ## Legt die Größe der Collision Box fest auf die Werte aus dem ausgewähltem Objekt
 func set_collision_size(override_preset : bool = false, override_x: float = 0, override_y : float = 0):

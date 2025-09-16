@@ -10,6 +10,7 @@ func prepare_item():
 	set_collision_size(true, 30, 30)
 	interact_manager.interact_prompt = "Pick up Fertilizer"
 	add_object_to_group("pickable_fertilizer")
+	pickup_time = fert_res.pickup_time
 
 ## Legt die Größe der Collision Box fest auf die Werte aus dem ausgewähltem Objekt
 func set_collision_size(override_preset : bool = false, override_x: float = 0, override_y : float = 0):

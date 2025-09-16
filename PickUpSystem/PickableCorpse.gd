@@ -11,6 +11,7 @@ func prepare_item():
 	# Ändern der Anzeige mit was der Spieler interagieren kann
 	interact_manager.interact_prompt = "Pick up Corpse"
 	add_object_to_group("pickable_corpse")
+	pickup_time = corpse_res.pickup_time
 
 func set_collision_size(override_preset : bool = false, override_x: float = 0, override_y : float = 0):
 	var rect_shape: RectangleShape2D = interact_collision.shape as RectangleShape2D
