@@ -16,6 +16,8 @@ var pickup_time
 
 func _ready():
 	_setup_collisions()
+	z_index = -3
+	z_as_relative = false
 
 func _setup_collisions():
 	interact_manager = Interactable.new()
