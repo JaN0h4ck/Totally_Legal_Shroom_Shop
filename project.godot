@@ -61,6 +61,7 @@ dropped_items_container=""
 pickable_fertilizer=""
 paused_nodes=""
 wood_chipper=""
+mushroom_inventory_display_position=""
 
 [gui]
 

@@ -12,8 +12,12 @@ var button_text_filled = "Take Shroom"
 ## Globale Config Ressource
 var config : GlobalConfig = load("res://resources/global_config.tres")
 
+var mushroom_global_positon : Vector2 = Vector2(0, 0)
+var mushroom_global_rotation : float = 0.0
+
 func _ready():
 	EventBus.inventory_updated.connect(check_inventory)
+	set_mushroom_global_position()
 	check_inventory()
 
 # Überprüfen ob Slot leer ist
@@ -74,8 +78,22 @@ func add_item():
 	if not succes:
 		print("Adding Mushroom Failed")
 		return
-	# Pilz in der Welt löschen
-	#if is_instance_valid(mushroom):
-	#	mushroom.queue_free()
-	mushroom.reparent(self, true)
-	player.carries_object = false
+	# Pilz auf der Theke Platzieren
+	mushroom.crush_object()
+	mushroom.set_collision_size_to_zero()
+	mushroom.position = Vector2(0, 0)
+	mushroom.rotation = 0.0
+	mushroom.global_position = mushroom_global_positon
+	mushroom.global_rotation = mushroom_global_rotation
+
+func set_mushroom_global_position():
+	var position_nodes = get_tree().get_nodes_in_group("mushroom_inventory_display_position")
+	for node in position_nodes:
+		var node_name = node.name
+		var name_parts = node_name.split("_")
+		if name_parts.size() > 1:
+			var number = int(name_parts[1])
+			if number == inventory_position:
+				mushroom_global_positon = node.global_position
+				mushroom_global_rotation = node.global_rotation
+	
