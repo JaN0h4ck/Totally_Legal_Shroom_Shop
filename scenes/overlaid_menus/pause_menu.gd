@@ -15,6 +15,9 @@ func _save():
 	data.player_position = player.global_position
 	data.player_facing_left = player.get_child(0).flip_h
 	
+	# Inventar
+	data.inventory_array = Inventory.inventory_array
+	
 	# Alle Objekte aus Gruppe "saveable" speichern
 	var savables = get_tree().get_nodes_in_group(save_group_name)
 	for savable in savables:
@@ -38,6 +41,9 @@ func _load():
 	# Spieler Postion und Blickrichtung laden
 	player.global_position = data.player_position
 	player.get_child(0).flip_h = data.player_facing_left
+	
+	# Inventar
+	Inventory.inventory_array = data.inventory_array
 	
 	# Alle aktuellen Objekte aus "saveable" löschen
 	for saveable in get_tree().get_nodes_in_group(save_group_name):
