@@ -1,6 +1,7 @@
 extends PickableRes
 class_name ShroomRes
-
+## Name des Pilzes für das Inventar
+@export var name : String
 ## Texture wenn der Pilz zur hälfte gewachsen ist
 @export var middle_stage_texture : Texture2D
 ## Texture wenn der Pilz voll ausgewachsen ist
