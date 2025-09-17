@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://doqkihlax7j52"]
 
-[ext_resource type="Script" uid="uid://7up34jpmnrs6" path="res://inventory/ui_item.gd" id="1_tsslc"]
+[ext_resource type="Script" uid="uid://c0yme1cwhp7cp" path="res://inventory/ui_item_script.gd" id="1_tsslc"]
 [ext_resource type="Texture2D" uid="uid://tfmfqxpa23s" path="res://assets/shrooms/Chanpignon.png" id="2_axipb"]
 
 [node name="UIItem" type="VBoxContainer"]
@@ -23,3 +23,5 @@ text = "1"
 [node name="Button" type="Button" parent="."]
 layout_mode = 2
 text = "Take Mushroom"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
