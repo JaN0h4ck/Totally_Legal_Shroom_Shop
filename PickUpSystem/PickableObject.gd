@@ -3,7 +3,7 @@
 var interact_collision: CollisionShape2D
 ## Objekte welches das Interagieren des Spielers abgreift
 var interact_manager: Interactable
-## Globale Cinfig Ressource
+## Globale Config Ressource
 var config : GlobalConfig = load("res://resources/global_config.tres")
 
 ## True wenn Objekt mommentan aufgehoben werden kann
