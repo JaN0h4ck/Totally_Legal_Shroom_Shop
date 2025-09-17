@@ -33,3 +33,8 @@ var grow_time_end : float:
 			_:
 				print("Mushroom resource not matching rarity selected")
 				return 0
+
+func _init() -> void:
+	if base_texture == null:
+		print("Mushroom resource no base texture set, freshlyplanted used")
+		base_texture = preload("res://assets/shrooms/freshlyplanted.png")
