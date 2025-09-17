@@ -1,11 +1,10 @@
 extends Node
-class_name Inventory
 
 var inventory_array : Array
 var empty_inventory_string : String = "empty"
 
 ## Einen Pilz zum Inventar hinzufügen, nicht an einen festen Platz
-func add_mushroom_to_inventory_random_position(new_item : PickableMushroom):
+func add_mushroom_to_inventory_random_position(new_item):
 	# Schauen ob Pilz Art bereits im Inventar wenn ja Anzahl erhöhen
 	for i in range(inventory_array.size()):
 		var current_mushroom : Array = inventory_array[i]
@@ -28,7 +27,7 @@ func add_mushroom_to_inventory_random_position(new_item : PickableMushroom):
 	EventBus.inventory_updated.emit()
 
 ## Bestimmten Pilz aus Inventar entfernen, returnd ob erfolgreich
-func remove_mushroom_from_inventory_by_name(removed_item : PickableMushroom):
+func remove_mushroom_from_inventory_by_name(removed_item):
 	for i in range(inventory_array.size()):
 		var current_mushroom : Array = inventory_array[i]
 		if current_mushroom[0] == removed_item:
