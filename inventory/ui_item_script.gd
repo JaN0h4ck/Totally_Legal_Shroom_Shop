@@ -19,7 +19,7 @@ func _ready():
 # Überprüfen ob Slot leer ist
 func check_inventory():
 	var item : Array = Inventory.get_mushroom_type_at_position(inventory_position)
-	if item[0] == "empty":
+	if item[0] == null:
 		empty_slot()
 	else:
 		filled_slot(item)
@@ -32,9 +32,9 @@ func empty_slot():
 
 # Wenn Slot ein Item enthält
 func filled_slot(item : Array):
-	var mushroom : ShroomRes = item[0]
+	var mushroom : PickableMushroom = item[0]
 	var amount : int = item[1]
-	texture.texture = mushroom.end_stage_texture
+	texture.texture = mushroom.shroom_res.end_stage_texture
 	amount_label.text = str(amount)
 	button.text = button_text_filled
 
@@ -52,7 +52,7 @@ func remove_item():
 		print("Player is already carring an object")
 		return
 	# Objekt entfernen
-	var item = Inventory.remove_mushroom_from_inventory_by_position(inventory_position)
+	var _item = Inventory.remove_mushroom_from_inventory_by_position(inventory_position)
 
 ## Pilz zum Inventar an aktueller stelle hinzufügen
 func add_item():
@@ -75,3 +75,4 @@ func add_item():
 	if is_instance_valid(mushroom):
 		mushroom.queue_free()
 	player.carries_object = false
+	#check_inventory()

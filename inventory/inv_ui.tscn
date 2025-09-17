@@ -37,7 +37,6 @@ layout_mode = 2
 
 [node name="UIItem" parent="CenterContainer/HBoxContainer" instance=ExtResource("5_qwu3r")]
 layout_mode = 2
-inventory_position = 5
 
 [node name="UIItem2" parent="CenterContainer/HBoxContainer" instance=ExtResource("5_qwu3r")]
 layout_mode = 2
