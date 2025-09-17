@@ -50,20 +50,21 @@ func _on_player_interacted() -> void:
 
 ## Objekt auf den Spieler Kopf legen
 func add_to_player():
+	# Mus schon so früh gesetzt werden da sonst Probleme mit Crush System
+	is_picked = true
 	EventBus.drop_object.connect(drop_object)
 	EventBus.pickup_object.emit(global_position, is_random_dropped)
 	var player : Player = get_tree().get_first_node_in_group("player")
 	# Schauen ob Spieler bereits ein Objekt trägt
 	if player.carries_object and config.player_carry_only_one_item:
 		print("Player is already carring an object")
+		is_picked = false
 		return
 	# Objekt zum Spieler hinzufügen
 	self.reparent(player.object_place, true)
 	player.carries_object = true
 	# Position des Objekts auf die neue Position durch eine Bewegung setzten
 	pick_up_animation(Vector2(0,0))
-	# Dafür sorgen dass es nicht doppelt aufgehoben werden kann
-	is_picked = true
 	set_collision_size_to_zero()
 	is_random_dropped = false
 
