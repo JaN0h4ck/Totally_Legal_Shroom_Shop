@@ -51,8 +51,11 @@ func remove_item():
 	if player.carries_object and config.player_carry_only_one_item:
 		print("Player is already carring an object")
 		return
+	# Objekt Spieler übergeben
+	var item : Array = Inventory.get_mushroom_type_at_position(inventory_position)
+	item[0].add_to_player()
 	# Objekt entfernen
-	var _item = Inventory.remove_mushroom_from_inventory_by_position(inventory_position)
+	var _succes = Inventory.remove_mushroom_from_inventory_by_position(inventory_position)
 
 ## Pilz zum Inventar an aktueller stelle hinzufügen
 func add_item():
@@ -74,4 +77,5 @@ func add_item():
 	# Pilz in der Welt löschen
 	#if is_instance_valid(mushroom):
 	#	mushroom.queue_free()
+	mushroom.reparent(self, true)
 	player.carries_object = false
