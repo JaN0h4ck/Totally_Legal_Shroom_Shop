@@ -72,6 +72,6 @@ func add_item():
 		print("Adding Mushroom Failed")
 		return
 	# Pilz in der Welt löschen
-	if is_instance_valid(mushroom):
-		mushroom.queue_free()
+	#if is_instance_valid(mushroom):
+	#	mushroom.queue_free()
 	player.carries_object = false

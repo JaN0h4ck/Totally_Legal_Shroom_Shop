@@ -95,7 +95,7 @@ func get_mushroom_type_at_position(position : int):
 		return [null, 0]
 	var item : Array = inventory_array[position]
 	if item[0] == null:
-		print("Requestet Position ", position, " empty")
+		#print("Requestet Position ", position, " empty")
 		return [null, 0]
 	# Item zurückgeben
 	return inventory_array[position]
