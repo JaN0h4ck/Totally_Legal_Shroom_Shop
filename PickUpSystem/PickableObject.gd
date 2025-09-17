@@ -13,6 +13,8 @@ var is_picked : bool = false
 var is_random_dropped : bool = false
 ## Load from res on ready
 var pickup_time
+## Tween zum langsamen bewegen
+var tween
 
 func _ready():
 	_setup_collisions()
@@ -52,7 +54,9 @@ func _on_player_interacted() -> void:
 func add_to_player():
 	# Mus schon so früh gesetzt werden da sonst Probleme mit Crush System
 	is_picked = true
-	EventBus.drop_object.connect(drop_object)
+	#Schauen ob Signal bereits connected ist
+	if not EventBus.drop_object.is_connected(drop_object):
+		EventBus.drop_object.connect(drop_object)
 	EventBus.pickup_object.emit(global_position, is_random_dropped)
 	var player : Player = get_tree().get_first_node_in_group("player")
 	# Schauen ob Spieler bereits ein Objekt trägt
@@ -77,7 +81,7 @@ func set_collision_size_to_zero():
 
 ## Bewegt das aufgehobene Objekt zum Spieler
 func pick_up_animation(target : Vector2):
-	var tween = get_tree().create_tween()
+	tween = get_tree().create_tween()
 	tween.tween_property(self, "position", target, pickup_time).from_current()
 
 ## Objekt fallen lassen
@@ -94,6 +98,7 @@ func drop_object():
 
 ## Objekt in den Schredder werfen
 func crush_object():
+	tween.kill()
 	is_random_dropped = false
 	var player : Player = get_tree().get_first_node_in_group("player")
 	player.carries_object = false
