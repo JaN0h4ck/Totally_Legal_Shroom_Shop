@@ -75,7 +75,7 @@ position = Vector2(3.25, 0)
 shape = SubResource("RectangleShape2D_40ceo")
 
 [node name="Mushroom_Positions" type="Node2D" parent="."]
-position = Vector2(-27, -42)
+position = Vector2(-28, -42)
 
 [node name="Position_0" type="Node2D" parent="Mushroom_Positions" groups=["mushroom_inventory_display_position"]]
 
@@ -83,14 +83,14 @@ position = Vector2(-27, -42)
 position = Vector2(-15, 0)
 
 [node name="Position_2" type="Node2D" parent="Mushroom_Positions" groups=["mushroom_inventory_display_position"]]
-position = Vector2(-30, 0)
+position = Vector2(-31, 0)
 
 [node name="Position_3" type="Node2D" parent="Mushroom_Positions" groups=["mushroom_inventory_display_position"]]
-position = Vector2(-44, 18)
+position = Vector2(-43, 19)
 rotation = -1.5707964
 
 [node name="Position_4" type="Node2D" parent="Mushroom_Positions" groups=["mushroom_inventory_display_position"]]
-position = Vector2(-44, 33)
+position = Vector2(-44, 34)
 rotation = -1.5707964
 
 [connection signal="player_interacted" from="interactable_mushroom_theke" to="interactable_mushroom_theke" method="_on_player_interacted"]
