@@ -50,6 +50,28 @@ func remove_item():
 	# Schauen ob Spieler bereits ein Objekt trägt
 	if player.carries_object and config.player_carry_only_one_item:
 		print("Player is already carring an object")
+		return
+	# Objekt entfernen
+	var item = Inventory.remove_mushroom_from_inventory_by_position(inventory_position)
 
+## Pilz zum Inventar an aktueller stelle hinzufügen
 func add_item():
-	pass
+	# Schauen ob Spieler einen Pilz dabei hat
+	var player : Player = get_tree().get_first_node_in_group("player")
+	var mushroom
+	if player.carries_object:
+		for child in player.object_place.get_children():
+			if child.is_in_group("pickable_mushroom"):
+				mushroom = child
+	if mushroom == null:
+		print("Player has no Mushroom")
+		return
+	# Pilz zum Inventar hinzufügen und überprüfen ob erfolgreich
+	var succes = Inventory.add_mushroom_to_inventory_fix_position(mushroom, inventory_position)
+	if not succes:
+		print("Adding Mushroom Failed")
+		return
+	# Pilz in der Welt löschen
+	if is_instance_valid(mushroom):
+		mushroom.queue_free()
+	player.carries_object = false

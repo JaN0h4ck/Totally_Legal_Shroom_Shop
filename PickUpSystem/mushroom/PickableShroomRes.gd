@@ -37,5 +37,5 @@ var grow_time_end : float:
 
 func _init() -> void:
 	if base_texture == null:
-		print("Mushroom resource no base texture set, freshlyplanted used")
+		#print("Mushroom resource no base texture set, freshlyplanted used")
 		base_texture = preload("res://assets/shrooms/freshlyplanted.png")

@@ -2,6 +2,13 @@ extends Node
 
 var inventory_array : Array
 var empty_inventory_string : String = "empty"
+var inventory_base_size : int = 20
+
+func _ready():
+	# Inventar mit leeren Plätzen füllen
+	var empty_slot = [empty_inventory_string, 0]
+	for i in range(inventory_base_size):
+		inventory_array.append(empty_slot)
 
 ## Einen Pilz zum Inventar hinzufügen, nicht an einen festen Platz
 func add_mushroom_to_inventory_random_position(new_item):
@@ -25,6 +32,18 @@ func add_mushroom_to_inventory_random_position(new_item):
 	# Wenn keine frei Stelle hinten ans Array hinzufügen
 	inventory_array.append(new_mushroom)
 	EventBus.inventory_updated.emit()
+
+## Einen Pilz ins Inventar an einen festen Platz hinzufügen, returned ob erfolgreich
+func add_mushroom_to_inventory_fix_position(new_item, position : int):
+	if position > inventory_array.size():
+		inventory_array[position] = [new_item, 1]
+		return true
+	var item : Array = inventory_array[position]
+	if item[0] == empty_inventory_string:
+		inventory_array[position] = [new_item, 1]
+		return true
+	print("Place already in use by diffrent Mushroom")
+	return false
 
 ## Bestimmten Pilz aus Inventar entfernen, returnd ob erfolgreich
 func remove_mushroom_from_inventory_by_name(removed_item):
@@ -70,7 +89,7 @@ func remove_mushroom_from_inventory_by_position(removed_item_position : int):
 ## Art des Pilzes an bestimmter Position erfahren
 func get_mushroom_type_at_position(position : int):
 	# Schauen ob an Postion ein Item liegt
-	if position <= inventory_array.size() - 1:
+	if position > inventory_array.size():
 		print("Requestet Position to high")
 		return [empty_inventory_string, 0]
 	var item : Array = inventory_array[position]
