@@ -24,7 +24,7 @@ ProjectMusicController="*res://addons/maaacks_menus_template/base/scenes/autoloa
 ProjectUISoundController="*res://addons/maaacks_menus_template/base/scenes/autoloads/project_ui_sound_controller.tscn"
 InputDeviceMonitor="*res://scripts/input_device_monitor.gd"
 EventBus="*res://scripts/event_bus.gd"
-ShopInventory="*res://inventory/shop_inventory.gd"
+Inventory="*res://inventory/shop_inventory.gd"
 
 [display]
 
