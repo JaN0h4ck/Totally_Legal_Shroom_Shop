@@ -75,4 +75,3 @@ func add_item():
 	if is_instance_valid(mushroom):
 		mushroom.queue_free()
 	player.carries_object = false
-	#check_inventory()
