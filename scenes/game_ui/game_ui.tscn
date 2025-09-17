@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://b4r1rx3y0kcdn" path="res://scenes/game_scene/main.tscn" id="1_sq0em"]
 [ext_resource type="PackedScene" uid="uid://ocw04h345l3a" path="res://scenes/overlaid_menus/pause_menu.tscn" id="3_2cwxn"]
 [ext_resource type="PackedScene" uid="uid://bv5ulmbmtwuyw" path="res://scenes/game_ui/input_prompt.tscn" id="3_najyh"]
-[ext_resource type="PackedScene" uid="uid://4abch8ri3j08" path="res://inventory/inv_ui.tscn" id="5_e13be"]
+[ext_resource type="PackedScene" uid="uid://4abch8ri3j08" path="res://inventory/inventory_ui.tscn" id="5_e13be"]
 [ext_resource type="Script" uid="uid://8r2f7xwlgakm" path="res://scenes/game_ui/dialog_system/dialog_manager.gd" id="5_hk0ve"]
 [ext_resource type="PackedScene" uid="uid://b7fecdpuah10g" path="res://scenes/game_ui/dialog_system/dialog_panel.tscn" id="6_8qcbp"]
 [ext_resource type="PackedScene" uid="uid://bpg8lyxgg0rkt" path="res://scenes/lexicon/lexicon.tscn" id="6_falxo"]

@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://4abch8ri3j08"]
 
-[ext_resource type="Theme" uid="uid://d1cnjy4cqhx0f" path="res://resources/themes/inv_theme.tres" id="1_ars6i"]
-[ext_resource type="Texture2D" uid="uid://cuqhxib5ei6p3" path="res://assets/ui/Inv_Box.png" id="2_dn3an"]
-[ext_resource type="PackedScene" uid="uid://doqkihlax7j52" path="res://inventory/ui_item.tscn" id="5_qwu3r"]
+[ext_resource type="Theme" uid="uid://d1cnjy4cqhx0f" path="res://resources/themes/inv_theme.tres" id="1_cedrj"]
+[ext_resource type="Texture2D" uid="uid://cuqhxib5ei6p3" path="res://assets/ui/Inv_Box.png" id="2_7rvkw"]
+[ext_resource type="PackedScene" uid="uid://doqkihlax7j52" path="res://inventory/inventory_ui_item.tscn" id="3_45d2x"]
 
 [node name="Inv_UI" type="Control"]
 process_mode = 3
@@ -13,7 +13,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_ars6i")
+theme = ExtResource("1_cedrj")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
@@ -26,7 +26,7 @@ grow_vertical = 2
 [node name="NinePatchRect" type="NinePatchRect" parent="CenterContainer"]
 custom_minimum_size = Vector2(620, 150)
 layout_mode = 2
-texture = ExtResource("2_dn3an")
+texture = ExtResource("2_7rvkw")
 patch_margin_left = 3
 patch_margin_top = 3
 patch_margin_right = 54
@@ -35,21 +35,21 @@ patch_margin_bottom = 24
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer"]
 layout_mode = 2
 
-[node name="UIItem" parent="CenterContainer/HBoxContainer" instance=ExtResource("5_qwu3r")]
+[node name="UIItem" parent="CenterContainer/HBoxContainer" instance=ExtResource("3_45d2x")]
 layout_mode = 2
 
-[node name="UIItem2" parent="CenterContainer/HBoxContainer" instance=ExtResource("5_qwu3r")]
+[node name="UIItem2" parent="CenterContainer/HBoxContainer" instance=ExtResource("3_45d2x")]
 layout_mode = 2
 inventory_position = 1
 
-[node name="UIItem3" parent="CenterContainer/HBoxContainer" instance=ExtResource("5_qwu3r")]
+[node name="UIItem3" parent="CenterContainer/HBoxContainer" instance=ExtResource("3_45d2x")]
 layout_mode = 2
 inventory_position = 2
 
-[node name="UIItem4" parent="CenterContainer/HBoxContainer" instance=ExtResource("5_qwu3r")]
+[node name="UIItem4" parent="CenterContainer/HBoxContainer" instance=ExtResource("3_45d2x")]
 layout_mode = 2
 inventory_position = 3
 
-[node name="UIItem5" parent="CenterContainer/HBoxContainer" instance=ExtResource("5_qwu3r")]
+[node name="UIItem5" parent="CenterContainer/HBoxContainer" instance=ExtResource("3_45d2x")]
 layout_mode = 2
 inventory_position = 4
