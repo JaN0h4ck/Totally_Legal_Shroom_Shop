@@ -2,12 +2,18 @@ extends VBoxContainer
 
 @onready var texture: TextureRect = $Display/Texture
 @onready var amount_label: Label = $Display/Label
-@onready var button: Button = $Button
+@onready var take_button: Button = $HBoxContainer/TakeButton
+@onready var add_button: Button = $HBoxContainer/AddButton
+
+
 ## Position im Inventar, muss für jeden ui_item einzigartig sein, aufsteigend von 0
 @export_range(0, 100) var inventory_position : int
 
-var button_text_empty = "Add Shroom"
-var button_text_filled = "Take Shroom"
+# Test in den Buttons
+var button_add_empty_text = "Add Shroom"
+var button_add_filled_text = "Add"
+var button_take_text = "Take"
+var slot_empty : bool = true
 
 ## Globale Config Ressource
 var config : GlobalConfig = load("res://resources/global_config.tres")
@@ -19,6 +25,7 @@ func _ready():
 	EventBus.inventory_updated.connect(check_inventory)
 	set_mushroom_global_position()
 	check_inventory()
+	take_button.text = button_take_text
 
 # Überprüfen ob Slot leer ist
 func check_inventory():
@@ -30,24 +37,21 @@ func check_inventory():
 
 # Wenn Slot leer ist
 func empty_slot():
+	slot_empty = true
 	texture.texture = null
 	amount_label.text = ""
-	button.text = button_text_empty
+	take_button.visible = false
+	add_button.text = button_add_empty_text
 
 # Wenn Slot ein Item enthält
 func filled_slot(item : Array):
+	slot_empty = false
 	var mushroom : PickableMushroom = item[0]
 	var amount : int = item[1]
 	texture.texture = mushroom.shroom_res.end_stage_texture
 	amount_label.text = str(amount)
-	button.text = button_text_filled
-
-# Wenn Knopf gedrückt wird
-func _on_button_pressed() -> void:
-	if button.text == button_text_empty:
-		add_item()
-	else:
-		remove_item()
+	take_button.visible = true
+	add_button.text = button_add_filled_text
 
 func remove_item():
 	var player : Player = get_tree().get_first_node_in_group("player")
@@ -96,4 +100,10 @@ func set_mushroom_global_position():
 			if number == inventory_position:
 				mushroom_global_positon = node.global_position
 				mushroom_global_rotation = node.global_rotation
-	
+
+func _on_add_button_pressed() -> void:
+	add_item()
+
+
+func _on_take_button_pressed() -> void:
+	remove_item()

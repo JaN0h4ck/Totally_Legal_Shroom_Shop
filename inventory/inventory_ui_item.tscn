@@ -20,8 +20,16 @@ expand_mode = 3
 layout_mode = 2
 text = "1"
 
-[node name="Button" type="Button" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
-text = "Take Mushroom"
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[node name="TakeButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "Take"
+
+[node name="AddButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "Add"
+
+[connection signal="pressed" from="HBoxContainer/TakeButton" to="." method="_on_take_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/AddButton" to="." method="_on_add_button_pressed"]
