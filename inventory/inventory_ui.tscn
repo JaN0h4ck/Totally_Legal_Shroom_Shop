@@ -26,7 +26,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="NinePatchRect" type="NinePatchRect" parent="CenterContainer"]
-custom_minimum_size = Vector2(620, 150)
+custom_minimum_size = Vector2(670, 150)
 layout_mode = 2
 texture = ExtResource("2_7rvkw")
 patch_margin_left = 3
