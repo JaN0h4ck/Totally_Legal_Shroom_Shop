@@ -14,7 +14,7 @@ func add_mushroom_to_inventory_random_position(new_item):
 	# Schauen ob Pilz Art bereits im Inventar wenn ja Anzahl erhöhen
 	for i in range(inventory_array.size()):
 		var current_mushroom : Array = inventory_array[i]
-		if current_mushroom[0] == new_item:
+		if current_mushroom[0].shroom_res == new_item.shroom_res:
 			current_mushroom[1] += 1
 			inventory_array[i] = current_mushroom
 			EventBus.inventory_updated.emit()
@@ -43,6 +43,11 @@ func add_mushroom_to_inventory_fix_position(new_item, position : int):
 		inventory_array[position] = [new_item, 1]
 		EventBus.inventory_updated.emit()
 		return true
+	if item[0].shroom_res == new_item.shroom_res:
+		item[1] += 1
+		EventBus.inventory_updated.emit()
+		return true
+	print("New item: ", new_item.shroom_res, " item[0]: ", item[0].shroom_res)
 	print("Place already in use by diffrent Mushroom")
 	return false
 
