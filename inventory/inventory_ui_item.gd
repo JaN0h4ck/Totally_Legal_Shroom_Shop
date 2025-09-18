@@ -14,6 +14,7 @@ var button_add_empty_text = "Add Shroom"
 var button_add_filled_text = "Add"
 var button_take_text = "Take"
 var slot_empty : bool = true
+var mushroom
 
 ## Globale Config Ressource
 var config : GlobalConfig = load("res://resources/global_config.tres")
@@ -46,7 +47,7 @@ func empty_slot():
 # Wenn Slot ein Item enthält
 func filled_slot(item : Array):
 	slot_empty = false
-	var mushroom : PickableMushroom = item[0]
+	mushroom = item[0]
 	var amount : int = item[1]
 	texture.texture = mushroom.shroom_res.end_stage_texture
 	amount_label.text = str(amount)
@@ -54,6 +55,7 @@ func filled_slot(item : Array):
 	add_button.text = button_add_filled_text
 
 func remove_item():
+	mushroom.global_rotation = 0.0
 	var player : Player = get_tree().get_first_node_in_group("player")
 	# Schauen ob Spieler bereits ein Objekt trägt
 	if player.carries_object and config.player_carry_only_one_item:
@@ -69,7 +71,6 @@ func remove_item():
 func add_item():
 	# Schauen ob Spieler einen Pilz dabei hat
 	var player : Player = get_tree().get_first_node_in_group("player")
-	var mushroom
 	if player.carries_object:
 		for child in player.object_place.get_children():
 			if child.is_in_group("pickable_mushroom"):
