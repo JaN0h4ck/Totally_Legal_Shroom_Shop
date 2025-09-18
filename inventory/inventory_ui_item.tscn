@@ -1,35 +1,56 @@
-[gd_scene load_steps=3 format=3 uid="uid://doqkihlax7j52"]
+[gd_scene load_steps=4 format=3 uid="uid://doqkihlax7j52"]
 
 [ext_resource type="Script" uid="uid://c0yme1cwhp7cp" path="res://inventory/inventory_ui_item.gd" id="1_tsslc"]
 [ext_resource type="Texture2D" uid="uid://tfmfqxpa23s" path="res://assets/shrooms/Chanpignon.png" id="2_axipb"]
 
-[node name="UIItem" type="VBoxContainer"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hahsa"]
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.17880964, 0.17880967, 0.1788095, 1)
+
+[node name="PanelContainer" type="PanelContainer"]
+offset_right = 88.0
+offset_bottom = 80.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_hahsa")
 script = ExtResource("1_tsslc")
 
-[node name="Display" type="HBoxContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="UIItem" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Display" type="HBoxContainer" parent="MarginContainer/UIItem"]
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Texture" type="TextureRect" parent="Display"]
+[node name="Texture" type="TextureRect" parent="MarginContainer/UIItem/Display"]
 custom_minimum_size = Vector2(0, 45)
 layout_mode = 2
 texture = ExtResource("2_axipb")
 expand_mode = 3
 
-[node name="Label" type="Label" parent="Display"]
+[node name="Label" type="Label" parent="MarginContainer/UIItem/Display"]
 layout_mode = 2
 text = "1"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/UIItem"]
 layout_mode = 2
 
-[node name="TakeButton" type="Button" parent="HBoxContainer"]
+[node name="TakeButton" type="Button" parent="MarginContainer/UIItem/HBoxContainer"]
 layout_mode = 2
 text = "Take"
 
-[node name="AddButton" type="Button" parent="HBoxContainer"]
+[node name="AddButton" type="Button" parent="MarginContainer/UIItem/HBoxContainer"]
 layout_mode = 2
 text = "Add"
 
-[connection signal="pressed" from="HBoxContainer/TakeButton" to="." method="_on_take_button_pressed"]
-[connection signal="pressed" from="HBoxContainer/AddButton" to="." method="_on_add_button_pressed"]
+[connection signal="pressed" from="MarginContainer/UIItem/HBoxContainer/TakeButton" to="." method="_on_take_button_pressed"]
+[connection signal="pressed" from="MarginContainer/UIItem/HBoxContainer/AddButton" to="." method="_on_add_button_pressed"]

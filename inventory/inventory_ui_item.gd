@@ -1,9 +1,9 @@
-extends VBoxContainer
+extends PanelContainer
 
-@onready var texture: TextureRect = $Display/Texture
-@onready var amount_label: Label = $Display/Label
-@onready var take_button: Button = $HBoxContainer/TakeButton
-@onready var add_button: Button = $HBoxContainer/AddButton
+@onready var texture: TextureRect = $MarginContainer/UIItem/Display/Texture
+@onready var amount_label: Label = $MarginContainer/UIItem/Display/Label
+@onready var take_button: Button = $MarginContainer/UIItem/HBoxContainer/TakeButton
+@onready var add_button: Button = $MarginContainer/UIItem/HBoxContainer/AddButton
 
 
 ## Position im Inventar, muss für jeden ui_item einzigartig sein, aufsteigend von 0
