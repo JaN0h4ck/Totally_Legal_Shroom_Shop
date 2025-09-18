@@ -55,7 +55,6 @@ func filled_slot(item : Array):
 	add_button.text = button_add_filled_text
 
 func remove_item():
-	mushroom.global_rotation = 0.0
 	var player : Player = get_tree().get_first_node_in_group("player")
 	# Schauen ob Spieler bereits ein Objekt trägt
 	if player.carries_object and config.player_carry_only_one_item:
@@ -63,6 +62,9 @@ func remove_item():
 		return
 	# Objekt Spieler übergeben
 	var item : Array = Inventory.get_mushroom_type_at_position(inventory_position)
+	# Set Rotation and Position
+	mushroom.global_position = player.global_position
+	mushroom.global_rotation = 0.0
 	item[0].add_to_player()
 	# Objekt entfernen
 	var _succes = Inventory.remove_mushroom_from_inventory_by_position(inventory_position)

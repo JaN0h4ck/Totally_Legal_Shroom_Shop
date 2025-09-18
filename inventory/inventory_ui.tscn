@@ -39,10 +39,11 @@ layout_mode = 2
 
 [node name="UIItem" parent="CenterContainer/HBoxContainer" instance=ExtResource("3_45d2x")]
 layout_mode = 2
+inventory_position = 4
 
 [node name="UIItem2" parent="CenterContainer/HBoxContainer" instance=ExtResource("3_45d2x")]
 layout_mode = 2
-inventory_position = 1
+inventory_position = 3
 
 [node name="UIItem3" parent="CenterContainer/HBoxContainer" instance=ExtResource("3_45d2x")]
 layout_mode = 2
@@ -50,8 +51,7 @@ inventory_position = 2
 
 [node name="UIItem4" parent="CenterContainer/HBoxContainer" instance=ExtResource("3_45d2x")]
 layout_mode = 2
-inventory_position = 3
+inventory_position = 1
 
 [node name="UIItem5" parent="CenterContainer/HBoxContainer" instance=ExtResource("3_45d2x")]
 layout_mode = 2
-inventory_position = 4
