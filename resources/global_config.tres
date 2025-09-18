@@ -4,13 +4,4 @@
 
 [resource]
 script = ExtResource("1_rus4u")
-grow_without_fertilizer = false
-player_carry_only_one_item = true
-pickup_time = 3.0
-common_mushroom_grow_time_stage_1 = 1.0
-common_mushroom_grow_time_stage_2 = 1.0
-rare_mushroom_grow_time_stage_1 = 5.0
-rare_mushroom_grow_time_stage_2 = 5.0
-ultra_rare_mushroom_grow_time_stage_1 = 10.0
-ultra_rare_mushroom_grow_time_stage_2 = 10.0
 metadata/_custom_type_script = "uid://xudo7itwjw1n"

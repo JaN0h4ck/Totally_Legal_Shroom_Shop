@@ -8,7 +8,7 @@ class_name GlobalConfig
 ## Soll der Spieler nur maximal 1 Item Tragen dürfen
 @export var player_carry_only_one_item : bool = true
 ## Wie lange soll es dauern ein Objekt hoch zu heben
-@export var pickup_time : float = 3.0
+@export var pickup_time : float = 0.3
 
 @export_category("Grow Time")
 @export_group("Common")

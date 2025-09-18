@@ -9,10 +9,6 @@
 script = ExtResource("4_r1c7k")
 middle_stage_texture = ExtResource("3_yqrtw")
 end_stage_texture = ExtResource("2_ag26b")
-grow_time_middle = 1.0
-grow_time_end = 1.0
 base_texture = ExtResource("1_mu4ko")
 interact_box_size = Vector2(12, 12)
-pickup_time = 0.3
-rarity = 0
 metadata/_custom_type_script = "uid://cg67u7xegh8j7"
