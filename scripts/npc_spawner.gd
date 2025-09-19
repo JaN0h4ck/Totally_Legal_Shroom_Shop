@@ -1,4 +1,5 @@
 extends Node2D
+class_name NPC_Spawner
 
 @onready var npc_cowboy := preload("res://Character/NPCs/cowboy_npc.tscn")
 @onready var npc_angry := preload("res://Character/NPCs/angry_npc.tscn")
@@ -78,11 +79,51 @@ func spawn_npc():
 	var picked_paths = random_path()
 	npc.path = picked_paths[0]
 	npc.path_follow = picked_paths[1]
+	npc.path_number = picked_paths[2]
 	
 	npc.path_follow.progress = 0
 	npc.position = npc.path.curve.get_point_position(0)
 	
 	add_child(npc)
+
+## Wenn Save Game mit NPC geladen wird
+func load_npc(npc_name : GLOBALS.npc_names, npc_path_number : int, npc_path_progress : float):
+	npc_in_shop = true
+	var npc_to_spawn
+	match npc_name:
+		GLOBALS.npc_names.alien:
+			npc_to_spawn = npc_alien
+		GLOBALS.npc_names.angry:
+			npc_to_spawn = npc_angry
+		GLOBALS.npc_names.beff:
+			npc_to_spawn = npc_beff
+		GLOBALS.npc_names.celeb:
+			npc_to_spawn = npc_celebrity
+		GLOBALS.npc_names.conspiracy:
+			npc_to_spawn = npc_conspiracy
+		GLOBALS.npc_names.cook:
+			npc_to_spawn = npc_cook
+		GLOBALS.npc_names.cowboy:
+			npc_to_spawn = npc_cowboy
+		GLOBALS.npc_names.enthusiast:
+			npc_to_spawn = npc_enthusiast
+		GLOBALS.npc_names.nerd:
+			npc_to_spawn = npc_nerd
+		GLOBALS.npc_names.opa:
+			npc_to_spawn = npc_grandpa
+		_:
+			npc_to_spawn = npc_cowboy
+	
+	var npc : base_npc = npc_to_spawn.instantiate()
+	
+	var picked_paths = specific_path(npc_path_number)
+	npc.path = picked_paths[0]
+	npc.path_follow = picked_paths[1]
+	
+	npc.path_follow.progress = npc_path_progress
+	
+	add_child(npc)
+
 
 func _on_timer_timeout():
 	spawn_npc()
@@ -104,7 +145,16 @@ func random_path():
 	var rng = RandomNumberGenerator.new()
 	var random_nummer = rng.randi_range(0, lenght-1)
 	
-	return [path2d[random_nummer], follow_path[random_nummer]]
+	return [path2d[random_nummer], follow_path[random_nummer], random_nummer]
+
+func specific_path(number : int):
+	var follow_path = get_tree().get_nodes_in_group("npc_followpath2D")
+	var path2d = get_tree().get_nodes_in_group("npc_path2D")
+	
+	if number > (follow_path.size() - 1) or number < 0:
+		number = 0
+	
+	return [path2d[number], follow_path[number]]
 
 func npc_left():
 	npc_in_shop = false

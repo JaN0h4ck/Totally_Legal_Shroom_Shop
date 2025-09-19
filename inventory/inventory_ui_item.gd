@@ -63,11 +63,14 @@ func remove_item():
 	# Objekt Spieler übergeben
 	var item : Array = Inventory.get_mushroom_type_at_position(inventory_position)
 	# Set Rotation and Position
+	mushroom.in_inventory = false
 	mushroom.global_position = player.global_position
 	mushroom.global_rotation = 0.0
 	item[0].add_to_player()
 	# Objekt entfernen
 	var _succes = Inventory.remove_mushroom_from_inventory_by_position(inventory_position)
+	
+	EventBus.inventory_updated.emit()
 
 ## Pilz zum Inventar an aktueller stelle hinzufügen
 func add_item():
@@ -86,12 +89,16 @@ func add_item():
 		print("Adding Mushroom Failed")
 		return
 	# Pilz auf der Theke Platzieren
+	mushroom.in_inventory = true
+	mushroom.inventory_position = inventory_position
 	mushroom.crush_object()
 	mushroom.set_collision_size_to_zero()
 	mushroom.position = Vector2(0, 0)
 	mushroom.rotation = 0.0
 	mushroom.global_position = mushroom_global_positon
 	mushroom.global_rotation = mushroom_global_rotation
+	
+	EventBus.inventory_updated.emit()
 
 func set_mushroom_global_position():
 	var position_nodes = get_tree().get_nodes_in_group("mushroom_inventory_display_position")

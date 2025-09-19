@@ -24,6 +24,7 @@ var current_position: Vector2 = Vector2(0, 0)
 
 func _ready():
 	EventBus.pickup_object.connect(clear_field)
+	EventBus.load_mushroom.connect(load_mushroom)
 	add_mushroom_to_array(mushroom_resource_alien)
 	add_mushroom_to_array(murhroom_resource_bleeding)
 	add_mushroom_to_array(murhroom_resource_button)
@@ -79,7 +80,22 @@ func create_mushroom(soil_rarity: GLOBALS.rarity, location: Vector2):
 		GLOBALS.rarity.ultra_rare:
 			node.shroom_res = ultra_rare_mushroom.pick_random()
 	node.global_position = location
+	node.add_to_group("Shroom")
 	node.prepare_item()
+
+## Gespeicherten Pilz Spawnen
+func load_mushroom(shroom_res : ShroomRes, saved_position : Vector2, saved_rotation : float, grow_stage : int, in_inventory : bool, inventory_position : int):
+	var node: PickableMushroom = PickableMushroom.new()
+	add_child(node)
+	node.shroom_res = shroom_res
+	node.global_position = saved_position
+	node.global_rotation = saved_rotation
+	node.add_to_group("Shroom")
+	node.load_item(grow_stage)
+	if in_inventory:
+		var succes = Inventory.add_mushroom_to_inventory_fix_position(node, inventory_position)
+		if not succes:
+			print("loading Inventory failed, Position: ", inventory_position)
 
 ## Dünger zu Feld bewegen und dann löschen
 func use_fertilizer(fertilizer: PickableFertilizer):

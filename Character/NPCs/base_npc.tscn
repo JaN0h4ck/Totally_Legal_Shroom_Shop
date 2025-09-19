@@ -9,7 +9,7 @@ size = Vector2(2, 1)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d3dbp"]
 size = Vector2(10, 22)
 
-[node name="NPC" type="CharacterBody2D" groups=["saveable"]]
+[node name="NPC" type="CharacterBody2D" groups=["npc"]]
 z_index = -1
 z_as_relative = false
 script = ExtResource("1_a8pm5")

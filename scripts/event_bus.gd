@@ -24,6 +24,9 @@ signal npc_left_shop
 ## Ausgelöst wenn ein NPC durch die Falltür fällt, NPC Enum Name wird mit übergeben
 signal npc_dropped(npc_name: GLOBALS.npc_names)
 
+## Ausgelöst wenn ein Save Game mit einer Leiche geladen wird
+signal corpse_loaded(corpse_res: CorpseRes)
+
 ## Ausgelöst wenn ein Dialog gestartet wird
 signal dialog_started
 ## Ausgelöst wenn ein Dialog endet
@@ -44,8 +47,18 @@ signal pickup_object(position: Vector2, is_random_dropped: bool)
 ## Ausgelöst wenn Dünger erstellt werden soll, Position und Seltenheit wird übergeben
 signal spawn_fertilizer(new_global_position: Vector2, rarity: GLOBALS.rarity)
 
+## Ausgelöst wenn Dünger aus einem Save geladen wird
+signal load_fertilizer(fert_res : FertilizerRes, loaded_position : Vector2)
+
+## Ausgelöst wenn Pilze aus einem Save geladen werden
+signal load_mushroom(shroom_res : ShroomRes, saved_position : Vector2, saved_rotation : float, grow_stage : int, in_inventory : bool, inventory_position : int)
+
 ## Ausgelöst wenn das Inventar geupdated wird
 signal inventory_updated()
+
+## Ausgelöst wenn entweder im Dungeon oder im Shop geladen wird
+signal load_shop()
+signal load_dungeon()
 
 func _on_interact_customer():
 	interact_customer.emit()
@@ -80,6 +93,9 @@ func _on_npc_left_shop():
 func _on_npc_dropped(npc_name: GLOBALS.npc_names):
 	npc_dropped.emit(npc_name)
 
+func _on_corpse_loaded(corpse_res: CorpseRes):
+	corpse_loaded.emit(corpse_res)
+
 func _on_dialog_started():
 	dialog_started.emit()
 
@@ -103,3 +119,15 @@ func _on_spawn_fertilizer(new_global_position: Vector2, rarity: GLOBALS.rarity):
 
 func _on_inventory_updated():
 	inventory_updated.emit()
+
+func _on_load_shop():
+	load_shop.emit()
+
+func _on_load_dungeon():
+	load_dungeon.emit()
+
+func _on_load_fertilizer(fert_res : FertilizerRes, loaded_position : Vector2):
+	load_fertilizer.emit(fert_res, loaded_position)
+
+func _on_load_mushroom(shroom_res : ShroomRes, saved_position : Vector2, saved_rotation : float, grow_stage : int, in_inventory : bool, inventory_position : int):
+	load_mushroom.emit(shroom_res, saved_position, saved_rotation, grow_stage, in_inventory, inventory_position)

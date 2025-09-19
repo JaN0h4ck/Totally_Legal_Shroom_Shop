@@ -6,6 +6,7 @@ var current_direction : GLOBALS.directions = GLOBALS.directions.NONE
 var last_direction : GLOBALS.directions = GLOBALS.directions.FRONT
 
 var current_floor: AudioFloor.FloorTypes = AudioFloor.FloorTypes.Wood
+var current_in_shop : bool = true
 
 @export var speed = 4000
 var block_input: bool = false
@@ -29,6 +30,9 @@ var interactable_queue: Array[Interactable]
 func _ready() -> void:
 	EventBus.dialog_started.connect(_on_dialogue_started)
 	EventBus.dialog_ended.connect(_on_dialogue_ended)
+	EventBus.interact_basement.connect(enter_basement)
+	EventBus.interact_shop.connect(enter_shop)
+
 
 func _physics_process(delta: float):
 	if block_input: return
@@ -106,6 +110,12 @@ func _select_idle_animation(dir: GLOBALS.directions, input_dir : GLOBALS.directi
 			sprite_animation.play("idle_left")
 	last_direction = dir
 
+
+func enter_basement():
+	current_in_shop = false
+
+func enter_shop():
+	current_in_shop = true
 func play_walking_animation():
 	match current_direction:
 		GLOBALS.directions.FRONT:
