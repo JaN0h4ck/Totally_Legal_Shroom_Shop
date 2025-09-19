@@ -9,12 +9,12 @@ extends PanelContainer
 ## Position im Inventar, muss für jeden ui_item einzigartig sein, aufsteigend von 0
 @export_range(0, 100) var inventory_position : int
 
-# Test in den Buttons
 var button_add_empty_text = "Add Shroom"
 var button_add_filled_text = "Add"
 var button_take_text = "Take"
 var slot_empty : bool = true
 var mushroom
+var mushroom_dungeon_position : Vector2 = Vector2(-2003, -2003)
 
 ## Globale Config Ressource
 var config : GlobalConfig = load("res://resources/global_config.tres")
@@ -103,6 +103,9 @@ func set_mushroom_global_position():
 			if number == inventory_position:
 				mushroom_global_positon = node.global_position
 				mushroom_global_rotation = node.global_rotation
+				return
+	mushroom_global_positon = mushroom_dungeon_position
+	mushroom_global_rotation = 0.0
 
 func _on_add_button_pressed() -> void:
 	add_item()
