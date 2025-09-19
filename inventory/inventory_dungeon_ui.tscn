@@ -1,0 +1,111 @@
+[gd_scene load_steps=5 format=3 uid="uid://leoxk8jxja22"]
+
+[ext_resource type="Theme" uid="uid://d1cnjy4cqhx0f" path="res://resources/themes/inv_theme.tres" id="1_ow1yf"]
+[ext_resource type="Script" uid="uid://w1rp1ueaj12d" path="res://inventory/inventory_dungeon_ui.gd" id="2_ow1yf"]
+[ext_resource type="Texture2D" uid="uid://cuqhxib5ei6p3" path="res://assets/ui/Inv_Box.png" id="3_1l7jg"]
+[ext_resource type="PackedScene" uid="uid://doqkihlax7j52" path="res://inventory/inventory_ui_item.tscn" id="4_quhpy"]
+
+[node name="Inv_UI" type="Control"]
+process_mode = 3
+z_index = 5
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ow1yf")
+script = ExtResource("2_ow1yf")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CenterContainer"]
+custom_minimum_size = Vector2(670, 360)
+layout_mode = 2
+texture = ExtResource("3_1l7jg")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 54
+patch_margin_bottom = 24
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="UIItem5" parent="CenterContainer/VBoxContainer/HBoxContainer" instance=ExtResource("4_quhpy")]
+layout_mode = 2
+inventory_position = 5
+
+[node name="UIItem6" parent="CenterContainer/VBoxContainer/HBoxContainer" instance=ExtResource("4_quhpy")]
+layout_mode = 2
+inventory_position = 6
+
+[node name="UIItem7" parent="CenterContainer/VBoxContainer/HBoxContainer" instance=ExtResource("4_quhpy")]
+layout_mode = 2
+inventory_position = 7
+
+[node name="UIItem8" parent="CenterContainer/VBoxContainer/HBoxContainer" instance=ExtResource("4_quhpy")]
+layout_mode = 2
+inventory_position = 8
+
+[node name="UIItem9" parent="CenterContainer/VBoxContainer/HBoxContainer" instance=ExtResource("4_quhpy")]
+layout_mode = 2
+inventory_position = 9
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="UIItem10" parent="CenterContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("4_quhpy")]
+layout_mode = 2
+inventory_position = 10
+
+[node name="UIItem11" parent="CenterContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("4_quhpy")]
+layout_mode = 2
+inventory_position = 11
+
+[node name="UIItem12" parent="CenterContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("4_quhpy")]
+layout_mode = 2
+inventory_position = 12
+
+[node name="UIItem13" parent="CenterContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("4_quhpy")]
+layout_mode = 2
+inventory_position = 13
+
+[node name="UIItem14" parent="CenterContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("4_quhpy")]
+layout_mode = 2
+inventory_position = 14
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="UIItem15" parent="CenterContainer/VBoxContainer/HBoxContainer3" instance=ExtResource("4_quhpy")]
+layout_mode = 2
+inventory_position = 15
+
+[node name="UIItem16" parent="CenterContainer/VBoxContainer/HBoxContainer3" instance=ExtResource("4_quhpy")]
+layout_mode = 2
+inventory_position = 16
+
+[node name="UIItem17" parent="CenterContainer/VBoxContainer/HBoxContainer3" instance=ExtResource("4_quhpy")]
+layout_mode = 2
+inventory_position = 17
+
+[node name="UIItem18" parent="CenterContainer/VBoxContainer/HBoxContainer3" instance=ExtResource("4_quhpy")]
+layout_mode = 2
+inventory_position = 18
+
+[node name="UIItem19" parent="CenterContainer/VBoxContainer/HBoxContainer3" instance=ExtResource("4_quhpy")]
+layout_mode = 2
+inventory_position = 19

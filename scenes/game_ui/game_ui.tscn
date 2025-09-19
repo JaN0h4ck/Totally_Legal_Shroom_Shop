@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bvmbuuyv37vax"]
+[gd_scene load_steps=11 format=3 uid="uid://bvmbuuyv37vax"]
 
 [ext_resource type="Script" uid="uid://cgg7uipp8axrg" path="res://scenes/game_ui/game_manager.gd" id="1_1i64n"]
 [ext_resource type="Theme" uid="uid://d31137rsk15ng" path="res://resources/themes/expedition.tres" id="1_e13be"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://8r2f7xwlgakm" path="res://scenes/game_ui/dialog_system/dialog_manager.gd" id="5_hk0ve"]
 [ext_resource type="PackedScene" uid="uid://b7fecdpuah10g" path="res://scenes/game_ui/dialog_system/dialog_panel.tscn" id="6_8qcbp"]
 [ext_resource type="PackedScene" uid="uid://bpg8lyxgg0rkt" path="res://scenes/lexicon/lexicon.tscn" id="6_falxo"]
+[ext_resource type="PackedScene" uid="uid://leoxk8jxja22" path="res://inventory/inventory_dungeon_ui.tscn" id="6_pxslt"]
 
 [node name="GameUI" type="Control"]
 process_mode = 3
@@ -26,7 +27,7 @@ script = ExtResource("1_1i64n")
 interact_scene = ExtResource("3_najyh")
 pause_scene = ExtResource("3_2cwxn")
 shop_inv_scene = ExtResource("5_e13be")
-dungeon_inv_scene = ExtResource("5_e13be")
+dungeon_inv_scene = ExtResource("6_pxslt")
 lexicon_scene = ExtResource("6_falxo")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
