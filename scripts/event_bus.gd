@@ -32,6 +32,9 @@ signal dialog_ended
 ## Ausgelöst wenn Inventar geöffnet werden soll
 signal open_inventory
 
+## Ausgelöst wenn Inventar im Keller geöffnet werden soll
+signal open_dungeon_inventory
+
 ## Ausgelöst wenn der Spieler das Objekt welches er gerade trägt fallen lässt
 signal drop_object
 
@@ -85,6 +88,9 @@ func _on_dialog_ended():
 
 func _on_open_inventory():
 	open_inventory.emit()
+
+func _on_open_dungeon_inventory():
+	open_dungeon_inventory.emit()
 
 func _on_drop_object():
 	drop_object.emit()
