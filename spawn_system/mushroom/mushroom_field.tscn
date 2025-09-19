@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://cuicy71t2pwd6" path="res://spawn_system/mushroom/interactable_field.gd" id="3_1sdfm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_daepo"]
-size = Vector2(14, 15)
+size = Vector2(14, 14)
 
 [node name="mushroom_field" type="Sprite2D"]
 z_index = -5
@@ -14,7 +14,7 @@ texture = ExtResource("1_gh51r")
 script = ExtResource("2_1sdfm")
 
 [node name="interactable_field_1" type="Area2D" parent="."]
-position = Vector2(-22.5, -19)
+position = Vector2(-22, -18)
 script = ExtResource("3_1sdfm")
 interact_prompt = "Interact Field"
 metadata/_custom_type_script = "uid://b1kccbwcfiryn"
@@ -23,7 +23,7 @@ metadata/_custom_type_script = "uid://b1kccbwcfiryn"
 shape = SubResource("RectangleShape2D_daepo")
 
 [node name="interactable_field_2" type="Area2D" parent="."]
-position = Vector2(-7.5, -19)
+position = Vector2(-7, -18)
 script = ExtResource("3_1sdfm")
 interact_prompt = "Interact Field"
 metadata/_custom_type_script = "uid://b1kccbwcfiryn"
@@ -32,7 +32,7 @@ metadata/_custom_type_script = "uid://b1kccbwcfiryn"
 shape = SubResource("RectangleShape2D_daepo")
 
 [node name="interactable_field_3" type="Area2D" parent="."]
-position = Vector2(7.5, -19)
+position = Vector2(8, -18)
 script = ExtResource("3_1sdfm")
 interact_prompt = "Interact Field"
 metadata/_custom_type_script = "uid://b1kccbwcfiryn"
@@ -41,7 +41,7 @@ metadata/_custom_type_script = "uid://b1kccbwcfiryn"
 shape = SubResource("RectangleShape2D_daepo")
 
 [node name="interactable_field_4" type="Area2D" parent="."]
-position = Vector2(22.5, -19)
+position = Vector2(23, -18)
 script = ExtResource("3_1sdfm")
 interact_prompt = "Interact Field"
 metadata/_custom_type_script = "uid://b1kccbwcfiryn"
@@ -50,7 +50,7 @@ metadata/_custom_type_script = "uid://b1kccbwcfiryn"
 shape = SubResource("RectangleShape2D_daepo")
 
 [node name="interactable_field_5" type="Area2D" parent="."]
-position = Vector2(-22.5, -3)
+position = Vector2(-22, -3)
 script = ExtResource("3_1sdfm")
 interact_prompt = "Interact Field"
 metadata/_custom_type_script = "uid://b1kccbwcfiryn"
@@ -59,7 +59,7 @@ metadata/_custom_type_script = "uid://b1kccbwcfiryn"
 shape = SubResource("RectangleShape2D_daepo")
 
 [node name="interactable_field_6" type="Area2D" parent="."]
-position = Vector2(-7.5, -3)
+position = Vector2(-7, -3)
 script = ExtResource("3_1sdfm")
 interact_prompt = "Interact Field"
 metadata/_custom_type_script = "uid://b1kccbwcfiryn"
@@ -68,7 +68,7 @@ metadata/_custom_type_script = "uid://b1kccbwcfiryn"
 shape = SubResource("RectangleShape2D_daepo")
 
 [node name="interactable_field_7" type="Area2D" parent="."]
-position = Vector2(7.5, -3)
+position = Vector2(8, -3)
 script = ExtResource("3_1sdfm")
 interact_prompt = "Interact Field"
 metadata/_custom_type_script = "uid://b1kccbwcfiryn"
@@ -77,7 +77,7 @@ metadata/_custom_type_script = "uid://b1kccbwcfiryn"
 shape = SubResource("RectangleShape2D_daepo")
 
 [node name="interactable_field_8" type="Area2D" parent="."]
-position = Vector2(22.5, -3)
+position = Vector2(23, -3)
 script = ExtResource("3_1sdfm")
 interact_prompt = "Interact Field"
 metadata/_custom_type_script = "uid://b1kccbwcfiryn"
@@ -86,7 +86,7 @@ metadata/_custom_type_script = "uid://b1kccbwcfiryn"
 shape = SubResource("RectangleShape2D_daepo")
 
 [node name="interactable_field_9" type="Area2D" parent="."]
-position = Vector2(-22.5, 13)
+position = Vector2(-22, 12)
 script = ExtResource("3_1sdfm")
 interact_prompt = "Interact Field"
 metadata/_custom_type_script = "uid://b1kccbwcfiryn"
@@ -95,7 +95,7 @@ metadata/_custom_type_script = "uid://b1kccbwcfiryn"
 shape = SubResource("RectangleShape2D_daepo")
 
 [node name="interactable_field_10" type="Area2D" parent="."]
-position = Vector2(-7.5, 13)
+position = Vector2(-7, 12)
 script = ExtResource("3_1sdfm")
 interact_prompt = "Interact Field"
 metadata/_custom_type_script = "uid://b1kccbwcfiryn"
@@ -104,7 +104,7 @@ metadata/_custom_type_script = "uid://b1kccbwcfiryn"
 shape = SubResource("RectangleShape2D_daepo")
 
 [node name="interactable_field_11" type="Area2D" parent="."]
-position = Vector2(7.5, 13)
+position = Vector2(8, 12)
 script = ExtResource("3_1sdfm")
 interact_prompt = "Interact Field"
 metadata/_custom_type_script = "uid://b1kccbwcfiryn"
@@ -113,7 +113,7 @@ metadata/_custom_type_script = "uid://b1kccbwcfiryn"
 shape = SubResource("RectangleShape2D_daepo")
 
 [node name="interactable_field_12" type="Area2D" parent="."]
-position = Vector2(22.5, 13)
+position = Vector2(23, 12)
 script = ExtResource("3_1sdfm")
 interact_prompt = "Interact Field"
 metadata/_custom_type_script = "uid://b1kccbwcfiryn"

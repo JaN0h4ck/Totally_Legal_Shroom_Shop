@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://5gys6hamkwkm"]
+
+[ext_resource type="Shader" uid="uid://k1agvmg1ioxs" path="res://scripts/shaders/outline.gdshader" id="1_olx2y"]
+
+[resource]
+shader = ExtResource("1_olx2y")
+shader_parameter/outline_color = Color(0.79836595, 0.9517353, 0.5508817, 0.3529412)
+shader_parameter/blink_color = Color(1, 1, 1, 1)
+shader_parameter/blink_time_scale = 0.0

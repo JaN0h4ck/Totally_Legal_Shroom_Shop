@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvju2c860ren4"
-path="res://.godot/imported/dungeon_mushroom_field.PNG-550ffa91e32da144dbea0f330bfcaabf.ctex"
+uid="uid://dqxharekt6m2e"
+path="res://.godot/imported/09.PNG-8b72461a82df74c6f7a50afde76b4bd0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/dungeon/dungeon_mushroom_field.PNG"
-dest_files=["res://.godot/imported/dungeon_mushroom_field.PNG-550ffa91e32da144dbea0f330bfcaabf.ctex"]
+source_file="res://assets/dungeon/field/09.PNG"
+dest_files=["res://.godot/imported/09.PNG-8b72461a82df74c6f7a50afde76b4bd0.ctex"]
 
 [params]
 
@@ -31,7 +31,7 @@ process/channel_remap/red=0
 process/channel_remap/green=1
 process/channel_remap/blue=2
 process/channel_remap/alpha=3
-process/fix_alpha_border=true
+process/fix_alpha_border=false
 process/premult_alpha=false
 process/normal_map_invert_y=false
 process/hdr_as_srgb=false

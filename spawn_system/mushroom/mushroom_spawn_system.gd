@@ -1,4 +1,4 @@
-extends Node
+extends Sprite2D
 class_name mushroom_spawn_system
 
 @onready var mushroom_resource_alien := preload("res://PickUpSystem/mushroom/alien_mushroom.tres")
