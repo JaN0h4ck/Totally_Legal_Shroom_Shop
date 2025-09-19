@@ -43,6 +43,7 @@ folder_colors={
 "res://PickUpSystem/": "orange",
 "res://crush_system/": "green",
 "res://inventory/": "purple",
+"res://save_system/": "pink",
 "res://spawn_system/": "yellow"
 }
 

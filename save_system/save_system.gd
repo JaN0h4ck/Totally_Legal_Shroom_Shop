@@ -64,6 +64,7 @@ func _load():
 	
 	# Spieler Sachen Setzen
 	player.global_position = saved_game.player_position
+	player.carries_object = false
 	for children in player.object_place.get_children():
 		player.object_place.remove_child(children)
 	
@@ -104,6 +105,9 @@ func _load():
 	
 	# Aktuelle Pilze löschen
 	for mushroom in get_tree().get_nodes_in_group("Shroom"):
+		mushroom.get_parent().remove_child(mushroom)
+		mushroom.queue_free()
+	for mushroom in get_tree().get_nodes_in_group("pickable_mushroom"):
 		mushroom.get_parent().remove_child(mushroom)
 		mushroom.queue_free()
 	# Gespeicherte Pilze laden
