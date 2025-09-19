@@ -40,6 +40,16 @@ func _save():
 		saved_game.fertilizer_info.append(fertilizer_info)
 		saved_game.fertilizer_saved = true
 	
+	# Pilze Stuff speichern
+	for mushroom in get_tree().get_nodes_in_group("Shroom"):
+		var mushrrom_info : Array = []
+		mushrrom_info.append(mushroom.shroom_res)
+		mushrrom_info.append(mushroom.global_position)
+		mushrrom_info.append(mushroom.global_rotation)
+		mushrrom_info.append(mushroom.grow_stage)
+		saved_game.mushroom_info.append(mushrrom_info)
+		saved_game.mushroom_saved = true
+	
 	# Alles in Datei Schreiben
 	ResourceSaver.save(saved_game, "user://savegame.tres")
 	
@@ -85,5 +95,13 @@ func _load():
 		for fertilizer_info : Array in saved_game.fertilizer_info:
 			EventBus.load_fertilizer.emit(fertilizer_info[0], fertilizer_info[1])
 	
+	# Aktuelle Pilze löschen
+	for mushroom in get_tree().get_nodes_in_group("Shroom"):
+		mushroom.get_parent().remove_child(mushroom)
+		mushroom.queue_free()
+	# Gespeicherte Pilze laden
+	if saved_game.mushroom_saved:
+		for mushroom_info : Array in saved_game.mushroom_info:
+			EventBus.load_mushroom.emit(mushroom_info[0], mushroom_info[1], mushroom_info[2], mushroom_info[3])
 	
 	close()

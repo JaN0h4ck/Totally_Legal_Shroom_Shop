@@ -14,3 +14,6 @@ extends Resource
 
 @export var fertilizer_saved : bool
 @export var fertilizer_info : Array = []
+
+@export var mushroom_saved : bool
+@export var mushroom_info : Array = []
