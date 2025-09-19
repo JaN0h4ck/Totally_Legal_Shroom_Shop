@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://d1cnjy4cqhx0f" path="res://resources/themes/inv_theme.tres" id="1_cedrj"]
 [ext_resource type="Texture2D" uid="uid://cuqhxib5ei6p3" path="res://assets/ui/Inv_Box.png" id="2_7rvkw"]
-[ext_resource type="Script" uid="uid://ctdiv4iy5cl7l" path="res://inventory/inventory_ui.gd" id="2_45d2x"]
+[ext_resource type="Script" uid="uid://ctdiv4iy5cl7l" path="res://inventory/inventory_shop_ui.gd" id="2_45d2x"]
 [ext_resource type="PackedScene" uid="uid://doqkihlax7j52" path="res://inventory/inventory_ui_item.tscn" id="3_45d2x"]
 
 [node name="Inv_UI" type="Control"]
