@@ -1,4 +1,5 @@
 extends Node2D
+class_name NPC_Spawner
 
 @onready var npc_cowboy := preload("res://Character/NPCs/cowboy_npc.tscn")
 @onready var npc_angry := preload("res://Character/NPCs/angry_npc.tscn")
@@ -83,6 +84,45 @@ func spawn_npc():
 	npc.position = npc.path.curve.get_point_position(0)
 	
 	add_child(npc)
+
+## Wenn Save Game mit NPC geladen wird
+func load_npc(npc_name : GLOBALS.npc_names):
+	npc_in_shop = true
+	var npc_to_spawn
+	match npc_name:
+		GLOBALS.npc_names.alien:
+			npc_to_spawn = npc_alien
+		GLOBALS.npc_names.angry:
+			npc_to_spawn = npc_angry
+		GLOBALS.npc_names.beff:
+			npc_to_spawn = npc_beff
+		GLOBALS.npc_names.celeb:
+			npc_to_spawn = npc_celebrity
+		GLOBALS.npc_names.conspiracy:
+			npc_to_spawn = npc_conspiracy
+		GLOBALS.npc_names.cook:
+			npc_to_spawn = npc_cook
+		GLOBALS.npc_names.cowboy:
+			npc_to_spawn = npc_cowboy
+		GLOBALS.npc_names.enthusiast:
+			npc_to_spawn = npc_enthusiast
+		GLOBALS.npc_names.nerd:
+			npc_to_spawn = npc_nerd
+		GLOBALS.npc_names.opa:
+			npc_to_spawn = npc_grandpa
+		_:
+			npc_to_spawn = npc_cowboy
+	
+	var npc : base_npc = npc_to_spawn.instantiate()
+	
+	var picked_paths = random_path()
+	npc.path = picked_paths[0]
+	npc.path_follow = picked_paths[1]
+	
+	npc.path_follow.progress = 0.0
+	
+	add_child(npc)
+
 
 func _on_timer_timeout():
 	spawn_npc()

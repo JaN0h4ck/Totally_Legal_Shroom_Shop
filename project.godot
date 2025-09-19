@@ -49,7 +49,6 @@ folder_colors={
 [global_group]
 
 player="the player"
-saveable=""
 dialog_panel=""
 input_prompt=""
 npc_path2D=""
@@ -62,6 +61,8 @@ pickable_fertilizer=""
 paused_nodes=""
 wood_chipper=""
 mushroom_inventory_display_position=""
+npc=""
+npc_spawner=""
 
 [gui]
 
