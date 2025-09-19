@@ -41,7 +41,7 @@ func _physics_process(delta: float):
 	move_and_slide()
 	
 	if velocity.is_zero_approx():
-		select_idle()
+		_select_idle_animation(last_direction, current_direction)
 	else:
 		play_walking_animation()
 	
@@ -94,8 +94,12 @@ func _on_dialogue_started():
 func _on_dialogue_ended():
 	block_input = false
 
-func select_idle():
-	match last_direction:
+# Selects the proper Idle Animation based on the last and current direction dir = last_dir, input_dir = current_dir
+func _select_idle_animation(dir: GLOBALS.directions, input_dir : GLOBALS.directions = GLOBALS.directions.NONE ):
+	if input_dir != GLOBALS.directions.NONE:
+		_select_idle_animation(input_dir)
+		return
+	match dir:
 		GLOBALS.directions.FRONT:
 			sprite_animation.play("idle_front")
 		GLOBALS.directions.BACK:
@@ -104,6 +108,7 @@ func select_idle():
 			sprite_animation.play("idle_right")
 		GLOBALS.directions.LEFT:
 			sprite_animation.play("idle_left")
+	last_direction = dir
 
 
 func enter_basement():
