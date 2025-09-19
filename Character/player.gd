@@ -5,6 +5,7 @@ extends CharacterBody2D
 var last_direction : GLOBALS.directions = GLOBALS.directions.FRONT
 
 var current_floor: AudioFloor.FloorTypes = AudioFloor.FloorTypes.Wood
+var current_in_shop : bool
 
 @export var speed = 4000
 var block_input: bool = false
@@ -28,6 +29,8 @@ var interactable_queue: Array[Interactable]
 func _ready() -> void:
 	EventBus.dialog_started.connect(_on_dialogue_started)
 	EventBus.dialog_ended.connect(_on_dialogue_ended)
+	EventBus.interact_basement.connect(enter_basement)
+	EventBus.interact_shop.connect(enter_shop)
 
 func getInput(delta: float): 
 	var input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down").normalized()
@@ -79,3 +82,9 @@ func play_animation(input_direction):
 	elif input_direction.x < 0:
 		sprite_animation.play("walk_left")
 		last_direction = GLOBALS.directions.LEFT
+
+func enter_basement():
+	current_in_shop = false
+
+func enter_shop():
+	current_in_shop = true
