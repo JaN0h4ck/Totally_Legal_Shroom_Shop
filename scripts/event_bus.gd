@@ -47,6 +47,10 @@ signal spawn_fertilizer(new_global_position: Vector2, rarity: GLOBALS.rarity)
 ## Ausgelöst wenn das Inventar geupdated wird
 signal inventory_updated()
 
+## Ausgelöst wenn entweder im Dungeon oder im Shop geladen wird
+signal load_shop()
+signal load_dungeon()
+
 func _on_interact_customer():
 	interact_customer.emit()
 
@@ -103,3 +107,9 @@ func _on_spawn_fertilizer(new_global_position: Vector2, rarity: GLOBALS.rarity):
 
 func _on_inventory_updated():
 	inventory_updated.emit()
+
+func _on_load_shop():
+	load_shop.emit()
+
+func _on_load_dungeon():
+	load_dungeon.emit()

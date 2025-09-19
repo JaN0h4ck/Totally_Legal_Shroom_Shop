@@ -2,6 +2,7 @@ class_name SavedGame
 extends Resource
 
 @export var player_position : Vector2
+@export var player_in_shop : bool
 
 @export var npc_saved : bool
 @export var npc_name : GLOBALS.npc_names

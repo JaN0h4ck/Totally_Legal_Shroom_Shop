@@ -303,7 +303,7 @@ curve = SubResource("Curve2D_81vyf")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D_short" groups=["npc_followpath2D"]]
 position = Vector2(43, -36)
-rotation = 1.5708
+rotation = 1.5707964
 
 [node name="FloorTypes" parent="." instance=ExtResource("28_81vyf")]
 visible = false
@@ -314,7 +314,7 @@ curve = SubResource("Curve2D_jn45p")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D_long" groups=["npc_followpath2D"]]
 position = Vector2(43, -36)
-rotation = 1.2925
+rotation = 1.2924967
 
 [connection signal="player_interacted" from="register/interactable_register" to="register/interactable_register" method="_on_player_interacted"]
 [connection signal="player_interacted" from="interactable_certificate" to="interactable_certificate" method="_on_player_interacted"]
