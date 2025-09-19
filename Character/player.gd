@@ -5,7 +5,7 @@ extends CharacterBody2D
 var last_direction : GLOBALS.directions = GLOBALS.directions.FRONT
 
 var current_floor: AudioFloor.FloorTypes = AudioFloor.FloorTypes.Wood
-var current_in_shop : bool
+var current_in_shop : bool = true
 
 @export var speed = 4000
 var block_input: bool = false

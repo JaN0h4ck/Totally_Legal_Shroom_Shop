@@ -20,17 +20,20 @@ func prepare_item():
 	pickup_time = shroom_res.pickup_time
 
 func load_item(stage : int):
-	is_pickable = false
 	var sprite : Sprite2D = Sprite2D.new()
 	match stage:
 		1:
+			is_pickable = false
 			sprite.texture = shroom_res.base_texture
 			mushroom_grow_stage_1(sprite)
 		2:
+			is_pickable = false
 			sprite.texture = shroom_res.middle_stage_texture
 			mushroom_grow_stage_2(sprite)
 		3:
+			is_pickable = true
 			sprite.texture = shroom_res.end_stage_texture
+	
 	add_child(sprite)
 	set_collision_size()
 	interact_manager.interact_prompt = "Pick up Mushroom"

@@ -66,8 +66,10 @@ func _load():
 	player.global_position = saved_game.player_position
 	if saved_game.player_in_shop:
 		EventBus.load_shop.emit()
+		player.current_in_shop = true
 	else:
 		EventBus.load_dungeon.emit()
+		player.current_in_shop = false
 	
 	# Aktuelle NPCs löschen
 	for npc in get_tree().get_nodes_in_group("npc"):
@@ -106,4 +108,6 @@ func _load():
 		for mushroom_info : Array in saved_game.mushroom_info:
 			EventBus.load_mushroom.emit(mushroom_info[0], mushroom_info[1], mushroom_info[2], mushroom_info[3], mushroom_info[4], mushroom_info[5])
 	
+	EventBus.inventory_updated.emit()
+
 	close()
