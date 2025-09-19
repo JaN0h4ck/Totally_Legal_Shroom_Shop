@@ -13,6 +13,7 @@ extends Node2D
 
 func _ready():
 	EventBus.npc_dropped.connect(spawn_corpse)
+	EventBus.corpse_loaded.connect(load_corpse)
 
 # Aktuell Verfügbare Leichen alien, angry, beff, celeb, conspiracy, cook, cowboy, enthusiast, nerd, grandpa
 func spawn_corpse(corpse_name: GLOBALS.npc_names):
@@ -42,5 +43,13 @@ func spawn_corpse(corpse_name: GLOBALS.npc_names):
 		_:
 			node.queue_free()
 			printerr("NPC Name not found: ", corpse_name)
-	
+	node.add_to_group("corpse")
+	node.prepare_item()
+
+func load_corpse(corpse_res: CorpseRes, corpse_position : Vector2):
+	var node : PickableCorpse = PickableCorpse.new()
+	add_child(node)
+	node.corpse_res = corpse_res
+	node.add_to_group("corpse")
+	node.global_position = corpse_position
 	node.prepare_item()

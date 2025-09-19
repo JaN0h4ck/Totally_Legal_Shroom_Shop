@@ -24,6 +24,9 @@ signal npc_left_shop
 ## Ausgelöst wenn ein NPC durch die Falltür fällt, NPC Enum Name wird mit übergeben
 signal npc_dropped(npc_name: GLOBALS.npc_names)
 
+## Ausgelöst wenn ein Save Game mit einer Leiche geladen wird
+signal corpse_loaded(corpse_res: CorpseRes)
+
 ## Ausgelöst wenn ein Dialog gestartet wird
 signal dialog_started
 ## Ausgelöst wenn ein Dialog endet
@@ -83,6 +86,9 @@ func _on_npc_left_shop():
 
 func _on_npc_dropped(npc_name: GLOBALS.npc_names):
 	npc_dropped.emit(npc_name)
+
+func _on_corpse_loaded(corpse_res: CorpseRes):
+	corpse_loaded.emit(corpse_res)
 
 func _on_dialog_started():
 	dialog_started.emit()
