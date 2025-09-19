@@ -16,6 +16,8 @@ var pickup_time
 ## Tween zum langsamen bewegen
 var tween
 
+signal picked_up
+
 func _ready():
 	_setup_collisions()
 	z_index = -3
@@ -49,6 +51,7 @@ func _on_player_interacted() -> void:
 		print("Cant be picked right now")
 		return
 	add_to_player()
+	picked_up.emit()
 
 ## Objekt auf den Spieler Kopf legen
 func add_to_player():

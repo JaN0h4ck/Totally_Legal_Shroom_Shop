@@ -11,8 +11,11 @@ const textures: Array[CompressedTexture2D] = [
 
 var sprite: Sprite2D
 
+var shroom : PickableMushroom = null
+
 func _ready():
 	super()
+	area_entered.connect(_on_area_entered)
 	player_entered.connect(activate_outline)
 	player_left.connect(remove_outline)
 	sprite = Sprite2D.new()
@@ -29,3 +32,18 @@ func remove_outline(_arg1):
 func _on_player_interacted():
 	var parent : mushroom_spawn_system = get_parent()
 	parent.spawn_mushroom_seed(global_position)
+
+func _on_body_entered(body: Node2D):
+	super(body)
+
+func _on_area_entered(area: Area2D):
+	var parent = area.get_parent()
+	if parent is PickableMushroom and shroom == null:
+		shroom = parent
+		parent.picked_up.connect(_on_shroom_pickup)
+
+func _on_shroom_pickup():
+	if shroom == null: return
+	sprite.texture = textures[randi_range(0, textures.size()-1)]
+	shroom.picked_up.disconnect(_on_shroom_pickup)
+	shroom = null
