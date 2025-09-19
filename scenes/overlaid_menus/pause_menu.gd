@@ -15,7 +15,8 @@ func _save():
 	
 	for npc in get_tree().get_nodes_in_group("npc"):
 		saved_game.npc_name = npc.npc_name
-		saved_game.npc_position = npc.global_position
+		saved_game.npc_path_number = npc.path_number
+		saved_game.npc_path_progress = npc.path_follow.progress
 	
 	ResourceSaver.save(saved_game, "user://savegame.tres")
 
@@ -32,7 +33,4 @@ func _load():
 	
 	var npc_spawner : NPC_Spawner = get_tree().get_first_node_in_group("npc_spawner")
 	
-	npc_spawner.load_npc(saved_game.npc_name)
-
-	for npc in get_tree().get_nodes_in_group("npc"):
-		npc.global_position = saved_game.npc_position
+	npc_spawner.load_npc(saved_game.npc_name, saved_game.npc_path_number, saved_game.npc_path_progress)

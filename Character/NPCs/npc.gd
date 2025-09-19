@@ -17,6 +17,7 @@ class_name base_npc
 
 @export var rarity : GLOBALS.rarity
 
+var path_number : int
 var last_position : Vector2
 var movement : Vector2
 

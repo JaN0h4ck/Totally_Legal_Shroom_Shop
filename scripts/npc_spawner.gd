@@ -79,6 +79,7 @@ func spawn_npc():
 	var picked_paths = random_path()
 	npc.path = picked_paths[0]
 	npc.path_follow = picked_paths[1]
+	npc.path_number = picked_paths[2]
 	
 	npc.path_follow.progress = 0
 	npc.position = npc.path.curve.get_point_position(0)
@@ -86,7 +87,7 @@ func spawn_npc():
 	add_child(npc)
 
 ## Wenn Save Game mit NPC geladen wird
-func load_npc(npc_name : GLOBALS.npc_names):
+func load_npc(npc_name : GLOBALS.npc_names, npc_path_number : int, npc_path_progress : float):
 	npc_in_shop = true
 	var npc_to_spawn
 	match npc_name:
@@ -115,11 +116,11 @@ func load_npc(npc_name : GLOBALS.npc_names):
 	
 	var npc : base_npc = npc_to_spawn.instantiate()
 	
-	var picked_paths = random_path()
+	var picked_paths = specific_path(npc_path_number)
 	npc.path = picked_paths[0]
 	npc.path_follow = picked_paths[1]
 	
-	npc.path_follow.progress = 0.0
+	npc.path_follow.progress = npc_path_progress
 	
 	add_child(npc)
 
@@ -144,7 +145,16 @@ func random_path():
 	var rng = RandomNumberGenerator.new()
 	var random_nummer = rng.randi_range(0, lenght-1)
 	
-	return [path2d[random_nummer], follow_path[random_nummer]]
+	return [path2d[random_nummer], follow_path[random_nummer], random_nummer]
+
+func specific_path(number : int):
+	var follow_path = get_tree().get_nodes_in_group("npc_followpath2D")
+	var path2d = get_tree().get_nodes_in_group("npc_path2D")
+	
+	if number > (follow_path.size() - 1) or number < 0:
+		number = 0
+	
+	return [path2d[number], follow_path[number]]
 
 func npc_left():
 	npc_in_shop = false
