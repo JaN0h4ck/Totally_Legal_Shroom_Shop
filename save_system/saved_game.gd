@@ -4,8 +4,6 @@ extends Resource
 @export var player_position : Vector2
 @export var player_in_shop : bool
 
-@export var inventory : Array = []
-
 @export var npc_saved : bool
 @export var npc_name : GLOBALS.npc_names
 @export var npc_path_number : int
@@ -18,4 +16,5 @@ extends Resource
 @export var fertilizer_info : Array = []
 
 @export var mushroom_saved : bool
+## Pilz Info in folgender Rheinfolge: Resource, Position, Rotation, Wachstumsstadium, Ob aktuell im Inventar, Inventarposition
 @export var mushroom_info : Array = []
