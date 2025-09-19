@@ -1,0 +1,70 @@
+[gd_scene load_steps=9 format=3 uid="uid://d1cmt6tktxlt3"]
+
+[ext_resource type="Shader" uid="uid://cixrxdx4xtfdp" path="res://scripts/shaders/drop_shadow.gdshader" id="1_mkqkk"]
+[ext_resource type="Texture2D" uid="uid://c2bunm23f5bcb" path="res://assets/dungeon/dungeon_barrel.PNG" id="2_fiqy0"]
+[ext_resource type="Texture2D" uid="uid://bqxpw7dx16l1d" path="res://assets/dungeon/dungeon_chest.PNG" id="3_xafqp"]
+[ext_resource type="Script" uid="uid://dyxxph4au7mu4" path="res://scenes/game_scene/scripts/interactable_chest_and_barrel.gd" id="4_fiqy0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uf2vu"]
+shader = ExtResource("1_mkqkk")
+shader_parameter/debug = false
+shader_parameter/border_scale = 2.0
+shader_parameter/shadow_offset = Vector2(-1, -1)
+shader_parameter/color = Color(0.0846899, 0.0846899, 0.0846899, 1)
+shader_parameter/blur_amount = 1.0
+shader_parameter/shadow_scale = 1.5
+shader_parameter/disable_rotating = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j3unq"]
+shader = ExtResource("1_mkqkk")
+shader_parameter/debug = false
+shader_parameter/border_scale = 2.0
+shader_parameter/shadow_offset = Vector2(1, -1)
+shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/blur_amount = 1.0
+shader_parameter/shadow_scale = 1.5
+shader_parameter/disable_rotating = false
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0sevn"]
+size = Vector2(30, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xafqp"]
+size = Vector2(31, 10)
+
+[node name="chest_and_barrel" type="Node2D"]
+z_index = -5
+z_as_relative = false
+
+[node name="dungeon_barrel" type="Sprite2D" parent="."]
+z_index = -5
+z_as_relative = false
+material = SubResource("ShaderMaterial_uf2vu")
+position = Vector2(-1, -3)
+texture = ExtResource("2_fiqy0")
+
+[node name="dungeon_chest" type="Sprite2D" parent="."]
+z_index = -5
+z_as_relative = false
+material = SubResource("ShaderMaterial_j3unq")
+position = Vector2(15, 0)
+texture = ExtResource("3_xafqp")
+
+[node name="chest_and_barrel_body" type="StaticBody2D" parent="."]
+visible = false
+position = Vector2(4, 1)
+
+[node name="chest_and_barrel_shape" type="CollisionShape2D" parent="chest_and_barrel_body"]
+position = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_0sevn")
+
+[node name="interactable_chest_and_barrel" type="Area2D" parent="."]
+position = Vector2(-59, -22)
+script = ExtResource("4_fiqy0")
+interact_prompt = "Chest"
+metadata/_custom_type_script = "uid://b1kccbwcfiryn"
+
+[node name="collision_interactable_chest_and_barrel" type="CollisionShape2D" parent="interactable_chest_and_barrel"]
+position = Vector2(65.5, 34)
+shape = SubResource("RectangleShape2D_xafqp")
+
+[connection signal="player_interacted" from="interactable_chest_and_barrel" to="interactable_chest_and_barrel" method="_on_player_interacted"]

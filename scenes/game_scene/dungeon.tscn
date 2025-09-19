@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://dy1uiy23nc5he"]
+[gd_scene load_steps=57 format=3 uid="uid://dy1uiy23nc5he"]
 
 [ext_resource type="Texture2D" uid="uid://bhqas40v1sogj" path="res://assets/dungeon/dungeon_base.PNG" id="1_miufi"]
 [ext_resource type="Texture2D" uid="uid://bt4kb5hqwg4nl" path="res://assets/dungeon/dungeon_border.PNG" id="2_5623h"]
@@ -7,9 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://byc5u5cn58hsi" path="res://assets/dungeon/door/dungeon_door_closed.PNG" id="4_7taji"]
 [ext_resource type="Texture2D" uid="uid://cw2h6s26burpl" path="res://assets/dungeon/cross.PNG" id="4_mv2yw"]
 [ext_resource type="Shader" uid="uid://cixrxdx4xtfdp" path="res://scripts/shaders/drop_shadow.gdshader" id="5_4somj"]
-[ext_resource type="Texture2D" uid="uid://c2bunm23f5bcb" path="res://assets/dungeon/dungeon_barrel.PNG" id="5_egi2s"]
-[ext_resource type="Texture2D" uid="uid://bqxpw7dx16l1d" path="res://assets/dungeon/dungeon_chest.PNG" id="6_vnu48"]
 [ext_resource type="Texture2D" uid="uid://cn8w7nj28gjup" path="res://assets/dungeon/dungeon_table.PNG" id="8_epj33"]
+[ext_resource type="PackedScene" uid="uid://d1cmt6tktxlt3" path="res://scenes/game_scene/dungeon/chest_and_barrel.tscn" id="8_ikx5i"]
 [ext_resource type="Texture2D" uid="uid://5yym7638cog7" path="res://assets/dungeon/journal.PNG" id="9_hamwq"]
 [ext_resource type="PackedScene" uid="uid://dmdlnr87n1wxl" path="res://spawn_system/mushroom/mushroom_field.tscn" id="9_tkn77"]
 [ext_resource type="Texture2D" uid="uid://bq2vvs6x38nnm" path="res://assets/dungeon/saw.PNG" id="10_4ovda"]
@@ -86,29 +85,6 @@ shader_parameter/color = Color(0.0728426, 0.0728426, 0.0728426, 1)
 shader_parameter/blur_amount = 1.0
 shader_parameter/shadow_scale = 1.5
 shader_parameter/disable_rotating = false
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_uf2vu"]
-shader = ExtResource("5_4somj")
-shader_parameter/debug = false
-shader_parameter/border_scale = 2.0
-shader_parameter/shadow_offset = Vector2(-1, -1)
-shader_parameter/color = Color(0.0846899, 0.0846899, 0.0846899, 1)
-shader_parameter/blur_amount = 1.0
-shader_parameter/shadow_scale = 1.5
-shader_parameter/disable_rotating = false
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_j3unq"]
-shader = ExtResource("5_4somj")
-shader_parameter/debug = false
-shader_parameter/border_scale = 2.0
-shader_parameter/shadow_offset = Vector2(1, -1)
-shader_parameter/color = Color(0, 0, 0, 1)
-shader_parameter/blur_amount = 1.0
-shader_parameter/shadow_scale = 1.5
-shader_parameter/disable_rotating = false
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0sevn"]
-size = Vector2(30, 8)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tbl2k"]
 shader = ExtResource("5_4somj")
@@ -329,31 +305,8 @@ material = SubResource("ShaderMaterial_4somj")
 position = Vector2(17, -41.5)
 texture = ExtResource("4_mv2yw")
 
-[node name="chest_and_barrel" type="Node2D" parent="dungeon_base"]
-z_index = -5
-z_as_relative = false
-
-[node name="dungeon_barrel" type="Sprite2D" parent="dungeon_base/chest_and_barrel"]
-z_index = -5
-z_as_relative = false
-material = SubResource("ShaderMaterial_uf2vu")
-position = Vector2(-56, -36.5)
-texture = ExtResource("5_egi2s")
-
-[node name="dungeon_chest" type="Sprite2D" parent="dungeon_base/chest_and_barrel"]
-z_index = -5
-z_as_relative = false
-material = SubResource("ShaderMaterial_j3unq")
-position = Vector2(-71, -36)
-texture = ExtResource("6_vnu48")
-
-[node name="chest_and_barrel_body" type="StaticBody2D" parent="dungeon_base/chest_and_barrel"]
-visible = false
-position = Vector2(-67, -34)
-
-[node name="chest_and_barrel_shape" type="CollisionShape2D" parent="dungeon_base/chest_and_barrel/chest_and_barrel_body"]
-position = Vector2(2, 2)
-shape = SubResource("RectangleShape2D_0sevn")
+[node name="chest_and_barrel" parent="dungeon_base" instance=ExtResource("8_ikx5i")]
+position = Vector2(-72, -36)
 
 [node name="dungeon_table" type="Sprite2D" parent="dungeon_base"]
 z_index = 5
