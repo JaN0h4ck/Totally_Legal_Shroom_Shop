@@ -20,6 +20,7 @@ func prepare_item():
 	pickup_time = shroom_res.pickup_time
 
 func load_item(stage : int):
+	is_picked = false
 	var sprite : Sprite2D = Sprite2D.new()
 	match stage:
 		1:

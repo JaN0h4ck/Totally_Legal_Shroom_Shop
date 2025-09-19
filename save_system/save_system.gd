@@ -64,6 +64,9 @@ func _load():
 	
 	# Spieler Sachen Setzen
 	player.global_position = saved_game.player_position
+	for children in player.object_place.get_children():
+		player.object_place.remove_child(children)
+	
 	if saved_game.player_in_shop:
 		EventBus.load_shop.emit()
 		player.current_in_shop = true

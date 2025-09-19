@@ -69,6 +69,8 @@ func remove_item():
 	item[0].add_to_player()
 	# Objekt entfernen
 	var _succes = Inventory.remove_mushroom_from_inventory_by_position(inventory_position)
+	
+	EventBus.inventory_updated.emit()
 
 ## Pilz zum Inventar an aktueller stelle hinzufügen
 func add_item():
@@ -95,6 +97,8 @@ func add_item():
 	mushroom.rotation = 0.0
 	mushroom.global_position = mushroom_global_positon
 	mushroom.global_rotation = mushroom_global_rotation
+	
+	EventBus.inventory_updated.emit()
 
 func set_mushroom_global_position():
 	var position_nodes = get_tree().get_nodes_in_group("mushroom_inventory_display_position")
