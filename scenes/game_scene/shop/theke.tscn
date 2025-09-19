@@ -11,10 +11,11 @@ size = Vector2(45, 24)
 size = Vector2(18, 57)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wo30k"]
-size = Vector2(65, 23)
+size = Vector2(72, 23)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_eyhni"]
-size = Vector2(16, 34)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0o3k0"]
+radius = 8.0
+height = 34.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v5hj3"]
 size = Vector2(45, 10)
@@ -31,7 +32,6 @@ z_as_relative = false
 texture = ExtResource("1_0o3k0")
 
 [node name="theke_collision" type="StaticBody2D" parent="."]
-visible = false
 
 [node name="mushroom_top" type="CollisionShape2D" parent="theke_collision"]
 position = Vector2(-39.5, -37)
@@ -42,12 +42,12 @@ position = Vector2(-71, -20.5)
 shape = SubResource("RectangleShape2D_4ailo")
 
 [node name="cash_top" type="CollisionShape2D" parent="theke_collision"]
-position = Vector2(49.5, 10.5)
+position = Vector2(46, 10.5)
 shape = SubResource("RectangleShape2D_wo30k")
 
 [node name="cash_left" type="CollisionShape2D" parent="theke_collision"]
 position = Vector2(9, 16)
-shape = SubResource("RectangleShape2D_eyhni")
+shape = SubResource("CapsuleShape2D_0o3k0")
 
 [node name="interactable_mushroom_theke" type="Area2D" parent="."]
 position = Vector2(-59, -22)
