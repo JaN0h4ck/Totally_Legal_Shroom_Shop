@@ -51,7 +51,7 @@ signal spawn_fertilizer(new_global_position: Vector2, rarity: GLOBALS.rarity)
 signal load_fertilizer(fert_res : FertilizerRes, loaded_position : Vector2)
 
 ## Ausgelöst wenn Pilze aus einem Save geladen werden
-signal load_mushroom(shroom_res : ShroomRes, saved_position : Vector2, saved_rotation : float, grow_stage : int)
+signal load_mushroom(shroom_res : ShroomRes, saved_position : Vector2, saved_rotation : float, grow_stage : int, in_inventory : bool, inventory_position : int)
 
 ## Ausgelöst wenn das Inventar geupdated wird
 signal inventory_updated()
@@ -129,5 +129,5 @@ func _on_load_dungeon():
 func _on_load_fertilizer(fert_res : FertilizerRes, loaded_position : Vector2):
 	load_fertilizer.emit(fert_res, loaded_position)
 
-func _on_load_mushroom(shroom_res : ShroomRes, saved_position : Vector2, saved_rotation : float, grow_stage : int):
-	load_mushroom.emit(shroom_res, saved_position, saved_rotation, grow_stage)
+func _on_load_mushroom(shroom_res : ShroomRes, saved_position : Vector2, saved_rotation : float, grow_stage : int, in_inventory : bool, inventory_position : int):
+	load_mushroom.emit(shroom_res, saved_position, saved_rotation, grow_stage, in_inventory, inventory_position)
