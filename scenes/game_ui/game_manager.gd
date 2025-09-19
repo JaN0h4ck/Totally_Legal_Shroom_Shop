@@ -4,17 +4,23 @@ extends Node
 @onready var ui_layer: CanvasLayer = $"../UILayer"
 @export var interact_scene: PackedScene
 @export var pause_scene: PackedScene
-@export var inv_scene: PackedScene
+@export var shop_inv_scene: PackedScene
+@export var dungeon_inv_scene: PackedScene
 @export var lexicon_scene: PackedScene
 
 var is_paused: bool = false
 
 func _ready() -> void:
-	EventBus.open_inventory.connect(_on_open_inventory)
+	EventBus.open_inventory.connect(_on_open_shop_inventory)
+	EventBus.open_dungeon_inventory.connect(_on_open_dungeon_inventory)
 	EventBus.interact_lexikon.connect(_on_open_lexikon)
 
-func _on_open_inventory():
-	var instance = inv_scene.instantiate()
+func _on_open_shop_inventory():
+	var instance = shop_inv_scene.instantiate()
+	ui_layer.add_child(instance)
+
+func _on_open_dungeon_inventory():
+	var instance = dungeon_inv_scene.instantiate()
 	ui_layer.add_child(instance)
 
 func _input(event: InputEvent) -> void:
