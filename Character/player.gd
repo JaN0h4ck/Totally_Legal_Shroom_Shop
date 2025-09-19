@@ -9,11 +9,11 @@ var current_floor: AudioFloor.FloorTypes = AudioFloor.FloorTypes.Wood
 
 @export var speed = 4000
 var block_input: bool = false
-var _is_inside: bool = false
 
 @onready var object_place: Node2D = $object_place
 var carries_object : bool = false
 
+var _is_inside: bool = false
 var is_inside_interactable: bool:
 	get: return _is_inside
 	set(value):

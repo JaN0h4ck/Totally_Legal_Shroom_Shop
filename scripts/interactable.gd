@@ -28,6 +28,9 @@ func _on_body_entered(body: Node2D):
 		player_is_inside = true
 		if(player.is_inside_interactable):
 			player.interactable_queue.push_back(self)
+			if(player.interactable_queue[0] == null):
+				player.interactable_queue.pop_front()
+				player.is_inside_interactable = false  # setter triggers validation proccess of queue
 			return
 		player_entered.emit(interact_prompt, name)
 		player.is_inside_interactable = true
@@ -40,7 +43,6 @@ func _on_body_exited(body: Node2D):
 		player_left.emit(name)
 		player_is_inside = false
 		body.is_inside_interactable = false
-
 
 func _on_player_interacted() -> void:
 	pass # Replace with function body.
