@@ -47,6 +47,9 @@ signal pickup_object(position: Vector2, is_random_dropped: bool)
 ## Ausgelöst wenn Dünger erstellt werden soll, Position und Seltenheit wird übergeben
 signal spawn_fertilizer(new_global_position: Vector2, rarity: GLOBALS.rarity)
 
+## Ausgelöst wenn Dünger aus einem Save geladen wird
+signal load_fertilizer(fert_res : FertilizerRes, loaded_position : Vector2)
+
 ## Ausgelöst wenn das Inventar geupdated wird
 signal inventory_updated()
 
@@ -119,3 +122,6 @@ func _on_load_shop():
 
 func _on_load_dungeon():
 	load_dungeon.emit()
+
+func _on_load_fertilizer(fert_res : FertilizerRes, loaded_position : Vector2):
+	load_fertilizer.emit(fert_res, loaded_position)

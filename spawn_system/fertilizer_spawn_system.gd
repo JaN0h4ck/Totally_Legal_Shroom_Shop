@@ -6,6 +6,7 @@ extends Node
 
 func _ready():
 	EventBus.spawn_fertilizer.connect(delayed_fertilizer_spawn)
+	EventBus.load_fertilizer.connect(load_fertilizer)
 
 func spawn_fertilizer(new_global_position : Vector2, rarity : GLOBALS.rarity):
 	var node : PickableFertilizer = PickableFertilizer.new()
@@ -21,6 +22,16 @@ func spawn_fertilizer(new_global_position : Vector2, rarity : GLOBALS.rarity):
 	node.prepare_item()
 	node.global_position = new_global_position
 	node.z_index = 5
+	node.add_to_group("fertilizer")
 
 func delayed_fertilizer_spawn(new_global_position : Vector2, rarity : GLOBALS.rarity):
 	call_deferred("spawn_fertilizer", new_global_position, rarity)
+
+func load_fertilizer(fert_res : FertilizerRes, loaded_position : Vector2):
+	var node : PickableFertilizer = PickableFertilizer.new()
+	add_child(node)
+	node.fert_res = fert_res
+	node.prepare_item()
+	node.global_position = loaded_position
+	node.z_index = 5
+	node.add_to_group("fertilizer")

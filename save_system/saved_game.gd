@@ -11,3 +11,6 @@ extends Resource
 
 @export var corpse_saved : bool
 @export var corpse_info : Array = []
+
+@export var fertilizer_saved : bool
+@export var fertilizer_info : Array = []

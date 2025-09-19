@@ -11,6 +11,7 @@ func _save():
 	# Variable auf Standard setzten
 	saved_game.npc_saved = false
 	saved_game.corpse_saved = false
+	saved_game.fertilizer_saved = false
 	
 	# Player Stuff speichern
 	saved_game.player_position = player.global_position
@@ -31,6 +32,14 @@ func _save():
 		saved_game.corpse_info.append(corpse_info)
 		saved_game.corpse_saved = true
 	
+	# Dünger Stuff speichern
+	for fertilizer in get_tree().get_nodes_in_group("fertilizer"):
+		var fertilizer_info : Array = []
+		fertilizer_info.append(fertilizer.fert_res)
+		fertilizer_info.append(fertilizer.global_position)
+		saved_game.fertilizer_info.append(fertilizer_info)
+		saved_game.fertilizer_saved = true
+	
 	# Alles in Datei Schreiben
 	ResourceSaver.save(saved_game, "user://savegame.tres")
 	
@@ -41,28 +50,40 @@ func _save():
 func _load():
 	var saved_game : SavedGame = load("user://savegame.tres")
 	
+	# Spieler Sachen Setzen
 	player.global_position = saved_game.player_position
-	
 	if saved_game.player_in_shop:
 		EventBus.load_shop.emit()
 	else:
 		EventBus.load_dungeon.emit()
 	
+	# Aktuelle NPCs löschen
 	for npc in get_tree().get_nodes_in_group("npc"):
 		npc.get_parent().remove_child(npc)
 		npc.queue_free()
 		EventBus.npc_left_shop.emit()
-	
+	# Gespeicherte NPCs laden
 	if saved_game.npc_saved:
 		var npc_spawner : NPC_Spawner = get_tree().get_first_node_in_group("npc_spawner")
 		npc_spawner.load_npc(saved_game.npc_name, saved_game.npc_path_number, saved_game.npc_path_progress)
 	
+	# Akutelle Leichen löschen
 	for corpse in get_tree().get_nodes_in_group("corpse"):
 		corpse.get_parent().remove_child(corpse)
 		corpse.queue_free()
-	
+	# Gespeicherte Leichen laden
 	if saved_game.corpse_saved:
 		for corpse_info : Array in saved_game.corpse_info:
 			EventBus.corpse_loaded.emit(corpse_info[0], corpse_info[1])
+	
+	# Aktuellen Dünger löschen
+	for fertilizer in get_tree().get_nodes_in_group("fertilizer"):
+		fertilizer.get_parent().remove_child(fertilizer)
+		fertilizer.queue_free()
+	# Gespeichernten Dünger laden
+	if saved_game.fertilizer_saved:
+		for fertilizer_info : Array in saved_game.fertilizer_info:
+			EventBus.load_fertilizer.emit(fertilizer_info[0], fertilizer_info[1])
+	
 	
 	close()
