@@ -4,7 +4,7 @@ extends Node
 
 enum rarity {common, rare, ultra_rare}
 
-enum directions { FRONT, BACK, LEFT, RIGHT }
+enum directions { FRONT, BACK, LEFT, RIGHT, NONE }
 
 ## Name des NPCs, lower case und mit _ als Leerzeichens
 enum npc_names {alien, angry, beff, celeb, conspiracy, cook, cowboy, enthusiast, nerd, opa}
