@@ -22,7 +22,7 @@ func _process(_delta: float) -> void:
 		count = clampi(count, FIRST_PAGE, LAST_PAGE)
 		page()
 		return
-	if(Input.is_action_pressed("ui_cancel")):
+	if(Input.is_action_pressed("ui_cancel") or Input.is_action_pressed("joy_cancel")):
 		get_tree().paused = false
 		sub_viewport_container.queue_free()
 
