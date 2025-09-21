@@ -28,7 +28,10 @@ var falling : bool = false
 
 var on_trapdoor : bool = false
 
+var want_to_exit_shop : bool = false
+
 func _ready() -> void:
+	want_to_exit_shop = false
 	path_follow.loop = loop_path
 	global_position = path_follow.global_position
 	last_position = global_position
@@ -36,13 +39,23 @@ func _ready() -> void:
 	EventBus.npc_entered_trapdoor.connect(enter_trapdoor)
 	EventBus.npc_left_trapdoor.connect(exit_trapdoor)
 	EventBus.interact_lever.connect(start_falling)
+	EventBus.order_complete.connect(exit_shop)
 
 
 func _physics_process(delta : float) -> void:
-	path_follow.progress += move_speed * delta
-	global_position = path_follow.global_position
+	if not want_to_exit_shop:
+		path_follow.progress += move_speed * delta
+		global_position = path_follow.global_position
+	else:
+		path_follow.progress -= move_speed * delta
+		global_position = path_follow.global_position
+		
+		if path_follow.progress <= 0:
+			get_parent().remove_child(self)
+			queue_free()
 	
 	play_animation()
+
 
 func is_moving() -> bool:
 	return not is_zero_approx(movement.length())
@@ -99,6 +112,11 @@ func fall_down():
 	EventBus.npc_dropped.emit(npc_name)
 	queue_free()
 
+func exit_shop():
+	path = get_tree().get_first_node_in_group("npc_exit_path2d")
+	path_follow = get_tree().get_first_node_in_group("npc_exit_followpath2d")
+	path_follow.progress = path.curve.get_baked_length()
+	want_to_exit_shop = true
 
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("player"):

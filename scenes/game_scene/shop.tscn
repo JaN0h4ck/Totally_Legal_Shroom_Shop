@@ -298,10 +298,10 @@ metadata/_custom_type_script = "uid://b1kccbwcfiryn"
 position = Vector2(0, 5)
 shape = SubResource("RectangleShape2D_0b5ro")
 
-[node name="Path2D_short" type="Path2D" parent="." groups=["npc_path2D"]]
+[node name="Path2D_short" type="Path2D" parent="." groups=["npc_exit_path2d", "npc_path2D"]]
 curve = SubResource("Curve2D_81vyf")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2D_short" groups=["npc_followpath2D"]]
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D_short" groups=["npc_exit_followpath2d", "npc_followpath2D"]]
 position = Vector2(43, -36)
 rotation = 1.5707964
 

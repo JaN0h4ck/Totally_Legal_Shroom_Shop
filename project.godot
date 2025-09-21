@@ -68,6 +68,8 @@ wood_chipper=""
 mushroom_inventory_display_position=""
 npc=""
 npc_spawner=""
+npc_exit_path2d=""
+npc_exit_followpath2d=""
 
 [gui]
 
