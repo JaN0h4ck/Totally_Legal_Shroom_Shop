@@ -48,10 +48,14 @@
 - Schauen welche Bilder im Original verwendet wurden und selbe von neuen Charakter per Drag and Drop hinzufügen
 - Alte Bilder dannach raus löschen (Markieren -> Entf Taste)
 - So alle Animationen durchgehen
+#### Zu GLOBALS hinzufügen
+- globals.gd öffnen
+- in enum npc_names [name] hinzufügen
 #### Zu Spawn System hinzufügen
 - npc_spawner.tscn öffnen
 - Variable für Kunden hinzufügen => @onready var npc_[name] := preload([Pfad zu Kunden Szene, einfach per Drag and Drop an dieser Stelle Pfad einfügen])
 - in \_ready() Kunde an array übergeben add_npc(npc_[name])
+- in \load_npc() bei match npc_name: neuen Eintrag mit GLOBALS.npc_name.[name]: npc_to_spawn = npc_[name]
 
 
 ### Neue Leichen hinzufügen
