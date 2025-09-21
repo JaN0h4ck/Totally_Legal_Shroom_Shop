@@ -26,7 +26,6 @@ InputDeviceMonitor="*res://scripts/input_device_monitor.gd"
 EventBus="*res://scripts/event_bus.gd"
 Inventory="*res://inventory/inventory.gd"
 SaveSystem="*res://save_system/save_system.gd"
-GameState="*res://scripts/game_state.gd"
 ShopSystem="*res://shop_system/shop_system.gd"
 
 [display]
