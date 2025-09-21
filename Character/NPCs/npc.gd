@@ -7,6 +7,7 @@ class_name base_npc
 @onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
 
 @export var portrait: Texture2D
+@export var requestet_mushroom : ShroomRes
 @export var lines: Array[String]
 @export var path : Path2D
 @export var path_follow : PathFollow2D
@@ -39,6 +40,7 @@ func _ready() -> void:
 	EventBus.npc_entered_trapdoor.connect(enter_trapdoor)
 	EventBus.npc_left_trapdoor.connect(exit_trapdoor)
 	EventBus.interact_lever.connect(start_falling)
+	EventBus.start_shopping.connect(start_shopping)
 	EventBus.order_complete.connect(exit_shop)
 
 
@@ -52,6 +54,7 @@ func _physics_process(delta : float) -> void:
 		
 		if path_follow.progress <= 0:
 			get_parent().remove_child(self)
+			EventBus.npc_left_shop.emit()
 			queue_free()
 	
 	play_animation()
@@ -126,3 +129,6 @@ func _on_area_2d_body_entered(body):
 func _on_area_2d_body_exited(body):
 	if body.is_in_group("player"):
 		self.z_index = -1
+
+func start_shopping():
+	EventBus.sell_mushroom.emit(requestet_mushroom)

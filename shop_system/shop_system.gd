@@ -4,14 +4,8 @@ extends Node
 var config: GlobalConfig = load("res://resources/global_config.tres")
 
 func _ready() -> void:
-	EventBus.sell_mushroom.connect(test)
+	EventBus.sell_mushroom.connect(sell_mushroom)
 
-func test():
-	var mushroom = get_mushroom_from_player()
-	if mushroom == null:
-		return
-	transfer_correct_mushroom(mushroom)
-	
 func sell_mushroom(requested_mushroom):
 	# Pilz erhalten
 	var mushroom = get_mushroom_from_player()

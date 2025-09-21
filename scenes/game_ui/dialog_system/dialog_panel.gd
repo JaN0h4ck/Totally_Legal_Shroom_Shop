@@ -31,7 +31,7 @@ func _input(event: InputEvent) -> void:
 			EventBus.dialog_ended.emit()
 			queue_free()
 	if event.is_action_pressed("interact"):
-		EventBus.sell_mushroom.emit()
+		EventBus.start_shopping.emit()
 
 func _start_dialog(text: String):
 	label.text = text

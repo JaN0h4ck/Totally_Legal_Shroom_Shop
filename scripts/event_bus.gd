@@ -61,6 +61,9 @@ signal load_shop()
 signal load_dungeon()
 
 ## Ausgelöst wenn der Spieler einen Pilz verkaufen möchte
+signal start_shopping()
+
+## Ausgelöst nach dem der Spieler etwas verkaufen möchte mit der Info welches der gewünschte Pilz ist
 signal sell_mushroom(requested_mushroom)
 
 ## Ausgelöst wenn der Kunde einen Pilz erhalten hat
@@ -137,6 +140,9 @@ func _on_load_fertilizer(fert_res : FertilizerRes, loaded_position : Vector2):
 
 func _on_load_mushroom(shroom_res : ShroomRes, saved_position : Vector2, saved_rotation : float, grow_stage : int, in_inventory : bool, inventory_position : int):
 	load_mushroom.emit(shroom_res, saved_position, saved_rotation, grow_stage, in_inventory, inventory_position)
+
+func _on_start_shopping():
+	start_shopping.emit()
 
 func _on_sell_mushroom(requested_mushroom):
 	sell_mushroom.emit(requested_mushroom)
