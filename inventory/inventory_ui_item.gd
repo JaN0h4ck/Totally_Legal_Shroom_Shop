@@ -13,6 +13,7 @@ var button_add_empty_text = "Add Shroom"
 var button_add_filled_text = "Add"
 var button_take_text = "Take"
 var slot_empty : bool = true
+var item_added : bool = true
 var mushroom
 var mushroom_dungeon_position : Vector2 = Vector2(-2003, -2003)
 
@@ -27,6 +28,7 @@ func _ready():
 	set_mushroom_global_position()
 	check_inventory()
 	take_button.text = button_take_text
+	item_added = false
 
 # Überprüfen ob Slot leer ist
 func check_inventory():
@@ -69,11 +71,16 @@ func remove_item():
 	item[0].add_to_player()
 	# Objekt entfernen
 	var _succes = Inventory.remove_mushroom_from_inventory_by_position(inventory_position)
+	item_added = false
 	
 	EventBus.inventory_updated.emit()
 
 ## Pilz zum Inventar an aktueller stelle hinzufügen
 func add_item():
+	# Nur 1 Pilz kann hinzugefügt werden
+	if item_added:
+		return
+	
 	# Schauen ob Spieler einen Pilz dabei hat
 	var player : Player = get_tree().get_first_node_in_group("player")
 	if player.carries_object:
@@ -97,6 +104,7 @@ func add_item():
 	mushroom.rotation = 0.0
 	mushroom.global_position = mushroom_global_positon
 	mushroom.global_rotation = mushroom_global_rotation
+	item_added = true
 	
 	EventBus.inventory_updated.emit()
 
