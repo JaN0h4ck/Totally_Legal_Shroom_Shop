@@ -12,7 +12,7 @@ func test():
 		return
 	transfer_correct_mushroom(mushroom)
 	
-func sell_mushroom(requested_mushroom : ShroomRes):
+func sell_mushroom(requested_mushroom):
 	# Pilz erhalten
 	var mushroom = get_mushroom_from_player()
 	if mushroom == null:
@@ -47,9 +47,11 @@ func transfer_wrong_mushroom(mushroom):
 ## Transferiert den Pilz vom Spieler zum Kunden
 func handle_transfer(mushroom):
 	var customer : base_npc = get_tree().get_first_node_in_group("npc")
-	if customer == null:
+	var player : Player = get_tree().get_first_node_in_group("player")
+	if customer == null or player == null:
+		print("Player: ", player, " or Customer: ", customer, " null")
 		return
 	mushroom.get_parent().remove_child(mushroom)
 	customer.object_place.add_child(mushroom)
-	print(mushroom.get_parent())
-	
+	player.carries_object = false
+	EventBus.order_complete.emit()
