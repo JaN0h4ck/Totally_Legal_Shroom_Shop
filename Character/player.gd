@@ -48,7 +48,11 @@ func _physics_process(delta: float):
 	if Input.is_action_just_pressed("drop_object") and carries_object:
 		EventBus.drop_object.emit()
 		carries_object = false
-
+	
+	if Input.is_key_pressed(KEY_1):
+		print("1")
+		EventBus.sell_mushroom.emit()
+	
 func get_buffered_direction() -> Vector2:
 	match current_direction:
 		GLOBALS.directions.NONE:

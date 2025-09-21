@@ -17,6 +17,8 @@ class_name base_npc
 
 @export var rarity : GLOBALS.rarity
 
+@onready var object_place: Node2D = $object_place
+
 var path_number : int
 var last_position : Vector2
 var movement : Vector2
