@@ -61,7 +61,10 @@ signal load_shop()
 signal load_dungeon()
 
 ## Ausgelöst wenn der Spieler einen Pilz verkaufen möchte
-signal sell_mushroom()
+signal sell_mushroom(requested_mushroom)
+
+## Ausgelöst wenn der Kunde einen Pilz erhalten hat
+signal order_complete()
 
 func _on_interact_customer():
 	interact_customer.emit()
@@ -135,5 +138,8 @@ func _on_load_fertilizer(fert_res : FertilizerRes, loaded_position : Vector2):
 func _on_load_mushroom(shroom_res : ShroomRes, saved_position : Vector2, saved_rotation : float, grow_stage : int, in_inventory : bool, inventory_position : int):
 	load_mushroom.emit(shroom_res, saved_position, saved_rotation, grow_stage, in_inventory, inventory_position)
 
-func _on_sell_mushroom():
-	sell_mushroom.emit()
+func _on_sell_mushroom(requested_mushroom):
+	sell_mushroom.emit(requested_mushroom)
+
+func _on_order_complete():
+	order_complete.emit()
