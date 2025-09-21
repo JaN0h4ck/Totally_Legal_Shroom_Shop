@@ -91,7 +91,20 @@ theme_override_constants/margin_bottom = 22
 layout_mode = 2
 texture = ExtResource("14_vbyli")
 
-[node name="InputPrompt" parent="VBoxContainer/HBoxContainer" instance=ExtResource("1_aby5p")]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 8
+alignment = 1
+
+[node name="InputPromptSell" parent="VBoxContainer/HBoxContainer/HBoxContainer" instance=ExtResource("1_aby5p")]
+custom_minimum_size = Vector2(200, 66)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 8
+text = "Sell"
+
+[node name="InputPrompt" parent="VBoxContainer/HBoxContainer/HBoxContainer" instance=ExtResource("1_aby5p")]
 custom_minimum_size = Vector2(200, 66)
 layout_mode = 2
 size_flags_horizontal = 10
