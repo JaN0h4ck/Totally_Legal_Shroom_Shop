@@ -34,6 +34,12 @@ func _input(event : InputEvent) -> void:
 func _ready() -> void:
 	super._ready()
 	animation_state_machine = $MenuAnimationTree.get("parameters/playback")
+	# Show Continue Button if Save File exists
+	if FileAccess.file_exists(SaveSystem.save_path):
+		%ContinueGameButton.visible = true
+	else:
+		%ContinueGameButton.visible = false
 
 func _on_continue_game_button_pressed() -> void:
+	SaveSystem.load_on_start = true
 	load_game_scene()

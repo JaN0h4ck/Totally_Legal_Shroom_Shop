@@ -25,6 +25,7 @@ ProjectUISoundController="*res://addons/maaacks_menus_template/base/scenes/autol
 InputDeviceMonitor="*res://scripts/input_device_monitor.gd"
 EventBus="*res://scripts/event_bus.gd"
 Inventory="*res://inventory/inventory.gd"
+SaveSystem="*res://save_system/save_system.gd"
 
 [display]
 

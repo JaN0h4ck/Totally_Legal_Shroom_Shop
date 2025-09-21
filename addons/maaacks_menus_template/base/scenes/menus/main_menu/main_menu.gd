@@ -75,6 +75,7 @@ func _ready() -> void:
 	_hide_new_game_if_unset()
 
 func _on_new_game_button_pressed() -> void:
+	SaveSystem.load_on_start = false
 	new_game()
 
 func _on_options_button_pressed() -> void:

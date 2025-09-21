@@ -1,12 +1,14 @@
 extends PauseMenu
 
 var player : Player
+var save_path : String = "user://savegame.tres"
+var load_on_start : bool = false
 
 func _ready() -> void:
-	player = get_tree().get_first_node_in_group("player")
-
+	pass
 
 func _save():
+	player = get_tree().get_first_node_in_group("player")
 	var saved_game : SavedGame = SavedGame.new()
 	# Variable auf Standard setzten
 	saved_game.npc_saved = false
@@ -53,14 +55,19 @@ func _save():
 		saved_game.mushroom_saved = true
 	
 	# Alles in Datei Schreiben
-	ResourceSaver.save(saved_game, "user://savegame.tres")
+	ResourceSaver.save(saved_game, save_path)
 	
 	# Pause Menü Schließen
 	close()
 
 
 func _load():
-	var saved_game : SavedGame = load("user://savegame.tres")
+	if not FileAccess.file_exists(save_path):
+		print("Save File not exists")
+		return
+	
+	player = get_tree().get_first_node_in_group("player")
+	var saved_game : SavedGame = load(save_path)
 	
 	# Spieler Sachen Setzen
 	player.global_position = saved_game.player_position

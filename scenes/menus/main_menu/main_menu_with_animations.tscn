@@ -381,7 +381,7 @@ text = "v1.0.2"
 modulate = Color(1, 1, 1, 0)
 
 [node name="TitleLabel" parent="MenuContainer/TitleMargin/TitleContainer" index="0"]
-text = "Completly Legal Shroomshop"
+text = "Completely Legal Shroomshop"
 
 [node name="SubTitleContainer" parent="MenuContainer/SubTitleMargin" index="0"]
 modulate = Color(1, 1, 1, 0)
@@ -397,7 +397,6 @@ lock = true
 
 [node name="ContinueGameButton" type="Button" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer" index="1"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 text = "Continue"
 
