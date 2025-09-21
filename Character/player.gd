@@ -110,6 +110,10 @@ func _select_idle_animation(dir: GLOBALS.directions, input_dir : GLOBALS.directi
 			sprite_animation.play("idle_left")
 	last_direction = dir
 
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_UNPAUSED:
+		current_direction = GLOBALS.directions.NONE
+		velocity = Vector2.ZERO
 
 func enter_basement():
 	current_in_shop = false
