@@ -14,19 +14,24 @@ func _ready() -> void:
 		queue_free()
 		return
 	EventBus.dialog_started.emit()
+	EventBus.order_complete.connect(_order_complete)
 
 func _input(event: InputEvent) -> void:
 	if not event.is_action_pressed("skip_dialogue"):
-		return
-	if tween and tween.is_valid(): 
-		_on_display_finished()
-		tween.kill()
-		label.visible_characters = -1
-		get_viewport().set_input_as_handled()
-	else: 
-		get_viewport().set_input_as_handled()
-		EventBus.dialog_ended.emit()
-		queue_free()
+		if not event.is_action_pressed("interact"):
+			return
+	if event.is_action_pressed("skip_dialogue"):
+		if tween and tween.is_valid(): 
+			_on_display_finished()
+			tween.kill()
+			label.visible_characters = -1
+			get_viewport().set_input_as_handled()
+		else: 
+			get_viewport().set_input_as_handled()
+			EventBus.dialog_ended.emit()
+			queue_free()
+	if event.is_action_pressed("interact"):
+		EventBus.start_shopping.emit()
 
 func _start_dialog(text: String):
 	label.text = text
@@ -39,3 +44,8 @@ func _start_dialog(text: String):
 
 func _on_display_finished():
 	dialog_audio.stop_playback()
+
+func _order_complete():
+	get_viewport().set_input_as_handled()
+	EventBus.dialog_ended.emit()
+	queue_free()

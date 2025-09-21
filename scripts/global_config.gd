@@ -26,3 +26,9 @@ class_name GlobalConfig
 @export var ultra_rare_mushroom_grow_time_stage_1 : float = 10.0
 ## Wie lange in Sekunden brauchen Common Pilze um vom mittleren ins endgültige Wachstumsstadium zu wechseln
 @export var ultra_rare_mushroom_grow_time_stage_2 : float = 10.0
+
+@export_category("Customer")
+## Ob Kunden nur den gewünschten Pilz kaufen
+@export var customers_only_accept_requested : bool = false
+## In Prozent wieviel Geld es für den falschen Pilz gibt
+@export var money_percent_wrong_mushroom : float = 33

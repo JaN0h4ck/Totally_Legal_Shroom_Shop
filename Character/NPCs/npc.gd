@@ -7,6 +7,7 @@ class_name base_npc
 @onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
 
 @export var portrait: Texture2D
+@export var requestet_mushroom : ShroomRes
 @export var lines: Array[String]
 @export var path : Path2D
 @export var path_follow : PathFollow2D
@@ -17,6 +18,8 @@ class_name base_npc
 
 @export var rarity : GLOBALS.rarity
 
+@onready var object_place: Node2D = $object_place
+
 var path_number : int
 var last_position : Vector2
 var movement : Vector2
@@ -26,7 +29,10 @@ var falling : bool = false
 
 var on_trapdoor : bool = false
 
+var want_to_exit_shop : bool = false
+
 func _ready() -> void:
+	want_to_exit_shop = false
 	path_follow.loop = loop_path
 	global_position = path_follow.global_position
 	last_position = global_position
@@ -34,13 +40,25 @@ func _ready() -> void:
 	EventBus.npc_entered_trapdoor.connect(enter_trapdoor)
 	EventBus.npc_left_trapdoor.connect(exit_trapdoor)
 	EventBus.interact_lever.connect(start_falling)
+	EventBus.start_shopping.connect(start_shopping)
+	EventBus.order_complete.connect(exit_shop)
 
 
 func _physics_process(delta : float) -> void:
-	path_follow.progress += move_speed * delta
-	global_position = path_follow.global_position
+	if not want_to_exit_shop:
+		path_follow.progress += move_speed * delta
+		global_position = path_follow.global_position
+	else:
+		path_follow.progress -= move_speed * delta
+		global_position = path_follow.global_position
+		
+		if path_follow.progress <= 0:
+			get_parent().remove_child(self)
+			EventBus.npc_left_shop.emit()
+			queue_free()
 	
 	play_animation()
+
 
 func is_moving() -> bool:
 	return not is_zero_approx(movement.length())
@@ -97,6 +115,11 @@ func fall_down():
 	EventBus.npc_dropped.emit(npc_name)
 	queue_free()
 
+func exit_shop():
+	path = get_tree().get_first_node_in_group("npc_exit_path2d")
+	path_follow = get_tree().get_first_node_in_group("npc_exit_followpath2d")
+	path_follow.progress = path.curve.get_baked_length()
+	want_to_exit_shop = true
 
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("player"):
@@ -106,3 +129,6 @@ func _on_area_2d_body_entered(body):
 func _on_area_2d_body_exited(body):
 	if body.is_in_group("player"):
 		self.z_index = -1
+
+func start_shopping():
+	EventBus.sell_mushroom.emit(requestet_mushroom)
