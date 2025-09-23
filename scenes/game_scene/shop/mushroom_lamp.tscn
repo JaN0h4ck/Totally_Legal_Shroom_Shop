@@ -3,8 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://b400vifpmcrkf" path="res://assets/store/mushroom_lamp.PNG" id="1_7wo88"]
 
 [sub_resource type="Gradient" id="Gradient_whber"]
-offsets = PackedFloat32Array(0, 0.772727)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.5504587, 0.6, 0.65, 0.7, 0.75)
+colors = PackedColorArray(1, 1, 1, 1, 0.93333334, 0.93333334, 0.93333334, 1, 0.8666667, 0.8666667, 0.8666667, 1, 0.8, 0.8, 0.8, 1, 0.73333335, 0.73333335, 0.73333335, 1, 0.6666667, 0.6666667, 0.6666667, 1, 0.6, 0.6, 0.6, 1, 0.53333336, 0.53333336, 0.53333336, 1, 0.46666667, 0.46666667, 0.46666667, 1, 0.4, 0.4, 0.4, 1, 0.33333334, 0.33333334, 0.33333334, 1, 0.26666668, 0.26666668, 0.26666668, 1, 0.2, 0.2, 0.2, 1, 0.13333334, 0.13333334, 0.13333334, 1, 0.06666667, 0.06666667, 0.06666667, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_f3u2c"]
 gradient = SubResource("Gradient_whber")
@@ -21,6 +22,7 @@ z_as_relative = false
 texture = ExtResource("1_7wo88")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
+texture_filter = 1
 position = Vector2(0, -12)
 color = Color(1, 1, 0.682353, 1)
 energy = 0.7
