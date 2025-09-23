@@ -40,12 +40,12 @@ basement_camera = NodePath("Basement_Camera2D")
 position = Vector2(31, -39)
 
 [node name="Shop_Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(5, 5)
+zoom = Vector2(6, 6)
 
 [node name="Basement_Camera2D" type="Camera2D" parent="."]
-position = Vector2(0, 160)
+position = Vector2(0, 155)
 enabled = false
-zoom = Vector2(5, 5)
+zoom = Vector2(6.5, 6.5)
 
 [node name="Shroom_Display" type="Node2D" parent="."]
 script = ExtResource("2_4t1xn")
