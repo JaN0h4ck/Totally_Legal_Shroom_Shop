@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://31fnvnrufja0"]
+[gd_scene load_steps=13 format=3 uid="uid://31fnvnrufja0"]
 
 [ext_resource type="Texture2D" uid="uid://cmikvgcymv5sy" path="res://assets/dungeon/wood_chipper.PNG" id="1_n3a2q"]
 [ext_resource type="Script" uid="uid://c6f57qoocin2f" path="res://crush_system/crush_system.gd" id="1_rngt7"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://clfjovnhmnf5o" path="res://crush_system/crusher_interactable.gd" id="4_rngt7"]
 [ext_resource type="Script" uid="uid://bgbin7gj2ng25" path="res://crush_system/interactable_crusher_upgrade.gd" id="5_ak6ij"]
 [ext_resource type="Script" uid="uid://bal076km60707" path="res://spawn_system/fertilizer_spawn_system.gd" id="5_f6dsx"]
+[ext_resource type="AudioStream" uid="uid://dpqw3nyt4kkhg" path="res://Audio/Originals/SFX/BASEMENT INTERACTIONS/Human_gets_Eaten.wav" id="7_bftoc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2bcuf"]
 size = Vector2(15, 23)
@@ -84,6 +85,12 @@ position = Vector2(-15, -1)
 [node name="fertillizer_point" type="Node2D" parent="."]
 position = Vector2(14.5, -1)
 script = ExtResource("5_f6dsx")
+
+[node name="CrushSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_bftoc")
+max_distance = 120.0
+attenuation = 0.5
+bus = &"SFX"
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="player_interacted" from="Interactable" to="Interactable" method="_on_player_interacted"]

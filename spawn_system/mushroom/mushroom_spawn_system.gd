@@ -38,10 +38,10 @@ func _ready():
 	add_mushroom_to_array(mushroom_resource_enoki)
 
 ## Legt werte fest und erzeugt den Pilz
-func spawn_mushroom_seed(location: Vector2):
+func spawn_mushroom_seed(location: Vector2) -> bool:
 	# Schauen ob dort bereits ein Pilz ist
 	if get_position_value(location):
-		return
+		return false
 	current_position = location
 	set_position_value(location, true)
 	#print("interacted at ", location)
@@ -49,9 +49,10 @@ func spawn_mushroom_seed(location: Vector2):
 	if not check[0]:
 		if config.grow_without_fertilizer:
 			create_mushroom(GLOBALS.rarity.common, location)
+			return true
 		else:
 			print("no fertilizer")
-		return
+		return false
 	else:
 		var player: Player = get_tree().get_first_node_in_group("player")
 		var fertilizer: PickableFertilizer = player.object_place.get_child(check[1])
@@ -59,6 +60,7 @@ func spawn_mushroom_seed(location: Vector2):
 		create_mushroom(fertilizer_rarity, location)
 		#print("Fertilizer Rarity: ", fertilizer_rarity)
 		use_fertilizer(fertilizer)
+		return true
 
 ## Schaut ob der Spieler mommentan Dünger in der Hand hat
 func check_if_player_has_fertilizer():

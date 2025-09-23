@@ -9,9 +9,14 @@ const textures: Array[CompressedTexture2D] = [
 	preload("uid://dqxharekt6m2e"),preload("uid://k4h3c6lkv6x7"),preload("uid://ca378m63vayl7"),preload("uid://b66luvs300b8j")
 ]
 
+const HARVEST_STREAM = preload("uid://cfenxlcjrlty0")
+const PLANTING_STREAM = preload("uid://btqie872gml3s")
+
 var sprite: Sprite2D
 
 var shroom : PickableMushroom = null
+
+@onready var audio_stream_player: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 func _ready():
 	super()
@@ -31,7 +36,9 @@ func remove_outline(_arg1):
 
 func _on_player_interacted():
 	var parent : mushroom_spawn_system = get_parent()
-	parent.spawn_mushroom_seed(global_position)
+	if parent.spawn_mushroom_seed(global_position):
+		audio_stream_player.stream = PLANTING_STREAM
+		audio_stream_player.play()
 
 func _on_body_entered(body: Node2D):
 	super(body)
@@ -47,3 +54,5 @@ func _on_shroom_pickup():
 	sprite.texture = textures[randi_range(0, textures.size()-1)]
 	shroom.picked_up.disconnect(_on_shroom_pickup)
 	shroom = null
+	audio_stream_player.stream = HARVEST_STREAM
+	audio_stream_player.play()
