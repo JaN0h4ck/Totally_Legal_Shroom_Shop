@@ -17,9 +17,8 @@ func _ready() -> void:
 	EventBus.order_complete.connect(_order_complete)
 
 func _input(event: InputEvent) -> void:
-	if not event.is_action_pressed("skip_dialogue"):
-		if not event.is_action_pressed("interact"):
-			return
+	if not event.is_action_pressed("skip_dialogue") and not event.is_action_pressed("interact"):
+		return
 	if event.is_action_pressed("skip_dialogue"):
 		if tween and tween.is_valid(): 
 			_on_display_finished()
