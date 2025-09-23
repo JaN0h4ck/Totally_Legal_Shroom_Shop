@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b01iddiha7bx5"]
+[gd_scene load_steps=15 format=3 uid="uid://b01iddiha7bx5"]
 
 [ext_resource type="Script" uid="uid://dc1cmf14215gd" path="res://scenes/lexicon/lexicon.gd" id="1_vrdv1"]
 [ext_resource type="Texture2D" uid="uid://ccdj3emtu8dui" path="res://assets/store/lexikon_background.png" id="2_xfiod"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://crkrnnuesvhh7" path="res://assets/new_lexikon_pages/OysterLexikon.png" id="3_xfiod"]
 [ext_resource type="Texture2D" uid="uid://cphkdjegr07cn" path="res://assets/new_lexikon_pages/ShiitakeLexikon.png" id="4_es17b"]
 [ext_resource type="Texture2D" uid="uid://cjxotdlq0hlfp" path="res://assets/new_lexikon_pages/FlyAgaricLexikon.png" id="5_46tc4"]
+[ext_resource type="AudioStream" uid="uid://bnpjaghxcx7g2" path="res://Audio/Originals/SFX/UPPER ROOM INTERACTIONS/Book_Page_Turn.wav" id="7_xfiod"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_etx67"]
 atlas = ExtResource("2_xpl52")
@@ -122,3 +123,8 @@ animation = &"Page9"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.5, 0.5)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_xfiod")
+volume_db = -2.0
+bus = &"SFX"
