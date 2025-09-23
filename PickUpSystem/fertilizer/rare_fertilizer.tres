@@ -1,12 +1,11 @@
 [gd_resource type="Resource" script_class="FertilizerRes" load_steps=3 format=3 uid="uid://m02o17sce225"]
 
 [ext_resource type="Script" uid="uid://cfplqtq1yxo12" path="res://PickUpSystem/fertilizer/PickableFertRes.gd" id="1_8hynr"]
-[ext_resource type="Texture2D" uid="uid://2uneskrnyka1" path="res://assets/dungeon/fertilizer/fertilizer_orange.png" id="1_nnqg0"]
+[ext_resource type="Texture2D" uid="uid://bx4fxhyss5527" path="res://assets/dungeon/fertilizer/fertilizer_orange.tres" id="1_gsi25"]
 
 [resource]
 script = ExtResource("1_8hynr")
-base_texture = ExtResource("1_nnqg0")
+base_texture = ExtResource("1_gsi25")
 interact_box_size = Vector2(14, 15)
-pickup_time = 0.3
 rarity = 1
 metadata/_custom_type_script = "uid://cfplqtq1yxo12"
