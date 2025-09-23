@@ -55,6 +55,7 @@ func _physics_process(delta : float) -> void:
 		if path_follow.progress <= 0.1:
 			get_parent().remove_child(self)
 			EventBus.npc_left_shop.emit()
+			EventBus.npc_left_unharmed.emit()
 			queue_free()
 	
 	play_animation()

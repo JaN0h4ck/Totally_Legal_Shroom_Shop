@@ -7,7 +7,7 @@ var money: int = 0
 
 func _ready() -> void:
 	EventBus.npc_dropped.connect(npc_killed)
-	EventBus.order_complete.connect(complete_customer_order)
+	EventBus.npc_left_unharmed.connect(complete_customer_order)
 	EventBus.update_money.connect(update_money)
 
 ## Kill anzahl erhöhen
