@@ -2,22 +2,24 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdlpb63hi606r"
-path="res://.godot/imported/Theken.PNG-b88495e19abae78c97b864dfa7649bb1.ctex"
+uid="uid://bv1j7ohloeqsp"
+path="res://.godot/imported/Theke_left.png-c614cf2207b9f226fa5b34d065f7ffce.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/store/Theken.PNG"
-dest_files=["res://.godot/imported/Theken.PNG-b88495e19abae78c97b864dfa7649bb1.ctex"]
+source_file="res://assets/store/originals/Theke_left.png"
+dest_files=["res://.godot/imported/Theke_left.png-c614cf2207b9f226fa5b34d065f7ffce.ctex"]
 
 [params]
 
 compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
+compress/uastc_level=0
+compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
@@ -25,6 +27,10 @@ mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
+process/channel_remap/red=0
+process/channel_remap/green=1
+process/channel_remap/blue=2
+process/channel_remap/alpha=3
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false

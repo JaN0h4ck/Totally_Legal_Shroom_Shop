@@ -1,8 +1,19 @@
-[gd_scene load_steps=11 format=3 uid="uid://dvvpcdcq4i0gr"]
+[gd_scene load_steps=16 format=3 uid="uid://dvvpcdcq4i0gr"]
 
-[ext_resource type="Texture2D" uid="uid://bdlpb63hi606r" path="res://assets/store/Theken.PNG" id="1_0o3k0"]
+[ext_resource type="Texture2D" uid="uid://bv1j7ohloeqsp" path="res://assets/store/originals/Theke_left.png" id="1_3ndii"]
 [ext_resource type="Script" uid="uid://csgglkk7yra66" path="res://scenes/game_scene/scripts/interactable_mushroom_theke.gd" id="2_bfhk3"]
+[ext_resource type="Texture2D" uid="uid://cjnov1d8f8eck" path="res://assets/store/originals/Theke_left_n.png" id="2_yk1t4"]
 [ext_resource type="Script" uid="uid://dwvlbfvvx22b3" path="res://scenes/game_scene/scripts/interactable_customer.gd" id="3_0cdgy"]
+[ext_resource type="Texture2D" uid="uid://djyq3wmuvg8ia" path="res://assets/store/originals/Theke_right.png" id="3_xghkk"]
+[ext_resource type="Texture2D" uid="uid://belgfffvjfvmi" path="res://assets/store/originals/Theke_right_n.png" id="4_u2bdo"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_kymah"]
+diffuse_texture = ExtResource("1_3ndii")
+normal_texture = ExtResource("2_yk1t4")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_2ukm1"]
+diffuse_texture = ExtResource("3_xghkk")
+normal_texture = ExtResource("4_u2bdo")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f3u2c"]
 size = Vector2(45, 24)
@@ -26,12 +37,20 @@ size = Vector2(10, 23)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_40ceo"]
 size = Vector2(22.5, 10)
 
-[node name="theke" type="Sprite2D"]
+[node name="theke" type="Node2D"]
 z_index = -5
 z_as_relative = false
-texture = ExtResource("1_0o3k0")
+
+[node name="Theke_Left" type="Sprite2D" parent="."]
+position = Vector2(-50, -21)
+texture = SubResource("CanvasTexture_kymah")
+
+[node name="Theke_Right" type="Sprite2D" parent="."]
+position = Vector2(43, 16)
+texture = SubResource("CanvasTexture_2ukm1")
 
 [node name="theke_collision" type="StaticBody2D" parent="."]
+visible = false
 
 [node name="mushroom_top" type="CollisionShape2D" parent="theke_collision"]
 position = Vector2(-39.5, -37)
