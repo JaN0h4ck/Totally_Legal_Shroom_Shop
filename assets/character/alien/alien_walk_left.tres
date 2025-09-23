@@ -1,0 +1,8 @@
+[gd_resource type="CanvasTexture" load_steps=3 format=3 uid="uid://bx6i4mdbim4gx"]
+
+[ext_resource type="Texture2D" uid="uid://brvi08j56fmi1" path="res://assets/character/alien/originals/alien_walk__left.png" id="1_1psq1"]
+[ext_resource type="Texture2D" uid="uid://dayn7orvlgbey" path="res://assets/character/alien/originals/alien_walk__left_n.png" id="2_77hg6"]
+
+[resource]
+diffuse_texture = ExtResource("1_1psq1")
+normal_texture = ExtResource("2_77hg6")
