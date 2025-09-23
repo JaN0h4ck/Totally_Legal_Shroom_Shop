@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://g8kplgf6yjna"]
+[gd_scene load_steps=5 format=3 uid="uid://g8kplgf6yjna"]
 
 [ext_resource type="Texture2D" uid="uid://cq5v5cibhp06h" path="res://assets/store/lever.PNG" id="1_ayavf"]
 [ext_resource type="Script" uid="uid://c2l4ylg5d41ix" path="res://scenes/game_scene/scripts/interactable_lever.gd" id="2_mqmlv"]
+[ext_resource type="AudioStream" uid="uid://cv4rcnl444dwq" path="res://Audio/Originals/SFX/UPPER ROOM INTERACTIONS/Lever_Pull.wav" id="3_mqmlv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f35hg"]
 size = Vector2(11, 13)
@@ -21,5 +22,12 @@ metadata/_custom_type_script = "uid://b1kccbwcfiryn"
 visible = false
 position = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_f35hg")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_mqmlv")
+volume_db = 2.0
+max_distance = 120.0
+attenuation = 0.5
+bus = &"SFX"
 
 [connection signal="player_interacted" from="interactable_lever" to="interactable_lever" method="_on_player_interacted"]

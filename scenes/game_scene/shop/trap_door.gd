@@ -1,6 +1,10 @@
 extends AnimatedSprite2D
-@onready var timer : Timer = $Timer
 
+const TRAPDOOR_OPEN = preload("uid://6iqip6btc1qb")
+const TRAPDOOR_CLOSE = preload("uid://yfurfc6tl07b")
+
+@onready var timer : Timer = $Timer
+@onready var audio_stream_player: AudioStreamPlayer2D = $AudioStreamPlayer2D
 var npc_on_trapdoor : bool = false
 
 func _ready():
@@ -9,12 +13,16 @@ func _ready():
 func open():
 	if not npc_on_trapdoor:
 		return
-	
-	$".".play("open")
+		
+	play("open")
+	audio_stream_player.stream = TRAPDOOR_OPEN
+	audio_stream_player.play()
 	timer.start()
 
 func close():
-	$".".play("close")
+	play("close")
+	audio_stream_player.stream = TRAPDOOR_CLOSE
+	audio_stream_player.play()
 
 
 func _on_timer_timeout():

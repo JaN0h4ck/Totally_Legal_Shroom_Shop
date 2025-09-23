@@ -16,3 +16,4 @@ func hide_outline(_arg):
 
 func _on_player_interacted():
 	EventBus.interact_lever.emit()
+	$"../AudioStreamPlayer2D".play()
