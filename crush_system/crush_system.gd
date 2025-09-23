@@ -53,5 +53,6 @@ func crush_corpse(corpse : PickableCorpse):
 ## Gibt an den EventBus anzweisung um passenden Dünger zu erstellen
 func create_fertilizer(corpse : PickableCorpse):
 	var corpse_rarity : GLOBALS.rarity = corpse.corpse_res.rarity
-	EventBus.spawn_fertilizer.emit(fertillizer_point.global_position, corpse_rarity)
-	#print("Spawn fertilizer")
+	# Erstellt so viel Dünger wie hoch das Level des Crushers ist
+	for amount in range (GameStats.crusher_level):
+		EventBus.spawn_fertilizer.emit(fertillizer_point.global_position, corpse_rarity)
