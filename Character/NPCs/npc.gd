@@ -52,7 +52,7 @@ func _physics_process(delta : float) -> void:
 		path_follow.progress -= move_speed * delta
 		global_position = path_follow.global_position
 		
-		if path_follow.progress <= 0:
+		if path_follow.progress <= 0.1:
 			get_parent().remove_child(self)
 			EventBus.npc_left_shop.emit()
 			queue_free()
