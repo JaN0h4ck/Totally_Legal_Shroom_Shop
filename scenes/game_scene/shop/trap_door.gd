@@ -24,8 +24,8 @@ func close():
 	audio_stream_player.stream = TRAPDOOR_CLOSE
 	audio_stream_player.play()
 
-
 func _on_timer_timeout():
+	$FallSoundPlayer.play()
 	close()
 
 

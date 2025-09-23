@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://c7fbbmrlf6j6v"]
+[gd_scene load_steps=8 format=3 uid="uid://c7fbbmrlf6j6v"]
 
 [ext_resource type="Texture2D" uid="uid://py2p3dogsygq" path="res://assets/store/trap_door/trap_door_open.PNG" id="1_n7qbj"]
 [ext_resource type="Texture2D" uid="uid://bg6w3ec8exit8" path="res://assets/store/trap_door/trap_door_half_open.PNG" id="2_10utn"]
 [ext_resource type="Texture2D" uid="uid://buc8mqoeberfa" path="res://assets/store/trap_door/trap_door_closed.PNG" id="3_bfsj5"]
 [ext_resource type="Script" uid="uid://ckmgqyiaqu12d" path="res://scenes/game_scene/shop/trap_door.gd" id="4_n7qbj"]
+[ext_resource type="AudioStream" uid="uid://bp2r55h6iesn" path="res://Audio/Originals/SFX/UPPER ROOM INTERACTIONS/Human_Fall_Flat.wav" id="5_10utn"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_65kuu"]
 animations = [{
@@ -64,6 +65,12 @@ one_shot = true
 shape = SubResource("RectangleShape2D_n7qbj")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+max_distance = 120.0
+attenuation = 0.5
+bus = &"SFX"
+
+[node name="FallSoundPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_10utn")
 max_distance = 120.0
 attenuation = 0.5
 bus = &"SFX"
