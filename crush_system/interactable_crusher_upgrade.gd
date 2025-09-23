@@ -1,22 +1,7 @@
 extends Interactable
 
-@onready var wood_chipper: crush_system = $".."
-@onready var fertillizer_point: Node2D = $"../fertillizer_point"
-@onready var interact_crusher: Interactable = $"."
-
-var new_parent
-
-func _ready():
-	super()
-
-func _physics_process(_delta: float):
-	var fertilizer_nodes = get_tree().get_nodes_in_group("pickable_fertilizer")
-	for node : Node2D in fertilizer_nodes:
-		if node.global_position == fertillizer_point.global_position:
-			new_parent = get_tree().get_first_node_in_group("paused_nodes")
-		else:
-			new_parent = get_tree().get_first_node_in_group("wood_chipper")
-		call_deferred("reparent", new_parent, false)
+## Globale Config Ressource
+var config: GlobalConfig = load("res://resources/global_config.tres")
 
 func check_if_player_has_corpse(player : Player):
 	for child in player.object_place.get_children():
@@ -24,8 +9,12 @@ func check_if_player_has_corpse(player : Player):
 			return true
 	return false
 
+func player_has_enough_money():
+	var needed_money : int = UpgradeSystem.calculate_upgrade_costs(config.first_upgrade_costs_crusher, config.upgrade_price_increase_crusher)
+	return UpgradeSystem.check_if_player_has_enough_money(needed_money)
+
 func _on_player_interacted():
-	wood_chipper.on_corpse_handed_over()
+	EventBus.crusher_upgrade.emit()
 
 func _on_body_entered(body: Node2D):
 	if(body.is_in_group(&"player")):
@@ -37,7 +26,9 @@ func _on_body_entered(body: Node2D):
 				player.interactable_queue.pop_front()
 				player.is_inside_interactable = false  # setter triggers validation proccess of queue
 			return
-		if not check_if_player_has_corpse(player):
+		if check_if_player_has_corpse(player):
+			return
+		if not player_has_enough_money():
 			return
 		player_entered.emit(interact_prompt, name)
 		player.is_inside_interactable = true

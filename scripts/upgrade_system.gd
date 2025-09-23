@@ -25,6 +25,7 @@ func upgrade_crusher():
 	# Wenn möglich, Crusher Level erhöhen
 	if upgrade_success:
 		GameStats.crusher_level += 1
+		print("Upgrade Successfull, Crusher now Level ", GameStats.crusher_level, ", Money left: ", GameStats.money)
 
 ## Zieht dem Spieler das Geld für das Upgrade ab, falls das Upgrade möglich ist
 func upgrade_object(object_current_level : int, object_has_level_limit : bool, object_max_level : int, object_first_upgrade_cost : int, object_upgrade_price_increase : float):
@@ -36,9 +37,11 @@ func upgrade_object(object_current_level : int, object_has_level_limit : bool, o
 		print("Max Level Reached")
 		return false
 	
-	# Ausrechnen wie viel Upgrade kostet und ob Spieler genügend Geld hat
-	calculate_upgrade_costs(object_first_upgrade_cost, object_upgrade_price_increase)
-	if not check_if_player_has_enough_money():
+	# Ausrechnen wie viel Upgrade kostet
+	upgrade_costs = calculate_upgrade_costs(object_first_upgrade_cost, object_upgrade_price_increase)
+	
+	# Schauen ob Spieler genügend hat
+	if not check_if_player_has_enough_money(upgrade_costs):
 		print("Player has not enough Money")
 		return false
 	
@@ -49,11 +52,11 @@ func upgrade_object(object_current_level : int, object_has_level_limit : bool, o
 ## Erzeugt Upgrade Costen als Int
 func calculate_upgrade_costs(first_upgrade_costs, upgrade_price_increase):
 	# Beispiel Level 2 zu Level 3: Kosten = 10 + (10 * (30% * 2))
-	upgrade_costs = int(first_upgrade_costs + (first_upgrade_costs * ((upgrade_price_increase / 100) * current_level)))
+	return int(first_upgrade_costs + (first_upgrade_costs * ((upgrade_price_increase / 100) * current_level)))
 
 ## Schaut ob Spieler genügend Geld hat, gibt bool zurück
-func check_if_player_has_enough_money():
-	if GameStats.money >= upgrade_costs:
+func check_if_player_has_enough_money(needed_money : int):
+	if GameStats.money >= needed_money:
 		return true
 	else:
 		return false
