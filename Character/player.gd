@@ -90,6 +90,8 @@ func get_buffered_direction() -> Vector2:
 
 func _on_dialogue_started():
 	block_input = true
+	current_direction = GLOBALS.directions.NONE
+	velocity = Vector2.ZERO
 
 func _on_dialogue_ended():
 	block_input = false
