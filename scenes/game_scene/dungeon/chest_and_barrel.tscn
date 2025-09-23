@@ -1,9 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://d1cmt6tktxlt3"]
+[gd_scene load_steps=15 format=3 uid="uid://d1cmt6tktxlt3"]
 
 [ext_resource type="Shader" uid="uid://cixrxdx4xtfdp" path="res://scripts/shaders/drop_shadow.gdshader" id="1_mkqkk"]
-[ext_resource type="Texture2D" uid="uid://c2bunm23f5bcb" path="res://assets/dungeon/dungeon_barrel.PNG" id="2_fiqy0"]
-[ext_resource type="Texture2D" uid="uid://bqxpw7dx16l1d" path="res://assets/dungeon/dungeon_chest.PNG" id="3_xafqp"]
+[ext_resource type="Texture2D" uid="uid://c2bunm23f5bcb" path="res://assets/dungeon/originals/dungeon_barrel.PNG" id="2_fiqy0"]
+[ext_resource type="Texture2D" uid="uid://ds50bmuu731b3" path="res://assets/dungeon/originals/dungeon_barrel_n.png" id="3_qola0"]
+[ext_resource type="Texture2D" uid="uid://bqxpw7dx16l1d" path="res://assets/dungeon/originals/dungeon_chest.PNG" id="3_xafqp"]
+[ext_resource type="Texture2D" uid="uid://bm6xkq70sxlkg" path="res://assets/dungeon/originals/dungeon_barrel_s.png" id="4_0ae8s"]
 [ext_resource type="Script" uid="uid://dyxxph4au7mu4" path="res://scenes/game_scene/scripts/interactable_chest_and_barrel.gd" id="4_fiqy0"]
+[ext_resource type="Texture2D" uid="uid://ijvfjjrvg8xm" path="res://assets/dungeon/originals/dungeon_chest_n.png" id="6_dwkii"]
+[ext_resource type="Texture2D" uid="uid://bj6jm21grkdp7" path="res://assets/dungeon/originals/dungeon_chest_s.png" id="7_7ghdw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_uf2vu"]
 shader = ExtResource("1_mkqkk")
@@ -15,6 +19,12 @@ shader_parameter/blur_amount = 1.0
 shader_parameter/shadow_scale = 1.5
 shader_parameter/disable_rotating = false
 
+[sub_resource type="CanvasTexture" id="CanvasTexture_saurp"]
+diffuse_texture = ExtResource("2_fiqy0")
+normal_texture = ExtResource("3_qola0")
+specular_texture = ExtResource("4_0ae8s")
+specular_shininess = 0.3
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_j3unq"]
 shader = ExtResource("1_mkqkk")
 shader_parameter/debug = false
@@ -24,6 +34,12 @@ shader_parameter/color = Color(0, 0, 0, 1)
 shader_parameter/blur_amount = 1.0
 shader_parameter/shadow_scale = 1.5
 shader_parameter/disable_rotating = false
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_lhpve"]
+diffuse_texture = ExtResource("3_xafqp")
+normal_texture = ExtResource("6_dwkii")
+specular_texture = ExtResource("7_7ghdw")
+specular_shininess = 0.5
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0sevn"]
 size = Vector2(30, 8)
@@ -40,14 +56,14 @@ z_index = -5
 z_as_relative = false
 material = SubResource("ShaderMaterial_uf2vu")
 position = Vector2(-1, -3)
-texture = ExtResource("2_fiqy0")
+texture = SubResource("CanvasTexture_saurp")
 
 [node name="dungeon_chest" type="Sprite2D" parent="."]
 z_index = -5
 z_as_relative = false
 material = SubResource("ShaderMaterial_j3unq")
 position = Vector2(15, 0)
-texture = ExtResource("3_xafqp")
+texture = SubResource("CanvasTexture_lhpve")
 
 [node name="chest_and_barrel_body" type="StaticBody2D" parent="."]
 visible = false
