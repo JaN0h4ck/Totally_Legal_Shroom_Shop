@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b4r1rx3y0kcdn"]
+[gd_scene load_steps=13 format=3 uid="uid://b4r1rx3y0kcdn"]
 
 [ext_resource type="Script" uid="uid://caarja1bexjx8" path="res://scenes/game_scene/scripts/main.gd" id="1_bt4sa"]
 [ext_resource type="PackedScene" uid="uid://d0o5dug26555l" path="res://Character/player.tscn" id="1_ycr2w"]
@@ -26,6 +26,12 @@ Vector2i(-1, -1): {
 "to_time": 2
 }
 }
+
+[sub_resource type="Gradient" id="Gradient_0bg0g"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_q28bu"]
+gradient = SubResource("Gradient_0bg0g")
 
 [node name="Main" type="Node2D" node_paths=PackedStringArray("basement_position", "shop_position", "shop_camera", "basement_camera")]
 script = ExtResource("1_bt4sa")
@@ -91,3 +97,9 @@ bus = &"Music"
 [node name="paused_nodes" type="Node2D" parent="." groups=["paused_nodes"]]
 editor_description = "Node an die alle Nodes angehängt werden die aktuell Pausiert sein sollen"
 position = Vector2(-323, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -100
+position = Vector2(0, -80)
+scale = Vector2(1, 334)
+texture = SubResource("GradientTexture1D_q28bu")
