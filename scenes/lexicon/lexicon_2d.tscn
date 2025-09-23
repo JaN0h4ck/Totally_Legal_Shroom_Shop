@@ -1,0 +1,124 @@
+[gd_scene load_steps=14 format=3 uid="uid://b01iddiha7bx5"]
+
+[ext_resource type="Script" uid="uid://dc1cmf14215gd" path="res://scenes/lexicon/lexicon.gd" id="1_vrdv1"]
+[ext_resource type="Texture2D" uid="uid://ccdj3emtu8dui" path="res://assets/store/lexikon_background.png" id="2_xfiod"]
+[ext_resource type="Texture2D" uid="uid://dnogg28bv4bwt" path="res://assets/ButtonLexikon-sheet.png" id="2_xpl52"]
+[ext_resource type="Texture2D" uid="uid://crkrnnuesvhh7" path="res://assets/new_lexikon_pages/OysterLexikon.png" id="3_xfiod"]
+[ext_resource type="Texture2D" uid="uid://cphkdjegr07cn" path="res://assets/new_lexikon_pages/ShiitakeLexikon.png" id="4_es17b"]
+[ext_resource type="Texture2D" uid="uid://cjxotdlq0hlfp" path="res://assets/new_lexikon_pages/FlyAgaricLexikon.png" id="5_46tc4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_etx67"]
+atlas = ExtResource("2_xpl52")
+region = Rect2(0, 0, 1680, 1190)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c6ilk"]
+atlas = ExtResource("2_xpl52")
+region = Rect2(1680, 0, 1680, 1190)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ihle"]
+atlas = ExtResource("2_xpl52")
+region = Rect2(3360, 0, 1680, 1190)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_upreb"]
+atlas = ExtResource("2_xpl52")
+region = Rect2(5040, 0, 1680, 1190)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uitdy"]
+atlas = ExtResource("2_xpl52")
+region = Rect2(6720, 0, 1680, 1190)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ngwnk"]
+atlas = ExtResource("2_xpl52")
+region = Rect2(8400, 0, 1680, 1190)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_shews"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_etx67")
+}],
+"loop": true,
+"name": &"Page1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c6ilk")
+}],
+"loop": true,
+"name": &"Page2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_xfiod")
+}],
+"loop": true,
+"name": &"Page3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_es17b")
+}],
+"loop": true,
+"name": &"Page4",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_46tc4")
+}],
+"loop": true,
+"name": &"Page5",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ihle")
+}],
+"loop": true,
+"name": &"Page6",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_upreb")
+}],
+"loop": true,
+"name": &"Page7",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uitdy")
+}],
+"loop": true,
+"name": &"Page8",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ngwnk")
+}],
+"loop": true,
+"name": &"Page9",
+"speed": 5.0
+}]
+
+[node name="Lexicon" type="Node2D"]
+process_mode = 2
+script = ExtResource("1_vrdv1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_xfiod")
+region_rect = Rect2(-448, -352, 2616, 1616)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_shews")
+animation = &"Page9"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.5, 0.5)
