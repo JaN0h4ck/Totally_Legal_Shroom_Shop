@@ -99,7 +99,9 @@ editor_description = "Node an die alle Nodes angehängt werden die aktuell Pausi
 position = Vector2(-323, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+light_mask = 0
 z_index = -100
+z_as_relative = false
 position = Vector2(0, -80)
 scale = Vector2(1, 334)
 texture = SubResource("GradientTexture1D_q28bu")
