@@ -19,6 +19,7 @@ func sell_mushroom(requested_mushroom):
 			print("Not Requestet Mushroom")
 			return
 		transfer_wrong_mushroom(mushroom)
+		return
 	transfer_correct_mushroom(mushroom)
 
 ## Holt den Pilz welchen der Spieler aktuell trägt
@@ -32,10 +33,29 @@ func get_mushroom_from_player():
 
 ## Wenn der Richtige Pilz verkauft wird
 func transfer_correct_mushroom(mushroom):
+	# Geld je nach seltenheit auswählen
+	match mushroom.shroom_res.rarity:
+		GLOBALS.rarity.common:
+			EventBus.update_money.emit(config.money_common_mushroom)
+		GLOBALS.rarity.rare:
+			EventBus.update_money.emit(config.money_rare_mushroom)
+		GLOBALS.rarity.ultra_rare:
+			EventBus.update_money.emit(config.money_ultra_rare_mushroom)
 	handle_transfer(mushroom)
 
 ## Wenn der falsche Pilz verkauft wird
 func transfer_wrong_mushroom(mushroom):
+	# Geld nach seltenheit auswählen und anschließend verringern
+	var reduced_money : int = 0
+	match mushroom.shroom_res.rarity:
+		GLOBALS.rarity.common:
+			reduced_money = config.money_common_mushroom
+		GLOBALS.rarity.rare:
+			reduced_money = config.money_rare_mushroom
+		GLOBALS.rarity.ultra_rare:
+			reduced_money = config.money_ultra_rare_mushroom
+	reduced_money = int(reduced_money * (config.money_percent_wrong_mushroom / 100))
+	EventBus.update_money.emit(reduced_money)
 	handle_transfer(mushroom)
 
 ## Transferiert den Pilz vom Spieler zum Kunden

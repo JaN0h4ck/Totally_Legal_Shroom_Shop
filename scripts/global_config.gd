@@ -30,5 +30,13 @@ class_name GlobalConfig
 @export_category("Customer")
 ## Ob Kunden nur den gewünschten Pilz kaufen
 @export var customers_only_accept_requested : bool = false
+
+@export_category("Money")
+## Wie viel Geld ein Pilz der Seltenheit Common gibt
+@export var money_common_mushroom : int = 5
+## Wie viel Geld ein Pilz der Seltenheit Rare gibt
+@export var money_rare_mushroom : int = 10
+## Wie viel Geld ein Pilz der Seltenheit Ultra Rare gibt
+@export var money_ultra_rare_mushroom : int = 20
 ## In Prozent wieviel Geld es für den falschen Pilz gibt
 @export var money_percent_wrong_mushroom : float = 33
