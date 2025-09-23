@@ -18,3 +18,8 @@ extends Resource
 @export var mushroom_saved : bool
 ## Pilz Info in folgender Rheinfolge: Resource, Position, Rotation, Wachstumsstadium, Ob aktuell im Inventar, Inventarposition
 @export var mushroom_info : Array = []
+
+@export var kill_amount : int
+@export var kill_list : Array = []
+@export var completed_orders : int
+@export var money_amount : int

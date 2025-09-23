@@ -55,6 +55,12 @@ func save_game():
 		saved_game.mushroom_info.append(mushrrom_info)
 		saved_game.mushroom_saved = true
 	
+	# Game Stats speichern
+	saved_game.kill_amount = GameStats.kills
+	saved_game.kill_list = GameStats.kill_list
+	saved_game.completed_orders = GameStats.completed_orders
+	saved_game.money_amount = GameStats.money
+	
 	# Alles in Datei Schreiben
 	ResourceSaver.save(saved_game, save_path)
 	
@@ -122,6 +128,12 @@ func load_game():
 	if saved_game.mushroom_saved:
 		for mushroom_info : Array in saved_game.mushroom_info:
 			EventBus.load_mushroom.emit(mushroom_info[0], mushroom_info[1], mushroom_info[2], mushroom_info[3], mushroom_info[4], mushroom_info[5])
+	
+	# Game Stats speichern
+	GameStats.kills = saved_game.kill_amount
+	GameStats.kill_list = saved_game.kill_list
+	GameStats.completed_orders = saved_game.completed_orders
+	GameStats.money = saved_game.money_amount
 	
 	# Inventar aktuallisieren
 	EventBus.inventory_updated.emit()
