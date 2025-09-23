@@ -14,12 +14,14 @@ func player_has_enough_money():
 	return UpgradeSystem.check_if_player_has_enough_money(needed_money)
 
 func _on_player_interacted():
+	var player: Player = get_tree().get_first_node_in_group("player")
+	if check_if_player_has_corpse(player):
+		return
 	EventBus.crusher_upgrade.emit()
 
 func _on_body_entered(body: Node2D):
 	if(body.is_in_group(&"player")):
 		var player: Player = body
-		player_is_inside = true
 		if(player.is_inside_interactable):
 			player.interactable_queue.push_back(self)
 			if(player.interactable_queue[0] == null):
@@ -30,5 +32,6 @@ func _on_body_entered(body: Node2D):
 			return
 		if not player_has_enough_money():
 			return
+		player_is_inside = true
 		player_entered.emit(interact_prompt, name)
 		player.is_inside_interactable = true

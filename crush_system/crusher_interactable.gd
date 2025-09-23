@@ -30,7 +30,6 @@ func _on_player_interacted():
 func _on_body_entered(body: Node2D):
 	if(body.is_in_group(&"player")):
 		var player: Player = body
-		player_is_inside = true
 		if(player.is_inside_interactable):
 			player.interactable_queue.push_back(self)
 			if(player.interactable_queue[0] == null):
@@ -39,5 +38,6 @@ func _on_body_entered(body: Node2D):
 			return
 		if not check_if_player_has_corpse(player):
 			return
+		player_is_inside = true
 		player_entered.emit(interact_prompt, name)
 		player.is_inside_interactable = true
