@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://cbqqtabob4txw"]
+[gd_scene load_steps=43 format=3 uid="uid://cbqqtabob4txw"]
 
 [ext_resource type="Texture2D" uid="uid://vilqwodtna00" path="res://assets/store/room_base.PNG" id="1_81vyf"]
 [ext_resource type="Texture2D" uid="uid://b37d1uq1quc11" path="res://assets/store/room_border.PNG" id="2_4bti5"]
@@ -12,12 +12,11 @@
 [ext_resource type="PackedScene" uid="uid://g8kplgf6yjna" path="res://scenes/game_scene/shop/lever.tscn" id="14_6ghwu"]
 [ext_resource type="Texture2D" uid="uid://deeqkg5go36xg" path="res://assets/store/door/door_open.PNG" id="15_eikly"]
 [ext_resource type="Texture2D" uid="uid://dy57bb7f6tmdp" path="res://assets/store/door/door_closed.PNG" id="16_laf4y"]
+[ext_resource type="Texture2D" uid="uid://biqvuhxlaevqg" path="res://assets/store/chest.tres" id="17_lpp72"]
 [ext_resource type="PackedScene" uid="uid://cwyhqnvjmjgwn" path="res://scenes/game_scene/shop/mushroom_lamp.tscn" id="17_qbk1e"]
 [ext_resource type="PackedScene" uid="uid://dnnh8s2fibw44" path="res://scenes/game_scene/shop/interactable_certificate.tscn" id="18_2n5dy"]
+[ext_resource type="Texture2D" uid="uid://dmaigtktwguc" path="res://assets/store/water_can.tres" id="18_hvfww"]
 [ext_resource type="Texture2D" uid="uid://byj4degnnnm4a" path="res://assets/store/chair.PNG" id="19_x1uun"]
-[ext_resource type="Texture2D" uid="uid://2ggw1uraq2p3" path="res://assets/store/Fass.PNG" id="20_fq550"]
-[ext_resource type="Texture2D" uid="uid://dali3pseathdc" path="res://assets/store/chest.PNG" id="21_fduq2"]
-[ext_resource type="Texture2D" uid="uid://bg4ahawnaxwrw" path="res://assets/store/watering_can.PNG" id="22_ko11f"]
 [ext_resource type="Shader" uid="uid://cixrxdx4xtfdp" path="res://scripts/shaders/drop_shadow.gdshader" id="23_lpp72"]
 [ext_resource type="Texture2D" uid="uid://dfipb1sihr85x" path="res://assets/store/tablecloth.PNG" id="23_woib1"]
 [ext_resource type="Texture2D" uid="uid://b4d2ub4apk3oj" path="res://assets/store/scissors.PNG" id="24_8b1pq"]
@@ -42,6 +41,16 @@ size = Vector2(20, 100)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g0p03"]
 size = Vector2(18, 10)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7nhl3"]
+shader = ExtResource("23_lpp72")
+shader_parameter/debug = false
+shader_parameter/border_scale = 2.0
+shader_parameter/shadow_offset = Vector2(2, 0)
+shader_parameter/color = Color(0, 0, 0, 0.22352941)
+shader_parameter/blur_amount = 0.70800003363
+shader_parameter/shadow_scale = 1.5
+shader_parameter/disable_rotating = false
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_whber"]
 animations = [{
@@ -75,6 +84,26 @@ animations = [{
 "name": &"open",
 "speed": 5.0
 }]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hvfww"]
+shader = ExtResource("23_lpp72")
+shader_parameter/debug = false
+shader_parameter/border_scale = 2.0
+shader_parameter/shadow_offset = Vector2(0, -1)
+shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/blur_amount = 0.50000002375
+shader_parameter/shadow_scale = 1.5
+shader_parameter/disable_rotating = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4bti5"]
+shader = ExtResource("23_lpp72")
+shader_parameter/debug = false
+shader_parameter/border_scale = 2.0
+shader_parameter/shadow_offset = Vector2(0, -1)
+shader_parameter/color = Color(0, 0, 0, 0.4509804)
+shader_parameter/blur_amount = 0.0
+shader_parameter/shadow_scale = 1.5
+shader_parameter/disable_rotating = false
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e6eah"]
 size = Vector2(12, 45)
@@ -195,7 +224,8 @@ position = Vector2(79, 39)
 [node name="door" type="AnimatedSprite2D" parent="."]
 z_index = -5
 z_as_relative = false
-position = Vector2(44, -45.5)
+material = SubResource("ShaderMaterial_7nhl3")
+position = Vector2(44, -46)
 sprite_frames = SubResource("SpriteFrames_whber")
 animation = &"closed"
 
@@ -215,23 +245,19 @@ texture = ExtResource("19_x1uun")
 z_index = -5
 z_as_relative = false
 
-[node name="fass" type="Sprite2D" parent="assets_right"]
-z_index = -5
-z_as_relative = false
-position = Vector2(74, -38)
-texture = ExtResource("20_fq550")
-
 [node name="chest" type="Sprite2D" parent="assets_right"]
 z_index = -5
 z_as_relative = false
+material = SubResource("ShaderMaterial_hvfww")
 position = Vector2(74, -21)
-texture = ExtResource("21_fduq2")
+texture = ExtResource("17_lpp72")
 
 [node name="watering_can" type="Sprite2D" parent="assets_right"]
 z_index = -5
 z_as_relative = false
+material = SubResource("ShaderMaterial_4bti5")
 position = Vector2(72.5, -8.5)
-texture = ExtResource("22_ko11f")
+texture = ExtResource("18_hvfww")
 
 [node name="assets_right_body" type="StaticBody2D" parent="assets_right"]
 position = Vector2(73, -21)
@@ -240,6 +266,10 @@ position = Vector2(73, -21)
 visible = false
 position = Vector2(1, -3.5)
 shape = SubResource("RectangleShape2D_e6eah")
+
+[node name="mushroom_lamp2" parent="assets_right" instance=ExtResource("17_qbk1e")]
+z_index = -6
+position = Vector2(74, -36)
 
 [node name="tablecloth" type="Sprite2D" parent="."]
 z_index = -4

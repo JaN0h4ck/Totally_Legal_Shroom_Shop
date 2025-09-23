@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://d0o5dug26555l"]
+[gd_scene load_steps=24 format=3 uid="uid://d0o5dug26555l"]
 
 [ext_resource type="Script" uid="uid://bw4y2g3n5jvan" path="res://Character/player.gd" id="1_3c51y"]
 [ext_resource type="Texture2D" uid="uid://x2q66efpjxok" path="res://assets/character/player/canvas_textures/player_idle_back.tres" id="2_m6p0u"]
@@ -12,7 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://bxw6b2vhofyxk" path="res://assets/character/player/canvas_textures/player_walkleft1.tres" id="10_o003e"]
 [ext_resource type="Texture2D" uid="uid://c6ga44of3uyky" path="res://assets/character/player/canvas_textures/player_walkleft2.tres" id="11_fnfro"]
 [ext_resource type="Texture2D" uid="uid://b6ce27rwyvhii" path="res://assets/character/player/canvas_textures/player_walkright1.tres" id="12_kxppi"]
-[ext_resource type="Texture2D" uid="uid://cp0q2rkjurtqo" path="res://assets/character/player/canvas_textures/player_walkright2.tres" id="13_m6avg"]
 [ext_resource type="PackedScene" uid="uid://bsnrdvemonhyj" path="res://scenes/prefabs/player_footstep_manager.tscn" id="14_m6p0u"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o003e"]
@@ -129,9 +128,6 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("12_kxppi")
-}, {
-"duration": 1.0,
-"texture": ExtResource("13_m6avg")
 }],
 "loop": true,
 "name": &"walk_right",
