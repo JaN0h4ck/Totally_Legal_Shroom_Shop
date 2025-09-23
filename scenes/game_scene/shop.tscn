@@ -183,7 +183,7 @@ position = Vector2(42, -15.5)
 [node name="register" type="Node2D" parent="."]
 z_index = -3
 z_as_relative = false
-position = Vector2(64.5, 4)
+position = Vector2(64, 4)
 
 [node name="register_bottom" type="Sprite2D" parent="register"]
 z_index = -4
