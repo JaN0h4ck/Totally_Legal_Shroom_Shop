@@ -1,17 +1,19 @@
-[gd_scene load_steps=57 format=3 uid="uid://dy1uiy23nc5he"]
+[gd_scene load_steps=60 format=3 uid="uid://dy1uiy23nc5he"]
 
 [ext_resource type="Texture2D" uid="uid://bhqas40v1sogj" path="res://assets/dungeon/dungeon_base.PNG" id="1_miufi"]
 [ext_resource type="Texture2D" uid="uid://bt4kb5hqwg4nl" path="res://assets/dungeon/dungeon_border.PNG" id="2_5623h"]
 [ext_resource type="Texture2D" uid="uid://bk68ku7102sx8" path="res://assets/dungeon/door/dungeon_door_open.PNG" id="3_7taji"]
-[ext_resource type="Texture2D" uid="uid://bj3y7jkhwmfq0" path="res://assets/dungeon/axe.PNG" id="3_5623h"]
+[ext_resource type="Texture2D" uid="uid://bj3y7jkhwmfq0" path="res://assets/dungeon/originals/axe.PNG" id="3_5623h"]
 [ext_resource type="Texture2D" uid="uid://byc5u5cn58hsi" path="res://assets/dungeon/door/dungeon_door_closed.PNG" id="4_7taji"]
 [ext_resource type="Texture2D" uid="uid://cw2h6s26burpl" path="res://assets/dungeon/cross.PNG" id="4_mv2yw"]
 [ext_resource type="Shader" uid="uid://cixrxdx4xtfdp" path="res://scripts/shaders/drop_shadow.gdshader" id="5_4somj"]
+[ext_resource type="Texture2D" uid="uid://b7c4vqwdyf0mg" path="res://assets/dungeon/originals/axe_n.png" id="7_tkn77"]
 [ext_resource type="Texture2D" uid="uid://cn8w7nj28gjup" path="res://assets/dungeon/dungeon_table.PNG" id="8_epj33"]
 [ext_resource type="PackedScene" uid="uid://d1cmt6tktxlt3" path="res://scenes/game_scene/dungeon/chest_and_barrel.tscn" id="8_ikx5i"]
+[ext_resource type="Texture2D" uid="uid://bwlvfdu4ps75o" path="res://assets/dungeon/originals/axe_s.png" id="8_uf2vu"]
 [ext_resource type="Texture2D" uid="uid://5yym7638cog7" path="res://assets/dungeon/journal.PNG" id="9_hamwq"]
 [ext_resource type="PackedScene" uid="uid://dmdlnr87n1wxl" path="res://spawn_system/mushroom/mushroom_field.tscn" id="9_tkn77"]
-[ext_resource type="Texture2D" uid="uid://bq2vvs6x38nnm" path="res://assets/dungeon/saw.PNG" id="10_4ovda"]
+[ext_resource type="Texture2D" uid="uid://bq2vvs6x38nnm" path="res://assets/dungeon/originals/saw.PNG" id="10_4ovda"]
 [ext_resource type="Texture2D" uid="uid://ci7rt38s0ry1r" path="res://assets/dungeon/torch.PNG" id="11_554xe"]
 [ext_resource type="Script" uid="uid://cybwchfl8pj2v" path="res://scripts/flickering_light_2d.gd" id="13_ikx5i"]
 [ext_resource type="PackedScene" uid="uid://31fnvnrufja0" path="res://crush_system/wood_chipper.tscn" id="14_0sevn"]
@@ -75,6 +77,12 @@ shader_parameter/color = Color(0.051971, 0.051971, 0.051971, 1)
 shader_parameter/blur_amount = 1.0
 shader_parameter/shadow_scale = 1.5
 shader_parameter/disable_rotating = false
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_j3unq"]
+diffuse_texture = ExtResource("3_5623h")
+normal_texture = ExtResource("7_tkn77")
+specular_texture = ExtResource("8_uf2vu")
+specular_shininess = 0.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4somj"]
 shader = ExtResource("5_4somj")
@@ -296,7 +304,7 @@ z_index = -5
 z_as_relative = false
 material = SubResource("ShaderMaterial_tkn77")
 position = Vector2(1, -38)
-texture = ExtResource("3_5623h")
+texture = SubResource("CanvasTexture_j3unq")
 
 [node name="cross" type="Sprite2D" parent="dungeon_base"]
 z_index = -5
