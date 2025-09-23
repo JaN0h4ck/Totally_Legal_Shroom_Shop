@@ -1,13 +1,14 @@
-extends PauseMenu
+extends Node
 
 var player : Player
 var save_path : String = "user://savegame.tres"
 var load_on_start : bool = false
 
 func _ready() -> void:
-	pass
+	EventBus.save_game.connect(save_game)
+	EventBus.load_game.connect(load_game)
 
-func _save():
+func save_game():
 	player = get_tree().get_first_node_in_group("player")
 	var saved_game : SavedGame = SavedGame.new()
 	# Variable auf Standard setzten
@@ -58,10 +59,10 @@ func _save():
 	ResourceSaver.save(saved_game, save_path)
 	
 	# Pause Menü Schließen
-	close()
+	EventBus.close_pause_menu.emit()
 
 
-func _load():
+func load_game():
 	if not FileAccess.file_exists(save_path):
 		print("Save File not exists")
 		return
@@ -122,6 +123,8 @@ func _load():
 		for mushroom_info : Array in saved_game.mushroom_info:
 			EventBus.load_mushroom.emit(mushroom_info[0], mushroom_info[1], mushroom_info[2], mushroom_info[3], mushroom_info[4], mushroom_info[5])
 	
+	# Inventar aktuallisieren
 	EventBus.inventory_updated.emit()
 
-	close()
+	# Pause Menü Schließen
+	EventBus.close_pause_menu.emit()

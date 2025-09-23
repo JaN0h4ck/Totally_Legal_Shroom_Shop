@@ -16,7 +16,7 @@ func _ready():
 	EventBus.load_dungeon.connect(load_basement)
 	EventBus.load_shop.connect(load_shop)
 	if SaveSystem.load_on_start:
-		SaveSystem._load()
+		EventBus.load_game.emit()
 
 func teleport_basement():
 	var player : Player = get_tree().get_first_node_in_group("player")

@@ -69,6 +69,15 @@ signal sell_mushroom(requested_mushroom)
 ## Ausgelöst wenn der Kunde einen Pilz erhalten hat
 signal order_complete()
 
+## Ausgelöst wenn gepeichert werden soll
+signal save_game()
+
+## Ausgelöst wenn ein Spielstand geladen werden soll
+signal load_game()
+
+## Ausgelöst wenn das Pause Menü geschlossen werden soll
+signal close_pause_menu()
+
 func _on_interact_customer():
 	interact_customer.emit()
 
@@ -149,3 +158,12 @@ func _on_sell_mushroom(requested_mushroom):
 
 func _on_order_complete():
 	order_complete.emit()
+
+func _on_save_game():
+	save_game.emit()
+
+func _on_load_game():
+	load_game.emit()
+
+func _on_close_pause_menu():
+	close_pause_menu.emit()
