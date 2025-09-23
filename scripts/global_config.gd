@@ -40,3 +40,14 @@ class_name GlobalConfig
 @export var money_ultra_rare_mushroom : int = 20
 ## In Prozent wieviel Geld es für den falschen Pilz gibt
 @export var money_percent_wrong_mushroom : float = 33
+
+@export_category("Upgrade")
+@export_group("Crusher")
+## Gibt es ein Crusher max Upgrade Level
+@export var upgrade_level_limit_crusher : bool = false
+## Max Level des Cruhsers
+@export var max_upgrade_level_crusher : int = 3
+## Kosten für erstes Upgrade
+@export var first_upgrade_costs_crusher : int = 10
+## Preis steigerung pro Upgrade in Prozent
+@export var upgrade_price_increase_crusher : float = 20

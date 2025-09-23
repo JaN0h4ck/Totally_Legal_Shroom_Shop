@@ -84,6 +84,9 @@ signal update_money(amount : int)
 ## Wird ausgelöst nachdem der Kunde den Shop unbeschadet verlassen hat
 signal npc_left_unharmed()
 
+## Wird ausgelöst wenn das Level des Crushers erhöht wird
+signal crusher_upgrade()
+
 func _on_interact_customer():
 	interact_customer.emit()
 
@@ -179,3 +182,6 @@ func _on_update_money(amount : int):
 
 func _on_npc_left_unhamred():
 	npc_left_unharmed.emit()
+
+func _on_crusher_upgrade():
+	crusher_upgrade.emit()

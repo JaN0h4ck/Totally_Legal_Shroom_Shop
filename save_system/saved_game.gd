@@ -23,3 +23,4 @@ extends Resource
 @export var kill_list : Array = []
 @export var completed_orders : int
 @export var money_amount : int
+@export var crusher_level : int

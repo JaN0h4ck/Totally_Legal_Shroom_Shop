@@ -60,6 +60,7 @@ func save_game():
 	saved_game.kill_list = GameStats.kill_list
 	saved_game.completed_orders = GameStats.completed_orders
 	saved_game.money_amount = GameStats.money
+	saved_game.crusher_level = GameStats.crusher_level
 	
 	# Alles in Datei Schreiben
 	ResourceSaver.save(saved_game, save_path)
@@ -134,6 +135,7 @@ func load_game():
 	GameStats.kill_list = saved_game.kill_list
 	GameStats.completed_orders = saved_game.completed_orders
 	GameStats.money = saved_game.money_amount
+	GameStats.crusher_level = saved_game.crusher_level
 	
 	# Inventar aktuallisieren
 	EventBus.inventory_updated.emit()

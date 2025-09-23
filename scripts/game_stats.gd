@@ -4,6 +4,7 @@ var kills: int = 0
 var kill_list : Array = []
 var completed_orders: int = 0
 var money: int = 0
+var crusher_level : int = 1
 
 func _ready() -> void:
 	EventBus.npc_dropped.connect(npc_killed)
