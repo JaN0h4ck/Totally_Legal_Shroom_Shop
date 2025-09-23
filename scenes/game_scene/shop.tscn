@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://cbqqtabob4txw"]
+[gd_scene load_steps=45 format=3 uid="uid://cbqqtabob4txw"]
 
 [ext_resource type="Texture2D" uid="uid://vilqwodtna00" path="res://assets/store/room_base.PNG" id="1_81vyf"]
 [ext_resource type="Texture2D" uid="uid://b37d1uq1quc11" path="res://assets/store/room_border.PNG" id="2_4bti5"]
@@ -107,6 +107,26 @@ shader_parameter/disable_rotating = false
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e6eah"]
 size = Vector2(12, 45)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jn45p"]
+shader = ExtResource("23_lpp72")
+shader_parameter/debug = false
+shader_parameter/border_scale = 2.0
+shader_parameter/shadow_offset = Vector2(1, 0)
+shader_parameter/color = Color(0, 0, 0, 0.34901962)
+shader_parameter/blur_amount = 0.50000002375
+shader_parameter/shadow_scale = 1.5
+shader_parameter/disable_rotating = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0b5ro"]
+shader = ExtResource("23_lpp72")
+shader_parameter/debug = false
+shader_parameter/border_scale = 2.0
+shader_parameter/shadow_offset = Vector2(1, 0)
+shader_parameter/color = Color(0, 0, 0, 0.34901962)
+shader_parameter/blur_amount = 0.50000002375
+shader_parameter/shadow_scale = 1.5
+shader_parameter/disable_rotating = false
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_81vyf"]
 shader = ExtResource("23_lpp72")
@@ -286,12 +306,14 @@ texture = ExtResource("24_8b1pq")
 [node name="shovel" type="Sprite2D" parent="."]
 z_index = -5
 z_as_relative = false
-position = Vector2(-5, -38.5)
+material = SubResource("ShaderMaterial_jn45p")
+position = Vector2(-5, -39)
 texture = ExtResource("25_yya2p")
 
 [node name="rake" type="Sprite2D" parent="."]
 z_index = -5
 z_as_relative = false
+material = SubResource("ShaderMaterial_0b5ro")
 position = Vector2(-12, -40)
 texture = ExtResource("26_46vee")
 
