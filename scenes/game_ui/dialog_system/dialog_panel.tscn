@@ -29,6 +29,7 @@ stream_2/stream = ExtResource("4_aby5p")
 
 [sub_resource type="LabelSettings" id="LabelSettings_7d2xt"]
 font_size = 26
+font_color = Color(0.30588236, 0.2, 0.15686275, 1)
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -153,6 +154,7 @@ theme_override_constants/margin_bottom = 54
 custom_minimum_size = Vector2(100, 120)
 layout_mode = 2
 size_flags_vertical = 1
+theme_override_colors/font_color = Color(0.30588236, 0.2, 0.15686275, 1)
 label_settings = SubResource("LabelSettings_7d2xt")
 autowrap_mode = 3
 
