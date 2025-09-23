@@ -27,6 +27,7 @@ EventBus="*res://scripts/event_bus.gd"
 Inventory="*res://inventory/inventory.gd"
 ShopSystem="*res://shop_system/shop_system.gd"
 SaveSystem="*res://save_system/save_system.gd"
+GameStats="*res://scripts/game_stats.gd"
 
 [display]
 

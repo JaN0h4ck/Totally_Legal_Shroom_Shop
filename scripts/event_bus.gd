@@ -78,6 +78,12 @@ signal load_game()
 ## Ausgelöst wenn das Pause Menü geschlossen werden soll
 signal close_pause_menu()
 
+## Ausgelöst wenn die Geld anzahl verändert wird, Positiver Wert um Geld zu erhalten, negativer zum Geld ausgeben
+signal update_money(amount : int)
+
+## Wird ausgelöst nachdem der Kunde den Shop unbeschadet verlassen hat
+signal npc_left_unharmed()
+
 func _on_interact_customer():
 	interact_customer.emit()
 
@@ -167,3 +173,9 @@ func _on_load_game():
 
 func _on_close_pause_menu():
 	close_pause_menu.emit()
+
+func _on_update_money(amount : int):
+	update_money.emit(amount)
+
+func _on_npc_left_unhamred():
+	npc_left_unharmed.emit()
