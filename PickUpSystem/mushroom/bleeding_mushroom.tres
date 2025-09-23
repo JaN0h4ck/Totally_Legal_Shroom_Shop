@@ -1,14 +1,19 @@
-[gd_resource type="Resource" script_class="ShroomRes" load_steps=5 format=3 uid="uid://cwvd6n501ar0h"]
+[gd_resource type="Resource" script_class="ShroomRes" load_steps=7 format=3 uid="uid://cwvd6n501ar0h"]
 
 [ext_resource type="Texture2D" uid="uid://b0fga1xi6c1cj" path="res://assets/shrooms/freshlyplanted.png" id="1_icgcd"]
 [ext_resource type="Texture2D" uid="uid://n6y403mre2ac" path="res://assets/shrooms/Blutpilz.png" id="2_l8nkq"]
 [ext_resource type="Texture2D" uid="uid://c34j8128dxh6c" path="res://assets/shrooms/small/blood_small.png" id="3_0kk7x"]
+[ext_resource type="Texture2D" uid="uid://j8mj8h5b8pf6" path="res://assets/shrooms/Blutpilz_n.png" id="3_3d0yn"]
 [ext_resource type="Script" uid="uid://cg67u7xegh8j7" path="res://PickUpSystem/mushroom/PickableShroomRes.gd" id="4_j32wk"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_tmow2"]
+diffuse_texture = ExtResource("2_l8nkq")
+normal_texture = ExtResource("3_3d0yn")
 
 [resource]
 script = ExtResource("4_j32wk")
 middle_stage_texture = ExtResource("3_0kk7x")
-end_stage_texture = ExtResource("2_l8nkq")
+end_stage_texture = SubResource("CanvasTexture_tmow2")
 base_texture = ExtResource("1_icgcd")
 interact_box_size = Vector2(12, 12)
 rarity = 1

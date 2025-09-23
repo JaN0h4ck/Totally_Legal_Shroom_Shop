@@ -1,14 +1,19 @@
-[gd_resource type="Resource" script_class="ShroomRes" load_steps=5 format=3 uid="uid://bjebfeed53uta"]
+[gd_resource type="Resource" script_class="ShroomRes" load_steps=7 format=3 uid="uid://bjebfeed53uta"]
 
 [ext_resource type="Texture2D" uid="uid://b0fga1xi6c1cj" path="res://assets/shrooms/freshlyplanted.png" id="1_6tksu"]
 [ext_resource type="Script" uid="uid://cg67u7xegh8j7" path="res://PickUpSystem/mushroom/PickableShroomRes.gd" id="1_ma1yb"]
 [ext_resource type="Texture2D" uid="uid://h75n0b5nt0rc" path="res://assets/shrooms/shiitakepilz_grown.png" id="1_rnmdd"]
 [ext_resource type="Texture2D" uid="uid://c063ybbui0845" path="res://assets/shrooms/small/shiitakepilz_small.png" id="2_ko1xo"]
+[ext_resource type="Texture2D" uid="uid://ducq35d0fvvin" path="res://assets/shrooms/shiitakepilz_grown_n.png" id="3_fehja"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_c7axe"]
+diffuse_texture = ExtResource("1_rnmdd")
+normal_texture = ExtResource("3_fehja")
 
 [resource]
 script = ExtResource("1_ma1yb")
 middle_stage_texture = ExtResource("2_ko1xo")
-end_stage_texture = ExtResource("1_rnmdd")
+end_stage_texture = SubResource("CanvasTexture_c7axe")
 base_texture = ExtResource("1_6tksu")
 interact_box_size = Vector2(12, 12)
 metadata/_custom_type_script = "uid://cg67u7xegh8j7"
