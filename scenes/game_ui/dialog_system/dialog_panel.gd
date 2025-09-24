@@ -32,14 +32,14 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact"):
 		EventBus.start_shopping.emit()
 
-func _start_dialog(text: String):
+func _start_dialog(text: String, voice_type: GLOBALS.voice_types = GLOBALS.voice_types.MEDIUM):
 	label.text = text
 	var seconds: float = float(text.length()) / speed_char_ps
 	if tween and tween.is_valid(): tween.kill()
 	tween = get_tree().create_tween()
 	tween.tween_property(label, "visible_characters", text.length(), seconds).from(0)
 	tween.finished.connect(_on_display_finished)
-	dialog_audio.start_playback(GLOBALS.voice_types.MEDIUM)
+	dialog_audio.start_playback(voice_type)
 
 func _on_display_finished():
 	dialog_audio.stop_playback()

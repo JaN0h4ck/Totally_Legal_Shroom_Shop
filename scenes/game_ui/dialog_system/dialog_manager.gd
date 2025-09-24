@@ -26,7 +26,7 @@ func start_npc_dialogue(npc: base_npc):
 	ui_layer.add_child(instance)
 	dialogue_panel = instance
 	dialogue_panel.portrait.texture = npc.portrait
-	dialogue_panel._start_dialog(npc.lines[randi() % npc.lines.size()])
+	dialogue_panel._start_dialog(npc.lines[randi() % npc.lines.size()], npc.voice_type)
 
 func start_random_dialogue():
 	init_dialogue_deprec(DialogTypes.GENERIC)
