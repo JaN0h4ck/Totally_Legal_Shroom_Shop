@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://cbqqtabob4txw"]
+[gd_scene load_steps=53 format=3 uid="uid://cbqqtabob4txw"]
 
 [ext_resource type="Texture2D" uid="uid://vilqwodtna00" path="res://assets/store/room_base.PNG" id="1_81vyf"]
 [ext_resource type="Texture2D" uid="uid://b37d1uq1quc11" path="res://assets/store/room_border.PNG" id="2_4bti5"]
@@ -16,9 +16,12 @@
 [ext_resource type="Texture2D" uid="uid://dy57bb7f6tmdp" path="res://assets/store/door/door_closed.PNG" id="16_laf4y"]
 [ext_resource type="Texture2D" uid="uid://biqvuhxlaevqg" path="res://assets/store/chest.tres" id="17_lpp72"]
 [ext_resource type="PackedScene" uid="uid://cwyhqnvjmjgwn" path="res://scenes/game_scene/shop/mushroom_lamp.tscn" id="17_qbk1e"]
-[ext_resource type="PackedScene" uid="uid://dnnh8s2fibw44" path="res://scenes/game_scene/shop/interactable_certificate.tscn" id="18_2n5dy"]
 [ext_resource type="Texture2D" uid="uid://dmaigtktwguc" path="res://assets/store/water_can.tres" id="18_hvfww"]
+[ext_resource type="Texture2D" uid="uid://2ggw1uraq2p3" path="res://assets/store/Fass.PNG" id="18_jn45p"]
+[ext_resource type="Texture2D" uid="uid://ds50bmuu731b3" path="res://assets/dungeon/originals/dungeon_barrel_n.png" id="19_0b5ro"]
 [ext_resource type="Texture2D" uid="uid://byj4degnnnm4a" path="res://assets/store/chair.PNG" id="19_x1uun"]
+[ext_resource type="Texture2D" uid="uid://c7oy6yoq7njia" path="res://assets/store/fliegenpilz_lamp.png" id="22_eada0"]
+[ext_resource type="Texture2D" uid="uid://cpkvae0e61l6n" path="res://assets/textures/point_light_stepped_texture.tres" id="23_0m7m1"]
 [ext_resource type="Shader" uid="uid://cixrxdx4xtfdp" path="res://scripts/shaders/drop_shadow.gdshader" id="23_lpp72"]
 [ext_resource type="Texture2D" uid="uid://dfipb1sihr85x" path="res://assets/store/tablecloth.PNG" id="23_woib1"]
 [ext_resource type="Texture2D" uid="uid://b4d2ub4apk3oj" path="res://assets/store/scissors.PNG" id="24_8b1pq"]
@@ -87,12 +90,26 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0dbjl"]
+shader = ExtResource("23_lpp72")
+shader_parameter/debug = false
+shader_parameter/border_scale = 2.0
+shader_parameter/shadow_offset = Vector2(-1, 1)
+shader_parameter/color = Color(0.35827354, 0.28704333, 0.23961195, 0.65882355)
+shader_parameter/blur_amount = 0.50000002375
+shader_parameter/shadow_scale = 1.5
+shader_parameter/disable_rotating = false
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_b25qi"]
+diffuse_texture = ExtResource("18_jn45p")
+normal_texture = ExtResource("19_0b5ro")
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hvfww"]
 shader = ExtResource("23_lpp72")
 shader_parameter/debug = false
 shader_parameter/border_scale = 2.0
-shader_parameter/shadow_offset = Vector2(0, -1)
-shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/shadow_offset = Vector2(-1, -1)
+shader_parameter/color = Color(0.26595384, 0.21049857, 0.17349648, 1)
 shader_parameter/blur_amount = 0.50000002375
 shader_parameter/shadow_scale = 1.5
 shader_parameter/disable_rotating = false
@@ -109,6 +126,9 @@ shader_parameter/disable_rotating = false
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e6eah"]
 size = Vector2(12, 45)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eada0"]
+size = Vector2(7, 7)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jn45p"]
 shader = ExtResource("23_lpp72")
@@ -261,9 +281,6 @@ animation = &"closed"
 [node name="mushroom_lamp" parent="." instance=ExtResource("17_qbk1e")]
 position = Vector2(-69, 29)
 
-[node name="interactable_certificate" parent="." instance=ExtResource("18_2n5dy")]
-position = Vector2(60, -31)
-
 [node name="chair" type="Sprite2D" parent="."]
 z_index = -5
 z_as_relative = false
@@ -273,6 +290,11 @@ texture = ExtResource("19_x1uun")
 [node name="assets_right" type="Node2D" parent="."]
 z_index = -5
 z_as_relative = false
+
+[node name="Barrel" type="Sprite2D" parent="assets_right"]
+material = SubResource("ShaderMaterial_0dbjl")
+position = Vector2(74, -37)
+texture = SubResource("CanvasTexture_b25qi")
 
 [node name="chest" type="Sprite2D" parent="assets_right"]
 z_index = -5
@@ -292,13 +314,24 @@ texture = ExtResource("18_hvfww")
 position = Vector2(73, -21)
 
 [node name="assets_right_collision" type="CollisionShape2D" parent="assets_right/assets_right_body"]
-visible = false
 position = Vector2(1, -3.5)
 shape = SubResource("RectangleShape2D_e6eah")
 
-[node name="mushroom_lamp2" parent="assets_right" instance=ExtResource("17_qbk1e")]
-z_index = -6
-position = Vector2(74, -36)
+[node name="lamp_collision" type="CollisionShape2D" parent="assets_right/assets_right_body"]
+position = Vector2(-12.5, -7.5)
+shape = SubResource("RectangleShape2D_eada0")
+
+[node name="MiniLamp" type="Sprite2D" parent="assets_right"]
+position = Vector2(60, -32)
+texture = ExtResource("22_eada0")
+
+[node name="PointLight2D" type="PointLight2D" parent="assets_right/MiniLamp"]
+position = Vector2(0, -5)
+color = Color(1, 1, 0.68235296, 1)
+energy = 0.7
+texture = ExtResource("23_0m7m1")
+texture_scale = 2.0
+height = 20.0
 
 [node name="tablecloth" type="Sprite2D" parent="."]
 z_index = -4
@@ -379,5 +412,4 @@ position = Vector2(43, -36)
 rotation = 1.2924967
 
 [connection signal="player_interacted" from="register/interactable_register" to="register/interactable_register" method="_on_player_interacted"]
-[connection signal="player_interacted" from="interactable_certificate" to="interactable_certificate" method="_on_player_interacted"]
 [connection signal="player_interacted" from="interactable_basement" to="interactable_basement" method="_on_player_interacted"]
