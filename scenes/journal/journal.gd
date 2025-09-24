@@ -4,6 +4,7 @@ const FIRST_PAGE: int = 0
 const LAST_PAGE: int = 2
 
 @onready var anim = $AnimatedSprite2D
+## Start Seite
 @export var count: int = 0
 @onready var sub_viewport_container: SubViewportContainer = $"../.."
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
@@ -52,6 +53,7 @@ func play_audio(old: int):
 	if count == old: return
 	audio_stream_player.play()
 
+## Stats anzeigen
 func display_stats():
 	page_title.text =  "Stats"
 	page_content.text = ""
@@ -69,6 +71,7 @@ func display_stats():
 	left_alive_info.update_text(GameStats.completed_orders)
 	left_alive_info.texture_rect.texture = load("res://assets/ui/coin_icon.png")
 
+## Upgrades anzeigen
 func display_upgrades():
 	# Titel und Text festlegen
 	page_title.text =  "Upgrade Level"
@@ -79,6 +82,7 @@ func display_upgrades():
 	crusher_info.update_text(GameStats.crusher_level)
 	crusher_info.texture_rect.texture = load("res://assets/dungeon/wood_chipper.PNG")
 
+## Kill Liste anzeigen
 func display_kills():
 	# Titel und Text festlegen
 	page_title.text =  "Kills"
