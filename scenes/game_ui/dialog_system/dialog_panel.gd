@@ -8,6 +8,7 @@ var tween: Tween
 @onready var portrait: TextureRect = $VBoxContainer/HBoxContainer/PortraitContainer/MarginContainer/Portrait
 @onready var input_prompt_sell: Panel = $VBoxContainer/HBoxContainer/HBoxContainer/InputPromptSell
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if(label == null):
