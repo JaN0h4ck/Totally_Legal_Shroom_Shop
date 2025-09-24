@@ -26,7 +26,7 @@ func start_npc_dialogue(npc: base_npc, player_has_shroom: bool = false):
 	ui_layer.add_child(instance)
 	dialogue_panel = instance
 	dialogue_panel.portrait.texture = npc.portrait
-	dialogue_panel._start_dialog(npc.lines[randi() % npc.lines.size()], npc.voice_type, player_has_shroom)
+	dialogue_panel._start_dialog(npc.lines[randi() % npc.lines.size()] % [1, basic_shrooms[randi() % basic_shrooms.size()]], npc.voice_type, player_has_shroom)
 
 func start_random_dialogue():
 	init_dialogue_deprec(DialogTypes.GENERIC)
