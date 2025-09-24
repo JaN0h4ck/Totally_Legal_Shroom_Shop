@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://b8um71ch7vlk2"]
+[gd_scene load_steps=8 format=3 uid="uid://b8um71ch7vlk2"]
 
 [ext_resource type="Script" uid="uid://dc1cmf14215gd" path="res://scenes/journal/journal.gd" id="1_7irlf"]
 [ext_resource type="Texture2D" uid="uid://ccdj3emtu8dui" path="res://assets/store/lexikon_background.png" id="2_xfiod"]
 [ext_resource type="Texture2D" uid="uid://8grljs3j17la" path="res://assets/Empty_Page.png" id="3_v1spr"]
+[ext_resource type="PackedScene" uid="uid://bmwuwlg1ued3q" path="res://scenes/journal/journal_kill_list.tscn" id="5_o7bhp"]
 [ext_resource type="AudioStream" uid="uid://bnpjaghxcx7g2" path="res://Audio/Originals/SFX/UPPER ROOM INTERACTIONS/Book_Page_Turn.wav" id="7_xfiod"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_shews"]
@@ -222,11 +223,26 @@ vertical_alignment = 1
 
 [node name="PageContent" type="Label" parent="Text"]
 layout_mode = 0
-offset_left = 65.0
-offset_top = -412.0
-offset_right = 801.0
-offset_bottom = 506.0
+offset_left = 95.0
+offset_top = -408.0
+offset_right = 780.0
+offset_bottom = 513.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("FontFile_v1spr")
 theme_override_font_sizes/font_size = 50
 text = "Text"
+
+[node name="KillList" parent="Text" instance=ExtResource("5_o7bhp")]
+position = Vector2(200, 0)
+
+[node name="KillListContainer" type="VBoxContainer" parent="Text"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 2.5770001
+anchor_top = -10.415001
+anchor_right = 19.702002
+anchor_bottom = 12.669001
+offset_left = -16.080002
+offset_top = 8.600037
+offset_right = 7.919922
+offset_bottom = 1.2399902

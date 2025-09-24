@@ -9,6 +9,7 @@ const LAST_PAGE: int = 3
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 @onready var page_title: Label = $Text/PageTitle
 @onready var page_content: Label = $Text/PageContent
+@onready var kill_list_container: VBoxContainer = $Text/KillListContainer
 
 func _ready():
 	anim.play("Page")
@@ -39,9 +40,9 @@ func page():
 		0: 
 			display_money_stats()
 		1: 
-			display_kill_stats()
-		2: 
 			display_upgrade_stats()
+		2: 
+			display_kill_stats()
 		3:
 			display_left_alive_stats()
 
@@ -58,11 +59,15 @@ func display_upgrade_stats():
 	page_title.text =  "Upgrades"
 	page_content.text = "Crusher Level: " + str(GameStats.crusher_level)
 
-func display_kill_stats():
-	page_title.text =  "Kills"
-	page_content.text = "Overall Kills: " + str(GameStats.kills)
-	page_content.text += "new"
-
 func display_left_alive_stats():
 	page_title.text =  "Left Alive"
 	page_content.text = "Customers Left Aliv: " + str(GameStats.completed_orders)
+
+func display_kill_stats():
+	page_title.text =  "Kills"
+	page_content.text = "Overall Kills: " + str(GameStats.kills)
+	for killed in GameStats.kill_list:
+		var element : journal_kill_list = journal_kill_list.new()
+		kill_list_container.add_child(element)
+		element.update_text(killed[1])
+		element.update_icon(killed[0])
