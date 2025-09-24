@@ -77,10 +77,6 @@ func remove_item():
 
 ## Pilz zum Inventar an aktueller stelle hinzufügen
 func add_item():
-	# Nur 1 Pilz kann hinzugefügt werden
-	if item_added:
-		return
-	
 	# Schauen ob Spieler einen Pilz dabei hat
 	var player : Player = get_tree().get_first_node_in_group("player")
 	if player.carries_object:
@@ -90,11 +86,17 @@ func add_item():
 	if mushroom == null:
 		print("Player has no Mushroom")
 		return
+	
+	# Schauen ob Pilz bereits im Inventar
+	if mushroom.in_inventory:
+		return
+	
 	# Pilz zum Inventar hinzufügen und überprüfen ob erfolgreich
 	var succes = Inventory.add_mushroom_to_inventory_fix_position(mushroom, inventory_position)
 	if not succes:
 		print("Adding Mushroom Failed")
 		return
+	
 	# Pilz auf der Theke Platzieren
 	mushroom.in_inventory = true
 	mushroom.inventory_position = inventory_position
@@ -104,8 +106,8 @@ func add_item():
 	mushroom.rotation = 0.0
 	mushroom.global_position = mushroom_global_positon
 	mushroom.global_rotation = mushroom_global_rotation
-	item_added = true
 	
+	# Inventar anzeige Aktuallisieren
 	EventBus.inventory_updated.emit()
 
 func set_mushroom_global_position():
