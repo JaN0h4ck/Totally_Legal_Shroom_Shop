@@ -13,6 +13,7 @@ alignment = 1
 script = ExtResource("1_tt4ty")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
 layout_mode = 2
 texture = ExtResource("3_hrahd")
 expand_mode = 3
@@ -24,6 +25,7 @@ layout_mode = 2
 theme_override_styles/separator = SubResource("StyleBoxEmpty_7ltnx")
 
 [node name="Label" type="Label" parent="."]
+texture_filter = 1
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_7ltnx")
