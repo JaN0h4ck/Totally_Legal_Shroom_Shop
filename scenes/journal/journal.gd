@@ -56,7 +56,11 @@ func play_audio(old: int):
 
 func display_money_stats():
 	page_title.text =  "Money"
-	page_content.text = "Current Money: " + str(GameStats.money)
+	# List Container befüllen
+	var money_info = list_element.instantiate()
+	list_container.add_child(money_info)
+	money_info.update_text(GameStats.money)
+	money_info.texture_rect.texture = load("res://assets/ui/coin_icon.png")
 
 func display_upgrade_stats():
 	# Titel und Text festlegen
