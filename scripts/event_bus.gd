@@ -1,7 +1,7 @@
 extends Node
 
 ## Ausgelöst wenn mit Kunden geredet wird
-signal interact_customer(customer: base_npc)
+signal interact_customer(customer: base_npc, player_has_obj: bool)
 ## Ausgelöst wenn mit Kasse interagiert wird
 signal interact_register
 ## Ausgelöst wenn mit Lexikon interagiert wird

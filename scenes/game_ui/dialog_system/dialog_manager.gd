@@ -20,13 +20,13 @@ func _ready() -> void:
 	EventBus.interact_customer.connect(start_npc_dialogue)
 	EventBus.dialog_ended.connect(_on_dialogue_ended)
 
-func start_npc_dialogue(npc: base_npc):
+func start_npc_dialogue(npc: base_npc, player_has_shroom: bool = false):
 	if dialogue_panel != null: return
 	var instance = dialogue_scene.instantiate()
 	ui_layer.add_child(instance)
 	dialogue_panel = instance
 	dialogue_panel.portrait.texture = npc.portrait
-	dialogue_panel._start_dialog(npc.lines[randi() % npc.lines.size()], npc.voice_type)
+	dialogue_panel._start_dialog(npc.lines[randi() % npc.lines.size()], npc.voice_type, player_has_shroom)
 
 func start_random_dialogue():
 	init_dialogue_deprec(DialogTypes.GENERIC)

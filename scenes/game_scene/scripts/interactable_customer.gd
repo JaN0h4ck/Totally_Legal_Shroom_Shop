@@ -2,6 +2,7 @@ extends Interactable
 
 var is_blocked: bool = true
 var npc: base_npc
+var player = Player
 
 func _ready():
 	super ()
@@ -27,12 +28,14 @@ func _on_dropped_from_trapdoor(_npc_name: GLOBALS.npc_names):
 func _on_body_entered(body: Node2D):
 	if body.is_in_group(&"player"):
 		player_is_inside = true
+		player = body
 	if is_blocked: return
 	super (body)
 
 func _on_body_exited(body: Node2D):
 	if body.is_in_group(&"player"):
 		player_is_inside = false
+		player = null
 	super (body)
 
 func _input(event: InputEvent) -> void:
@@ -40,4 +43,8 @@ func _input(event: InputEvent) -> void:
 	super (event)
 
 func _on_player_interacted():
-	EventBus.interact_customer.emit(npc)
+	if player == null:
+		EventBus.interact_customer.emit(npc, false)
+		return
+	else:
+		EventBus.interact_customer.emit(npc, player.carries_object)

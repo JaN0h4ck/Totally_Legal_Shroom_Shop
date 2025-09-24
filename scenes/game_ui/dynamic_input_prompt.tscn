@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cv7bo2ctxp5bg"]
+
+[ext_resource type="PackedScene" uid="uid://bv5ulmbmtwuyw" path="res://scenes/game_ui/input_prompt.tscn" id="1_hnn55"]
+[ext_resource type="Script" uid="uid://276m56m1u3f2" path="res://dynamic_input_prompt.gd" id="2_uy0bw"]
+
+[node name="DynamicInputPrompt" instance=ExtResource("1_hnn55")]
+script = ExtResource("2_uy0bw")
+disabled_text = "Disabled"
+disabled_modulate = Color(1, 1, 1, 1)
+
+[node name="disabled_label" type="Label" parent="HBoxContainer/VBoxContainer" index="1"]
+layout_mode = 2
+text = "Disabled"

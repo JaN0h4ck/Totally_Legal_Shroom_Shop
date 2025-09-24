@@ -6,6 +6,7 @@ extends Control
 var tween: Tween
 @onready var dialog_audio: DialogAudio = $DialogAudio
 @onready var portrait: TextureRect = $VBoxContainer/HBoxContainer/PortraitContainer/MarginContainer/Portrait
+@onready var input_prompt_sell: Panel = $VBoxContainer/HBoxContainer/HBoxContainer/InputPromptSell
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -32,7 +33,7 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact"):
 		EventBus.start_shopping.emit()
 
-func _start_dialog(text: String, voice_type: GLOBALS.voice_types = GLOBALS.voice_types.MEDIUM):
+func _start_dialog(text: String, voice_type: GLOBALS.voice_types = GLOBALS.voice_types.MEDIUM, player_has_shroom: bool = false):
 	label.text = text
 	var seconds: float = float(text.length()) / speed_char_ps
 	if tween and tween.is_valid(): tween.kill()
@@ -40,6 +41,10 @@ func _start_dialog(text: String, voice_type: GLOBALS.voice_types = GLOBALS.voice
 	tween.tween_property(label, "visible_characters", text.length(), seconds).from(0)
 	tween.finished.connect(_on_display_finished)
 	dialog_audio.start_playback(voice_type)
+	if player_has_shroom:
+		input_prompt_sell.activate()
+	else:
+		input_prompt_sell.deactivate()
 
 func _on_display_finished():
 	dialog_audio.stop_playback()

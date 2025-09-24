@@ -5,7 +5,7 @@ extends Panel
 @export var action_name: String
 @onready var input_icon_mapper: InputIconMapper = $InputIconMapper
 @onready var icon_display: TextureRect = $HBoxContainer/IconDisplay
-@onready var label: Label = $HBoxContainer/Label
+@onready var label: Label = $HBoxContainer/VBoxContainer/Label
 var interactable_name: String = ""
 
 # Called when the node enters the scene tree for the first time.

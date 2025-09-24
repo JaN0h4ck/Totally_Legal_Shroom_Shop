@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://b7fecdpuah10g"]
+[gd_scene load_steps=21 format=3 uid="uid://b7fecdpuah10g"]
 
 [ext_resource type="Script" uid="uid://bu05imyuwv2yl" path="res://scenes/game_ui/dialog_system/dialog_panel.gd" id="1_0om7c"]
 [ext_resource type="PackedScene" uid="uid://bv5ulmbmtwuyw" path="res://scenes/game_ui/input_prompt.tscn" id="1_aby5p"]
@@ -15,6 +15,7 @@
 [ext_resource type="AudioStream" uid="uid://df0t1r42poy3q" path="res://Audio/Originals/Voices/Voice_Medium_3.wav" id="11_vbyli"]
 [ext_resource type="Texture2D" uid="uid://ddoafuh8eydxx" path="res://assets/ui/Portrait_Nine.png" id="13_v8oon"]
 [ext_resource type="Texture2D" uid="uid://c2d5yk8vqug7r" path="res://assets/character/cowboy/cowboy_portrait.png" id="14_vbyli"]
+[ext_resource type="PackedScene" uid="uid://cv7bo2ctxp5bg" path="res://scenes/game_ui/dynamic_input_prompt.tscn" id="15_odk3v"]
 [ext_resource type="Texture2D" uid="uid://dxrhgcfwptt3d" path="res://assets/ui/Textbox_Nine.png" id="16_odk3v"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_0ag80"]
@@ -99,12 +100,12 @@ size_flags_horizontal = 10
 size_flags_vertical = 8
 alignment = 1
 
-[node name="InputPromptSell" parent="VBoxContainer/HBoxContainer/HBoxContainer" instance=ExtResource("1_aby5p")]
-custom_minimum_size = Vector2(200, 66)
+[node name="InputPromptSell" parent="VBoxContainer/HBoxContainer/HBoxContainer" instance=ExtResource("15_odk3v")]
+custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
-size_flags_horizontal = 10
-size_flags_vertical = 8
-text = "Sell"
+disabled_text = "Not carrying Shroom!"
+disabled_modulate = Color(0.641934, 0.641934, 0.641934, 1)
+text = "Sell Shroom"
 
 [node name="InputPrompt" parent="VBoxContainer/HBoxContainer/HBoxContainer" instance=ExtResource("1_aby5p")]
 custom_minimum_size = Vector2(200, 66)
