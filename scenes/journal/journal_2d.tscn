@@ -1,111 +1,182 @@
-[gd_scene load_steps=15 format=3 uid="uid://b8um71ch7vlk2"]
+[gd_scene load_steps=7 format=3 uid="uid://b8um71ch7vlk2"]
 
 [ext_resource type="Script" uid="uid://dc1cmf14215gd" path="res://scenes/journal/journal.gd" id="1_7irlf"]
 [ext_resource type="Texture2D" uid="uid://ccdj3emtu8dui" path="res://assets/store/lexikon_background.png" id="2_xfiod"]
-[ext_resource type="Texture2D" uid="uid://dnogg28bv4bwt" path="res://assets/ButtonLexikon-sheet.png" id="2_xpl52"]
-[ext_resource type="Texture2D" uid="uid://crkrnnuesvhh7" path="res://assets/new_lexikon_pages/OysterLexikon.png" id="3_xfiod"]
-[ext_resource type="Texture2D" uid="uid://cphkdjegr07cn" path="res://assets/new_lexikon_pages/ShiitakeLexikon.png" id="4_es17b"]
-[ext_resource type="Texture2D" uid="uid://cjxotdlq0hlfp" path="res://assets/new_lexikon_pages/FlyAgaricLexikon.png" id="5_46tc4"]
+[ext_resource type="Texture2D" uid="uid://8grljs3j17la" path="res://assets/Empty_Page.png" id="3_v1spr"]
 [ext_resource type="AudioStream" uid="uid://bnpjaghxcx7g2" path="res://Audio/Originals/SFX/UPPER ROOM INTERACTIONS/Book_Page_Turn.wav" id="7_xfiod"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_etx67"]
-atlas = ExtResource("2_xpl52")
-region = Rect2(0, 0, 1680, 1190)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_c6ilk"]
-atlas = ExtResource("2_xpl52")
-region = Rect2(1680, 0, 1680, 1190)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3ihle"]
-atlas = ExtResource("2_xpl52")
-region = Rect2(3360, 0, 1680, 1190)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_upreb"]
-atlas = ExtResource("2_xpl52")
-region = Rect2(5040, 0, 1680, 1190)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_uitdy"]
-atlas = ExtResource("2_xpl52")
-region = Rect2(6720, 0, 1680, 1190)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ngwnk"]
-atlas = ExtResource("2_xpl52")
-region = Rect2(8400, 0, 1680, 1190)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_shews"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_etx67")
+"texture": ExtResource("3_v1spr")
 }],
 "loop": true,
-"name": &"Page1",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_c6ilk")
-}],
-"loop": true,
-"name": &"Page2",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_xfiod")
-}],
-"loop": true,
-"name": &"Page3",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("4_es17b")
-}],
-"loop": true,
-"name": &"Page4",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("5_46tc4")
-}],
-"loop": true,
-"name": &"Page5",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3ihle")
-}],
-"loop": true,
-"name": &"Page6",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_upreb")
-}],
-"loop": true,
-"name": &"Page7",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_uitdy")
-}],
-"loop": true,
-"name": &"Page8",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ngwnk")
-}],
-"loop": true,
-"name": &"Page9",
+"name": &"Page",
 "speed": 5.0
 }]
+
+[sub_resource type="FontFile" id="FontFile_v1spr"]
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/17/0/ascent = 0.0
+cache/0/17/0/descent = 0.0
+cache/0/17/0/underline_position = 0.0
+cache/0/17/0/underline_thickness = 0.0
+cache/0/17/0/scale = 1.0
+cache/0/18/0/ascent = 0.0
+cache/0/18/0/descent = 0.0
+cache/0/18/0/underline_position = 0.0
+cache/0/18/0/underline_thickness = 0.0
+cache/0/18/0/scale = 1.0
+cache/0/19/0/ascent = 0.0
+cache/0/19/0/descent = 0.0
+cache/0/19/0/underline_position = 0.0
+cache/0/19/0/underline_thickness = 0.0
+cache/0/19/0/scale = 1.0
+cache/0/20/0/ascent = 0.0
+cache/0/20/0/descent = 0.0
+cache/0/20/0/underline_position = 0.0
+cache/0/20/0/underline_thickness = 0.0
+cache/0/20/0/scale = 1.0
+cache/0/21/0/ascent = 0.0
+cache/0/21/0/descent = 0.0
+cache/0/21/0/underline_position = 0.0
+cache/0/21/0/underline_thickness = 0.0
+cache/0/21/0/scale = 1.0
+cache/0/22/0/ascent = 0.0
+cache/0/22/0/descent = 0.0
+cache/0/22/0/underline_position = 0.0
+cache/0/22/0/underline_thickness = 0.0
+cache/0/22/0/scale = 1.0
+cache/0/23/0/ascent = 0.0
+cache/0/23/0/descent = 0.0
+cache/0/23/0/underline_position = 0.0
+cache/0/23/0/underline_thickness = 0.0
+cache/0/23/0/scale = 1.0
+cache/0/24/0/ascent = 0.0
+cache/0/24/0/descent = 0.0
+cache/0/24/0/underline_position = 0.0
+cache/0/24/0/underline_thickness = 0.0
+cache/0/24/0/scale = 1.0
+cache/0/25/0/ascent = 0.0
+cache/0/25/0/descent = 0.0
+cache/0/25/0/underline_position = 0.0
+cache/0/25/0/underline_thickness = 0.0
+cache/0/25/0/scale = 1.0
+cache/0/26/0/ascent = 0.0
+cache/0/26/0/descent = 0.0
+cache/0/26/0/underline_position = 0.0
+cache/0/26/0/underline_thickness = 0.0
+cache/0/26/0/scale = 1.0
+cache/0/27/0/ascent = 0.0
+cache/0/27/0/descent = 0.0
+cache/0/27/0/underline_position = 0.0
+cache/0/27/0/underline_thickness = 0.0
+cache/0/27/0/scale = 1.0
+cache/0/28/0/ascent = 0.0
+cache/0/28/0/descent = 0.0
+cache/0/28/0/underline_position = 0.0
+cache/0/28/0/underline_thickness = 0.0
+cache/0/28/0/scale = 1.0
+cache/0/29/0/ascent = 0.0
+cache/0/29/0/descent = 0.0
+cache/0/29/0/underline_position = 0.0
+cache/0/29/0/underline_thickness = 0.0
+cache/0/29/0/scale = 1.0
+cache/0/30/0/ascent = 0.0
+cache/0/30/0/descent = 0.0
+cache/0/30/0/underline_position = 0.0
+cache/0/30/0/underline_thickness = 0.0
+cache/0/30/0/scale = 1.0
+cache/0/31/0/ascent = 0.0
+cache/0/31/0/descent = 0.0
+cache/0/31/0/underline_position = 0.0
+cache/0/31/0/underline_thickness = 0.0
+cache/0/31/0/scale = 1.0
+cache/0/32/0/ascent = 0.0
+cache/0/32/0/descent = 0.0
+cache/0/32/0/underline_position = 0.0
+cache/0/32/0/underline_thickness = 0.0
+cache/0/32/0/scale = 1.0
+cache/0/33/0/ascent = 0.0
+cache/0/33/0/descent = 0.0
+cache/0/33/0/underline_position = 0.0
+cache/0/33/0/underline_thickness = 0.0
+cache/0/33/0/scale = 1.0
+cache/0/34/0/ascent = 0.0
+cache/0/34/0/descent = 0.0
+cache/0/34/0/underline_position = 0.0
+cache/0/34/0/underline_thickness = 0.0
+cache/0/34/0/scale = 1.0
+cache/0/35/0/ascent = 0.0
+cache/0/35/0/descent = 0.0
+cache/0/35/0/underline_position = 0.0
+cache/0/35/0/underline_thickness = 0.0
+cache/0/35/0/scale = 1.0
+cache/0/36/0/ascent = 0.0
+cache/0/36/0/descent = 0.0
+cache/0/36/0/underline_position = 0.0
+cache/0/36/0/underline_thickness = 0.0
+cache/0/36/0/scale = 1.0
+cache/0/37/0/ascent = 0.0
+cache/0/37/0/descent = 0.0
+cache/0/37/0/underline_position = 0.0
+cache/0/37/0/underline_thickness = 0.0
+cache/0/37/0/scale = 1.0
+cache/0/50/0/ascent = 0.0
+cache/0/50/0/descent = 0.0
+cache/0/50/0/underline_position = 0.0
+cache/0/50/0/underline_thickness = 0.0
+cache/0/50/0/scale = 1.0
+cache/0/51/0/ascent = 0.0
+cache/0/51/0/descent = 0.0
+cache/0/51/0/underline_position = 0.0
+cache/0/51/0/underline_thickness = 0.0
+cache/0/51/0/scale = 1.0
+cache/0/52/0/ascent = 0.0
+cache/0/52/0/descent = 0.0
+cache/0/52/0/underline_position = 0.0
+cache/0/52/0/underline_thickness = 0.0
+cache/0/52/0/scale = 1.0
+cache/0/53/0/ascent = 0.0
+cache/0/53/0/descent = 0.0
+cache/0/53/0/underline_position = 0.0
+cache/0/53/0/underline_thickness = 0.0
+cache/0/53/0/scale = 1.0
+cache/0/54/0/ascent = 0.0
+cache/0/54/0/descent = 0.0
+cache/0/54/0/underline_position = 0.0
+cache/0/54/0/underline_thickness = 0.0
+cache/0/54/0/scale = 1.0
+cache/0/55/0/ascent = 0.0
+cache/0/55/0/descent = 0.0
+cache/0/55/0/underline_position = 0.0
+cache/0/55/0/underline_thickness = 0.0
+cache/0/55/0/scale = 1.0
+cache/0/56/0/ascent = 0.0
+cache/0/56/0/descent = 0.0
+cache/0/56/0/underline_position = 0.0
+cache/0/56/0/underline_thickness = 0.0
+cache/0/56/0/scale = 1.0
+cache/0/57/0/ascent = 0.0
+cache/0/57/0/descent = 0.0
+cache/0/57/0/underline_position = 0.0
+cache/0/57/0/underline_thickness = 0.0
+cache/0/57/0/scale = 1.0
+cache/0/100/0/ascent = 0.0
+cache/0/100/0/descent = 0.0
+cache/0/100/0/underline_position = 0.0
+cache/0/100/0/underline_thickness = 0.0
+cache/0/100/0/scale = 1.0
+cache/0/80/0/ascent = 0.0
+cache/0/80/0/descent = 0.0
+cache/0/80/0/underline_position = 0.0
+cache/0/80/0/underline_thickness = 0.0
+cache/0/80/0/scale = 1.0
 
 [node name="journal" type="Node2D"]
 process_mode = 2
@@ -119,7 +190,7 @@ region_rect = Rect2(-448, -352, 2616, 1616)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_shews")
-animation = &"Page2"
+animation = &"Page"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.5, 0.5)
@@ -128,3 +199,34 @@ zoom = Vector2(0.5, 0.5)
 stream = ExtResource("7_xfiod")
 volume_db = -2.0
 bus = &"SFX"
+
+[node name="Text" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PageTitle" type="Label" parent="Text"]
+layout_mode = 0
+offset_left = 65.0
+offset_top = -549.0
+offset_right = 801.0
+offset_bottom = -427.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = SubResource("FontFile_v1spr")
+theme_override_font_sizes/font_size = 80
+text = "Text"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PageContent" type="Label" parent="Text"]
+layout_mode = 0
+offset_left = 65.0
+offset_top = -412.0
+offset_right = 801.0
+offset_bottom = 506.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontFile_v1spr")
+theme_override_font_sizes/font_size = 50
+text = "Text"

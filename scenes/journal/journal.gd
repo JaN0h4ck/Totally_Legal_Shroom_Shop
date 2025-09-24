@@ -1,15 +1,18 @@
 extends Node2D
 
 const FIRST_PAGE: int = 0
-const LAST_PAGE: int = 8
+const LAST_PAGE: int = 3
 
 @onready var anim = $AnimatedSprite2D
 @export var count: int = 0
 @onready var sub_viewport_container: SubViewportContainer = $"../.."
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
+@onready var page_title: Label = $Text/PageTitle
+@onready var page_content: Label = $Text/PageContent
 
 func _ready():
-	anim.play("Page1")
+	anim.play("Page")
+	display_money_stats()
 	get_tree().paused = true
 
 func _process(_delta: float) -> void:
@@ -33,16 +36,33 @@ func _process(_delta: float) -> void:
 
 func page():
 	match count:
-		0: anim.play("Page1")
-		1: anim.play("Page2")
-		2: anim.play("Page3")
-		3: anim.play("Page4")
-		4: anim.play("Page5")
-		5: anim.play("Page6")
-		6: anim.play("Page7")
-		7: anim.play("Page8")
-		8: anim.play("Page9")
+		0: 
+			display_money_stats()
+		1: 
+			display_kill_stats()
+		2: 
+			display_upgrade_stats()
+		3:
+			display_left_alive_stats()
+
 
 func play_audio(old: int):
 	if count == old: return
 	audio_stream_player.play()
+
+func display_money_stats():
+	page_title.text =  "Money"
+	page_content.text = "Current Money: " + str(GameStats.money)
+
+func display_upgrade_stats():
+	page_title.text =  "Upgrades"
+	page_content.text = "Crusher Level: " + str(GameStats.crusher_level)
+
+func display_kill_stats():
+	page_title.text =  "Kills"
+	page_content.text = "Overall Kills: " + str(GameStats.kills)
+	page_content.text += "new"
+
+func display_left_alive_stats():
+	page_title.text =  "Left Alive"
+	page_content.text = "Customers Left Aliv: " + str(GameStats.completed_orders)
