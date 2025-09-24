@@ -10,7 +10,7 @@ const LAST_PAGE: int = 2
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 @onready var page_title: Label = $Text/PageTitle
 @onready var page_content: Label = $Text/PageContent
-@onready var list_container: VBoxContainer = $Text/VBoxContainer
+@onready var list_container: VBoxContainer = $Text/ScrollContainer/VBoxContainer
 
 var list_element = preload("res://scenes/journal/journal_ui_item.tscn")
 
