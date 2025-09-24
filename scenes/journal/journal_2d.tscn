@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://b8um71ch7vlk2"]
 
-[ext_resource type="Script" uid="uid://dc1cmf14215gd" path="res://scenes/journal/journal.gd" id="1_7irlf"]
+[ext_resource type="Script" uid="uid://ble4n443alb2n" path="res://scenes/journal/journal.gd" id="1_7irlf"]
 [ext_resource type="Texture2D" uid="uid://ccdj3emtu8dui" path="res://assets/store/lexikon_background.png" id="2_xfiod"]
 [ext_resource type="Texture2D" uid="uid://8grljs3j17la" path="res://assets/Empty_Page.png" id="3_v1spr"]
 [ext_resource type="FontFile" uid="uid://cw5mluddknoue" path="res://assets/fonts/PixelOperator-Bold.ttf" id="5_o7bhp"]
