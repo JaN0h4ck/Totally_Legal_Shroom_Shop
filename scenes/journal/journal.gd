@@ -58,18 +58,21 @@ func display_stats():
 	page_title.text =  "Stats"
 	page_content.text = ""
 	# List Container befüllen
+	# Geld Anzahl
 	var money_info = list_element.instantiate()
 	list_container.add_child(money_info)
 	money_info.update_text(GameStats.money)
 	money_info.texture_rect.texture = load("res://assets/ui/coin_icon.png")
+	# Gesamtanzahl Kills
 	var kills_info = list_element.instantiate()
 	list_container.add_child(kills_info)
 	kills_info.update_text(GameStats.kills)
-	kills_info.texture_rect.texture = load("res://assets/ui/coin_icon.png")
+	kills_info.texture_rect.texture = load("res://assets/shrooms/freshlyplanted.png")
+	# Anzahl am Leben gelassener Kunden
 	var left_alive_info = list_element.instantiate()
 	list_container.add_child(left_alive_info)
 	left_alive_info.update_text(GameStats.completed_orders)
-	left_alive_info.texture_rect.texture = load("res://assets/ui/coin_icon.png")
+	left_alive_info.texture_rect.texture = load("res://assets/shrooms/small/chestnut_small.png")
 
 ## Upgrades anzeigen
 func display_upgrades():
@@ -85,8 +88,8 @@ func display_upgrades():
 ## Kill Liste anzeigen
 func display_kills():
 	# Titel und Text festlegen
-	page_title.text =  "Kills"
-	page_content.text = "Overall Kills: " + str(GameStats.kills)
+	page_title.text =  "Kill List"
+	page_content.text = ""
 	# List Container befüllen
 	for killed in GameStats.kill_list:
 		var element = list_element.instantiate()
