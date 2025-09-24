@@ -38,6 +38,7 @@ func _process(_delta: float) -> void:
 		sub_viewport_container.queue_free()
 
 func page():
+	clear_list()
 	match count:
 		0: 
 			display_kill_stats()
@@ -58,22 +59,31 @@ func display_money_stats():
 	page_content.text = "Current Money: " + str(GameStats.money)
 
 func display_upgrade_stats():
-	page_title.text =  "Upgrades"
+	# Titel und Text festlegen
+	page_title.text =  "Upgrade Level"
 	page_content.text = ""
+	# List Container befüllen
 	var crusher_info = list_element.instantiate()
 	list_container.add_child(crusher_info)
 	crusher_info.update_text(GameStats.crusher_level)
-	crusher_info.icon.texture = load("res://assets/dungeon/wood_chipper.PNG")
+	crusher_info.texture_rect.texture = load("res://assets/dungeon/wood_chipper.PNG")
 
 func display_left_alive_stats():
 	page_title.text =  "Left Alive"
 	page_content.text = "Customers Left Aliv: " + str(GameStats.completed_orders)
 
 func display_kill_stats():
+	# Titel und Text festlegen
 	page_title.text =  "Kills"
 	page_content.text = "Overall Kills: " + str(GameStats.kills)
+	# List Container befüllen
 	for killed in GameStats.kill_list:
 		var element = list_element.instantiate()
 		list_container.add_child(element)
 		element.update_text(killed[1])
 		element.update_icon_to_killed(killed[0])
+
+## List Container leeren
+func clear_list():
+	for child in list_container.get_children():
+		list_container.remove_child(child)
