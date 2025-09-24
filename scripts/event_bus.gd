@@ -87,6 +87,9 @@ signal npc_left_unharmed()
 ## Wird ausgelöst wenn das Level des Crushers erhöht wird
 signal crusher_upgrade()
 
+## Wird ausgelöst wenn mit dem Journal im keller Interagiert wird
+signal interact_journal()
+
 func _on_interact_customer():
 	interact_customer.emit()
 
@@ -185,3 +188,6 @@ func _on_npc_left_unhamred():
 
 func _on_crusher_upgrade():
 	crusher_upgrade.emit()
+
+func _on_interact_journal():
+	interact_journal.emit()

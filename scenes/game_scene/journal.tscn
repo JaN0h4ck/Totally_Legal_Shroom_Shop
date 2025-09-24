@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://ctesq505b8qua"]
+
+[ext_resource type="Texture2D" uid="uid://5yym7638cog7" path="res://assets/dungeon/journal.PNG" id="1_4pvvc"]
+[ext_resource type="Script" uid="uid://p2fivoo0p72d" path="res://scenes/game_scene/interactable_journal.gd" id="2_o6yu1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4opd5"]
+size = Vector2(15, 11)
+
+[node name="journal" type="Sprite2D"]
+z_index = 7
+z_as_relative = false
+texture = ExtResource("1_4pvvc")
+
+[node name="interactable_journal" type="Area2D" parent="."]
+position = Vector2(-0.75, 20)
+script = ExtResource("2_o6yu1")
+interact_prompt = "Interact Journal"
+metadata/_custom_type_script = "uid://b1kccbwcfiryn"
+
+[node name="collision_interactable_journal" type="CollisionShape2D" parent="interactable_journal"]
+position = Vector2(-2.25, -20)
+shape = SubResource("RectangleShape2D_4opd5")
+
+[connection signal="player_interacted" from="interactable_journal" to="interactable_journal" method="_on_player_interacted"]

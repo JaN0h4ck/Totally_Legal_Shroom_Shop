@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://bmwuwlg1ued3q"]
+
+[ext_resource type="Script" uid="uid://df44m48kib0v3" path="res://scenes/journal/journal_ui_item.gd" id="1_tt4ty"]
+[ext_resource type="FontFile" uid="uid://chd81s4kvdxsc" path="res://assets/fonts/PixelOperator.ttf" id="3_7ltnx"]
+[ext_resource type="Texture2D" uid="uid://cmikvgcymv5sy" path="res://assets/dungeon/wood_chipper.PNG" id="3_hrahd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7ltnx"]
+
+[node name="JournalUIItem" type="HBoxContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1024.5
+offset_top = -45.5
+offset_right = 1024.5
+offset_bottom = 45.5
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+script = ExtResource("1_tt4ty")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("3_hrahd")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="VSeparator" type="VSeparator" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_7ltnx")
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_7ltnx")
+theme_override_font_sizes/font_size = 90
+text = "999"
+horizontal_alignment = 1
+vertical_alignment = 1

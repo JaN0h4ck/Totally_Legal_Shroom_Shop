@@ -7,6 +7,7 @@ var tween: Tween
 @onready var dialog_audio: DialogAudio = $DialogAudio
 @onready var portrait: TextureRect = $VBoxContainer/HBoxContainer/PortraitContainer/MarginContainer/Portrait
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if(label == null):
