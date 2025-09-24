@@ -11,6 +11,8 @@ const LAST_PAGE: int = 3
 @onready var page_content: Label = $Text/PageContent
 @onready var kill_list_container: VBoxContainer = $Text/KillListContainer
 
+var kill_list_element = preload("res://scenes/journal/journal_kill_list.tscn")
+
 func _ready():
 	anim.play("Page")
 	display_money_stats()
@@ -67,7 +69,7 @@ func display_kill_stats():
 	page_title.text =  "Kills"
 	page_content.text = "Overall Kills: " + str(GameStats.kills)
 	for killed in GameStats.kill_list:
-		var element : journal_kill_list = journal_kill_list.new()
+		var element = kill_list_element.instantiate()
 		kill_list_container.add_child(element)
 		element.update_text(killed[1])
 		element.update_icon(killed[0])

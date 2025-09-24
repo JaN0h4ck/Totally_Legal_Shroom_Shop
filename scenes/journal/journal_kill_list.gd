@@ -8,7 +8,6 @@ func _ready() -> void:
 	pass
 
 func update_text(number : int):
-	print(text)
 	text.text = str(number)
 
 func update_icon(killed_npc : GLOBALS.npc_names):
