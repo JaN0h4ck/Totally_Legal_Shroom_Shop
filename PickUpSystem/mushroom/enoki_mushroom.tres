@@ -12,6 +12,7 @@ normal_texture = ExtResource("3_vmy3s")
 
 [resource]
 script = ExtResource("1_vkxp5")
+name = "Enoki Shrooms"
 middle_stage_texture = ExtResource("2_r61v5")
 end_stage_texture = SubResource("CanvasTexture_er7sh")
 base_texture = ExtResource("1_uny31")

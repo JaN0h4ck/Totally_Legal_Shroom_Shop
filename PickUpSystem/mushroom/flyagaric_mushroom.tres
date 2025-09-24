@@ -12,6 +12,7 @@ normal_texture = ExtResource("3_d22yb")
 
 [resource]
 script = ExtResource("1_ae5l6")
+name = "Fly Agaric"
 middle_stage_texture = ExtResource("2_o5uib")
 end_stage_texture = SubResource("CanvasTexture_522kt")
 base_texture = ExtResource("1_csvhk")

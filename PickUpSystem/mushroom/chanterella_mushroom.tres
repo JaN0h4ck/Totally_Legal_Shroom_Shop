@@ -12,6 +12,7 @@ normal_texture = ExtResource("3_kqylf")
 
 [resource]
 script = ExtResource("4_1qjff")
+name = "Chanterelle Shroom"
 middle_stage_texture = ExtResource("3_1wve0")
 end_stage_texture = SubResource("CanvasTexture_fowix")
 base_texture = ExtResource("1_qhfbp")
