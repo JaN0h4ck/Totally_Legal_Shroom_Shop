@@ -1,8 +1,6 @@
 class_name DialogAudio
 extends AudioStreamPlayer
 
-enum VoiceTypes { HIGH, MEDIUM, LOW }
-
 @export var voice_high: Array[AudioStreamWAV]
 @export var voice_medium: Array[AudioStreamWAV]
 @export var voice_low: Array[AudioStreamWAV]
@@ -19,22 +17,22 @@ func _on_timeout():
 	if is_playing:
 		play()
 
-func start_playback(type: VoiceTypes):
+func start_playback(type: GLOBALS.voice_types):
 	set_voice(type)
 	playing = true
 	timer.start()
 	play()
 
-func set_voice(type: VoiceTypes):
+func set_voice(type: GLOBALS.voice_types):
 	var randomizer: AudioStreamRandomizer = stream
 	match type:
-		VoiceTypes.HIGH:
+		GLOBALS.voice_types.HIGH:
 			for i in range(randomizer.streams_count):
 				randomizer.set_stream(i, voice_high[i])
-		VoiceTypes.MEDIUM:
+		GLOBALS.voice_types.MEDIUM:
 			for i in range(randomizer.streams_count):
 				randomizer.set_stream(i, voice_medium[i])
-		VoiceTypes.LOW:
+		GLOBALS.voice_types.LOW:
 			for i in range(randomizer.streams_count):
 				randomizer.set_stream(i, voice_low[i])
 

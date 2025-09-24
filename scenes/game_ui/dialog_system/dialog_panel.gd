@@ -39,7 +39,7 @@ func _start_dialog(text: String):
 	tween = get_tree().create_tween()
 	tween.tween_property(label, "visible_characters", text.length(), seconds).from(0)
 	tween.finished.connect(_on_display_finished)
-	dialog_audio.start_playback(DialogAudio.VoiceTypes.MEDIUM)
+	dialog_audio.start_playback(GLOBALS.voice_types.MEDIUM)
 
 func _on_display_finished():
 	dialog_audio.stop_playback()
