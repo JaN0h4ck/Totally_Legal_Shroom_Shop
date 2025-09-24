@@ -1,7 +1,7 @@
 extends Node2D
 
 const FIRST_PAGE: int = 0
-const LAST_PAGE: int = 3
+const LAST_PAGE: int = 2
 
 @onready var anim = $AnimatedSprite2D
 @export var count: int = 0
@@ -15,7 +15,7 @@ var list_element = preload("res://scenes/journal/journal_ui_item.tscn")
 
 func _ready():
 	anim.play("Page")
-	display_kill_stats()
+	display_stats()
 	get_tree().paused = true
 
 func _process(_delta: float) -> void:
@@ -41,28 +41,35 @@ func page():
 	clear_list()
 	match count:
 		0: 
-			display_kill_stats()
+			display_stats()
 		1: 
-			display_upgrade_stats()
+			display_upgrades()
 		2: 
-			display_money_stats()
-		3:
-			display_left_alive_stats()
+			display_kills()
 
 
 func play_audio(old: int):
 	if count == old: return
 	audio_stream_player.play()
 
-func display_money_stats():
-	page_title.text =  "Money"
+func display_stats():
+	page_title.text =  "Stats"
+	page_content.text = ""
 	# List Container befüllen
 	var money_info = list_element.instantiate()
 	list_container.add_child(money_info)
 	money_info.update_text(GameStats.money)
 	money_info.texture_rect.texture = load("res://assets/ui/coin_icon.png")
+	var kills_info = list_element.instantiate()
+	list_container.add_child(kills_info)
+	kills_info.update_text(GameStats.kills)
+	kills_info.texture_rect.texture = load("res://assets/ui/coin_icon.png")
+	var left_alive_info = list_element.instantiate()
+	list_container.add_child(left_alive_info)
+	left_alive_info.update_text(GameStats.completed_orders)
+	left_alive_info.texture_rect.texture = load("res://assets/ui/coin_icon.png")
 
-func display_upgrade_stats():
+func display_upgrades():
 	# Titel und Text festlegen
 	page_title.text =  "Upgrade Level"
 	page_content.text = ""
@@ -72,11 +79,7 @@ func display_upgrade_stats():
 	crusher_info.update_text(GameStats.crusher_level)
 	crusher_info.texture_rect.texture = load("res://assets/dungeon/wood_chipper.PNG")
 
-func display_left_alive_stats():
-	page_title.text =  "Left Alive"
-	page_content.text = "Customers Left Aliv: " + str(GameStats.completed_orders)
-
-func display_kill_stats():
+func display_kills():
 	# Titel und Text festlegen
 	page_title.text =  "Kills"
 	page_content.text = "Overall Kills: " + str(GameStats.kills)
