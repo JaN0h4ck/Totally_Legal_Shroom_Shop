@@ -1,7 +1,7 @@
-[gd_scene load_steps=20 format=3 uid="uid://cnrurhko688wa"]
+[gd_scene load_steps=20 format=3 uid="uid://drjlssummb77o"]
 
 [ext_resource type="PackedScene" uid="uid://c6k5nnpbypshi" path="res://addons/maaacks_menus_template/base/scenes/menus/main_menu/main_menu.tscn" id="1_rr1rn"]
-[ext_resource type="Theme" uid="uid://d31137rsk15ng" path="res://resources/themes/expedition.tres" id="2_ixa71"]
+[ext_resource type="Theme" uid="uid://cxgum3i7r44ou" path="res://resources/themes/grow.tres" id="2_ixa71"]
 [ext_resource type="Script" uid="uid://dfsg4qgand5n2" path="res://scenes/menus/main_menu/main_menu_with_animations.gd" id="2_sr523"]
 [ext_resource type="PackedScene" uid="uid://c4ea4cwximdvs" path="res://scenes/menus/options_menu/master_options_menu_with_tabs.tscn" id="3_ixa71"]
 [ext_resource type="PackedScene" uid="uid://c72enynwlon42" path="res://scenes/credits/scrollable_credits.tscn" id="4_2k5l7"]
@@ -375,7 +375,7 @@ texture = ExtResource("6_ixa71")
 modulate = Color(1, 1, 1, 0)
 
 [node name="VersionLabel" parent="VersionMargin/VersionContainer" index="0"]
-text = "v1.0.2"
+text = "v1.1.0"
 
 [node name="TitleContainer" parent="MenuContainer/TitleMargin" index="0"]
 modulate = Color(1, 1, 1, 0)
@@ -387,7 +387,7 @@ text = "Completely Legal Shroomshop"
 modulate = Color(1, 1, 1, 0)
 
 [node name="SubTitleLabel" parent="MenuContainer/SubTitleMargin/SubTitleContainer" index="0"]
-text = "Killing in the name"
+text = ""
 
 [node name="MenuButtonsContainer" parent="MenuContainer/MenuButtonsMargin" index="0"]
 modulate = Color(1, 1, 1, 0)
