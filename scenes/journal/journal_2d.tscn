@@ -74,14 +74,19 @@ theme_override_font_sizes/font_size = 50
 text = "Text"
 horizontal_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Text"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Text"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 2.1750002
-anchor_top = -8.0
-anchor_right = 19.775002
-anchor_bottom = 12.700001
-offset_left = 89.99999
-offset_top = -5.0
-offset_right = -82.00006
-offset_bottom = -3.0517578e-05
+anchor_left = 1.475
+anchor_top = -10.250001
+anchor_right = 20.225
+anchor_bottom = 13.150001
+offset_left = 101.0
+offset_top = 3.0517578e-05
+offset_right = -99.0
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Text/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
