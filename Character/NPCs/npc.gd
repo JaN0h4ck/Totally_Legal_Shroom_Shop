@@ -7,16 +7,21 @@ class_name base_npc
 @onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
 
 @export var portrait: Texture2D
-@export var requestet_mushroom : ShroomRes
+@export var requested_mushroom : ShroomRes
+@export var npc_name : GLOBALS.npc_names
+@export var rarity : GLOBALS.rarity
+
+@export_group("Dialogue")
 @export var lines: Array[String]
+@export var voice_type: GLOBALS.voice_types = GLOBALS.voice_types.MEDIUM
+
+@export_group("Movement")
 @export var path : Path2D
 @export var path_follow : PathFollow2D
 @export var move_speed : float = 40.0
 @export var loop_path : bool = false
 
-@export var npc_name : GLOBALS.npc_names
 
-@export var rarity : GLOBALS.rarity
 
 @onready var object_place: Node2D = $object_place
 
@@ -132,4 +137,4 @@ func _on_area_2d_body_exited(body):
 		self.z_index = -1
 
 func start_shopping():
-	EventBus.sell_mushroom.emit(requestet_mushroom)
+	EventBus.sell_mushroom.emit(requested_mushroom)

@@ -156,9 +156,10 @@ animations = [{
 
 [node name="NPC" instance=ExtResource("1_n4g8d")]
 portrait = ExtResource("2_mcufr")
-lines = Array[String](["Give me %s %s right now! Don`t you know who I am? Time is money! You could`nt even comprehend how famous I am. Go hurry up!", "Can you give me a discount for %s %s ? I will promote you store on ShroomTok"])
 npc_name = 3
 rarity = 1
+lines = Array[String](["Give me %s %s right now! Don`t you know who I am? Time is money! You could`nt even comprehend how famous I am. Go hurry up!", "Can you give me a discount for %s %s ? I will promote you store on ShroomTok"])
+voice_type = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="2"]
 position = Vector2(0, -12)
