@@ -11,10 +11,10 @@
 [ext_resource type="Texture2D" uid="uid://cn8w7nj28gjup" path="res://assets/dungeon/dungeon_table.PNG" id="8_epj33"]
 [ext_resource type="PackedScene" uid="uid://d1cmt6tktxlt3" path="res://scenes/game_scene/dungeon/chest_and_barrel.tscn" id="8_ikx5i"]
 [ext_resource type="Texture2D" uid="uid://bwlvfdu4ps75o" path="res://assets/dungeon/originals/axe_s.png" id="8_uf2vu"]
-[ext_resource type="Texture2D" uid="uid://5yym7638cog7" path="res://assets/dungeon/journal.PNG" id="9_hamwq"]
 [ext_resource type="PackedScene" uid="uid://dmdlnr87n1wxl" path="res://spawn_system/mushroom/mushroom_field.tscn" id="9_tkn77"]
 [ext_resource type="Texture2D" uid="uid://bq2vvs6x38nnm" path="res://assets/dungeon/originals/saw.PNG" id="10_4ovda"]
 [ext_resource type="Texture2D" uid="uid://ci7rt38s0ry1r" path="res://assets/dungeon/torch.PNG" id="11_554xe"]
+[ext_resource type="PackedScene" uid="uid://ctesq505b8qua" path="res://scenes/game_scene/journal.tscn" id="12_tkn77"]
 [ext_resource type="Script" uid="uid://cybwchfl8pj2v" path="res://scripts/flickering_light_2d.gd" id="13_ikx5i"]
 [ext_resource type="PackedScene" uid="uid://31fnvnrufja0" path="res://crush_system/wood_chipper.tscn" id="14_0sevn"]
 [ext_resource type="Texture2D" uid="uid://dwr0060psd8kh" path="res://assets/dungeon/prison/prison_bottom.PNG" id="15_7taji"]
@@ -330,11 +330,8 @@ visible = false
 position = Vector2(1.25, 0.5)
 shape = SubResource("RectangleShape2D_h67ak")
 
-[node name="journal" type="Sprite2D" parent="dungeon_base"]
-z_index = 7
-z_as_relative = false
+[node name="journal" parent="dungeon_base" instance=ExtResource("12_tkn77")]
 position = Vector2(73.5, 32.5)
-texture = ExtResource("9_hamwq")
 
 [node name="saw" type="Sprite2D" parent="dungeon_base"]
 z_index = -5

@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://drwnedydwugn6"]
+
+[ext_resource type="PackedScene" uid="uid://b8um71ch7vlk2" path="res://scenes/journal/journal_2d.tscn" id="1_1cjga"]
+[ext_resource type="PackedScene" uid="uid://bv5ulmbmtwuyw" path="res://scenes/game_ui/input_prompt.tscn" id="2_u2cbo"]
+
+[node name="SubViewportContainer" type="SubViewportContainer"]
+process_mode = 2
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="."]
+handle_input_locally = false
+snap_2d_transforms_to_pixel = true
+snap_2d_vertices_to_pixel = true
+size = Vector2i(1280, 720)
+render_target_update_mode = 4
+
+[node name="journal" parent="SubViewport" instance=ExtResource("1_1cjga")]
+
+[node name="InputPrompt" parent="." instance=ExtResource("2_u2cbo")]
+layout_mode = 2
+text = "Return"
+action_name = "ui_cancel"
