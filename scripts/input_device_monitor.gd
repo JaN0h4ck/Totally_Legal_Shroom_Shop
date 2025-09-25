@@ -6,7 +6,7 @@ var ignore_mouse: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	process_mode = Node.PROCESS_MODE_ALWAYS
 
 func _input(event: InputEvent) -> void:
 	if((event is InputEventKey) or (event is InputEventMouse and not ignore_mouse)):

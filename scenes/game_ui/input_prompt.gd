@@ -17,8 +17,12 @@ func get_icon(_name: String, _is_gamepad: bool):
 	var input_events = InputMap.action_get_events(_name)
 	if(input_events == null or input_events.size() == 0): return null
 	
-	var evt: InputEvent = input_events[1 if _is_gamepad else 0]
-	if evt == null: evt = input_events[0]
+	var evt: InputEvent
+	if input_events.size() == 1:
+		evt = input_events[0]
+	else:
+		evt = input_events[1 if _is_gamepad else 0]
+		if evt == null: evt = input_events[0]
 	
 	var result = input_icon_mapper.get_icon(evt)
 	return result
