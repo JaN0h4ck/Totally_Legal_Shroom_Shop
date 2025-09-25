@@ -1,0 +1,8 @@
+[gd_resource type="CanvasTexture" load_steps=3 format=3 uid="uid://shv1k7k3ojdh"]
+
+[ext_resource type="Texture2D" uid="uid://bhmel3u3pkkeu" path="res://assets/character/enthusiast/originals/enthusiast_walk_sheet.png" id="1_cofog"]
+[ext_resource type="Texture2D" uid="uid://7n0gkvu8hwnk" path="res://assets/character/enthusiast/originals/enthusiast_walk_sheet_n.png" id="2_ws7x4"]
+
+[resource]
+diffuse_texture = ExtResource("1_cofog")
+normal_texture = ExtResource("2_ws7x4")
