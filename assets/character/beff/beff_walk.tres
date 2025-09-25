@@ -1,0 +1,8 @@
+[gd_resource type="CanvasTexture" load_steps=3 format=3 uid="uid://b3nr4nc6mj7sb"]
+
+[ext_resource type="Texture2D" uid="uid://xl5q84iqamlx" path="res://assets/character/beff/originals/beff_walk_sheet.png" id="1_qjajb"]
+[ext_resource type="Texture2D" uid="uid://b0oyeqv1pfgex" path="res://assets/character/beff/originals/beff_walk_sheet_n.png" id="2_twxpu"]
+
+[resource]
+diffuse_texture = ExtResource("1_qjajb")
+normal_texture = ExtResource("2_twxpu")
