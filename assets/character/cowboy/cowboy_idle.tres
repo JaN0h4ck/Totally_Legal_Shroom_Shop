@@ -1,0 +1,8 @@
+[gd_resource type="CanvasTexture" load_steps=3 format=3 uid="uid://cis0t0bf2m06v"]
+
+[ext_resource type="Texture2D" uid="uid://pb7mdlcdrx1e" path="res://assets/character/cowboy/originals/cowboy_idle_sheet.png" id="1_repu7"]
+[ext_resource type="Texture2D" uid="uid://dq28e1n4ra7fs" path="res://assets/character/cowboy/originals/cowboy_idle_sheet_n.png" id="2_j22th"]
+
+[resource]
+diffuse_texture = ExtResource("1_repu7")
+normal_texture = ExtResource("2_j22th")
