@@ -43,6 +43,7 @@ theme = ExtResource("1_wq83t")
 script = ExtResource("1_0om7c")
 
 [node name="DialogAudio" type="AudioStreamPlayer" parent="."]
+process_mode = 1
 stream = SubResource("AudioStreamRandomizer_0ag80")
 volume_db = -8.0
 mix_target = 2

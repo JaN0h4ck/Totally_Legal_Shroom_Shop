@@ -19,6 +19,10 @@ func _ready() -> void:
 	EventBus.order_complete.connect(_order_complete)
 
 func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_cancel"):
+		get_viewport().set_input_as_handled()
+		EventBus.dialog_ended.emit()
+		queue_free()
 	if not event.is_action_pressed("skip_dialogue") and not event.is_action_pressed("interact"):
 		return
 	if event.is_action_pressed("skip_dialogue"):
