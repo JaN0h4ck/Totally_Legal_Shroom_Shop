@@ -2,22 +2,24 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://w5t0gdcm85ft"
-path="res://.godot/imported/cook_walk_backward.png-9f051fd2185b8d87213c40199d8eb651.ctex"
+uid="uid://cvvo7ru64dmb5"
+path="res://.godot/imported/cook_walk_forward.png-05e9eafb53c327841a7958fb339bbc08.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/character/cook/cook_walk_backward.png"
-dest_files=["res://.godot/imported/cook_walk_backward.png-9f051fd2185b8d87213c40199d8eb651.ctex"]
+source_file="res://assets/character/cook/originals/cook_walk_forward.png"
+dest_files=["res://.godot/imported/cook_walk_forward.png-05e9eafb53c327841a7958fb339bbc08.ctex"]
 
 [params]
 
 compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
+compress/uastc_level=0
+compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
@@ -25,6 +27,10 @@ mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
+process/channel_remap/red=0
+process/channel_remap/green=1
+process/channel_remap/blue=2
+process/channel_remap/alpha=3
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false

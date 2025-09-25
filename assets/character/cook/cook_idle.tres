@@ -1,0 +1,8 @@
+[gd_resource type="CanvasTexture" load_steps=3 format=3 uid="uid://ca0vlcpa2fvml"]
+
+[ext_resource type="Texture2D" uid="uid://bmwinwj1vtc2h" path="res://assets/character/cook/originals/cook_idle_sheet.png" id="1_xxmdn"]
+[ext_resource type="Texture2D" uid="uid://b4vbq0ulchtuq" path="res://assets/character/cook/originals/cook_idle_sheet_n.png" id="2_f5bug"]
+
+[resource]
+diffuse_texture = ExtResource("1_xxmdn")
+normal_texture = ExtResource("2_f5bug")
