@@ -1,0 +1,8 @@
+[gd_resource type="CanvasTexture" load_steps=3 format=3 uid="uid://clqiupi83rnqt"]
+
+[ext_resource type="Texture2D" uid="uid://3nndlnc7ll4d" path="res://assets/character/nerd/originals/nerd_walk_sheet.png" id="1_3oq2r"]
+[ext_resource type="Texture2D" uid="uid://d0xvapyk4nenb" path="res://assets/character/nerd/originals/nerd_walk_sheet_n.png" id="2_apa63"]
+
+[resource]
+diffuse_texture = ExtResource("1_3oq2r")
+normal_texture = ExtResource("2_apa63")
