@@ -1,0 +1,8 @@
+[gd_resource type="CanvasTexture" load_steps=3 format=3 uid="uid://dmtndhogxohnj"]
+
+[ext_resource type="Texture2D" uid="uid://bkafduig7gr4a" path="res://assets/character/celebrity/originals/celeb_walk_sheet.png" id="1_tbkgs"]
+[ext_resource type="Texture2D" uid="uid://dp6exyf5al7k1" path="res://assets/character/celebrity/originals/celeb_walk_sheet_n.png" id="2_qlbcn"]
+
+[resource]
+diffuse_texture = ExtResource("1_tbkgs")
+normal_texture = ExtResource("2_qlbcn")
