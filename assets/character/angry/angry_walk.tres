@@ -1,0 +1,8 @@
+[gd_resource type="CanvasTexture" load_steps=3 format=3 uid="uid://c7213xv5a5bbo"]
+
+[ext_resource type="Texture2D" uid="uid://c5kfa31y0x8kh" path="res://assets/character/angry/originals/angry_walk_sheet.png" id="1_v6min"]
+[ext_resource type="Texture2D" uid="uid://ls3cwpddt1mh" path="res://assets/character/angry/originals/angry_walk_sheet_n.png" id="2_nby0e"]
+
+[resource]
+diffuse_texture = ExtResource("1_v6min")
+normal_texture = ExtResource("2_nby0e")

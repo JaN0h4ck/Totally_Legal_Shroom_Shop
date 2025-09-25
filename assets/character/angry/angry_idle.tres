@@ -1,0 +1,8 @@
+[gd_resource type="CanvasTexture" load_steps=3 format=3 uid="uid://c816tqiisc1sy"]
+
+[ext_resource type="Texture2D" uid="uid://blbevjbxwj4q" path="res://assets/character/angry/originals/angy_idle_sheet.png" id="1_7a7ym"]
+[ext_resource type="Texture2D" uid="uid://c0l8by04uuoa8" path="res://assets/character/angry/originals/angy_idle_sheet_n.png" id="2_y2kua"]
+
+[resource]
+diffuse_texture = ExtResource("1_7a7ym")
+normal_texture = ExtResource("2_y2kua")
