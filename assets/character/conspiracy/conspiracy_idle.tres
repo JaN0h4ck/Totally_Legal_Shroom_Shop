@@ -1,0 +1,8 @@
+[gd_resource type="CanvasTexture" load_steps=3 format=3 uid="uid://drbi64hitserv"]
+
+[ext_resource type="Texture2D" uid="uid://si0n2dvg5lsm" path="res://assets/character/conspiracy/originals/conspiracy_idle_sheet.png" id="1_tuut0"]
+[ext_resource type="Texture2D" uid="uid://48bo2uvfb46i" path="res://assets/character/conspiracy/originals/conspiracy_idle_sheet_n.png" id="2_hynfw"]
+
+[resource]
+diffuse_texture = ExtResource("1_tuut0")
+normal_texture = ExtResource("2_hynfw")

@@ -1,0 +1,8 @@
+[gd_resource type="CanvasTexture" load_steps=3 format=3 uid="uid://bt3uua6cstj2c"]
+
+[ext_resource type="Texture2D" uid="uid://bxaq7qjnub5c3" path="res://assets/character/conspiracy/originals/conspiracy_walk_sheet.png" id="1_417ly"]
+[ext_resource type="Texture2D" uid="uid://cvxd2wt07ft21" path="res://assets/character/conspiracy/originals/conspiracy_walk_sheet_n.png" id="2_twgqa"]
+
+[resource]
+diffuse_texture = ExtResource("1_417ly")
+normal_texture = ExtResource("2_twgqa")

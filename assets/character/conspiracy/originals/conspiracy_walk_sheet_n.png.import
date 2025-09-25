@@ -2,22 +2,24 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ct2c2m4obh83s"
-path="res://.godot/imported/conspiracy_idle_front.png-72ba136cfff75e6bc03dbac27a3ea3a1.ctex"
+uid="uid://cvxd2wt07ft21"
+path="res://.godot/imported/conspiracy_walk_sheet_n.png-01f6ad44987cba024423ee1b0d7cdaf5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/character/conspiracy/conspiracy_idle_front.png"
-dest_files=["res://.godot/imported/conspiracy_idle_front.png-72ba136cfff75e6bc03dbac27a3ea3a1.ctex"]
+source_file="res://assets/character/conspiracy/originals/conspiracy_walk_sheet_n.png"
+dest_files=["res://.godot/imported/conspiracy_walk_sheet_n.png-01f6ad44987cba024423ee1b0d7cdaf5.ctex"]
 
 [params]
 
 compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
+compress/uastc_level=0
+compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
@@ -25,6 +27,10 @@ mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
+process/channel_remap/red=0
+process/channel_remap/green=1
+process/channel_remap/blue=2
+process/channel_remap/alpha=3
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false

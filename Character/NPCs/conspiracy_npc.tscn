@@ -1,77 +1,103 @@
-[gd_scene load_steps=20 format=3 uid="uid://c2cp8vd6lsf7d"]
+[gd_scene load_steps=22 format=3 uid="uid://c2cp8vd6lsf7d"]
 
 [ext_resource type="PackedScene" uid="uid://bgx1eldmsx2b3" path="res://Character/NPCs/base_npc.tscn" id="1_6cd1m"]
-[ext_resource type="Texture2D" uid="uid://ct2c2m4obh83s" path="res://assets/character/conspiracy/conspiracy_idle_front.png" id="2_6cd1m"]
 [ext_resource type="Texture2D" uid="uid://cr3lc11xr87ok" path="res://assets/character/conspiracy/conspiracy_portrait.png" id="2_slje1"]
-[ext_resource type="Texture2D" uid="uid://x62mqayy8w7q" path="res://assets/character/conspiracy/conspiracy_idle_right.png" id="3_slje1"]
-[ext_resource type="Texture2D" uid="uid://cwjbfb4fhct0n" path="res://assets/character/conspiracy/conspiracy_idle_back.png" id="4_cfl64"]
-[ext_resource type="Texture2D" uid="uid://bpk0kjkva5pjm" path="res://assets/character/conspiracy/conspiracy_idle_left.png" id="5_pmi13"]
-[ext_resource type="Texture2D" uid="uid://27u7yjx7qsy0" path="res://assets/character/conspiracy/conspiracy_walk_backward.png" id="6_kg2r1"]
-[ext_resource type="Texture2D" uid="uid://cttn1hr1ask6e" path="res://assets/character/conspiracy/conspiracy_walk_forward.png" id="7_ndabk"]
-[ext_resource type="Texture2D" uid="uid://bs0ryay3r6q2s" path="res://assets/character/conspiracy/conspiracy_walk_left.png" id="8_havq6"]
-[ext_resource type="Texture2D" uid="uid://ssbwcb266lm1" path="res://assets/character/conspiracy/conspiracy_walk_right.png" id="9_ufacj"]
+[ext_resource type="Texture2D" uid="uid://drbi64hitserv" path="res://assets/character/conspiracy/conspiracy_idle.tres" id="3_wo2ux"]
+[ext_resource type="Texture2D" uid="uid://bt3uua6cstj2c" path="res://assets/character/conspiracy/conspiracy_walk.tres" id="4_f0q6g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4olm7"]
+atlas = ExtResource("3_wo2ux")
+region = Rect2(0, 33, 28, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ota64"]
+atlas = ExtResource("3_wo2ux")
+region = Rect2(28, 0, 28, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i63vc"]
+atlas = ExtResource("3_wo2ux")
+region = Rect2(0, 0, 28, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6cd1m"]
+atlas = ExtResource("3_wo2ux")
+region = Rect2(28, 33, 28, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_slje1"]
+atlas = ExtResource("3_wo2ux")
+region = Rect2(0, 0, 28, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cfl64"]
+atlas = ExtResource("3_wo2ux")
+region = Rect2(0, 33, 28, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pmi13"]
+atlas = ExtResource("3_wo2ux")
+region = Rect2(28, 0, 28, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kg2r1"]
+atlas = ExtResource("3_wo2ux")
+region = Rect2(28, 33, 28, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ndabk"]
+atlas = ExtResource("4_f0q6g")
+region = Rect2(0, 0, 28, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_havq6"]
+atlas = ExtResource("4_f0q6g")
+region = Rect2(28, 0, 28, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ufacj"]
+atlas = ExtResource("4_f0q6g")
+region = Rect2(0, 33, 28, 33)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ga53t"]
-atlas = ExtResource("6_kg2r1")
-region = Rect2(0, 0, 28, 33)
+atlas = ExtResource("4_f0q6g")
+region = Rect2(28, 33, 28, 33)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pd16e"]
-atlas = ExtResource("6_kg2r1")
-region = Rect2(28, 0, 28, 33)
+atlas = ExtResource("4_f0q6g")
+region = Rect2(56, 0, 28, 33)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_78gie"]
-atlas = ExtResource("7_ndabk")
-region = Rect2(0, 0, 28, 33)
+atlas = ExtResource("4_f0q6g")
+region = Rect2(84, 0, 28, 33)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ea3wa"]
-atlas = ExtResource("7_ndabk")
-region = Rect2(28, 0, 28, 33)
+atlas = ExtResource("4_f0q6g")
+region = Rect2(56, 33, 28, 33)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j4e47"]
-atlas = ExtResource("8_havq6")
-region = Rect2(0, 0, 28, 33)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8qtim"]
-atlas = ExtResource("8_havq6")
-region = Rect2(28, 0, 28, 33)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ihomx"]
-atlas = ExtResource("9_ufacj")
-region = Rect2(0, 0, 28, 33)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ordxj"]
-atlas = ExtResource("9_ufacj")
-region = Rect2(28, 0, 28, 33)
+atlas = ExtResource("4_f0q6g")
+region = Rect2(84, 33, 28, 33)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_piw7h"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_6cd1m")
+"texture": SubResource("AtlasTexture_4olm7")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_slje1")
+"texture": SubResource("AtlasTexture_ota64")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_cfl64")
+"texture": SubResource("AtlasTexture_i63vc")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_pmi13")
+"texture": SubResource("AtlasTexture_6cd1m")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_6cd1m")
+"texture": SubResource("AtlasTexture_4olm7")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_slje1")
+"texture": SubResource("AtlasTexture_ota64")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_cfl64")
+"texture": SubResource("AtlasTexture_i63vc")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_pmi13")
+"texture": SubResource("AtlasTexture_6cd1m")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_6cd1m")
+"texture": SubResource("AtlasTexture_4olm7")
 }],
 "loop": false,
 "name": &"fall_down",
@@ -79,7 +105,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_cfl64")
+"texture": SubResource("AtlasTexture_slje1")
 }],
 "loop": true,
 "name": &"idle_back",
@@ -87,7 +113,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_6cd1m")
+"texture": SubResource("AtlasTexture_cfl64")
 }],
 "loop": true,
 "name": &"idle_front",
@@ -95,7 +121,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_pmi13")
+"texture": SubResource("AtlasTexture_pmi13")
 }],
 "loop": true,
 "name": &"idle_left",
@@ -103,7 +129,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_slje1")
+"texture": SubResource("AtlasTexture_kg2r1")
 }],
 "loop": true,
 "name": &"idle_right",
@@ -111,10 +137,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ga53t")
+"texture": SubResource("AtlasTexture_ndabk")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_pd16e")
+"texture": SubResource("AtlasTexture_havq6")
 }],
 "loop": true,
 "name": &"walk_backward",
@@ -122,10 +148,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_78gie")
+"texture": SubResource("AtlasTexture_ufacj")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ea3wa")
+"texture": SubResource("AtlasTexture_ga53t")
 }],
 "loop": true,
 "name": &"walk_forward",
@@ -133,10 +159,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_j4e47")
+"texture": SubResource("AtlasTexture_pd16e")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_8qtim")
+"texture": SubResource("AtlasTexture_78gie")
 }],
 "loop": true,
 "name": &"walk_left",
@@ -144,10 +170,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ihomx")
+"texture": SubResource("AtlasTexture_ea3wa")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ordxj")
+"texture": SubResource("AtlasTexture_j4e47")
 }],
 "loop": true,
 "name": &"walk_right",
@@ -156,11 +182,11 @@ animations = [{
 
 [node name="NPC" instance=ExtResource("1_6cd1m")]
 portrait = ExtResource("2_slje1")
-lines = Array[String](["Shhhh be quiet! The goverment is watching us! Quick give me %s %s before they spot us. And don`t tell them I was here!"])
 npc_name = 4
+lines = Array[String](["Shhhh be quiet! The goverment is watching us! Quick give me %s %s before they spot us. And don`t tell them I was here!"])
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="2"]
 position = Vector2(0, -12)
 scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_piw7h")
-animation = &"fall_down"
+animation = &"idle_front"

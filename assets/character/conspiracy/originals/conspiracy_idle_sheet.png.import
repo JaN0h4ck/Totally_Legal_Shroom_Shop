@@ -2,22 +2,24 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://x62mqayy8w7q"
-path="res://.godot/imported/conspiracy_idle_right.png-d9ee90a7a351b00f0ece67c981c2ec7b.ctex"
+uid="uid://si0n2dvg5lsm"
+path="res://.godot/imported/conspiracy_idle_sheet.png-53d0a641decd24a8353bb526faa3141d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/character/conspiracy/conspiracy_idle_right.png"
-dest_files=["res://.godot/imported/conspiracy_idle_right.png-d9ee90a7a351b00f0ece67c981c2ec7b.ctex"]
+source_file="res://assets/character/conspiracy/originals/conspiracy_idle_sheet.png"
+dest_files=["res://.godot/imported/conspiracy_idle_sheet.png-53d0a641decd24a8353bb526faa3141d.ctex"]
 
 [params]
 
 compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
+compress/uastc_level=0
+compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
@@ -25,6 +27,10 @@ mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
+process/channel_remap/red=0
+process/channel_remap/green=1
+process/channel_remap/blue=2
+process/channel_remap/alpha=3
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false
