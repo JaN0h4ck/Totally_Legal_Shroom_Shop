@@ -2,22 +2,24 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cskdrwr8v6dao"
-path="res://.godot/imported/grandpa_idle_front.PNG-5278ec3f63a33366f811c81a4b38bf78.ctex"
+uid="uid://dugsf6waupae5"
+path="res://.godot/imported/grandpa_walk_right.png-dbacfe43c79e40c95f0a9905cad7789a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/character/grandpa/grandpa_idle_front.PNG"
-dest_files=["res://.godot/imported/grandpa_idle_front.PNG-5278ec3f63a33366f811c81a4b38bf78.ctex"]
+source_file="res://assets/character/grandpa/originals/grandpa_walk_right.png"
+dest_files=["res://.godot/imported/grandpa_walk_right.png-dbacfe43c79e40c95f0a9905cad7789a.ctex"]
 
 [params]
 
 compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
+compress/uastc_level=0
+compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
@@ -25,6 +27,10 @@ mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
+process/channel_remap/red=0
+process/channel_remap/green=1
+process/channel_remap/blue=2
+process/channel_remap/alpha=3
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false

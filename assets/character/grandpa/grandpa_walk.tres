@@ -1,0 +1,8 @@
+[gd_resource type="CanvasTexture" load_steps=3 format=3 uid="uid://dxy468w5eimy4"]
+
+[ext_resource type="Texture2D" uid="uid://35se6xq0nw1e" path="res://assets/character/grandpa/originals/grandpa_walk_sheet.png" id="1_1sf3e"]
+[ext_resource type="Texture2D" uid="uid://cxnm76te1qasj" path="res://assets/character/grandpa/originals/grandpa_walk_sheet_n.png" id="2_ldnme"]
+
+[resource]
+diffuse_texture = ExtResource("1_1sf3e")
+normal_texture = ExtResource("2_ldnme")

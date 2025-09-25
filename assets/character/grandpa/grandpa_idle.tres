@@ -1,0 +1,8 @@
+[gd_resource type="CanvasTexture" load_steps=3 format=3 uid="uid://cb80viksscuf1"]
+
+[ext_resource type="Texture2D" uid="uid://clcbjxj5b7n7q" path="res://assets/character/grandpa/originals/grandpa_idle_sheet.png" id="1_8avdx"]
+[ext_resource type="Texture2D" uid="uid://b17fg6gjexv1r" path="res://assets/character/grandpa/originals/grandpa_idle_sheet_n.png" id="2_vr3mg"]
+
+[resource]
+diffuse_texture = ExtResource("1_8avdx")
+normal_texture = ExtResource("2_vr3mg")
