@@ -8,6 +8,8 @@ extends PanelContainer
 
 ## Position im Inventar, muss für jeden ui_item einzigartig sein, aufsteigend von 0
 @export_range(0, 100) var inventory_position : int
+## ob die Node Fokus grabben soll, darf nur bei einer Control Node aktiv sein!
+@export var grab_focus_on_ready: bool = false
 
 var button_add_empty_text = "Add Shroom"
 var button_add_filled_text = "Add"
@@ -45,6 +47,8 @@ func empty_slot():
 	amount_label.text = ""
 	take_button.visible = false
 	add_button.text = button_add_empty_text
+	if grab_focus_on_ready:
+		add_button.grab_focus()
 
 # Wenn Slot ein Item enthält
 func filled_slot(item : Array):
@@ -55,6 +59,8 @@ func filled_slot(item : Array):
 	amount_label.text = str(amount)
 	take_button.visible = true
 	add_button.text = button_add_filled_text
+	if grab_focus_on_ready:
+		take_button.grab_focus()
 
 func remove_item():
 	var player : Player = get_tree().get_first_node_in_group("player")
