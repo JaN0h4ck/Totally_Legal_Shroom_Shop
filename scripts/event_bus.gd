@@ -62,6 +62,9 @@ signal inventory_add_object_autofill(mushroom_node)
 ## Ausgelöst wenn Objekt an bestimmter Position in Inventar geleget werden soll, braucht als eingabe Node aus Gruppe "Shrooms" und Slot Nummer
 signal inventory_add_object_specific_slot(mushroom_node, slot_number : int)
 
+## Ausgelöst wenn Zwei Inventar Slots getauscht werden
+signal inventory_swap_slots(slot_1 : int, slot_2 : int)
+
 ## Ausgelöst wenn entweder im Dungeon oder im Shop geladen wird
 signal load_shop()
 signal load_dungeon()
@@ -164,6 +167,9 @@ func _on_inventory_add_object_autofill(mushroom_node):
 
 func _on_inventory_add_object_specific_slot(mushroom_node, slot_number : int):
 	inventory_add_object_specific_slot.emit(mushroom_node, slot_number)
+
+func _on_inventory_swap_slots(slot_1 : int, slot_2 : int):
+	inventory_swap_slots.emit(slot_1, slot_2)
 
 func _on_load_shop():
 	load_shop.emit()

@@ -10,6 +10,7 @@ var print_info : bool = false
 func _ready():
 	print_info = config.print_info_messages
 	EventBus.inventory_add_object_autofill.connect(add_mushroom_autofill)
+	EventBus.inventory_swap_slots.connect(swap_slots)
 
 ## Pilz hinzufügen, anzahl erhöhen wenn noch nicht in Inventar, ansonsten im nächsten freien Slot
 func add_mushroom(mushroom_node, specific_slot : bool, slot : int):
@@ -48,6 +49,19 @@ func add_mushroom(mushroom_node, specific_slot : bool, slot : int):
 				print("Inventory: Added ", mushroom_res, " to Inventory on Slot ", slot)
 	
 	EventBus.inventory_updated.emit()
+
+## Slot ändern
+func swap_slots(slot_1 : int, slot_2 : int):
+	if print_info:
+		print("Inventory: Swap Slot ", slot_1, " with Slot ", slot_2)
+	# Fals Inventory Array nicht groß genug ist
+	if inventory_array.size() < slot_1 or inventory_array.size() < slot_2:
+		while inventory_array.size() < slot_1 or inventory_array.size() < slot_2:
+			inventory_array.append([null, 0])
+	var temp_slot : Array = inventory_array[slot_1]
+	inventory_array[slot_1] = inventory_array[slot_2]
+	inventory_array[slot_2] = temp_slot
+
 
 ## Pilz automatisch an bester Position im Inventar hinzufügen
 func add_mushroom_autofill(mushroom_node):
