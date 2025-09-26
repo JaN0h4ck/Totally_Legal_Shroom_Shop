@@ -67,12 +67,12 @@ func display_stats():
 	var kills_info = list_element.instantiate()
 	list_container.add_child(kills_info)
 	kills_info.update_text(GameStats.kills)
-	kills_info.texture_rect.texture = load("res://assets/shrooms/freshlyplanted.png")
+	kills_info.texture_rect.texture = load("res://assets/ui/death_icon.png")
 	# Anzahl am Leben gelassener Kunden
 	var left_alive_info = list_element.instantiate()
 	list_container.add_child(left_alive_info)
 	left_alive_info.update_text(GameStats.completed_orders)
-	left_alive_info.texture_rect.texture = load("res://assets/shrooms/small/chestnut_small.png")
+	left_alive_info.texture_rect.texture = load("res://assets/ui/shrooms_sold_icon.png")
 
 ## Upgrades anzeigen
 func display_upgrades():
