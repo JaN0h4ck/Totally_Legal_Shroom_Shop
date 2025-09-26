@@ -80,10 +80,12 @@ alignment = 1
 layout_mode = 2
 inventory_position = 1
 grab_focus_on_ready = true
+display_mushroom = true
 
 [node name="InventorySlot2" parent="BackgroundImage/ScrollContainer/VBoxContainer/HBoxContainer" instance=ExtResource("4_xrr3d")]
 layout_mode = 2
 inventory_position = 2
+display_mushroom = true
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="BackgroundImage/ScrollContainer/VBoxContainer"]
 layout_mode = 2
@@ -92,10 +94,12 @@ alignment = 1
 [node name="InventorySlot1" parent="BackgroundImage/ScrollContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("4_xrr3d")]
 layout_mode = 2
 inventory_position = 3
+display_mushroom = true
 
 [node name="InventorySlot2" parent="BackgroundImage/ScrollContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("4_xrr3d")]
 layout_mode = 2
 inventory_position = 4
+display_mushroom = true
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="BackgroundImage/ScrollContainer/VBoxContainer"]
 layout_mode = 2
@@ -104,6 +108,7 @@ alignment = 1
 [node name="InventorySlot1" parent="BackgroundImage/ScrollContainer/VBoxContainer/HBoxContainer3" instance=ExtResource("4_xrr3d")]
 layout_mode = 2
 inventory_position = 5
+display_mushroom = true
 
 [node name="InventorySlot2" parent="BackgroundImage/ScrollContainer/VBoxContainer/HBoxContainer3" instance=ExtResource("4_xrr3d")]
 layout_mode = 2

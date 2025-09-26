@@ -53,6 +53,8 @@ signal load_fertilizer(fert_res : FertilizerRes, loaded_position : Vector2)
 ## Ausgelöst wenn Pilze aus einem Save geladen werden
 signal load_mushroom(shroom_res : ShroomRes, saved_position : Vector2, saved_rotation : float, grow_stage : int, in_inventory : bool, inventory_position : int)
 
+signal display_mushroom(shroom_res : ShroomRes, slot : int)
+
 ## Ausgelöst wenn das Inventar geupdated wird
 signal inventory_updated()
 
@@ -193,6 +195,9 @@ func _on_load_fertilizer(fert_res : FertilizerRes, loaded_position : Vector2):
 
 func _on_load_mushroom(shroom_res : ShroomRes, saved_position : Vector2, saved_rotation : float, grow_stage : int, in_inventory : bool, inventory_position : int):
 	load_mushroom.emit(shroom_res, saved_position, saved_rotation, grow_stage, in_inventory, inventory_position)
+
+func _on_display_mushroom(shroom_res : ShroomRes, slot : int):
+	display_mushroom.emit(shroom_res, slot)
 
 func _on_start_shopping():
 	start_shopping.emit()

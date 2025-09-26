@@ -96,19 +96,19 @@ shape = SubResource("RectangleShape2D_40ceo")
 [node name="Mushroom_Positions" type="Node2D" parent="."]
 position = Vector2(-28, -42)
 
-[node name="Position_0" type="Node2D" parent="Mushroom_Positions" groups=["mushroom_inventory_display_position"]]
-
 [node name="Position_1" type="Node2D" parent="Mushroom_Positions" groups=["mushroom_inventory_display_position"]]
-position = Vector2(-15, 0)
 
 [node name="Position_2" type="Node2D" parent="Mushroom_Positions" groups=["mushroom_inventory_display_position"]]
-position = Vector2(-31, 0)
+position = Vector2(-15, 0)
 
 [node name="Position_3" type="Node2D" parent="Mushroom_Positions" groups=["mushroom_inventory_display_position"]]
+position = Vector2(-31, 0)
+
+[node name="Position_4" type="Node2D" parent="Mushroom_Positions" groups=["mushroom_inventory_display_position"]]
 position = Vector2(-43, 19)
 rotation = -1.5707964
 
-[node name="Position_4" type="Node2D" parent="Mushroom_Positions" groups=["mushroom_inventory_display_position"]]
+[node name="Position_5" type="Node2D" parent="Mushroom_Positions" groups=["mushroom_inventory_display_position"]]
 position = Vector2(-44, 34)
 rotation = -1.5707964
 

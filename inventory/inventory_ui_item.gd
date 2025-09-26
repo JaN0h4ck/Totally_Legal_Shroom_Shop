@@ -1,10 +1,14 @@
 extends PanelContainer
 
 ## Position im Inventar, muss für jeden ui_item einzigartig sein, aufsteigend von 0
-@export_range(0, 200) var inventory_position : int
+@export_range(1, 200) var inventory_position : int
 ## ob die Node Fokus grabben soll, darf nur bei einer Control Node aktiv sein!
 @export var grab_focus_on_ready: bool = false
+## Ob der Pilz oben ausgestellt werden soll
+@export var display_mushroom : bool = false
 
+## Rahmen Container
+@onready var inventory_slot: PanelContainer = $"."
 ## Pilz Bild
 @onready var texture: TextureRect = $MarginContainer/HBoxContainer/Texture
 ## Pilz Name
@@ -28,6 +32,8 @@ func _ready():
 	EventBus.inventory_updated.connect(update_displayed_info)
 	print_info = config.print_info_messages
 	update_displayed_info()
+	if display_mushroom:
+		display_mushroom_on_shelf()
 
 ## Aktualliesiere Anzeige
 func update_displayed_info():
@@ -43,11 +49,18 @@ func update_displayed_info():
 		coin_icon.texture = load("res://assets/shrooms/empty_shroom.png")
 		value_text.text = ""
 		button_take.visible = false
+		# Remove displayed Mushrooms
+		if display_mushroom:
+			for display_parent in get_tree().get_nodes_in_group("mushroom_inventory_display_position"):
+				if str(inventory_position) in display_parent.name:
+					for child in display_parent.get_children():
+						display_parent.remove_child(child)
+						child.queue_free()
 	else:
 		set_slot_info()
 		if print_info:
 			print("Inventory Slot: Slot ", inventory_position, " is not Empty")
-	
+
 ## Überprüft ob Inventar Slot Leer ist
 func check_if_slot_empty():
 	# Schaut ob Inventar Slot schon existiert
@@ -61,7 +74,7 @@ func check_if_slot_empty():
 ## Aktuelle Anzeige aktualliesieren
 func set_slot_info():
 	var slot_info : Array = Inventory.inventory_array[inventory_position]
-	var mushroom_res : ShroomRes = slot_info[0]
+	var mushroom_res = slot_info[0]
 	var mushroom_number : int = slot_info[1]
 	texture.texture = mushroom_res.end_stage_texture
 	mushrrom_name.text = str(mushroom_res.name)
@@ -76,6 +89,8 @@ func set_slot_info():
 		GLOBALS.rarity.ultra_rare:
 			value_text.text = str(config.money_ultra_rare_mushroom)
 	button_take.visible = true
+	if display_mushroom:
+		EventBus.display_mushroom.emit(mushroom_res, inventory_position)
 
 
 func _on_button_add_pressed() -> void:
@@ -92,3 +107,8 @@ func _on_button_take_pressed() -> void:
 	if print_info:
 		print("Inventory Slot: Slot ", inventory_position, " Take Button Pressed")
 	EventBus.inventory_remove_from_slot.emit(inventory_position)
+
+func display_mushroom_on_shelf():
+	var shelf_border = inventory_slot.get_theme_stylebox("panel").duplicate()
+	shelf_border.border_color = Color(0,0,1)
+	inventory_slot.add_theme_stylebox_override("panel",shelf_border)

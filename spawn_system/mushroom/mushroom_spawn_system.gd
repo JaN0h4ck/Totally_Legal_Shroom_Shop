@@ -16,6 +16,7 @@ class_name mushroom_spawn_system
 ## Globale Config Ressource
 var config: GlobalConfig = load("res://resources/global_config.tres")
 
+var print_info : bool = false
 var common_mushroom: Array
 var rare_mushroom: Array
 var ultra_rare_mushroom: Array
@@ -26,6 +27,8 @@ func _ready():
 	EventBus.pickup_object.connect(clear_field)
 	EventBus.load_mushroom.connect(load_mushroom)
 	EventBus.inventory_remove_mushroom.connect(take_mushroom_from_inventory)
+	EventBus.display_mushroom.connect(display_inventory_mushroom)
+	print_info = config.print_info_messages
 	add_mushroom_to_array(mushroom_resource_alien)
 	add_mushroom_to_array(murhroom_resource_bleeding)
 	add_mushroom_to_array(murhroom_resource_button)
@@ -107,6 +110,23 @@ func take_mushroom_from_inventory(shroom_res : ShroomRes):
 	mushroom.global_rotation = 0.0
 	mushroom.add_to_group("Shroom")
 	mushroom.load_item(3)
+
+func display_inventory_mushroom(shroom_res : ShroomRes, slot : int):
+	if print_info:
+		print("Mushroom Spawn System: Try to display ", shroom_res, " from Slot ", slot)
+	var mushroom : PickableMushroom = PickableMushroom.new()
+	mushroom.shroom_res = shroom_res
+	mushroom.display_item()
+	mushroom.is_pickable = false
+	mushroom.is_picked = false
+	for parent in get_tree().get_nodes_in_group("mushroom_inventory_display_position"):
+		if str(slot) in parent.name:
+			if print_info:
+				print("Mushroom Spawn System: Display from Slot parent ", parent, " found")
+			parent.add_child(mushroom)
+			return
+	if print_info:
+		print("Mushroom _Spawn System: No Display from Slot Parent Found")
 
 ## Dünger zu Feld bewegen und dann löschen
 func use_fertilizer(fertilizer: PickableFertilizer):

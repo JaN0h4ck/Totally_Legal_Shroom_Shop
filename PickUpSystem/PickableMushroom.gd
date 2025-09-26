@@ -39,6 +39,14 @@ func load_item(stage : int):
 	add_object_to_group("pickable_mushroom")
 	pickup_time = shroom_res.pickup_time
 
+func display_item():
+	is_picked = false
+	is_pickable = false
+	var sprite : Sprite2D = Sprite2D.new()
+	sprite.texture = shroom_res.end_stage_texture
+	add_child(sprite)
+	
+
 ## Legt die Größe der Collision Box fest auf die Werte aus dem ausgewähltem Objekt
 func set_collision_size(override_preset : bool = false, override_x: float = 0, override_y : float = 0):
 	var rect_shape: RectangleShape2D = interact_collision.shape as RectangleShape2D
