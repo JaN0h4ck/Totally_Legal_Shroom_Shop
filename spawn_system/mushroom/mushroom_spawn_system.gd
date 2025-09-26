@@ -87,7 +87,7 @@ func create_mushroom(soil_rarity: GLOBALS.rarity, location: Vector2):
 	node.prepare_item()
 
 ## Gespeicherten Pilz Spawnen
-func load_mushroom(shroom_res : ShroomRes, saved_position : Vector2, saved_rotation : float, grow_stage : int, in_inventory : bool, inventory_position : int):
+func load_mushroom(shroom_res : ShroomRes, saved_position : Vector2, saved_rotation : float, grow_stage : int):
 	var node: PickableMushroom = PickableMushroom.new()
 	add_child(node)
 	node.shroom_res = shroom_res
@@ -95,10 +95,6 @@ func load_mushroom(shroom_res : ShroomRes, saved_position : Vector2, saved_rotat
 	node.global_rotation = saved_rotation
 	node.add_to_group("Shroom")
 	node.load_item(grow_stage)
-	if in_inventory:
-		var succes = Inventory.add_mushroom_to_inventory_fix_position(node, inventory_position)
-		if not succes:
-			print("loading Inventory failed, Position: ", inventory_position)
 
 ## Pilz aus Inventar zu Spieler hinzufügen
 func take_mushroom_from_inventory(shroom_res : ShroomRes):

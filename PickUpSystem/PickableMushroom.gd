@@ -3,8 +3,6 @@ class_name PickableMushroom
 
 @export var shroom_res: ShroomRes
 var grow_stage = 1
-var in_inventory = false
-var inventory_position = 0
 
 ## Render Texture and add to corresponding Group
 func prepare_item():

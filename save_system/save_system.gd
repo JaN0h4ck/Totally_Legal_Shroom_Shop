@@ -53,8 +53,6 @@ func save_game():
 		mushrrom_info.append(mushroom.global_position)
 		mushrrom_info.append(mushroom.global_rotation)
 		mushrrom_info.append(mushroom.grow_stage)
-		mushrrom_info.append(mushroom.in_inventory)
-		mushrrom_info.append(mushroom.inventory_position)
 		saved_game.mushroom_info.append(mushrrom_info)
 		saved_game.mushroom_saved = true
 	
@@ -134,7 +132,7 @@ func load_game():
 	# Gespeicherte Pilze laden
 	if saved_game.mushroom_saved:
 		for mushroom_info : Array in saved_game.mushroom_info:
-			EventBus.load_mushroom.emit(mushroom_info[0], mushroom_info[1], mushroom_info[2], mushroom_info[3], mushroom_info[4], mushroom_info[5])
+			EventBus.load_mushroom.emit(mushroom_info[0], mushroom_info[1], mushroom_info[2], mushroom_info[3])
 	
 	# Game Stats speichern
 	GameStats.kills = saved_game.kill_amount
