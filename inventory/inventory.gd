@@ -10,17 +10,23 @@ var print_info : bool = false
 func _ready():
 	print_info = config.print_info_messages
 	EventBus.inventory_add_object_autofill.connect(add_mushroom_autofill)
+	EventBus.inventory_add_object_specific_slot.connect(add_mushroom_specific_slot)
 	EventBus.inventory_swap_slots.connect(swap_slots)
+	
+	if print_info:
+		print("Inventory: Ready")
 
 ## Pilz hinzufügen, anzahl erhöhen wenn noch nicht in Inventar, ansonsten im nächsten freien Slot
 func add_mushroom(mushroom_node, specific_slot : bool, slot : int):
 	if print_info:
 		print("Inventory: Try to add ", mushroom_node, " to Inventory")
+	if mushroom_node == null:
+		push_warning("Inventory: Tried to add Node of type null to Inventory")
+		return
 	if not check_if_node_is_mushroom(mushroom_node):
 		push_warning("Inventory: Tried to add ", mushroom_node, " to Inventory -> Error: Not a Mushroom")
 		return
 	var mushroom_res : ShroomRes = get_mushroom_resource(mushroom_node)
-	delete_mushroom_node(mushroom_node)
 	
 	# Wenn mit Autofill
 	if not specific_slot:
@@ -41,13 +47,17 @@ func add_mushroom(mushroom_node, specific_slot : bool, slot : int):
 	# Wenn Spezifischer Slot
 	else:
 		if not inventory_array[slot][0] == mushroom_res:
-			push_warning("Inventory: Tried to add ", mushroom_res, " to Inventory on invalid Slot taken by ", inventory_array[slot][0])
-			return
+			if inventory_array[slot][0] == null:
+				inventory_array[slot] = [mushroom_res, 1]
+			else:
+				push_warning("Inventory: Tried to add ", mushroom_res, " to Inventory on invalid Slot taken by ", inventory_array[slot][0])
+				return
 		else:
 			inventory_array[slot][1] += 1
 			if print_info:
 				print("Inventory: Added ", mushroom_res, " to Inventory on Slot ", slot)
 	
+	delete_mushroom_node(mushroom_node)
 	EventBus.inventory_updated.emit()
 
 ## Slot ändern
@@ -55,8 +65,8 @@ func swap_slots(slot_1 : int, slot_2 : int):
 	if print_info:
 		print("Inventory: Swap Slot ", slot_1, " with Slot ", slot_2)
 	# Fals Inventory Array nicht groß genug ist
-	if inventory_array.size() < slot_1 or inventory_array.size() < slot_2:
-		while inventory_array.size() < slot_1 or inventory_array.size() < slot_2:
+	if inventory_array.size() <= slot_1 or inventory_array.size() <= slot_2:
+		while inventory_array.size() <= slot_1 or inventory_array.size() <= slot_2:
 			inventory_array.append([null, 0])
 	var temp_slot : Array = inventory_array[slot_1]
 	inventory_array[slot_1] = inventory_array[slot_2]
@@ -69,9 +79,11 @@ func add_mushroom_autofill(mushroom_node):
 
 ## Pilz an bestimmter Position im Inventar hinzufügen
 func add_mushroom_specific_slot(mushroom_node, slot : int):
+	if print_info:
+		print("Inventory: Try to add ", mushroom_node, " to Slot ", slot)
 	# Fals Inventar Array noch nicht groß genug
-	if inventory_array.size() < slot:
-		while inventory_array.size() < slot:
+	if inventory_array.size() <= slot:
+		while inventory_array.size() <= slot:
 			inventory_array.append([null, 0])
 	add_mushroom(mushroom_node, true, slot)
 

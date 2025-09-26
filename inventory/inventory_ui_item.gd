@@ -1,138 +1,85 @@
 extends PanelContainer
 
-@onready var texture: TextureRect = $MarginContainer/UIItem/Display/Texture
-@onready var amount_label: Label = $MarginContainer/UIItem/Display/Label
-@onready var take_button: Button = $MarginContainer/UIItem/HBoxContainer/TakeButton
-@onready var add_button: Button = $MarginContainer/UIItem/HBoxContainer/AddButton
-
-
 ## Position im Inventar, muss für jeden ui_item einzigartig sein, aufsteigend von 0
-@export_range(0, 100) var inventory_position : int
+@export_range(0, 200) var inventory_position : int
 ## ob die Node Fokus grabben soll, darf nur bei einer Control Node aktiv sein!
 @export var grab_focus_on_ready: bool = false
 
-var button_add_empty_text = "Add Shroom"
-var button_add_filled_text = "Add"
-var button_take_text = "Take"
-var slot_empty : bool = true
-var item_added : bool = true
-var mushroom
-var mushroom_dungeon_position : Vector2 = Vector2(-2003, -2003)
+## Pilz Bild
+@onready var texture: TextureRect = $MarginContainer/HBoxContainer/Texture
+## Pilz Name
+@onready var mushrrom_name: Label = $MarginContainer/HBoxContainer/VBoxContainerInfo/Name
+## Pilze anzahl
+@onready var number_text: Label = $MarginContainer/HBoxContainer/VBoxContainerInfo/HBoxContainerNumber/NumberText
+## Pilz Wert
+@onready var number_coin_text: Label = $MarginContainer/HBoxContainer/VBoxContainerInfo/HBoxContainerWorth/NumberCoinText
+## Knopf zum nehmen aus aktuellem Slot
+@onready var button_take: Button = $MarginContainer/HBoxContainer/VBoxContainerButtons/ButtonTake
 
 ## Globale Config Ressource
 var config : GlobalConfig = load("res://resources/global_config.tres")
-
-var mushroom_global_positon : Vector2 = Vector2(0, 0)
-var mushroom_global_rotation : float = 0.0
+var print_info : bool = false
 
 func _ready():
-	EventBus.inventory_updated.connect(check_inventory)
-	set_mushroom_global_position()
-	check_inventory()
-	take_button.text = button_take_text
-	item_added = false
+	EventBus.inventory_updated.connect(update_displayed_info)
+	print_info = config.print_info_messages
+	update_displayed_info()
 
-# Überprüfen ob Slot leer ist
-func check_inventory():
-	var item : Array = Inventory.get_mushroom_type_at_position(inventory_position)
-	if item[0] == null:
-		empty_slot()
+## Aktualliesiere Anzeige
+func update_displayed_info():
+	if print_info:
+		print("Inventory Slot: Updating Slot ", inventory_position)
+	if check_if_slot_empty():
+		if print_info:
+			print("Inventory Slot: Slot ", inventory_position, " is Empty")
+		texture.texture = load("res://assets/shrooms/empty_shroom.png")
+		mushrrom_name.text = ""
+		number_text.text = str(0)
+		number_coin_text.text = str(0)
+		button_take.visible = false
 	else:
-		filled_slot(item)
-
-# Wenn Slot leer ist
-func empty_slot():
-	slot_empty = true
-	texture.texture = null
-	amount_label.text = ""
-	take_button.visible = false
-	add_button.text = button_add_empty_text
-	if grab_focus_on_ready:
-		add_button.grab_focus()
-
-# Wenn Slot ein Item enthält
-func filled_slot(item : Array):
-	slot_empty = false
-	mushroom = item[0]
-	var amount : int = item[1]
-	texture.texture = mushroom.shroom_res.end_stage_texture
-	amount_label.text = str(amount)
-	take_button.visible = true
-	add_button.text = button_add_filled_text
-	if grab_focus_on_ready:
-		take_button.grab_focus()
-
-func remove_item():
-	var player : Player = get_tree().get_first_node_in_group("player")
-	# Schauen ob Spieler bereits ein Objekt trägt
-	if player.carries_object and config.player_carry_only_one_item:
-		print("Player is already carring an object")
-		return
-	# Objekt Spieler übergeben
-	var item : Array = Inventory.get_mushroom_type_at_position(inventory_position)
-	# Set Rotation and Position
-	mushroom.in_inventory = false
-	mushroom.global_position = player.global_position
-	mushroom.global_rotation = 0.0
-	item[0].add_to_player()
-	# Objekt entfernen
-	var _succes = Inventory.remove_mushroom_from_inventory_by_position(inventory_position)
-	item_added = false
+		set_slot_info()
+		if print_info:
+			print("Inventory Slot: Slot ", inventory_position, " is not Empty")
 	
-	EventBus.inventory_updated.emit()
+## Überprüft ob Inventar Slot Leer ist
+func check_if_slot_empty():
+	# Schaut ob Inventar Slot schon existiert
+	if Inventory.inventory_array.size() <= inventory_position:
+		return true
+	# Schaut ob Inventar Slot aktuell Leer ist
+	if Inventory.inventory_array[inventory_position][1] == 0:
+		return true
+	return false
 
-## Pilz zum Inventar an aktueller stelle hinzufügen
-func add_item():
-	# Schauen ob Spieler einen Pilz dabei hat
+## Aktuelle Anzeige aktualliesieren
+func set_slot_info():
+	var slot_info : Array = Inventory.inventory_array[inventory_position]
+	var mushroom_res : ShroomRes = slot_info[0]
+	var mushroom_number : int = slot_info[1]
+	texture.texture = mushroom_res.end_stage_texture
+	mushrrom_name.text = str(mushroom_res.name)
+	number_text.text = str(mushroom_number)
+	match mushroom_res.rarity:
+		GLOBALS.rarity.common:
+			number_coin_text.text = str(config.money_common_mushroom)
+		GLOBALS.rarity.rare:
+			number_coin_text.text = str(config.money_rare_mushroom)
+		GLOBALS.rarity.ultra_rare:
+			number_coin_text.text = str(config.money_ultra_rare_mushroom)
+	button_take.visible = true
+
+
+func _on_button_add_pressed() -> void:
+	if print_info:
+		print("Inventory Slot: Slot ", inventory_position, " Add Button Pressed")
 	var player : Player = get_tree().get_first_node_in_group("player")
 	if player.carries_object:
-		for child in player.object_place.get_children():
-			if child.is_in_group("pickable_mushroom"):
-				mushroom = child
-	if mushroom == null:
-		print("Player has no Mushroom")
+		EventBus.inventory_add_object_specific_slot.emit(player.object_place.get_child(0), inventory_position)
 		return
-	
-	# Schauen ob Pilz bereits im Inventar
-	if mushroom.in_inventory:
-		return
-	
-	# Pilz zum Inventar hinzufügen und überprüfen ob erfolgreich
-	var succes = Inventory.add_mushroom_to_inventory_fix_position(mushroom, inventory_position)
-	if not succes:
-		print("Adding Mushroom Failed")
-		return
-	
-	# Pilz auf der Theke Platzieren
-	mushroom.in_inventory = true
-	mushroom.inventory_position = inventory_position
-	mushroom.crush_object()
-	mushroom.set_collision_size_to_zero()
-	mushroom.position = Vector2(0, 0)
-	mushroom.rotation = 0.0
-	mushroom.global_position = mushroom_global_positon
-	mushroom.global_rotation = mushroom_global_rotation
-	
-	# Inventar anzeige Aktuallisieren
-	EventBus.inventory_updated.emit()
+	if print_info:
+		print("Inventory Slot: Slot ", inventory_position, " tried to add Item but Player has no Item")
 
-func set_mushroom_global_position():
-	var position_nodes = get_tree().get_nodes_in_group("mushroom_inventory_display_position")
-	for node in position_nodes:
-		var node_name = node.name
-		var name_parts = node_name.split("_")
-		if name_parts.size() > 1:
-			var number = int(name_parts[1])
-			if number == inventory_position:
-				mushroom_global_positon = node.global_position
-				mushroom_global_rotation = node.global_rotation
-				return
-	mushroom_global_positon = mushroom_dungeon_position
-	mushroom_global_rotation = 0.0
-
-func _on_add_button_pressed() -> void:
-	add_item()
-
-
-func _on_take_button_pressed() -> void:
-	remove_item()
+func _on_button_take_pressed() -> void:
+	if print_info:
+		print("Inventory Slot: Slot ", inventory_position, " Take Button Pressed")
