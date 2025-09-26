@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://c0yme1cwhp7cp" path="res://inventory/inventory_ui_item.gd" id="1_tsslc"]
 [ext_resource type="Texture2D" uid="uid://cyg8f38uudxqc" path="res://assets/shrooms/Pfifferling.png" id="2_febgg"]
 [ext_resource type="FontFile" uid="uid://cw5mluddknoue" path="res://assets/fonts/PixelOperator-Bold.ttf" id="3_febgg"]
-[ext_resource type="Texture2D" uid="uid://dpur1n0jxsyyr" path="res://assets/ui/coin_icon.png" id="4_2hj36"]
+[ext_resource type="Texture2D" uid="uid://cstvpmt68f28o" path="res://assets/ui/Coin.png" id="4_febgg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hahsa"]
 draw_center = false
@@ -83,7 +83,7 @@ layout_mode = 2
 
 [node name="CoinIcon" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainerInfo/HBoxContainerValue"]
 layout_mode = 2
-texture = ExtResource("4_2hj36")
+texture = ExtResource("4_febgg")
 expand_mode = 3
 stretch_mode = 5
 

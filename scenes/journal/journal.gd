@@ -62,12 +62,12 @@ func display_stats():
 	var money_info = list_element.instantiate()
 	list_container.add_child(money_info)
 	money_info.update_text(GameStats.money)
-	money_info.texture_rect.texture = load("res://assets/ui/coin_icon.png")
+	money_info.texture_rect.texture = load("res://assets/ui/Coin.png")
 	# Gesamtanzahl Kills
 	var kills_info = list_element.instantiate()
 	list_container.add_child(kills_info)
 	kills_info.update_text(GameStats.kills)
-	kills_info.texture_rect.texture = load("res://assets/ui/death_icon.png")
+	kills_info.texture_rect.texture = load("res://assets/ui/Death_shroom.png")
 	# Anzahl am Leben gelassener Kunden
 	var left_alive_info = list_element.instantiate()
 	list_container.add_child(left_alive_info)
