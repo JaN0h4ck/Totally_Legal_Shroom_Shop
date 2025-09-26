@@ -93,6 +93,7 @@ func load_game():
 	
 	# Inventar Laden
 	Inventory.inventory_array = saved_game.inventory_array
+	EventBus.open_inventory_short.emit()
 	
 	# Aktuelle NPCs löschen
 	for npc in get_tree().get_nodes_in_group("npc"):
