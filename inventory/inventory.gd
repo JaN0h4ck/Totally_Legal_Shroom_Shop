@@ -13,6 +13,7 @@ func _ready():
 	EventBus.inventory_add_object_specific_slot.connect(add_mushroom_specific_slot)
 	EventBus.inventory_swap_slots.connect(swap_slots)
 	EventBus.inventory_remove_from_slot.connect(remove_from_slot)
+	EventBus.reset_stats.connect(reset_inventory)
 	
 	if print_info:
 		print("Inventory: Ready")
@@ -99,6 +100,10 @@ func remove_from_slot(slot : int):
 			print("Inventory: Slot ", slot, " now at ", inventory_array[slot][1])
 	
 	EventBus.inventory_updated.emit()
+
+## Inventar bei Rest Löschen
+func reset_inventory():
+	inventory_array = []
 
 ## Pilz automatisch an bester Position im Inventar hinzufügen
 func add_mushroom_autofill(mushroom_node):

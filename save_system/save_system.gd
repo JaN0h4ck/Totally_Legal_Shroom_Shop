@@ -20,6 +20,9 @@ func save_game():
 	saved_game.player_position = player.global_position
 	saved_game.player_in_shop = player.current_in_shop
 	
+	# Inventar Speichern
+	saved_game.inventory_array = Inventory.inventory_array
+	
 	# Kunden Stuff speichern
 	for npc in get_tree().get_nodes_in_group("npc"):
 		saved_game.npc_name = npc.npc_name
@@ -89,6 +92,9 @@ func load_game():
 	else:
 		EventBus.load_dungeon.emit()
 		player.current_in_shop = false
+	
+	# Inventar Laden
+	Inventory.inventory_array = saved_game.inventory_array
 	
 	# Aktuelle NPCs löschen
 	for npc in get_tree().get_nodes_in_group("npc"):
