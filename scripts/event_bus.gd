@@ -65,6 +65,12 @@ signal inventory_add_object_specific_slot(mushroom_node, slot_number : int)
 ## Ausgelöst wenn Zwei Inventar Slots getauscht werden
 signal inventory_swap_slots(slot_1 : int, slot_2 : int)
 
+## Ausgelöst wenn etwas aus einem bestimmten Inventar Slot entfernt werden soll
+signal inventory_remove_from_slot(slot : int)
+
+## Ausgelöst wenn ein Pilz aus dem Inventar entfernt wurde und nun in der Welt gespawnt werden muss
+signal inventory_remove_mushroom(mushroom_res : ShroomRes)
+
 ## Ausgelöst wenn entweder im Dungeon oder im Shop geladen wird
 signal load_shop()
 signal load_dungeon()
@@ -171,6 +177,11 @@ func _on_inventory_add_object_specific_slot(mushroom_node, slot_number : int):
 func _on_inventory_swap_slots(slot_1 : int, slot_2 : int):
 	inventory_swap_slots.emit(slot_1, slot_2)
 
+func _on_inventory_remove_mushroom(mushroom_res : ShroomRes):
+	inventory_remove_mushroom.emit(mushroom_res)
+
+func _on_inventory_remove_from_slot(slot : int):
+	inventory_remove_from_slot.emit(slot)
 func _on_load_shop():
 	load_shop.emit()
 

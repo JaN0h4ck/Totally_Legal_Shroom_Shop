@@ -25,6 +25,7 @@ var current_position: Vector2 = Vector2(0, 0)
 func _ready():
 	EventBus.pickup_object.connect(clear_field)
 	EventBus.load_mushroom.connect(load_mushroom)
+	EventBus.inventory_remove_mushroom.connect(take_mushroom_from_inventory)
 	add_mushroom_to_array(mushroom_resource_alien)
 	add_mushroom_to_array(murhroom_resource_bleeding)
 	add_mushroom_to_array(murhroom_resource_button)
@@ -98,6 +99,18 @@ func load_mushroom(shroom_res : ShroomRes, saved_position : Vector2, saved_rotat
 		var succes = Inventory.add_mushroom_to_inventory_fix_position(node, inventory_position)
 		if not succes:
 			print("loading Inventory failed, Position: ", inventory_position)
+
+## Pilz aus Inventar zu Spieler hinzufügen
+func take_mushroom_from_inventory(shroom_res : ShroomRes):
+	var mushroom : PickableMushroom = PickableMushroom.new()
+	mushroom.shroom_res = shroom_res
+	var player : Player = get_tree().get_first_node_in_group("player")
+	player.object_place.add_child(mushroom)
+	player.carries_object = true
+	mushroom.position = Vector2(0,0)
+	mushroom.global_rotation = 0.0
+	mushroom.add_to_group("Shroom")
+	mushroom.load_item(3)
 
 ## Dünger zu Feld bewegen und dann löschen
 func use_fertilizer(fertilizer: PickableFertilizer):

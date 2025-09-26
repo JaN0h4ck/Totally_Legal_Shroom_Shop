@@ -12,6 +12,7 @@ func _ready():
 	EventBus.inventory_add_object_autofill.connect(add_mushroom_autofill)
 	EventBus.inventory_add_object_specific_slot.connect(add_mushroom_specific_slot)
 	EventBus.inventory_swap_slots.connect(swap_slots)
+	EventBus.inventory_remove_from_slot.connect(remove_from_slot)
 	
 	if print_info:
 		print("Inventory: Ready")
@@ -71,7 +72,33 @@ func swap_slots(slot_1 : int, slot_2 : int):
 	var temp_slot : Array = inventory_array[slot_1]
 	inventory_array[slot_1] = inventory_array[slot_2]
 	inventory_array[slot_2] = temp_slot
+	
+	EventBus.inventory_updated.emit()
 
+## Pilz aus Inventar holen
+func remove_from_slot(slot : int):
+	if print_info:
+		print("Inventory: Try to Remove Item in Slot ", slot)
+	if inventory_array.size() <= slot:
+		while inventory_array.size() <= slot:
+			inventory_array.append([null, 0])
+	if inventory_array[slot][1] == 0:
+		push_warning("Inventory: Tried to remove Item from Empty Slot ", slot)
+		return
+	
+	var mushroom_res : ShroomRes = inventory_array[slot][0]
+	EventBus.inventory_remove_mushroom.emit(mushroom_res)
+	
+	if inventory_array[slot][1] == 1:
+		if print_info:
+			print("Inventory: Slot ", slot, " now Empty")
+		inventory_array[slot] = [null, 0]
+	else:
+		inventory_array[slot][1] -= 1
+		if print_info:
+			print("Inventory: Slot ", slot, " now at ", inventory_array[slot][1])
+	
+	EventBus.inventory_updated.emit()
 
 ## Pilz automatisch an bester Position im Inventar hinzufügen
 func add_mushroom_autofill(mushroom_node):

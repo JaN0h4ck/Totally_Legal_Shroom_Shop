@@ -83,3 +83,4 @@ func _on_button_add_pressed() -> void:
 func _on_button_take_pressed() -> void:
 	if print_info:
 		print("Inventory Slot: Slot ", inventory_position, " Take Button Pressed")
+	EventBus.inventory_remove_from_slot.emit(inventory_position)
