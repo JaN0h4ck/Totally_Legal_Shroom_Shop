@@ -56,6 +56,12 @@ signal load_mushroom(shroom_res : ShroomRes, saved_position : Vector2, saved_rot
 ## Ausgelöst wenn das Inventar geupdated wird
 signal inventory_updated()
 
+## Ausgelöst wenn Objekt an zufälliger Position ins Inventar gelegt werden soll, braucht als eingabe Node aus Gruppe "Shrooms"
+signal inventory_add_object_autofill(mushroom_node)
+
+## Ausgelöst wenn Objekt an bestimmter Position in Inventar geleget werden soll, braucht als eingabe Node aus Gruppe "Shrooms" und Slot Nummer
+signal inventory_add_object_specific_slot(mushroom_node, slot_number : int)
+
 ## Ausgelöst wenn entweder im Dungeon oder im Shop geladen wird
 signal load_shop()
 signal load_dungeon()
@@ -152,6 +158,12 @@ func _on_spawn_fertilizer(new_global_position: Vector2, rarity: GLOBALS.rarity):
 
 func _on_inventory_updated():
 	inventory_updated.emit()
+
+func _on_inventory_add_object_autofill(mushroom_node):
+	inventory_add_object_autofill.emit(mushroom_node)
+
+func _on_inventory_add_object_specific_slot(mushroom_node, slot_number : int):
+	inventory_add_object_specific_slot.emit(mushroom_node, slot_number)
 
 func _on_load_shop():
 	load_shop.emit()

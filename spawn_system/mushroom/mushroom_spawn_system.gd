@@ -13,7 +13,7 @@ class_name mushroom_spawn_system
 @onready var mushroom_resource_chestnut := preload("res://PickUpSystem/mushroom/chestnut_mushroom.tres")
 @onready var mushroom_resource_enoki := preload("res://PickUpSystem/mushroom/enoki_mushroom.tres")
 
-## Globale Cinfig Ressource
+## Globale Config Ressource
 var config: GlobalConfig = load("res://resources/global_config.tres")
 
 var common_mushroom: Array
