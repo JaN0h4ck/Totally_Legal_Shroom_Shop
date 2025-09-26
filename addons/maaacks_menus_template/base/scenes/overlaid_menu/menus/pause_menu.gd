@@ -71,10 +71,14 @@ func _on_exit_button_pressed() -> void:
 	popup_open = %ConfirmExit
 
 func _on_confirm_restart_confirmed() -> void:
+	EventBus.reset_stats.emit()
+	SaveSystem.load_on_start = false
 	SceneLoader.reload_current_scene()
 	close()
 
 func _on_confirm_main_menu_confirmed() -> void:
+	EventBus.reset_stats.emit()
+	SaveSystem.load_on_start = false
 	_load_scene(main_menu_scene)
 
 func _on_confirm_exit_confirmed() -> void:

@@ -90,6 +90,9 @@ signal crusher_upgrade()
 ## Wird ausgelöst wenn mit dem Journal im keller Interagiert wird
 signal interact_journal()
 
+## Wird ausgelöst wenn die Stats zurück gesetzt werden sollen
+signal reset_stats()
+
 func _on_interact_customer():
 	interact_customer.emit()
 
@@ -191,3 +194,6 @@ func _on_crusher_upgrade():
 
 func _on_interact_journal():
 	interact_journal.emit()
+
+func _on_reset_stats():
+	reset_stats.emit()

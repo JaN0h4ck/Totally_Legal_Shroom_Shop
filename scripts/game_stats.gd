@@ -10,6 +10,7 @@ func _ready() -> void:
 	EventBus.npc_dropped.connect(npc_killed)
 	EventBus.npc_left_unharmed.connect(complete_customer_order)
 	EventBus.update_money.connect(update_money)
+	EventBus.reset_stats.connect(reset_stats)
 
 ## Kill anzahl erhöhen
 func npc_killed(npc_name: GLOBALS.npc_names):
@@ -41,3 +42,11 @@ func complete_customer_order():
 ## Geld Anzahl im besitz ändern
 func update_money(amount : int):
 	money += amount
+
+## Stats zurücksetzen
+func reset_stats():
+	kills = 0
+	kill_list = []
+	completed_orders = 0
+	money = 0
+	crusher_level = 1
