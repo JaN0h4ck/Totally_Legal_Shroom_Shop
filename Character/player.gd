@@ -32,6 +32,7 @@ func _ready() -> void:
 	EventBus.dialog_ended.connect(_on_dialogue_ended)
 	EventBus.interact_basement.connect(enter_basement)
 	EventBus.interact_shop.connect(enter_shop)
+	EventBus.inventory_updated.connect(check_if_still_carring_object)
 
 
 func _physics_process(delta: float):
@@ -136,3 +137,9 @@ func play_walking_animation():
 		GLOBALS.directions.LEFT:
 			sprite_animation.play("walk_left")
 			last_direction = GLOBALS.directions.LEFT
+
+func check_if_still_carring_object():
+	for child in object_place.get_children():
+		if child != null:
+			return
+	carries_object = false

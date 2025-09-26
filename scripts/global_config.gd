@@ -51,3 +51,6 @@ class_name GlobalConfig
 @export var first_upgrade_costs_crusher : int = 10
 ## Preis steigerung pro Upgrade in Prozent
 @export var upgrade_price_increase_crusher : float = 20
+
+@export_category("Engine")
+@export var print_info_messages : bool = true

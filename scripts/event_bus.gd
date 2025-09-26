@@ -53,8 +53,29 @@ signal load_fertilizer(fert_res : FertilizerRes, loaded_position : Vector2)
 ## Ausgelöst wenn Pilze aus einem Save geladen werden
 signal load_mushroom(shroom_res : ShroomRes, saved_position : Vector2, saved_rotation : float, grow_stage : int, in_inventory : bool, inventory_position : int)
 
+## Pilze auf Theke anzeigen
+signal display_mushroom(shroom_res : ShroomRes, slot : int)
+
+## Inventar kurz öffnen
+signal open_inventory_short()
+
 ## Ausgelöst wenn das Inventar geupdated wird
 signal inventory_updated()
+
+## Ausgelöst wenn Objekt an zufälliger Position ins Inventar gelegt werden soll, braucht als eingabe Node aus Gruppe "Shrooms"
+signal inventory_add_object_autofill(mushroom_node)
+
+## Ausgelöst wenn Objekt an bestimmter Position in Inventar geleget werden soll, braucht als eingabe Node aus Gruppe "Shrooms" und Slot Nummer
+signal inventory_add_object_specific_slot(mushroom_node, slot_number : int)
+
+## Ausgelöst wenn Zwei Inventar Slots getauscht werden
+signal inventory_swap_slots(slot_1 : int, slot_2 : int)
+
+## Ausgelöst wenn etwas aus einem bestimmten Inventar Slot entfernt werden soll
+signal inventory_remove_from_slot(slot : int)
+
+## Ausgelöst wenn ein Pilz aus dem Inventar entfernt wurde und nun in der Welt gespawnt werden muss
+signal inventory_remove_mushroom(mushroom_res : ShroomRes)
 
 ## Ausgelöst wenn entweder im Dungeon oder im Shop geladen wird
 signal load_shop()
@@ -153,6 +174,20 @@ func _on_spawn_fertilizer(new_global_position: Vector2, rarity: GLOBALS.rarity):
 func _on_inventory_updated():
 	inventory_updated.emit()
 
+func _on_inventory_add_object_autofill(mushroom_node):
+	inventory_add_object_autofill.emit(mushroom_node)
+
+func _on_inventory_add_object_specific_slot(mushroom_node, slot_number : int):
+	inventory_add_object_specific_slot.emit(mushroom_node, slot_number)
+
+func _on_inventory_swap_slots(slot_1 : int, slot_2 : int):
+	inventory_swap_slots.emit(slot_1, slot_2)
+
+func _on_inventory_remove_mushroom(mushroom_res : ShroomRes):
+	inventory_remove_mushroom.emit(mushroom_res)
+
+func _on_inventory_remove_from_slot(slot : int):
+	inventory_remove_from_slot.emit(slot)
 func _on_load_shop():
 	load_shop.emit()
 
@@ -164,6 +199,12 @@ func _on_load_fertilizer(fert_res : FertilizerRes, loaded_position : Vector2):
 
 func _on_load_mushroom(shroom_res : ShroomRes, saved_position : Vector2, saved_rotation : float, grow_stage : int, in_inventory : bool, inventory_position : int):
 	load_mushroom.emit(shroom_res, saved_position, saved_rotation, grow_stage, in_inventory, inventory_position)
+
+func _on_display_mushroom(shroom_res : ShroomRes, slot : int):
+	display_mushroom.emit(shroom_res, slot)
+
+func _on_open_inventory_short():
+	open_inventory_short.emit()
 
 func _on_start_shopping():
 	start_shopping.emit()

@@ -49,22 +49,6 @@ layout_mode = 2
 inventory_position = 5
 grab_focus_on_ready = true
 
-[node name="UIItem6" parent="CenterContainer/VBoxContainer/HBoxContainer" instance=ExtResource("4_quhpy")]
-layout_mode = 2
-inventory_position = 6
-
-[node name="UIItem7" parent="CenterContainer/VBoxContainer/HBoxContainer" instance=ExtResource("4_quhpy")]
-layout_mode = 2
-inventory_position = 7
-
-[node name="UIItem8" parent="CenterContainer/VBoxContainer/HBoxContainer" instance=ExtResource("4_quhpy")]
-layout_mode = 2
-inventory_position = 8
-
-[node name="UIItem9" parent="CenterContainer/VBoxContainer/HBoxContainer" instance=ExtResource("4_quhpy")]
-layout_mode = 2
-inventory_position = 9
-
 [node name="HBoxContainer2" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 15
@@ -72,46 +56,6 @@ theme_override_constants/separation = 15
 [node name="UIItem10" parent="CenterContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("4_quhpy")]
 layout_mode = 2
 inventory_position = 10
-
-[node name="UIItem11" parent="CenterContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("4_quhpy")]
-layout_mode = 2
-inventory_position = 11
-
-[node name="UIItem12" parent="CenterContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("4_quhpy")]
-layout_mode = 2
-inventory_position = 12
-
-[node name="UIItem13" parent="CenterContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("4_quhpy")]
-layout_mode = 2
-inventory_position = 13
-
-[node name="UIItem14" parent="CenterContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("4_quhpy")]
-layout_mode = 2
-inventory_position = 14
-
-[node name="HBoxContainer3" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 15
-
-[node name="UIItem15" parent="CenterContainer/VBoxContainer/HBoxContainer3" instance=ExtResource("4_quhpy")]
-layout_mode = 2
-inventory_position = 15
-
-[node name="UIItem16" parent="CenterContainer/VBoxContainer/HBoxContainer3" instance=ExtResource("4_quhpy")]
-layout_mode = 2
-inventory_position = 16
-
-[node name="UIItem17" parent="CenterContainer/VBoxContainer/HBoxContainer3" instance=ExtResource("4_quhpy")]
-layout_mode = 2
-inventory_position = 17
-
-[node name="UIItem18" parent="CenterContainer/VBoxContainer/HBoxContainer3" instance=ExtResource("4_quhpy")]
-layout_mode = 2
-inventory_position = 18
-
-[node name="UIItem19" parent="CenterContainer/VBoxContainer/HBoxContainer3" instance=ExtResource("4_quhpy")]
-layout_mode = 2
-inventory_position = 19
 
 [node name="InteractionDisplay" type="Control" parent="."]
 layout_mode = 1

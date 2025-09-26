@@ -1,0 +1,175 @@
+[gd_scene load_steps=7 format=3 uid="uid://63acgd0dpeqb"]
+
+[ext_resource type="Theme" uid="uid://d1cnjy4cqhx0f" path="res://resources/themes/inv_theme.tres" id="1_sqqdy"]
+[ext_resource type="Script" uid="uid://ctdiv4iy5cl7l" path="res://inventory/inventory_shop_ui.gd" id="2_4bgsk"]
+[ext_resource type="Texture2D" uid="uid://cuqhxib5ei6p3" path="res://assets/ui/Inv_Box.png" id="3_mj2rs"]
+[ext_resource type="PackedScene" uid="uid://doqkihlax7j52" path="res://inventory/inventory_ui_item.tscn" id="4_xrr3d"]
+[ext_resource type="Script" uid="uid://ceichndux6ago" path="res://inventory/interaction_display.gd" id="5_mq5nx"]
+[ext_resource type="PackedScene" uid="uid://bv5ulmbmtwuyw" path="res://scenes/game_ui/input_prompt.tscn" id="6_g3x2w"]
+
+[node name="Inv_UI" type="Control"]
+process_mode = 3
+z_index = 5
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_sqqdy")
+script = ExtResource("2_4bgsk")
+
+[node name="InteractionDisplay" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("5_mq5nx")
+
+[node name="KeyboardPrompt" parent="InteractionDisplay" instance=ExtResource("6_g3x2w")]
+layout_mode = 1
+text = "Return"
+action_name = "ui_cancel"
+
+[node name="JoyPrompt" parent="InteractionDisplay" instance=ExtResource("6_g3x2w")]
+layout_mode = 1
+text = "Return"
+action_name = "joy_cancel"
+
+[node name="BackgroundImage" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.086
+anchor_top = 0.086
+anchor_right = 0.93000007
+anchor_bottom = 0.9110001
+offset_left = -0.08000183
+offset_top = 0.07999802
+offset_right = -0.40014648
+offset_bottom = -13.920044
+texture = ExtResource("3_mj2rs")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="BackgroundImage"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.033
+anchor_top = 0.1
+anchor_right = 0.96700007
+anchor_bottom = 0.90000004
+offset_left = 15.360001
+offset_top = 4.0
+offset_right = 14.639893
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.98, 0.98)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BackgroundImage/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BackgroundImage/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="InventorySlot1" parent="BackgroundImage/ScrollContainer/VBoxContainer/HBoxContainer" instance=ExtResource("4_xrr3d")]
+layout_mode = 2
+inventory_position = 1
+grab_focus_on_ready = true
+display_mushroom = true
+
+[node name="InventorySlot2" parent="BackgroundImage/ScrollContainer/VBoxContainer/HBoxContainer" instance=ExtResource("4_xrr3d")]
+layout_mode = 2
+inventory_position = 2
+display_mushroom = true
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="BackgroundImage/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="InventorySlot1" parent="BackgroundImage/ScrollContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("4_xrr3d")]
+layout_mode = 2
+inventory_position = 3
+display_mushroom = true
+
+[node name="InventorySlot2" parent="BackgroundImage/ScrollContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("4_xrr3d")]
+layout_mode = 2
+inventory_position = 4
+display_mushroom = true
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="BackgroundImage/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="InventorySlot1" parent="BackgroundImage/ScrollContainer/VBoxContainer/HBoxContainer3" instance=ExtResource("4_xrr3d")]
+layout_mode = 2
+inventory_position = 5
+display_mushroom = true
+
+[node name="InventorySlot2" parent="BackgroundImage/ScrollContainer/VBoxContainer/HBoxContainer3" instance=ExtResource("4_xrr3d")]
+layout_mode = 2
+inventory_position = 6
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="BackgroundImage/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="InventorySlot1" parent="BackgroundImage/ScrollContainer/VBoxContainer/HBoxContainer4" instance=ExtResource("4_xrr3d")]
+layout_mode = 2
+inventory_position = 7
+
+[node name="InventorySlot2" parent="BackgroundImage/ScrollContainer/VBoxContainer/HBoxContainer4" instance=ExtResource("4_xrr3d")]
+layout_mode = 2
+inventory_position = 8
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="BackgroundImage/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="InventorySlot1" parent="BackgroundImage/ScrollContainer/VBoxContainer/HBoxContainer5" instance=ExtResource("4_xrr3d")]
+layout_mode = 2
+inventory_position = 9
+
+[node name="InventorySlot2" parent="BackgroundImage/ScrollContainer/VBoxContainer/HBoxContainer5" instance=ExtResource("4_xrr3d")]
+layout_mode = 2
+inventory_position = 10
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="BackgroundImage/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="InventorySlot1" parent="BackgroundImage/ScrollContainer/VBoxContainer/HBoxContainer6" instance=ExtResource("4_xrr3d")]
+layout_mode = 2
+inventory_position = 11
+
+[node name="InventorySlot2" parent="BackgroundImage/ScrollContainer/VBoxContainer/HBoxContainer6" instance=ExtResource("4_xrr3d")]
+layout_mode = 2
+inventory_position = 12
+
+[node name="HBoxContainer7" type="HBoxContainer" parent="BackgroundImage/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="InventorySlot1" parent="BackgroundImage/ScrollContainer/VBoxContainer/HBoxContainer7" instance=ExtResource("4_xrr3d")]
+layout_mode = 2
+inventory_position = 13
+
+[node name="InventorySlot2" parent="BackgroundImage/ScrollContainer/VBoxContainer/HBoxContainer7" instance=ExtResource("4_xrr3d")]
+layout_mode = 2
+inventory_position = 14
+
+[node name="HBoxContainer8" type="HBoxContainer" parent="BackgroundImage/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="InventorySlot1" parent="BackgroundImage/ScrollContainer/VBoxContainer/HBoxContainer8" instance=ExtResource("4_xrr3d")]
+layout_mode = 2
+inventory_position = 15
+
+[node name="InventorySlot2" parent="BackgroundImage/ScrollContainer/VBoxContainer/HBoxContainer8" instance=ExtResource("4_xrr3d")]
+layout_mode = 2
+inventory_position = 16

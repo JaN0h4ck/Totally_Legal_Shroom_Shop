@@ -20,6 +20,9 @@ func save_game():
 	saved_game.player_position = player.global_position
 	saved_game.player_in_shop = player.current_in_shop
 	
+	# Inventar Speichern
+	saved_game.inventory_array = Inventory.inventory_array
+	
 	# Kunden Stuff speichern
 	for npc in get_tree().get_nodes_in_group("npc"):
 		saved_game.npc_name = npc.npc_name
@@ -50,8 +53,6 @@ func save_game():
 		mushrrom_info.append(mushroom.global_position)
 		mushrrom_info.append(mushroom.global_rotation)
 		mushrrom_info.append(mushroom.grow_stage)
-		mushrrom_info.append(mushroom.in_inventory)
-		mushrrom_info.append(mushroom.inventory_position)
 		saved_game.mushroom_info.append(mushrrom_info)
 		saved_game.mushroom_saved = true
 	
@@ -89,6 +90,10 @@ func load_game():
 	else:
 		EventBus.load_dungeon.emit()
 		player.current_in_shop = false
+	
+	# Inventar Laden
+	Inventory.inventory_array = saved_game.inventory_array
+	EventBus.open_inventory_short.emit()
 	
 	# Aktuelle NPCs löschen
 	for npc in get_tree().get_nodes_in_group("npc"):
@@ -128,7 +133,7 @@ func load_game():
 	# Gespeicherte Pilze laden
 	if saved_game.mushroom_saved:
 		for mushroom_info : Array in saved_game.mushroom_info:
-			EventBus.load_mushroom.emit(mushroom_info[0], mushroom_info[1], mushroom_info[2], mushroom_info[3], mushroom_info[4], mushroom_info[5])
+			EventBus.load_mushroom.emit(mushroom_info[0], mushroom_info[1], mushroom_info[2], mushroom_info[3])
 	
 	# Game Stats speichern
 	GameStats.kills = saved_game.kill_amount

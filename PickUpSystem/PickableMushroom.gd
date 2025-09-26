@@ -3,8 +3,6 @@ class_name PickableMushroom
 
 @export var shroom_res: ShroomRes
 var grow_stage = 1
-var in_inventory = false
-var inventory_position = 0
 
 ## Render Texture and add to corresponding Group
 func prepare_item():
@@ -40,6 +38,14 @@ func load_item(stage : int):
 	interact_manager.interact_prompt = "Pick up Mushroom"
 	add_object_to_group("pickable_mushroom")
 	pickup_time = shroom_res.pickup_time
+
+func display_item():
+	is_picked = false
+	is_pickable = false
+	var sprite : Sprite2D = Sprite2D.new()
+	sprite.texture = shroom_res.end_stage_texture
+	add_child(sprite)
+	
 
 ## Legt die Größe der Collision Box fest auf die Werte aus dem ausgewähltem Objekt
 func set_collision_size(override_preset : bool = false, override_x: float = 0, override_y : float = 0):

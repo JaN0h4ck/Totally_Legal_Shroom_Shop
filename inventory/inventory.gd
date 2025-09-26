@@ -3,104 +3,170 @@ extends Node
 var inventory_array : Array
 var inventory_base_size : int = 20
 
-func _ready():
-	# Inventar mit leeren Plätzen füllen
-	var empty_slot = [null, 0]
-	for i in range(inventory_base_size):
-		inventory_array.append(empty_slot)
+## Globale Config Ressource
+var config: GlobalConfig = load("res://resources/global_config.tres")
+var print_info : bool = false
 
-## Einen Pilz zum Inventar hinzufügen, nicht an einen festen Platz
-func add_mushroom_to_inventory_random_position(new_item):
-	# Schauen ob Pilz Art bereits im Inventar wenn ja Anzahl erhöhen
-	for i in range(inventory_array.size()):
-		var current_mushroom : Array = inventory_array[i]
-		if current_mushroom[0].shroom_res == new_item.shroom_res:
-			current_mushroom[1] += 1
-			inventory_array[i] = current_mushroom
-			EventBus.inventory_updated.emit()
-			return
-	# Pilz neu hinzufügen
-	var new_mushroom : Array = [new_item, 1]
-	# Wenn Pilz noch nicht im Inventar ist an erste frei stelle hinzufügen
-	for i in range(inventory_array.size()):
-		var current_mushroom : Array = inventory_array[i]
-		if current_mushroom[0] == null:
-			inventory_array[i] = new_mushroom
-			EventBus.inventory_updated.emit()
-			return
-	# Wenn keine frei Stelle hinten ans Array hinzufügen
-	inventory_array.append(new_mushroom)
+func _ready():
+	print_info = config.print_info_messages
+	EventBus.inventory_add_object_autofill.connect(add_mushroom_autofill)
+	EventBus.inventory_add_object_specific_slot.connect(add_mushroom_specific_slot)
+	EventBus.inventory_swap_slots.connect(swap_slots)
+	EventBus.inventory_remove_from_slot.connect(remove_from_slot)
+	EventBus.reset_stats.connect(reset_inventory)
+	
+	if print_info:
+		print("Inventory: Ready")
+
+## Pilz hinzufügen, anzahl erhöhen wenn noch nicht in Inventar, ansonsten im nächsten freien Slot
+func add_mushroom(mushroom_node, specific_slot : bool, slot : int):
+	if print_info:
+		print("Inventory: Try to add ", mushroom_node, " to Inventory")
+	if mushroom_node == null:
+		push_warning("Inventory: Tried to add Node of type null to Inventory")
+		return
+	if not check_if_node_is_mushroom(mushroom_node):
+		push_warning("Inventory: Tried to add ", mushroom_node, " to Inventory -> Error: Not a Mushroom")
+		return
+	var mushroom_res : ShroomRes = get_mushroom_resource(mushroom_node)
+	
+	# Wenn mit Autofill
+	if not specific_slot:
+		var inventory_check : Array = check_if_mushroom_already_in_inventory(mushroom_res)
+		if inventory_check[0]:
+			if print_info:
+				print("Inventory: ", mushroom_res, " already in Inventory -> Increase number")
+			increase_mushroom_number(inventory_check[1])
+		else:
+			if print_info:
+				print("Inventory: ", mushroom_res, " new in Inventory -> Add to new Slot")
+			var empty_check : Array = check_for_empty_slot()
+			if empty_check[0]:
+				add_new_mushroom_to_empty_slot(mushroom_res, empty_check[1])
+			else:
+				add_new_mushroom_to_end(mushroom_res)
+	
+	# Wenn Spezifischer Slot
+	else:
+		if not inventory_array[slot][0] == mushroom_res:
+			if inventory_array[slot][0] == null:
+				inventory_array[slot] = [mushroom_res, 1]
+			else:
+				push_warning("Inventory: Tried to add ", mushroom_res, " to Inventory on invalid Slot taken by ", inventory_array[slot][0])
+				return
+		else:
+			inventory_array[slot][1] += 1
+			if print_info:
+				print("Inventory: Added ", mushroom_res, " to Inventory on Slot ", slot)
+	
+	delete_mushroom_node(mushroom_node)
 	EventBus.inventory_updated.emit()
 
-## Einen Pilz ins Inventar an einen festen Platz hinzufügen, returned ob erfolgreich
-func add_mushroom_to_inventory_fix_position(new_item, position : int):
-	if position > inventory_array.size():
-		inventory_array[position] = [new_item, 1]
-		EventBus.inventory_updated.emit()
-		return true
-	var item : Array = inventory_array[position]
-	if item[0] == null:
-		inventory_array[position] = [new_item, 1]
-		EventBus.inventory_updated.emit()
-		return true
-	if item[0].shroom_res == new_item.shroom_res:
-		item[1] += 1
-		EventBus.inventory_updated.emit()
-		return true
-	print("New item: ", new_item.shroom_res, " item[0]: ", item[0].shroom_res)
-	print("Place already in use by diffrent Mushroom")
-	return false
+## Slot ändern
+func swap_slots(slot_1 : int, slot_2 : int):
+	if print_info:
+		print("Inventory: Swap Slot ", slot_1, " with Slot ", slot_2)
+	# Fals Inventory Array nicht groß genug ist
+	if inventory_array.size() <= slot_1 or inventory_array.size() <= slot_2:
+		while inventory_array.size() <= slot_1 or inventory_array.size() <= slot_2:
+			inventory_array.append([null, 0])
+	var temp_slot : Array = inventory_array[slot_1]
+	inventory_array[slot_1] = inventory_array[slot_2]
+	inventory_array[slot_2] = temp_slot
+	
+	EventBus.inventory_updated.emit()
 
-## Bestimmten Pilz aus Inventar entfernen, returnd ob erfolgreich
-func remove_mushroom_from_inventory_by_name(removed_item):
-	for i in range(inventory_array.size()):
-		var current_mushroom : Array = inventory_array[i]
-		if current_mushroom[0] == removed_item:
-			if current_mushroom[1] <= 1:
-				var empty_item : Array = [null, 0]
-				inventory_array[i] = empty_item
-				EventBus.inventory_updated.emit()
-				return true
-			else:
-				current_mushroom[1] -= 1
-				inventory_array[i] = current_mushroom
-				EventBus.inventory_updated.emit()
-				return true
-	print("Mushrom could not be found")
-	return false
-
-## Pilz an bestimmter Position entfernt, returned ob erfolgreich
-func remove_mushroom_from_inventory_by_position(removed_item_position : int):
-	# Schauen ob Position gültig ist
-	if removed_item_position > inventory_array.size() - 1:
-		print("Requestet Position ", removed_item_position, " to high")
-		return false
-	var current_item = inventory_array[removed_item_position]
-	if current_item[0] == null:
-		print("Requestet Position ", removed_item_position, " empty")
-		return false
-	# Wenn nur ein Pilz dort liegt
-	if current_item[1] <= 1:
-		var empty_item : Array = [null, 0]
-		inventory_array[removed_item_position] = empty_item
-		EventBus.inventory_updated.emit()
-		return true
-	# Wenn mehr als 1 Pilz dort liegt
+## Pilz aus Inventar holen
+func remove_from_slot(slot : int):
+	if print_info:
+		print("Inventory: Try to Remove Item in Slot ", slot)
+	if inventory_array.size() <= slot:
+		while inventory_array.size() <= slot:
+			inventory_array.append([null, 0])
+	if inventory_array[slot][1] == 0:
+		push_warning("Inventory: Tried to remove Item from Empty Slot ", slot)
+		return
+	
+	var mushroom_res : ShroomRes = inventory_array[slot][0]
+	EventBus.inventory_remove_mushroom.emit(mushroom_res)
+	
+	if inventory_array[slot][1] == 1:
+		if print_info:
+			print("Inventory: Slot ", slot, " now Empty")
+		inventory_array[slot] = [null, 0]
 	else:
-		current_item[1] -= 1
-		inventory_array[removed_item_position] = current_item
-		EventBus.inventory_updated.emit()
-		return true
+		inventory_array[slot][1] -= 1
+		if print_info:
+			print("Inventory: Slot ", slot, " now at ", inventory_array[slot][1])
+	
+	EventBus.inventory_updated.emit()
 
-## Art des Pilzes an bestimmter Position erfahren
-func get_mushroom_type_at_position(position : int):
-	# Schauen ob an Postion ein Item liegt
-	if position > inventory_array.size():
-		print("Requestet Position ", position, " to high")
-		return [null, 0]
-	var item : Array = inventory_array[position]
-	if item[0] == null:
-		#print("Requestet Position ", position, " empty")
-		return [null, 0]
-	# Item zurückgeben
-	return inventory_array[position]
+## Inventar bei Rest Löschen
+func reset_inventory():
+	inventory_array = []
+
+## Pilz automatisch an bester Position im Inventar hinzufügen
+func add_mushroom_autofill(mushroom_node):
+	add_mushroom(mushroom_node, false, 0)
+
+## Pilz an bestimmter Position im Inventar hinzufügen
+func add_mushroom_specific_slot(mushroom_node, slot : int):
+	if print_info:
+		print("Inventory: Try to add ", mushroom_node, " to Slot ", slot)
+	# Fals Inventar Array noch nicht groß genug
+	if inventory_array.size() <= slot:
+		while inventory_array.size() <= slot:
+			inventory_array.append([null, 0])
+	add_mushroom(mushroom_node, true, slot)
+
+## Überprüft ob Node zur Gruppe Shroom gehört
+func check_if_node_is_mushroom(mushroom_node):
+	if mushroom_node.is_in_group("Shroom"):
+		return true
+	else:
+		return false
+
+## Erhalte die Pilz Resource aus der Node
+func get_mushroom_resource(mushroom_node):
+	if print_info:
+		print("Inventory: Get Resource ", mushroom_node.shroom_res, " from Node ", mushroom_node)
+	return mushroom_node.shroom_res
+
+## Pilz Node löschen
+func delete_mushroom_node(mushroom_node):
+	mushroom_node.get_parent().remove_child(mushroom_node)
+	mushroom_node.queue_free()
+
+## Schauen ob Pilz bereits im Inventar und gibt wenn ja die Postion aus
+func check_if_mushroom_already_in_inventory(mushroom_res : ShroomRes):
+	for i in range (inventory_array.size()):
+		var slot : Array = inventory_array[i]
+		if slot[0] == mushroom_res:
+			return [true, i]
+	return [false, 0]
+
+## Anzahl Erhöhen da Pilz bereits im Inventar
+func increase_mushroom_number(array_position : int):
+	inventory_array[array_position][1] += 1
+	if print_info:
+		print("Inventory: Slot ", array_position, " Number now ", inventory_array[array_position][1])
+
+## Überprüfen ob es leere Slots gibt
+func check_for_empty_slot():
+	for i in range (inventory_array.size()):
+		var slot : Array = inventory_array[i]
+		if slot[0] == null:
+			return [true, i]
+	return [false, 0]
+
+## Neuen Pilz an Leerer Stelle hinzufügen
+func add_new_mushroom_to_empty_slot(mushroom_res : ShroomRes, slot : int):
+	inventory_array[slot] = [mushroom_res, 1]
+	if print_info:
+		print("Inventory: Added new Mushroom ", mushroom_res, " to Inventory at Slot ", slot)
+
+## Neuen Pilz hinten im Inventar hinzufügen
+func add_new_mushroom_to_end(mushroom_res : ShroomRes):
+	inventory_array.append([mushroom_res, 1])
+	if print_info:
+		print("Inventory: Added new Mushroom ", mushroom_res, " to Inventory at Inventory End")

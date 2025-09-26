@@ -17,6 +17,8 @@ func _ready():
 	EventBus.load_shop.connect(load_shop)
 	if SaveSystem.load_on_start:
 		EventBus.load_game.emit()
+		# Inventar kurz öffnen damit Pilze auf Theke angezeigt werden
+		EventBus.open_inventory_short.emit()
 
 func teleport_basement():
 	var player : Player = get_tree().get_first_node_in_group("player")

@@ -13,9 +13,10 @@ class_name mushroom_spawn_system
 @onready var mushroom_resource_chestnut := preload("res://PickUpSystem/mushroom/chestnut_mushroom.tres")
 @onready var mushroom_resource_enoki := preload("res://PickUpSystem/mushroom/enoki_mushroom.tres")
 
-## Globale Cinfig Ressource
+## Globale Config Ressource
 var config: GlobalConfig = load("res://resources/global_config.tres")
 
+var print_info : bool = false
 var common_mushroom: Array
 var rare_mushroom: Array
 var ultra_rare_mushroom: Array
@@ -25,6 +26,9 @@ var current_position: Vector2 = Vector2(0, 0)
 func _ready():
 	EventBus.pickup_object.connect(clear_field)
 	EventBus.load_mushroom.connect(load_mushroom)
+	EventBus.inventory_remove_mushroom.connect(take_mushroom_from_inventory)
+	EventBus.display_mushroom.connect(display_inventory_mushroom)
+	print_info = config.print_info_messages
 	add_mushroom_to_array(mushroom_resource_alien)
 	add_mushroom_to_array(murhroom_resource_bleeding)
 	add_mushroom_to_array(murhroom_resource_button)
@@ -86,7 +90,7 @@ func create_mushroom(soil_rarity: GLOBALS.rarity, location: Vector2):
 	node.prepare_item()
 
 ## Gespeicherten Pilz Spawnen
-func load_mushroom(shroom_res : ShroomRes, saved_position : Vector2, saved_rotation : float, grow_stage : int, in_inventory : bool, inventory_position : int):
+func load_mushroom(shroom_res : ShroomRes, saved_position : Vector2, saved_rotation : float, grow_stage : int):
 	var node: PickableMushroom = PickableMushroom.new()
 	add_child(node)
 	node.shroom_res = shroom_res
@@ -94,10 +98,35 @@ func load_mushroom(shroom_res : ShroomRes, saved_position : Vector2, saved_rotat
 	node.global_rotation = saved_rotation
 	node.add_to_group("Shroom")
 	node.load_item(grow_stage)
-	if in_inventory:
-		var succes = Inventory.add_mushroom_to_inventory_fix_position(node, inventory_position)
-		if not succes:
-			print("loading Inventory failed, Position: ", inventory_position)
+
+## Pilz aus Inventar zu Spieler hinzufügen
+func take_mushroom_from_inventory(shroom_res : ShroomRes):
+	var mushroom : PickableMushroom = PickableMushroom.new()
+	mushroom.shroom_res = shroom_res
+	var player : Player = get_tree().get_first_node_in_group("player")
+	player.object_place.add_child(mushroom)
+	player.carries_object = true
+	mushroom.position = Vector2(0,0)
+	mushroom.global_rotation = 0.0
+	mushroom.add_to_group("Shroom")
+	mushroom.load_item(3)
+
+func display_inventory_mushroom(shroom_res : ShroomRes, slot : int):
+	if print_info:
+		print("Mushroom Spawn System: Try to display ", shroom_res, " from Slot ", slot)
+	var mushroom : PickableMushroom = PickableMushroom.new()
+	mushroom.shroom_res = shroom_res
+	mushroom.display_item()
+	mushroom.is_pickable = false
+	mushroom.is_picked = false
+	for parent in get_tree().get_nodes_in_group("mushroom_inventory_display_position"):
+		if str(slot) in parent.name:
+			if print_info:
+				print("Mushroom Spawn System: Display from Slot parent ", parent, " found")
+			parent.add_child(mushroom)
+			return
+	if print_info:
+		print("Mushroom _Spawn System: No Display from Slot Parent Found")
 
 ## Dünger zu Feld bewegen und dann löschen
 func use_fertilizer(fertilizer: PickableFertilizer):
