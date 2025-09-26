@@ -9,10 +9,14 @@ extends PanelContainer
 @onready var texture: TextureRect = $MarginContainer/HBoxContainer/Texture
 ## Pilz Name
 @onready var mushrrom_name: Label = $MarginContainer/HBoxContainer/VBoxContainerInfo/Name
-## Pilze anzahl
-@onready var number_text: Label = $MarginContainer/HBoxContainer/VBoxContainerInfo/HBoxContainerNumber/NumberText
-## Pilz Wert
-@onready var number_coin_text: Label = $MarginContainer/HBoxContainer/VBoxContainerInfo/HBoxContainerWorth/NumberCoinText
+## Pilze anzahl titel
+@onready var quantity_label: Label = $MarginContainer/HBoxContainer/VBoxContainerInfo/HBoxContainerQuantity/QuantityLabel
+## Pilz anzahl text
+@onready var quantity_text: Label = $MarginContainer/HBoxContainer/VBoxContainerInfo/HBoxContainerQuantity/QuantityText
+## Münze Icon
+@onready var coin_icon: TextureRect = $MarginContainer/HBoxContainer/VBoxContainerInfo/HBoxContainerValue/CoinIcon
+## Wert Text
+@onready var value_text: Label = $MarginContainer/HBoxContainer/VBoxContainerInfo/HBoxContainerValue/ValueText
 ## Knopf zum nehmen aus aktuellem Slot
 @onready var button_take: Button = $MarginContainer/HBoxContainer/VBoxContainerButtons/ButtonTake
 
@@ -34,8 +38,10 @@ func update_displayed_info():
 			print("Inventory Slot: Slot ", inventory_position, " is Empty")
 		texture.texture = load("res://assets/shrooms/empty_shroom.png")
 		mushrrom_name.text = ""
-		number_text.text = str(0)
-		number_coin_text.text = str(0)
+		quantity_label.text = ""
+		quantity_text.text = ""
+		coin_icon.texture = load("res://assets/shrooms/empty_shroom.png")
+		value_text.text = ""
 		button_take.visible = false
 	else:
 		set_slot_info()
@@ -59,14 +65,16 @@ func set_slot_info():
 	var mushroom_number : int = slot_info[1]
 	texture.texture = mushroom_res.end_stage_texture
 	mushrrom_name.text = str(mushroom_res.name)
-	number_text.text = str(mushroom_number)
+	quantity_label.text = "Quantity: "
+	quantity_text.text = str(mushroom_number)
+	coin_icon.texture = load("res://assets/ui/coin_icon.png")
 	match mushroom_res.rarity:
 		GLOBALS.rarity.common:
-			number_coin_text.text = str(config.money_common_mushroom)
+			value_text.text = str(config.money_common_mushroom)
 		GLOBALS.rarity.rare:
-			number_coin_text.text = str(config.money_rare_mushroom)
+			value_text.text = str(config.money_rare_mushroom)
 		GLOBALS.rarity.ultra_rare:
-			number_coin_text.text = str(config.money_ultra_rare_mushroom)
+			value_text.text = str(config.money_ultra_rare_mushroom)
 	button_take.visible = true
 
 

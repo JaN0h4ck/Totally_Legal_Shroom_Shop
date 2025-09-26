@@ -1,15 +1,14 @@
-[gd_scene load_steps=12 format=3 uid="uid://bvmbuuyv37vax"]
+[gd_scene load_steps=11 format=3 uid="uid://bvmbuuyv37vax"]
 
 [ext_resource type="Script" uid="uid://cgg7uipp8axrg" path="res://scenes/game_ui/game_manager.gd" id="1_1i64n"]
 [ext_resource type="Theme" uid="uid://d31137rsk15ng" path="res://resources/themes/expedition.tres" id="1_e13be"]
 [ext_resource type="PackedScene" uid="uid://b4r1rx3y0kcdn" path="res://scenes/game_scene/main.tscn" id="1_sq0em"]
 [ext_resource type="PackedScene" uid="uid://ocw04h345l3a" path="res://scenes/overlaid_menus/pause_menu.tscn" id="3_2cwxn"]
 [ext_resource type="PackedScene" uid="uid://bv5ulmbmtwuyw" path="res://scenes/game_ui/input_prompt.tscn" id="3_najyh"]
-[ext_resource type="PackedScene" uid="uid://4abch8ri3j08" path="res://inventory/inventory_shop_ui.tscn" id="5_e13be"]
 [ext_resource type="Script" uid="uid://8r2f7xwlgakm" path="res://scenes/game_ui/dialog_system/dialog_manager.gd" id="5_hk0ve"]
 [ext_resource type="PackedScene" uid="uid://b7fecdpuah10g" path="res://scenes/game_ui/dialog_system/dialog_panel.tscn" id="6_8qcbp"]
+[ext_resource type="PackedScene" uid="uid://63acgd0dpeqb" path="res://inventory/inventory_ui.tscn" id="6_d1cf8"]
 [ext_resource type="PackedScene" uid="uid://bpg8lyxgg0rkt" path="res://scenes/lexicon/lexicon.tscn" id="6_falxo"]
-[ext_resource type="PackedScene" uid="uid://leoxk8jxja22" path="res://inventory/inventory_dungeon_ui.tscn" id="6_pxslt"]
 [ext_resource type="PackedScene" uid="uid://drwnedydwugn6" path="res://scenes/journal/journal.tscn" id="8_d1cf8"]
 
 [node name="GameUI" type="Control"]
@@ -27,8 +26,8 @@ process_mode = 1
 script = ExtResource("1_1i64n")
 interact_scene = ExtResource("3_najyh")
 pause_scene = ExtResource("3_2cwxn")
-shop_inv_scene = ExtResource("5_e13be")
-dungeon_inv_scene = ExtResource("6_pxslt")
+shop_inv_scene = ExtResource("6_d1cf8")
+dungeon_inv_scene = ExtResource("6_d1cf8")
 lexicon_scene = ExtResource("6_falxo")
 journal_scene = ExtResource("8_d1cf8")
 
