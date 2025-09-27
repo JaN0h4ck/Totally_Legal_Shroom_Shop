@@ -2,7 +2,6 @@ class_name Player
 extends CharacterBody2D
 
 @onready var sprite_animation = $AnimatedSprite2D
-var current_direction : GLOBALS.directions = GLOBALS.directions.NONE
 var last_direction : GLOBALS.directions = GLOBALS.directions.FRONT
 
 var current_floor: AudioFloor.FloorTypes = AudioFloor.FloorTypes.Wood
@@ -37,61 +36,41 @@ func _ready() -> void:
 
 func _physics_process(delta: float):
 	if block_input: return
-	var input_direction = get_buffered_direction()
+	var input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down").normalized()
+	var dir: GLOBALS.directions = get_dir_from_input(input_direction)
 	velocity = input_direction * speed * delta
 	move_and_slide()
 	
 	if velocity.is_zero_approx():
-		_select_idle_animation(last_direction, current_direction)
+		_select_idle_animation(last_direction, dir)
 	else:
-		play_walking_animation()
+		play_walking_animation(dir)
 	
 	if Input.is_action_just_pressed("drop_object") and carries_object:
 		EventBus.drop_object.emit()
 		carries_object = false
 
-func get_buffered_direction() -> Vector2:
-	match current_direction:
-		GLOBALS.directions.NONE:
-			if Input.is_action_pressed("move_down"):
-				current_direction = GLOBALS.directions.FRONT
-				return Vector2.DOWN
-			if Input.is_action_pressed("move_up"):
-				current_direction = GLOBALS.directions.BACK
-				return Vector2.UP
-			if Input.is_action_pressed("move_left"):
-				current_direction = GLOBALS.directions.LEFT
-				return Vector2.LEFT
-			if Input.is_action_pressed("move_right"):
-				current_direction = GLOBALS.directions.RIGHT
-				return Vector2.RIGHT
-			return Vector2.ZERO
-		GLOBALS.directions.FRONT:
-			if(Input.is_action_just_released("move_down")):
-				current_direction = GLOBALS.directions.NONE
-				return Vector2.ZERO
-			else: return Vector2.DOWN
-		GLOBALS.directions.BACK:
-			if(Input.is_action_just_released("move_up")):
-				current_direction = GLOBALS.directions.NONE
-				return Vector2.ZERO
-			else: return Vector2.UP
-		GLOBALS.directions.LEFT:
-			if(Input.is_action_just_released("move_left")):
-				current_direction = GLOBALS.directions.NONE
-				return Vector2.ZERO
-			else: return Vector2.LEFT
-		GLOBALS.directions.RIGHT:
-			if(Input.is_action_just_released("move_right")):
-				current_direction = GLOBALS.directions.NONE
-				return Vector2.ZERO
-			else: return Vector2.RIGHT
-		_: 
-			return Vector2.ZERO
+func get_dir_from_input(vec: Vector2) -> GLOBALS.directions:
+	if vec.is_zero_approx():
+		return GLOBALS.directions.NONE
+	var x: float = vec.x
+	x = absf(x)
+	var y: float = vec.y
+	y = absf(y)
+	#stick gibt mehr movement auf y
+	if y > x:
+		if vec.y > 0:
+			return GLOBALS.directions.FRONT
+		else:
+			return GLOBALS.directions.BACK
+	else:
+		if vec.x > 0:
+			return GLOBALS.directions.RIGHT
+		else:
+			return GLOBALS.directions.LEFT
 
 func _on_dialogue_started():
 	block_input = true
-	current_direction = GLOBALS.directions.NONE
 	velocity = Vector2.ZERO
 
 func _on_dialogue_ended():
@@ -113,18 +92,14 @@ func _select_idle_animation(dir: GLOBALS.directions, input_dir : GLOBALS.directi
 			sprite_animation.play("idle_left")
 	last_direction = dir
 
-func _notification(what: int) -> void:
-	if what == NOTIFICATION_UNPAUSED:
-		current_direction = GLOBALS.directions.NONE
-		velocity = Vector2.ZERO
-
 func enter_basement():
 	current_in_shop = false
 
 func enter_shop():
 	current_in_shop = true
-func play_walking_animation():
-	match current_direction:
+
+func play_walking_animation(current_dir: GLOBALS.directions):
+	match current_dir:
 		GLOBALS.directions.FRONT:
 			sprite_animation.play("walk_forward")
 			last_direction = GLOBALS.directions.FRONT
