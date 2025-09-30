@@ -1,7 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://mcccpt8t8it4"]
+[gd_scene load_steps=4 format=3 uid="uid://mcccpt8t8it4"]
 
 [ext_resource type="PackedScene" uid="uid://bqqngki8bm3iq" path="res://addons/maaacks_menus_template/base/scenes/overlaid_menu/overlaid_menu_container.tscn" id="1_y6ien"]
 [ext_resource type="Script" uid="uid://c2q1ame0h6gu7" path="res://scenes/overlaid_menus/overlaid_menu_container.gd" id="2_7kq66"]
+[ext_resource type="FontFile" uid="uid://cw5mluddknoue" path="res://assets/fonts/PixelOperator-Bold.ttf" id="3_7kq66"]
 
 [node name="OverlaidMenuContainer" instance=ExtResource("1_y6ien")]
 script = ExtResource("2_7kq66")
+
+[node name="TitleLabel" parent="MenuPanelContainer/MarginContainer/BoxContainer/TitleMargin" index="0"]
+theme_override_fonts/font = ExtResource("3_7kq66")
+theme_override_font_sizes/font_size = 32
+
+[node name="CloseButton" parent="MenuPanelContainer/MarginContainer/BoxContainer/MenuButtonsMargin/MenuButtons" index="0"]
+theme_override_fonts/font = ExtResource("3_7kq66")

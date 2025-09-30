@@ -1,21 +1,43 @@
-[gd_scene load_steps=4 format=3 uid="uid://ocw04h345l3a"]
+[gd_scene load_steps=5 format=3 uid="uid://ocw04h345l3a"]
 
 [ext_resource type="PackedScene" uid="uid://b5cd6sa8qq4vc" path="res://addons/maaacks_menus_template/base/scenes/overlaid_menu/menus/pause_menu.tscn" id="1_jotxm"]
 [ext_resource type="Script" uid="uid://dfl08ssp05gk4" path="res://scenes/overlaid_menus/pause_menu.gd" id="2_8t641"]
 [ext_resource type="PackedScene" uid="uid://blmxgrqlvdh1u" path="res://scenes/overlaid_menus/mini_options_overlaid_menu.tscn" id="3_jotxm"]
+[ext_resource type="FontFile" uid="uid://cw5mluddknoue" path="res://assets/fonts/PixelOperator-Bold.ttf" id="4_ggfh4"]
 
 [node name="PauseMenu" instance=ExtResource("1_jotxm")]
 script = ExtResource("2_8t641")
 options_packed_scene = ExtResource("3_jotxm")
 main_menu_scene = "uid://drjlssummb77o"
 
+[node name="TitleLabel" parent="MenuPanelContainer/MarginContainer/BoxContainer/TitleMargin" index="0"]
+theme_override_fonts/font = ExtResource("4_ggfh4")
+theme_override_font_sizes/font_size = 32
+
+[node name="CloseButton" parent="MenuPanelContainer/MarginContainer/BoxContainer/MenuButtonsMargin/MenuButtons" index="0"]
+theme_override_fonts/font = ExtResource("4_ggfh4")
+
+[node name="RestartButton" parent="MenuPanelContainer/MarginContainer/BoxContainer/MenuButtonsMargin/MenuButtons" index="1"]
+theme_override_fonts/font = ExtResource("4_ggfh4")
+
 [node name="SaveButton" type="Button" parent="MenuPanelContainer/MarginContainer/BoxContainer/MenuButtonsMargin/MenuButtons" index="2"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_ggfh4")
 text = "Save"
 
 [node name="LoadButton" type="Button" parent="MenuPanelContainer/MarginContainer/BoxContainer/MenuButtonsMargin/MenuButtons" index="3"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_ggfh4")
 text = "Load Last"
+
+[node name="OptionsButton" parent="MenuPanelContainer/MarginContainer/BoxContainer/MenuButtonsMargin/MenuButtons" index="4"]
+theme_override_fonts/font = ExtResource("4_ggfh4")
+
+[node name="MainMenuButton" parent="MenuPanelContainer/MarginContainer/BoxContainer/MenuButtonsMargin/MenuButtons" index="5"]
+theme_override_fonts/font = ExtResource("4_ggfh4")
+
+[node name="ExitButton" parent="MenuPanelContainer/MarginContainer/BoxContainer/MenuButtonsMargin/MenuButtons" index="6"]
+theme_override_fonts/font = ExtResource("4_ggfh4")
 
 [connection signal="pressed" from="MenuPanelContainer/MarginContainer/BoxContainer/MenuButtonsMargin/MenuButtons/SaveButton" to="." method="_on_save_button_pressed"]
 [connection signal="pressed" from="MenuPanelContainer/MarginContainer/BoxContainer/MenuButtonsMargin/MenuButtons/LoadButton" to="." method="_on_load_button_pressed"]

@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cuqhxib5ei6p3" path="res://assets/ui/Inv_Box.png" id="3_1l7jg"]
 [ext_resource type="PackedScene" uid="uid://doqkihlax7j52" path="res://inventory/inventory_ui_item.tscn" id="4_quhpy"]
 [ext_resource type="Script" uid="uid://ceichndux6ago" path="res://inventory/interaction_display.gd" id="5_1l7jg"]
-[ext_resource type="PackedScene" uid="uid://bv5ulmbmtwuyw" path="res://scenes/game_ui/input_prompt.tscn" id="6_quhpy"]
+[ext_resource type="PackedScene" uid="uid://bv5ulmbmtwuyw" path="res://scenes/game_ui/dialog_system/input_prompt.tscn" id="6_quhpy"]
 
 [node name="Inv_UI" type="Control"]
 process_mode = 3

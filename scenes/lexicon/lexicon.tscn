@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bpg8lyxgg0rkt"]
 
 [ext_resource type="PackedScene" uid="uid://b01iddiha7bx5" path="res://scenes/lexicon/lexicon_2d.tscn" id="1_etx67"]
-[ext_resource type="PackedScene" uid="uid://bv5ulmbmtwuyw" path="res://scenes/game_ui/input_prompt.tscn" id="3_c6ilk"]
+[ext_resource type="PackedScene" uid="uid://bv5ulmbmtwuyw" path="res://scenes/game_ui/dialog_system/input_prompt.tscn" id="3_c6ilk"]
 
 [node name="SubViewportContainer" type="SubViewportContainer"]
 process_mode = 2

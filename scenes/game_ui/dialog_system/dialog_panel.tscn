@@ -1,7 +1,7 @@
-[gd_scene load_steps=21 format=3 uid="uid://b7fecdpuah10g"]
+[gd_scene load_steps=22 format=3 uid="uid://b7fecdpuah10g"]
 
 [ext_resource type="Script" uid="uid://bu05imyuwv2yl" path="res://scenes/game_ui/dialog_system/dialog_panel.gd" id="1_0om7c"]
-[ext_resource type="PackedScene" uid="uid://bv5ulmbmtwuyw" path="res://scenes/game_ui/input_prompt.tscn" id="1_aby5p"]
+[ext_resource type="PackedScene" uid="uid://bv5ulmbmtwuyw" path="res://scenes/game_ui/dialog_system/input_prompt.tscn" id="1_aby5p"]
 [ext_resource type="Theme" uid="uid://d31137rsk15ng" path="res://resources/themes/expedition.tres" id="1_wq83t"]
 [ext_resource type="AudioStream" uid="uid://dbotfhw3rag17" path="res://Audio/Originals/Voices/Voice_Low_1.wav" id="2_5ms7g"]
 [ext_resource type="AudioStream" uid="uid://cvrqo1dxk60x7" path="res://Audio/Originals/Voices/Voice_Low_2.wav" id="3_wq83t"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://c2d5yk8vqug7r" path="res://assets/character/cowboy/cowboy_portrait.png" id="14_vbyli"]
 [ext_resource type="PackedScene" uid="uid://cv7bo2ctxp5bg" path="res://scenes/game_ui/dynamic_input_prompt.tscn" id="15_odk3v"]
 [ext_resource type="Texture2D" uid="uid://dxrhgcfwptt3d" path="res://assets/ui/Textbox_Nine.png" id="16_odk3v"]
+[ext_resource type="FontFile" uid="uid://cw5mluddknoue" path="res://assets/fonts/PixelOperator-Bold.ttf" id="18_fxmpf"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_0ag80"]
 random_pitch = 1.1
@@ -158,6 +159,8 @@ custom_minimum_size = Vector2(100, 120)
 layout_mode = 2
 size_flags_vertical = 1
 theme_override_colors/font_color = Color(0.30588236, 0.2, 0.15686275, 1)
+theme_override_fonts/font = ExtResource("18_fxmpf")
+theme_override_font_sizes/font_size = 16
 label_settings = SubResource("LabelSettings_7d2xt")
 autowrap_mode = 3
 

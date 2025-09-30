@@ -74,6 +74,7 @@ npc_exit_followpath2d=""
 
 [gui]
 
+theme/custom_font="uid://cw5mluddknoue"
 common/drop_mouse_on_gui_input_disabled=true
 
 [input]

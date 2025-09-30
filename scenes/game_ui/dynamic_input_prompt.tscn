@@ -1,13 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://cv7bo2ctxp5bg"]
+[gd_scene load_steps=4 format=3 uid="uid://cv7bo2ctxp5bg"]
 
-[ext_resource type="PackedScene" uid="uid://bv5ulmbmtwuyw" path="res://scenes/game_ui/input_prompt.tscn" id="1_hnn55"]
+[ext_resource type="PackedScene" uid="uid://bv5ulmbmtwuyw" path="res://scenes/game_ui/dialog_system/input_prompt.tscn" id="1_hnn55"]
 [ext_resource type="Script" uid="uid://276m56m1u3f2" path="res://dynamic_input_prompt.gd" id="2_uy0bw"]
+[ext_resource type="FontFile" uid="uid://cw5mluddknoue" path="res://assets/fonts/PixelOperator-Bold.ttf" id="3_uy0bw"]
 
 [node name="DynamicInputPrompt" instance=ExtResource("1_hnn55")]
 script = ExtResource("2_uy0bw")
 disabled_text = "Disabled"
 disabled_modulate = Color(1, 1, 1, 1)
 
+[node name="Label" parent="HBoxContainer/VBoxContainer" index="0"]
+theme_override_font_sizes/font_size = 16
+
 [node name="disabled_label" type="Label" parent="HBoxContainer/VBoxContainer" index="1"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_uy0bw")
 text = "Disabled"

@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://c2lli6l5aayh8"]
+[gd_scene load_steps=4 format=3 uid="uid://c2lli6l5aayh8"]
 
 [ext_resource type="PackedScene" uid="uid://b6bl3n5mp3m1e" path="res://addons/maaacks_menus_template/base/scenes/menus/options_menu/option_control/list_option_control.tscn" id="1_lfo7w"]
 [ext_resource type="Script" uid="uid://cklni3epm46rr" path="res://scenes/menus/options_menu/audio/audio_input_option_control.gd" id="2_m6bxx"]
+[ext_resource type="FontFile" uid="uid://cw5mluddknoue" path="res://assets/fonts/PixelOperator-Bold.ttf" id="3_m6bxx"]
 
 [node name="AudioInputOptionControl" instance=ExtResource("1_lfo7w")]
+visible = false
 script = ExtResource("2_m6bxx")
 option_name = "Input Device"
 option_section = 2
@@ -12,6 +14,8 @@ section = "AudioSettings"
 property_type = 4
 
 [node name="OptionLabel" parent="." index="0"]
+theme_override_fonts/font = ExtResource("3_m6bxx")
+theme_override_font_sizes/font_size = 16
 text = "Input Device :"
 
 [node name="OptionButton" parent="." index="1"]

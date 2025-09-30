@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://bmwuwlg1ued3q"]
 
 [ext_resource type="Script" uid="uid://df44m48kib0v3" path="res://scenes/journal/journal_ui_item.gd" id="1_tt4ty"]
-[ext_resource type="FontFile" uid="uid://chd81s4kvdxsc" path="res://assets/fonts/PixelOperator.ttf" id="3_7ltnx"]
+[ext_resource type="FontFile" uid="uid://cw5mluddknoue" path="res://assets/fonts/PixelOperator-Bold.ttf" id="3_7ltnx"]
 [ext_resource type="Texture2D" uid="uid://cmikvgcymv5sy" path="res://assets/dungeon/wood_chipper.PNG" id="3_hrahd"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hrahd"]
@@ -47,7 +47,7 @@ texture_filter = 1
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_7ltnx")
-theme_override_font_sizes/font_size = 90
+theme_override_font_sizes/font_size = 64
 text = "999"
 horizontal_alignment = 1
 vertical_alignment = 1

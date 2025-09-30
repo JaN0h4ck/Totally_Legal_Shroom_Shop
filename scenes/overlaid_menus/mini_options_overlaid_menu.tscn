@@ -1,7 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://blmxgrqlvdh1u"]
+[gd_scene load_steps=4 format=3 uid="uid://blmxgrqlvdh1u"]
 
 [ext_resource type="PackedScene" uid="uid://cikf3o5omnunl" path="res://addons/maaacks_menus_template/base/scenes/overlaid_menu/menus/mini_options_overlaid_menu.tscn" id="1_e6soq"]
 [ext_resource type="PackedScene" uid="uid://bqyvoqq1viyc1" path="res://scenes/menus/options_menu/mini_options_menu.tscn" id="2_aa4th"]
+[ext_resource type="FontFile" uid="uid://cw5mluddknoue" path="res://assets/fonts/PixelOperator-Bold.ttf" id="3_aa4th"]
 
 [node name="MiniOptionsOverlaidMenu" instance=ExtResource("1_e6soq")]
 menu_scene = ExtResource("2_aa4th")
+
+[node name="TitleLabel" parent="MenuPanelContainer/MarginContainer/BoxContainer/TitleMargin" index="0"]
+theme_override_fonts/font = ExtResource("3_aa4th")
+theme_override_font_sizes/font_size = 32
+
+[node name="DescriptionLabel" parent="MenuPanelContainer/MarginContainer/BoxContainer/DescriptionMargin" index="0"]
+theme_override_fonts/normal_font = ExtResource("3_aa4th")
+
+[node name="CloseButton" parent="MenuPanelContainer/MarginContainer/BoxContainer/MenuButtonsMargin/MenuButtons" index="0"]
+theme_override_fonts/font = ExtResource("3_aa4th")

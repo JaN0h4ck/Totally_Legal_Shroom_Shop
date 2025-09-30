@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://b8um71ch7vlk2"]
+[gd_scene load_steps=7 format=3 uid="uid://b8um71ch7vlk2"]
 
 [ext_resource type="Script" uid="uid://ble4n443alb2n" path="res://scenes/journal/journal.gd" id="1_7irlf"]
 [ext_resource type="Texture2D" uid="uid://ccdj3emtu8dui" path="res://assets/store/lexikon_background.png" id="2_xfiod"]
 [ext_resource type="Texture2D" uid="uid://8grljs3j17la" path="res://assets/Empty_Page.png" id="3_v1spr"]
 [ext_resource type="FontFile" uid="uid://cw5mluddknoue" path="res://assets/fonts/PixelOperator-Bold.ttf" id="5_o7bhp"]
-[ext_resource type="FontFile" uid="uid://chd81s4kvdxsc" path="res://assets/fonts/PixelOperator.ttf" id="6_yexau"]
 [ext_resource type="AudioStream" uid="uid://bnpjaghxcx7g2" path="res://Audio/Originals/SFX/UPPER ROOM INTERACTIONS/Book_Page_Turn.wav" id="7_xfiod"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_shews"]
@@ -69,7 +68,7 @@ offset_top = -408.0
 offset_right = 780.0
 offset_bottom = 513.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("6_yexau")
+theme_override_fonts/font = ExtResource("5_o7bhp")
 theme_override_font_sizes/font_size = 50
 text = "Text"
 horizontal_alignment = 1

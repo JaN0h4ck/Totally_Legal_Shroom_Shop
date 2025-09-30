@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://drwnedydwugn6"]
 
 [ext_resource type="PackedScene" uid="uid://b8um71ch7vlk2" path="res://scenes/journal/journal_2d.tscn" id="1_1cjga"]
-[ext_resource type="PackedScene" uid="uid://bv5ulmbmtwuyw" path="res://scenes/game_ui/input_prompt.tscn" id="2_u2cbo"]
+[ext_resource type="PackedScene" uid="uid://bv5ulmbmtwuyw" path="res://scenes/game_ui/dialog_system/input_prompt.tscn" id="2_u2cbo"]
 
 [node name="SubViewportContainer" type="SubViewportContainer"]
 process_mode = 2

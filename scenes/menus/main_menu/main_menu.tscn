@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dc2hxb7s0xv87"]
+[gd_scene load_steps=6 format=3 uid="uid://dc2hxb7s0xv87"]
 
 [ext_resource type="PackedScene" uid="uid://c6k5nnpbypshi" path="res://addons/maaacks_menus_template/base/scenes/menus/main_menu/main_menu.tscn" id="1_peecx"]
 [ext_resource type="Script" uid="uid://bp83jdigiwojw" path="res://scenes/menus/main_menu/main_menu.gd" id="2_ub2bi"]
 [ext_resource type="PackedScene" uid="uid://c4ea4cwximdvs" path="res://scenes/menus/options_menu/master_options_menu_with_tabs.tscn" id="3_x31ro"]
 [ext_resource type="PackedScene" uid="uid://c72enynwlon42" path="res://scenes/credits/scrollable_credits.tscn" id="4_0jpat"]
+[ext_resource type="FontFile" uid="uid://cw5mluddknoue" path="res://assets/fonts/PixelOperator-Bold.ttf" id="5_ub2bi"]
 
 [node name="MainMenu" instance=ExtResource("1_peecx")]
 script = ExtResource("2_ub2bi")
@@ -12,7 +13,33 @@ options_packed_scene = ExtResource("3_x31ro")
 credits_packed_scene = ExtResource("4_0jpat")
 
 [node name="VersionLabel" parent="VersionMargin/VersionContainer" index="0"]
-text = "v1.0.0"
+theme_override_fonts/font = ExtResource("5_ub2bi")
+text = "v1.1.0"
 
 [node name="TitleLabel" parent="MenuContainer/TitleMargin/TitleContainer" index="0"]
-text = "Shrooms"
+theme_override_fonts/font = ExtResource("5_ub2bi")
+theme_override_font_sizes/font_size = 64
+text = "Completely Legal Shroomshop"
+
+[node name="SubTitleLabel" parent="MenuContainer/SubTitleMargin/SubTitleContainer" index="0"]
+theme_override_fonts/font = ExtResource("5_ub2bi")
+theme_override_font_sizes/font_size = 32
+
+[node name="NewGameButton" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer" index="0"]
+theme_override_fonts/font = ExtResource("5_ub2bi")
+theme_override_font_sizes/font_size = 16
+
+[node name="OptionsButton" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer" index="1"]
+theme_override_fonts/font = ExtResource("5_ub2bi")
+theme_override_font_sizes/font_size = 16
+
+[node name="CreditsButton" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer" index="2"]
+theme_override_fonts/font = ExtResource("5_ub2bi")
+theme_override_font_sizes/font_size = 16
+
+[node name="ExitButton" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer" index="3"]
+theme_override_fonts/font = ExtResource("5_ub2bi")
+theme_override_font_sizes/font_size = 16
+
+[node name="BackButton" parent="FlowControlContainer/FlowControl" index="0"]
+theme_override_fonts/font = ExtResource("5_ub2bi")

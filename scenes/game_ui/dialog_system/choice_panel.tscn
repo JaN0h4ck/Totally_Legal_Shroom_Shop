@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://bnfu8w0y6ka8i"]
+[gd_scene load_steps=2 format=3 uid="uid://bnfu8w0y6ka8i"]
+
+[ext_resource type="FontFile" uid="uid://cw5mluddknoue" path="res://assets/fonts/PixelOperator-Bold.ttf" id="1_cvn4w"]
 
 [node name="ChoicePanel" type="ItemList"]
 anchors_preset = 12
@@ -8,7 +10,8 @@ anchor_bottom = 1.0
 offset_top = -170.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_font_sizes/font_size = 40
+theme_override_fonts/font = ExtResource("1_cvn4w")
+theme_override_font_sizes/font_size = 32
 item_count = 2
 item_0/text = "yes"
 item_1/text = "no"

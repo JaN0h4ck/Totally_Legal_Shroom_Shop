@@ -1,12 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://dyf0tkmpq4q6a"]
+[gd_scene load_steps=4 format=3 uid="uid://dyf0tkmpq4q6a"]
 
 [ext_resource type="PackedScene" uid="uid://t2dui8ppm3a4" path="res://addons/maaacks_menus_template/base/scenes/credits/scrolling_credits.tscn" id="1_hgjqm"]
 [ext_resource type="Script" uid="uid://baeq3mphf2pok" path="res://scenes/credits/scrolling_credits.gd" id="2_cxj1u"]
+[ext_resource type="FontFile" uid="uid://cw5mluddknoue" path="res://assets/fonts/PixelOperator-Bold.ttf" id="3_cxj1u"]
 
 [node name="ScrollingCredits" instance=ExtResource("1_hgjqm")]
 script = ExtResource("2_cxj1u")
 
 [node name="CreditsLabel" parent="ScrollContainer/VBoxContainer" index="1"]
+theme_override_fonts/normal_font = ExtResource("3_cxj1u")
 text = "[center][font_size=48]Collaborators[/font_size]
 
 Jaron // Skrudg - 2D Artist
