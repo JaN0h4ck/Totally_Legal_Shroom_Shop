@@ -4,4 +4,5 @@
 
 [resource]
 script = ExtResource("1_rus4u")
+print_info_messages = false
 metadata/_custom_type_script = "uid://xudo7itwjw1n"

@@ -54,3 +54,6 @@ class_name GlobalConfig
 
 @export_category("Engine")
 @export var print_info_messages : bool = true
+
+@export_category("UI")
+@export var scroll_speed : int = 600

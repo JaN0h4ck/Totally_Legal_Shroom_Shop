@@ -23,6 +23,8 @@ extends PanelContainer
 @onready var value_text: Label = $MarginContainer/HBoxContainer/VBoxContainerInfo/HBoxContainerValue/ValueText
 ## Knopf zum nehmen aus aktuellem Slot
 @onready var button_take: Button = $MarginContainer/HBoxContainer/VBoxContainerButtons/ButtonTake
+## Knopf zum aktuellen Slot hinzufügen
+@onready var button_add: Button = $MarginContainer/HBoxContainer/VBoxContainerButtons/ButtonAdd
 
 ## Globale Config Ressource
 var config : GlobalConfig = load("res://resources/global_config.tres")
@@ -34,6 +36,8 @@ func _ready():
 	update_displayed_info()
 	if display_mushroom:
 		display_mushroom_on_shelf()
+	if grab_focus_on_ready:
+		button_add.grab_focus()
 
 ## Aktualliesiere Anzeige
 func update_displayed_info():
@@ -107,6 +111,7 @@ func _on_button_take_pressed() -> void:
 	if print_info:
 		print("Inventory Slot: Slot ", inventory_position, " Take Button Pressed")
 	EventBus.inventory_remove_from_slot.emit(inventory_position)
+	button_add.grab_focus()
 
 func display_mushroom_on_shelf():
 	var shelf_border = inventory_slot.get_theme_stylebox("panel").duplicate()
