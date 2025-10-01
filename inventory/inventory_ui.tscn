@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://63acgd0dpeqb"]
 
 [ext_resource type="Theme" uid="uid://d1cnjy4cqhx0f" path="res://resources/themes/inv_theme.tres" id="1_sqqdy"]
-[ext_resource type="Script" uid="uid://ctdiv4iy5cl7l" path="res://inventory/inventory_shop_ui.gd" id="2_4bgsk"]
+[ext_resource type="Script" uid="uid://ctdiv4iy5cl7l" path="res://inventory/inventory_ui.gd" id="2_sqqdy"]
 [ext_resource type="Texture2D" uid="uid://cuqhxib5ei6p3" path="res://assets/ui/Inv_Box.png" id="3_mj2rs"]
 [ext_resource type="PackedScene" uid="uid://doqkihlax7j52" path="res://inventory/inventory_ui_item.tscn" id="4_xrr3d"]
 [ext_resource type="Script" uid="uid://ceichndux6ago" path="res://inventory/interaction_display.gd" id="5_mq5nx"]
@@ -17,7 +17,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_sqqdy")
-script = ExtResource("2_4bgsk")
+script = ExtResource("2_sqqdy")
 
 [node name="InteractionDisplay" type="Control" parent="."]
 layout_mode = 1

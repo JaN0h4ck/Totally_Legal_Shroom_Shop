@@ -1,13 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://4abch8ri3j08"]
+[gd_scene load_steps=7 format=3 uid="uid://bqrx3e75j2xdq"]
 
 [ext_resource type="Theme" uid="uid://d1cnjy4cqhx0f" path="res://resources/themes/inv_theme.tres" id="1_cedrj"]
 [ext_resource type="Texture2D" uid="uid://cuqhxib5ei6p3" path="res://assets/ui/Inv_Box.png" id="2_7rvkw"]
-[ext_resource type="Script" uid="uid://ctdiv4iy5cl7l" path="res://inventory/inventory_shop_ui.gd" id="2_45d2x"]
+[ext_resource type="Script" uid="uid://ctdiv4iy5cl7l" path="res://inventory/inventory_ui.gd" id="2_yxbyj"]
 [ext_resource type="PackedScene" uid="uid://doqkihlax7j52" path="res://inventory/inventory_ui_item.tscn" id="3_45d2x"]
 [ext_resource type="PackedScene" uid="uid://bv5ulmbmtwuyw" path="res://scenes/game_ui/dialog_system/input_prompt.tscn" id="5_trcu4"]
 [ext_resource type="Script" uid="uid://ceichndux6ago" path="res://inventory/interaction_display.gd" id="5_yxbyj"]
 
-[node name="Inv_UI" type="Control"]
+[node name="Inv_UI2" type="Control"]
 process_mode = 3
 z_index = 5
 layout_mode = 3
@@ -17,7 +17,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_cedrj")
-script = ExtResource("2_45d2x")
+script = ExtResource("2_yxbyj")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1

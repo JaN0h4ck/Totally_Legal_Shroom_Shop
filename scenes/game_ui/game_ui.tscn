@@ -26,8 +26,7 @@ process_mode = 1
 script = ExtResource("1_1i64n")
 interact_scene = ExtResource("3_najyh")
 pause_scene = ExtResource("3_2cwxn")
-shop_inv_scene = ExtResource("6_d1cf8")
-dungeon_inv_scene = ExtResource("6_d1cf8")
+inventory_scene = ExtResource("6_d1cf8")
 lexicon_scene = ExtResource("6_falxo")
 journal_scene = ExtResource("8_d1cf8")
 
