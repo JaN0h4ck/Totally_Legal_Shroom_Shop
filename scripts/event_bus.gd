@@ -56,6 +56,9 @@ signal load_mushroom(shroom_res : ShroomRes, saved_position : Vector2, saved_rot
 ## Pilze auf Theke anzeigen
 signal display_mushroom(shroom_res : ShroomRes, slot : int)
 
+## Hotbar Item darstellen
+signal display_hotbar_item(resoure)
+
 ## Inventar kurz öffnen
 signal open_inventory_short()
 
@@ -202,6 +205,9 @@ func _on_load_mushroom(shroom_res : ShroomRes, saved_position : Vector2, saved_r
 
 func _on_display_mushroom(shroom_res : ShroomRes, slot : int):
 	display_mushroom.emit(shroom_res, slot)
+
+func _on_display_hotbar_item(resource):
+	display_hotbar_item.emit(resource)
 
 func _on_open_inventory_short():
 	open_inventory_short.emit()

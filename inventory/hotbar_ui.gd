@@ -20,6 +20,19 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("hotbar_move_left"):
 		print("up")
 		change_active_slot(false)
+	
+	if Input.is_physical_key_pressed(Key.KEY_1):
+		active_slot = 1
+		set_active_slot()
+	if Input.is_physical_key_pressed(KEY_2):
+		active_slot = 2
+		set_active_slot()
+	if Input.is_physical_key_pressed(KEY_3):
+		active_slot = 3
+		set_active_slot()
+	if Input.is_physical_key_pressed(KEY_4):
+		active_slot = 4
+		set_active_slot()
 
 ## Aktiven Slot ändern, true für nach Rechts, false für nach links
 func change_active_slot(right : bool):

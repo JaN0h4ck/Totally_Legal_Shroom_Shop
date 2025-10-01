@@ -12,6 +12,8 @@ class_name hotbar_ui_item
 var config : GlobalConfig = load("res://resources/global_config.tres")
 var print_info : bool = false
 @export var active_slot : bool = false
+var slot_info : Array
+var empty_slot : bool = true
 
 func _ready():
 	EventBus.inventory_updated.connect(update_displayed_info)
@@ -33,6 +35,12 @@ func update_displayed_info():
 			print("Inventory Slot: Slot ", inventory_position, " is not Empty")
 	if active_slot:
 		set_border_color(Color(0,1,0))
+		if not empty_slot:
+			EventBus.display_hotbar_item.emit(slot_info[0])
+		else:
+			var player : Player = get_tree().get_first_node_in_group("player")
+			for child in player.object_place.get_children():
+				player.object_place.remove_child(child)
 	else:
 		set_border_color(Color(0,0,0))
 
@@ -40,15 +48,18 @@ func update_displayed_info():
 func check_if_slot_empty():
 	# Schaut ob Inventar Slot schon existiert
 	if Inventory.inventory_array.size() <= inventory_position:
+		empty_slot = true
 		return true
 	# Schaut ob Inventar Slot aktuell Leer ist
 	if Inventory.inventory_array[inventory_position][1] == 0:
+		empty_slot = true
 		return true
+	empty_slot = false
 	return false
 
 ## Aktuelle Anzeige aktualliesieren
 func set_slot_info():
-	var slot_info : Array = Inventory.inventory_array[inventory_position]
+	slot_info = Inventory.inventory_array[inventory_position]
 	var mushroom_res = slot_info[0]
 	texture.texture = mushroom_res.end_stage_texture
 

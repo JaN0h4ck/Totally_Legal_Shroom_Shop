@@ -110,6 +110,10 @@ func _on_button_add_pressed() -> void:
 func _on_button_take_pressed() -> void:
 	if print_info:
 		print("Inventory Slot: Slot ", inventory_position, " Take Button Pressed")
+	var player : Player = get_tree().get_first_node_in_group("player")
+	if player.object_place.get_child_count() > 0:
+		push_warning("Player has Already Item in Hand")
+		return
 	EventBus.inventory_remove_from_slot.emit(inventory_position)
 	button_add.grab_focus()
 

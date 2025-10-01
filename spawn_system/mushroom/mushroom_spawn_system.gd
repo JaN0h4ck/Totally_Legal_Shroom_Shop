@@ -28,6 +28,7 @@ func _ready():
 	EventBus.load_mushroom.connect(load_mushroom)
 	EventBus.inventory_remove_mushroom.connect(take_mushroom_from_inventory)
 	EventBus.display_mushroom.connect(display_inventory_mushroom)
+	EventBus.display_hotbar_item.connect(display_hotbar_mushroom)
 	print_info = config.print_info_messages
 	add_mushroom_to_array(mushroom_resource_alien)
 	add_mushroom_to_array(murhroom_resource_bleeding)
@@ -101,9 +102,12 @@ func load_mushroom(shroom_res : ShroomRes, saved_position : Vector2, saved_rotat
 
 ## Pilz aus Inventar zu Spieler hinzufügen
 func take_mushroom_from_inventory(shroom_res : ShroomRes):
+	var player : Player = get_tree().get_first_node_in_group("player")
+	if player.object_place.get_child_count() > 0:
+		push_warning("Player has Already Item in Hand")
+		return
 	var mushroom : PickableMushroom = PickableMushroom.new()
 	mushroom.shroom_res = shroom_res
-	var player : Player = get_tree().get_first_node_in_group("player")
 	player.object_place.add_child(mushroom)
 	player.carries_object = true
 	mushroom.position = Vector2(0,0)
@@ -111,6 +115,7 @@ func take_mushroom_from_inventory(shroom_res : ShroomRes):
 	mushroom.add_to_group("Shroom")
 	mushroom.load_item(3)
 
+## Pilz aus Inventar auf Theke darstellen
 func display_inventory_mushroom(shroom_res : ShroomRes, slot : int):
 	if print_info:
 		print("Mushroom Spawn System: Try to display ", shroom_res, " from Slot ", slot)
@@ -127,6 +132,22 @@ func display_inventory_mushroom(shroom_res : ShroomRes, slot : int):
 			return
 	if print_info:
 		print("Mushroom _Spawn System: No Display from Slot Parent Found")
+
+## Pilz aus Hotbar auf Spieler darstellen
+func display_hotbar_mushroom(shroom_res):
+	if shroom_res is not ShroomRes:
+		return
+	if print_info:
+		print("Mushroom Spawn System: Try to display ", shroom_res, " on Player")
+	var mushroom : PickableMushroom = PickableMushroom.new()
+	mushroom.shroom_res = shroom_res
+	mushroom.display_item()
+	mushroom.is_pickable = false
+	mushroom.is_picked = false
+	var player : Player = get_tree().get_first_node_in_group("player")
+	for child in player.object_place.get_children():
+		player.object_place.remove_child(child)
+	player.object_place.add_child(mushroom)
 
 ## Dünger zu Feld bewegen und dann löschen
 func use_fertilizer(fertilizer: PickableFertilizer):
