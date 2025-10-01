@@ -7,6 +7,7 @@ extends Node
 @export var inventory_scene: PackedScene
 @export var lexicon_scene: PackedScene
 @export var journal_scene: PackedScene
+@export var hotbar_scene: PackedScene
 
 var is_paused: bool = false
 
@@ -16,6 +17,11 @@ func _ready() -> void:
 	EventBus.open_inventory_short.connect(_on_open_inventory_short)
 	EventBus.interact_lexikon.connect(_on_open_lexikon)
 	EventBus.interact_journal.connect(_on_open_journal)
+	show_hotbar()
+
+func show_hotbar():
+	var instance = hotbar_scene.instantiate()
+	ui_layer.add_child(instance)
 
 func _on_open_inventory():
 	var instance = inventory_scene.instantiate()

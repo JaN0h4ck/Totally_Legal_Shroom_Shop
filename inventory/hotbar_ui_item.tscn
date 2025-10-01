@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://bkdejwtano2po"]
+
+[ext_resource type="Script" uid="uid://dfsub43iii87t" path="res://inventory/hotbar_ui_item.gd" id="1_fqqf5"]
+[ext_resource type="Texture2D" uid="uid://cyg8f38uudxqc" path="res://assets/shrooms/Pfifferling.png" id="2_728tw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hahsa"]
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.17880964, 0.17880967, 0.1788095, 1)
+
+[node name="InventorySlot" type="PanelContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(14, 14)
+anchors_preset = -1
+anchor_right = 0.059000004
+anchor_bottom = 0.104
+offset_right = -0.5200043
+offset_bottom = 0.11999512
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_hahsa")
+script = ExtResource("1_fqqf5")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Texture" type="TextureRect" parent="MarginContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_728tw")
+expand_mode = 3
+stretch_mode = 5

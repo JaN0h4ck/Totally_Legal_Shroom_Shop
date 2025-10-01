@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bvmbuuyv37vax"]
+[gd_scene load_steps=12 format=3 uid="uid://bvmbuuyv37vax"]
 
 [ext_resource type="Script" uid="uid://cgg7uipp8axrg" path="res://scenes/game_ui/game_manager.gd" id="1_1i64n"]
 [ext_resource type="Theme" uid="uid://d31137rsk15ng" path="res://resources/themes/expedition.tres" id="1_e13be"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://b7fecdpuah10g" path="res://scenes/game_ui/dialog_system/dialog_panel.tscn" id="6_8qcbp"]
 [ext_resource type="PackedScene" uid="uid://63acgd0dpeqb" path="res://inventory/inventory_ui.tscn" id="6_d1cf8"]
 [ext_resource type="PackedScene" uid="uid://bpg8lyxgg0rkt" path="res://scenes/lexicon/lexicon.tscn" id="6_falxo"]
+[ext_resource type="PackedScene" uid="uid://damvnahb0l06r" path="res://inventory/hotbar_ui.tscn" id="8_26vp0"]
 [ext_resource type="PackedScene" uid="uid://drwnedydwugn6" path="res://scenes/journal/journal.tscn" id="8_d1cf8"]
 
 [node name="GameUI" type="Control"]
@@ -29,6 +30,7 @@ pause_scene = ExtResource("3_2cwxn")
 inventory_scene = ExtResource("6_d1cf8")
 lexicon_scene = ExtResource("6_falxo")
 journal_scene = ExtResource("8_d1cf8")
+hotbar_scene = ExtResource("8_26vp0")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 process_mode = 1
